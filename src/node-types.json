@@ -1,0 +1,1189 @@
+[
+  {
+    "type": "aexpr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "aexpr",
+          "named": true
+        },
+        {
+          "type": "avar",
+          "named": true
+        },
+        {
+          "type": "binary_aexpr",
+          "named": true
+        },
+        {
+          "type": "fcall",
+          "named": true
+        },
+        {
+          "type": "raw_integer",
+          "named": true
+        },
+        {
+          "type": "real",
+          "named": true
+        },
+        {
+          "type": "unary_aexpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "assignment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "aexpr",
+          "named": true
+        },
+        {
+          "type": "avar",
+          "named": true
+        },
+        {
+          "type": "let_tok",
+          "named": true
+        },
+        {
+          "type": "sexpr",
+          "named": true
+        },
+        {
+          "type": "svar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "avar",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "intvar",
+          "named": true
+        },
+        {
+          "type": "realvar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "binary_aexpr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "aexpr",
+          "named": true
+        },
+        {
+          "type": "and_tok",
+          "named": true
+        },
+        {
+          "type": "or_tok",
+          "named": true
+        },
+        {
+          "type": "relop",
+          "named": true
+        },
+        {
+          "type": "sexpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "data_item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "real",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dim_item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "subscript",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "aexpr",
+          "named": true
+        },
+        {
+          "type": "sexpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "fcall",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "abs_tok",
+          "named": true
+        },
+        {
+          "type": "aexpr",
+          "named": true
+        },
+        {
+          "type": "asc_tok",
+          "named": true
+        },
+        {
+          "type": "atn_tok",
+          "named": true
+        },
+        {
+          "type": "cos_tok",
+          "named": true
+        },
+        {
+          "type": "exp_tok",
+          "named": true
+        },
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "fn_tok",
+          "named": true
+        },
+        {
+          "type": "fre_tok",
+          "named": true
+        },
+        {
+          "type": "int_tok",
+          "named": true
+        },
+        {
+          "type": "len_tok",
+          "named": true
+        },
+        {
+          "type": "log_tok",
+          "named": true
+        },
+        {
+          "type": "peek_tok",
+          "named": true
+        },
+        {
+          "type": "pos_tok",
+          "named": true
+        },
+        {
+          "type": "rnd_tok",
+          "named": true
+        },
+        {
+          "type": "scrn_tok",
+          "named": true
+        },
+        {
+          "type": "sexpr",
+          "named": true
+        },
+        {
+          "type": "sgn_tok",
+          "named": true
+        },
+        {
+          "type": "sin_tok",
+          "named": true
+        },
+        {
+          "type": "sqr_tok",
+          "named": true
+        },
+        {
+          "type": "tan_tok",
+          "named": true
+        },
+        {
+          "type": "val_tok",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "integer",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "intvar",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "subscript",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "linenum",
+          "named": true
+        },
+        {
+          "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quote",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "raw_integer",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "realvar",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "subscript",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "relop",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "sexpr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "sexpr",
+          "named": true
+        },
+        {
+          "type": "sfcall",
+          "named": true
+        },
+        {
+          "type": "sop",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "svar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sfcall",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "aexpr",
+          "named": true
+        },
+        {
+          "type": "chr_tok",
+          "named": true
+        },
+        {
+          "type": "left_tok",
+          "named": true
+        },
+        {
+          "type": "mid_tok",
+          "named": true
+        },
+        {
+          "type": "right_tok",
+          "named": true
+        },
+        {
+          "type": "sexpr",
+          "named": true
+        },
+        {
+          "type": "spc_tok",
+          "named": true
+        },
+        {
+          "type": "str_tok",
+          "named": true
+        },
+        {
+          "type": "tab_tok",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sop",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "line",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "aexpr",
+          "named": true
+        },
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "at_tok",
+          "named": true
+        },
+        {
+          "type": "avar",
+          "named": true
+        },
+        {
+          "type": "call_tok",
+          "named": true
+        },
+        {
+          "type": "clear_tok",
+          "named": true
+        },
+        {
+          "type": "color_tok",
+          "named": true
+        },
+        {
+          "type": "data_item",
+          "named": true
+        },
+        {
+          "type": "data_tok",
+          "named": true
+        },
+        {
+          "type": "dim_item",
+          "named": true
+        },
+        {
+          "type": "dim_tok",
+          "named": true
+        },
+        {
+          "type": "draw_tok",
+          "named": true
+        },
+        {
+          "type": "end_tok",
+          "named": true
+        },
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "flash_tok",
+          "named": true
+        },
+        {
+          "type": "for_tok",
+          "named": true
+        },
+        {
+          "type": "get_tok",
+          "named": true
+        },
+        {
+          "type": "gosub_tok",
+          "named": true
+        },
+        {
+          "type": "goto_tok",
+          "named": true
+        },
+        {
+          "type": "gr_tok",
+          "named": true
+        },
+        {
+          "type": "hcolor_tok",
+          "named": true
+        },
+        {
+          "type": "hgr2_tok",
+          "named": true
+        },
+        {
+          "type": "hgr_tok",
+          "named": true
+        },
+        {
+          "type": "himem_tok",
+          "named": true
+        },
+        {
+          "type": "hlin_tok",
+          "named": true
+        },
+        {
+          "type": "home_tok",
+          "named": true
+        },
+        {
+          "type": "hplot_tok",
+          "named": true
+        },
+        {
+          "type": "htab_tok",
+          "named": true
+        },
+        {
+          "type": "if_tok",
+          "named": true
+        },
+        {
+          "type": "input_tok",
+          "named": true
+        },
+        {
+          "type": "inverse_tok",
+          "named": true
+        },
+        {
+          "type": "linenum",
+          "named": true
+        },
+        {
+          "type": "lomem_tok",
+          "named": true
+        },
+        {
+          "type": "next_tok",
+          "named": true
+        },
+        {
+          "type": "normal_tok",
+          "named": true
+        },
+        {
+          "type": "on_tok",
+          "named": true
+        },
+        {
+          "type": "onerr_tok",
+          "named": true
+        },
+        {
+          "type": "plot_tok",
+          "named": true
+        },
+        {
+          "type": "poke_tok",
+          "named": true
+        },
+        {
+          "type": "pop_tok",
+          "named": true
+        },
+        {
+          "type": "print_tok",
+          "named": true
+        },
+        {
+          "type": "quote",
+          "named": true
+        },
+        {
+          "type": "read_tok",
+          "named": true
+        },
+        {
+          "type": "rem_tok",
+          "named": true
+        },
+        {
+          "type": "restore_tok",
+          "named": true
+        },
+        {
+          "type": "resume_tok",
+          "named": true
+        },
+        {
+          "type": "return_tok",
+          "named": true
+        },
+        {
+          "type": "rot_tok",
+          "named": true
+        },
+        {
+          "type": "scale_tok",
+          "named": true
+        },
+        {
+          "type": "sexpr",
+          "named": true
+        },
+        {
+          "type": "speed_tok",
+          "named": true
+        },
+        {
+          "type": "statement",
+          "named": true
+        },
+        {
+          "type": "step_tok",
+          "named": true
+        },
+        {
+          "type": "stop_tok",
+          "named": true
+        },
+        {
+          "type": "text_tok",
+          "named": true
+        },
+        {
+          "type": "then_tok",
+          "named": true
+        },
+        {
+          "type": "to_tok",
+          "named": true
+        },
+        {
+          "type": "usr_tok",
+          "named": true
+        },
+        {
+          "type": "var",
+          "named": true
+        },
+        {
+          "type": "vlin_tok",
+          "named": true
+        },
+        {
+          "type": "vtab_tok",
+          "named": true
+        },
+        {
+          "type": "wait_tok",
+          "named": true
+        },
+        {
+          "type": "xdraw_tok",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "subscript",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "aexpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "svar",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "subscript",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unary_aexpr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "aexpr",
+          "named": true
+        },
+        {
+          "type": "not_tok",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "var",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "avar",
+          "named": true
+        },
+        {
+          "type": "svar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\n",
+    "named": false
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "$",
+    "named": false
+  },
+  {
+    "type": "%",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": "DEF FN",
+    "named": false
+  },
+  {
+    "type": "^",
+    "named": false
+  },
+  {
+    "type": "abs_tok",
+    "named": true
+  },
+  {
+    "type": "and_tok",
+    "named": true
+  },
+  {
+    "type": "asc_tok",
+    "named": true
+  },
+  {
+    "type": "at_tok",
+    "named": true
+  },
+  {
+    "type": "atn_tok",
+    "named": true
+  },
+  {
+    "type": "call_tok",
+    "named": true
+  },
+  {
+    "type": "chr_tok",
+    "named": true
+  },
+  {
+    "type": "clear_tok",
+    "named": true
+  },
+  {
+    "type": "color_tok",
+    "named": true
+  },
+  {
+    "type": "cos_tok",
+    "named": true
+  },
+  {
+    "type": "data_tok",
+    "named": true
+  },
+  {
+    "type": "dim_tok",
+    "named": true
+  },
+  {
+    "type": "draw_tok",
+    "named": true
+  },
+  {
+    "type": "end_tok",
+    "named": true
+  },
+  {
+    "type": "exp_tok",
+    "named": true
+  },
+  {
+    "type": "flash_tok",
+    "named": true
+  },
+  {
+    "type": "fn_tok",
+    "named": true
+  },
+  {
+    "type": "for_tok",
+    "named": true
+  },
+  {
+    "type": "fre_tok",
+    "named": true
+  },
+  {
+    "type": "get_tok",
+    "named": true
+  },
+  {
+    "type": "gosub_tok",
+    "named": true
+  },
+  {
+    "type": "goto_tok",
+    "named": true
+  },
+  {
+    "type": "gr_tok",
+    "named": true
+  },
+  {
+    "type": "hcolor_tok",
+    "named": true
+  },
+  {
+    "type": "hgr2_tok",
+    "named": true
+  },
+  {
+    "type": "hgr_tok",
+    "named": true
+  },
+  {
+    "type": "himem_tok",
+    "named": true
+  },
+  {
+    "type": "hlin_tok",
+    "named": true
+  },
+  {
+    "type": "home_tok",
+    "named": true
+  },
+  {
+    "type": "hplot_tok",
+    "named": true
+  },
+  {
+    "type": "htab_tok",
+    "named": true
+  },
+  {
+    "type": "if_tok",
+    "named": true
+  },
+  {
+    "type": "input_tok",
+    "named": true
+  },
+  {
+    "type": "int_tok",
+    "named": true
+  },
+  {
+    "type": "inverse_tok",
+    "named": true
+  },
+  {
+    "type": "left_tok",
+    "named": true
+  },
+  {
+    "type": "len_tok",
+    "named": true
+  },
+  {
+    "type": "let_tok",
+    "named": true
+  },
+  {
+    "type": "linenum",
+    "named": true
+  },
+  {
+    "type": "log_tok",
+    "named": true
+  },
+  {
+    "type": "lomem_tok",
+    "named": true
+  },
+  {
+    "type": "mid_tok",
+    "named": true
+  },
+  {
+    "type": "next_tok",
+    "named": true
+  },
+  {
+    "type": "normal_tok",
+    "named": true
+  },
+  {
+    "type": "not_tok",
+    "named": true
+  },
+  {
+    "type": "on_tok",
+    "named": true
+  },
+  {
+    "type": "onerr_tok",
+    "named": true
+  },
+  {
+    "type": "or_tok",
+    "named": true
+  },
+  {
+    "type": "peek_tok",
+    "named": true
+  },
+  {
+    "type": "plot_tok",
+    "named": true
+  },
+  {
+    "type": "poke_tok",
+    "named": true
+  },
+  {
+    "type": "pop_tok",
+    "named": true
+  },
+  {
+    "type": "pos_tok",
+    "named": true
+  },
+  {
+    "type": "print_tok",
+    "named": true
+  },
+  {
+    "type": "read_tok",
+    "named": true
+  },
+  {
+    "type": "real",
+    "named": true
+  },
+  {
+    "type": "rem_tok",
+    "named": true
+  },
+  {
+    "type": "restore_tok",
+    "named": true
+  },
+  {
+    "type": "resume_tok",
+    "named": true
+  },
+  {
+    "type": "return_tok",
+    "named": true
+  },
+  {
+    "type": "right_tok",
+    "named": true
+  },
+  {
+    "type": "rnd_tok",
+    "named": true
+  },
+  {
+    "type": "rot_tok",
+    "named": true
+  },
+  {
+    "type": "scale_tok",
+    "named": true
+  },
+  {
+    "type": "scrn_tok",
+    "named": true
+  },
+  {
+    "type": "sgn_tok",
+    "named": true
+  },
+  {
+    "type": "sin_tok",
+    "named": true
+  },
+  {
+    "type": "spc_tok",
+    "named": true
+  },
+  {
+    "type": "speed_tok",
+    "named": true
+  },
+  {
+    "type": "sqr_tok",
+    "named": true
+  },
+  {
+    "type": "step_tok",
+    "named": true
+  },
+  {
+    "type": "stop_tok",
+    "named": true
+  },
+  {
+    "type": "str_tok",
+    "named": true
+  },
+  {
+    "type": "tab_tok",
+    "named": true
+  },
+  {
+    "type": "tan_tok",
+    "named": true
+  },
+  {
+    "type": "text_tok",
+    "named": true
+  },
+  {
+    "type": "then_tok",
+    "named": true
+  },
+  {
+    "type": "to_tok",
+    "named": true
+  },
+  {
+    "type": "usr_tok",
+    "named": true
+  },
+  {
+    "type": "val_tok",
+    "named": true
+  },
+  {
+    "type": "vlin_tok",
+    "named": true
+  },
+  {
+    "type": "vtab_tok",
+    "named": true
+  },
+  {
+    "type": "wait_tok",
+    "named": true
+  },
+  {
+    "type": "xdraw_tok",
+    "named": true
+  }
+]

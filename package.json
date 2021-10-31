@@ -1,0 +1,28 @@
+{
+  "name": "tree-sitter-applesoft",
+  "version": "1.0.0",
+  "description": "parser for applesoft basic",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "run_test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dfgordon/tree-sitter-applesoft.git"
+  },
+  "keywords": [
+    "applesoft",
+    "basic",
+    "retro"
+  ],
+  "author": "Daniel Gordon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dfgordon/tree-sitter-applesoft/issues"
+  },
+  "homepage": "https://github.com/dfgordon/tree-sitter-applesoft#readme",
+  "dependencies": {
+    "nan": "^2.15.0",
+    "tree-sitter-cli": "^0.20.0"
+  }
+}

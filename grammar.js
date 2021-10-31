@@ -1,0 +1,307 @@
+// References:
+// [1] Apple II AppleSoft BASIC Programmer's Reference Manual, Volume 2
+
+// grammar-working.js is for human editing
+// grammar.js is the actual grammar (created by token_processor.py)
+
+// This grammar follows Ref. 1 closely.
+// Limits of a real Apple II that are not imposed here:
+// * parenthesis to 36 levels
+// * line numbers cannot exceed 63999
+// * subscripts limited to 89 dimensions
+
+module.exports = grammar({
+	name: 'AppleSoft',
+	rules: {
+		source_file: $ => repeat($.line),
+
+		// Assign a rule to all tokenized statements and functions
+		// These are taken from Table H-3 in Ref. 1
+		// (Not strictly needed, but perhaps useful for some tasks)
+
+		end_tok: $ => 'END',
+		for_tok: $ => 'FOR',
+		next_tok: $ => 'NEXT',
+		data_tok: $ => 'DATA',
+		input_tok: $ => 'INPUT',
+		del_tok: $ => 'DEL',
+		dim_tok: $ => 'DIM',
+		read_tok: $ => 'READ',
+		gr_tok: $ => 'GR',
+		text_tok: $ => 'TEXT',
+		prn_tok: $ => 'PR#',
+		inn_tok: $ => 'IN#',
+		call_tok: $ => 'CALL',
+		plot_tok: $ => 'PLOT',
+		hlin_tok: $ => 'HLIN',
+		vlin_tok: $ => 'VLIN',
+		hgr2_tok: $ => 'HGR2',
+		hgr_tok: $ => 'HGR',
+		hcolor_tok: $ => 'HCOLOR=',
+		hplot_tok: $ => 'HPLOT',
+		draw_tok: $ => 'DRAW',
+		xdraw_tok: $ => 'XDRAW',
+		htab_tok: $ => 'HTAB',
+		home_tok: $ => 'HOME',
+		rot_tok: $ => 'ROT=',
+		scale_tok: $ => 'SCALE=',
+		shload_tok: $ => 'SHLOAD',
+		trace_tok: $ => 'TRACE',
+		notrace_tok: $ => 'NOTRACE',
+		normal_tok: $ => 'NORMAL',
+		inverse_tok: $ => 'INVERSE',
+		flash_tok: $ => 'FLASH',
+		color_tok: $ => 'COLOR=',
+		pop_tok: $ => 'POP',
+		vtab_tok: $ => 'VTAB',
+		himem_tok: $ => 'HIMEM:',
+		lomem_tok: $ => 'LOMEM:',
+		onerr_tok: $ => 'ONERR',
+		resume_tok: $ => 'RESUME',
+		recall_tok: $ => 'RECALL',
+		store_tok: $ => 'STORE',
+		speed_tok: $ => 'SPEED=',
+		let_tok: $ => 'LET',
+		goto_tok: $ => 'GOTO',
+		run_tok: $ => 'RUN',
+		if_tok: $ => 'IF',
+		restore_tok: $ => 'RESTORE',
+		gosub_tok: $ => 'GOSUB',
+		return_tok: $ => 'RETURN',
+		rem_tok: $ => 'REM',
+		stop_tok: $ => 'STOP',
+		on_tok: $ => 'ON',
+		wait_tok: $ => 'WAIT',
+		load_tok: $ => 'LOAD',
+		save_tok: $ => 'SAVE',
+		def_tok: $ => 'DEF',
+		poke_tok: $ => 'POKE',
+		print_tok: $ => 'PRINT',
+		cont_tok: $ => 'CONT',
+		list_tok: $ => 'LIST',
+		clear_tok: $ => 'CLEAR',
+		get_tok: $ => 'GET',
+		new_tok: $ => 'NEW',
+		tab_tok: $ => 'TAB',
+		to_tok: $ => 'TO',
+		fn_tok: $ => 'FN',
+		spc_tok: $ => 'SPC',
+		then_tok: $ => 'THEN',
+		at_tok: $ => 'AT',
+		not_tok: $ => 'NOT',
+		step_tok: $ => 'STEP',
+		and_tok: $ => 'AND',
+		or_tok: $ => 'OR',
+		sgn_tok: $ => 'SGN',
+		int_tok: $ => 'INT',
+		abs_tok: $ => 'ABS',
+		usr_tok: $ => 'USR',
+		fre_tok: $ => 'FRE',
+		scrn_tok: $ => 'SCRN',
+		pdl_tok: $ => 'PDL',
+		pos_tok: $ => 'POS',
+		sqr_tok: $ => 'SQR',
+		rnd_tok: $ => 'RND',
+		log_tok: $ => 'LOG',
+		exp_tok: $ => 'EXP',
+		cos_tok: $ => 'COS',
+		sin_tok: $ => 'SIN',
+		tan_tok: $ => 'TAN',
+		atn_tok: $ => 'ATN',
+		peek_tok: $ => 'PEEK',
+		len_tok: $ => 'LEN',
+		str_tok: $ => 'STR$',
+		val_tok: $ => 'VAL',
+		asc_tok: $ => 'ASC',
+		chr_tok: $ => 'CHR$',
+		left_tok: $ => 'LEFT$',
+		right_tok: $ => 'RIGHT$',
+		mid_tok: $ => 'MID$',
+
+
+		// Statements from Appendix A
+
+		statement: $ => choice(
+			$.assignment,
+			seq($.call_tok,$.aexpr),
+			$.clear_tok,
+			seq($.color_tok,$.aexpr),
+			seq($.data_tok,optional($.data_item),repeat(seq(',',$.data_item))),
+			seq('DEF FN',$._name,'(',$._name,')','=',$.aexpr),
+			//seq($.del_tok,$.linenum,',',$.linenum),
+			seq($.dim_tok,$.dim_item,repeat(seq(',',$.dim_item))),
+			seq($.draw_tok,$.aexpr,optional(seq($.at_tok,$.aexpr,',',$.aexpr))),
+			$.end_tok,
+			$.flash_tok,
+			seq($.for_tok,$._name,'=',$.aexpr,$.to_tok,$.aexpr,optional(seq($.step_tok,$.aexpr))),
+			seq($.get_tok,$.var),
+			seq($.gosub_tok,$.linenum),
+			seq($.goto_tok,$.linenum),
+			$.gr_tok,
+			seq($.hcolor_tok,$.aexpr),
+			$.hgr_tok,
+			$.hgr2_tok,
+			seq($.himem_tok,$.aexpr),
+			seq($.hlin_tok,$.aexpr,',',$.aexpr,$.at_tok,$.aexpr),
+			$.home_tok,
+			seq($.hplot_tok,$.aexpr,',',$.aexpr,optional(seq($.to_tok,$.aexpr,',',$.aexpr))),
+			seq($.htab_tok,$.aexpr),
+			// Ref. 1 explicitly has the compound statement, but this is implied
+			seq($.if_tok,$.expr,$.then_tok,$.statement),
+			seq($.if_tok,$.expr,$.then_tok,$.linenum),
+			seq($.if_tok,$.expr,$.goto_tok,$.linenum),
+			//seq($.inn_tok,$.aexpr),
+			seq($.input_tok,optional(seq($.sexpr,';')),$.var,repeat(seq(',',$.var))),
+			$.inverse_tok,
+			//seq($.list_tok,optional($.linenum),optional(seq(choice('-',','),$.linenum))),
+			seq($.lomem_tok,$.aexpr),
+			//$.new_tok,
+			seq($.next_tok,optional(seq($.avar,repeat(seq(',',$.avar))))),
+			$.normal_tok,
+			//$.notrace_tok,
+			seq($.on_tok,$.aexpr,choice($.goto_tok,$.gosub_tok),$.linenum,repeat(seq(',',$.linenum))),
+			seq($.onerr_tok,$.goto_tok,$.linenum),
+			seq($.plot_tok,$.aexpr,',',$.aexpr),
+			seq($.poke_tok,$.aexpr,',',$.aexpr),
+			$.pop_tok,
+			//seq($.prn_tok,$.aexpr),
+			// following differs from the reference, which seems to allow dropping the delimiter
+			seq($.print_tok,optional($.expr),repeat(seq(choice(',',';'),$.expr)),optional(';')),
+			seq($.read_tok,$.var,repeat(seq(',',$.var))),
+			seq($.rem_tok,repeat($._character)),
+			$.restore_tok,
+			$.resume_tok,
+			$.return_tok,
+			seq($.rot_tok,$.aexpr),
+			//seq($.run_tok,optional(choice($.linenum,$._name))),
+			seq($.scale_tok,$.aexpr),
+			seq($.speed_tok,$.aexpr),
+			$.stop_tok,
+			$.text_tok,
+			//$.trace_tok,
+			seq($.usr_tok,'(',$.aexpr,')'),
+			seq($.vlin_tok,$.aexpr,',',$.aexpr,$.at_tok,$.aexpr),
+			seq($.vtab_tok,$.aexpr),
+			seq($.wait_tok,$.aexpr,',',$.aexpr,optional(seq(',',$.aexpr))),
+			seq($.xdraw_tok,$.aexpr,optional(seq($.at_tok,$.aexpr,',',$.aexpr)))
+		),
+
+		//data_item: $ => choice($.literal,$.string,$.real,$.integer),
+		data_item: $ => choice($.string,$.real,$.integer),
+		dim_item: $ => seq($._name,optional(choice('$','%')),$.subscript),
+
+		assignment: $ => choice(
+			seq(optional($.let_tok),$.avar,'=',$.aexpr),
+			seq(optional($.let_tok),$.svar,'=',$.sexpr)
+		),
+
+		// Arithmetic functions from Appendix A
+
+		// following is the general fcall from Ref. 1 (not used)
+		//fcall: $=> seq($._name,'(',repeat(seq($.expr,',')),$.expr,')'),
+		fcall: $ => choice(
+			seq($.abs_tok,'(',$.aexpr,')'),
+			seq($.asc_tok,'(',$.sexpr,')'),
+			seq($.atn_tok,'(',$.aexpr,')'),
+			seq($.cos_tok,'(',$.aexpr,')'),
+			seq($.exp_tok,'(',$.aexpr,')'),
+			seq($.fn_tok,$._name,'(',$.aexpr,')'),
+			seq($.fre_tok,'(',$.expr,')'),
+			seq($.int_tok,'(',$.aexpr,')'),
+			seq($.len_tok,'(',$.sexpr,')'),
+			seq($.log_tok,'(',$.aexpr,')'),
+			seq($.peek_tok,'(',$.aexpr,')'),
+			seq($.pos_tok,'(',$.expr,')'),
+			seq($.rnd_tok,'(',$.aexpr,')'),
+			seq($.scrn_tok,'(',$.aexpr,',',$.aexpr,')'),
+			seq($.sgn_tok,'(',$.aexpr,')'),
+			seq($.sin_tok,'(',$.aexpr,')'),
+			seq($.sqr_tok,'(',$.aexpr,')'),
+			seq($.tan_tok,'(',$.aexpr,')'),
+			seq($.val_tok,'(',$.sexpr,')')
+		),
+
+		// String functions from Appendix A
+
+		// following is the general sfcall from Ref. 1 (not used)
+		//sfcall: $ => seq($._name,'$','(',repeat(seq($.expr,',')),$.expr,')'),
+		sfcall: $ => choice(
+			seq($.chr_tok,'(',$.aexpr,')'),
+			seq($.left_tok,'(',$.sexpr,',',$.aexpr,')'),
+			seq($.mid_tok,'(',$.sexpr,',',$.aexpr,optional(seq(',',$.aexpr)),')'),
+			seq($.right_tok,'(',$.sexpr,',',$.aexpr,')'),
+			seq($.spc_tok,'(',$.aexpr,')'),
+			seq($.str_tok,'(',$.aexpr,')'),
+			seq($.tab_tok,'(',$.aexpr,')')
+		),
+
+		// Syntax definitions from Appendix B
+
+		aexpr: $ => choice(
+			$.real,
+			$.raw_integer,
+			$.avar,
+			$.fcall,
+			$.unary_aexpr,
+			$.binary_aexpr,
+			seq('(',$.aexpr,')')
+			// following are the way unary and binary aexpr defined in Ref. 1 (not used)
+			//seq($.unop,$.aexpr),
+			//seq($.aexpr,$.alop,$.aexpr),
+			//seq($.sexpr,$.relop,$.sexpr),
+		),
+		unary_aexpr: $ => prec(7,choice(
+			seq('+',$.aexpr),
+			seq('-',$.aexpr),
+			seq($.not_tok,$.aexpr)
+		)),
+		binary_aexpr: $ => choice(
+			prec.left(6,seq($.aexpr,'^',$.aexpr)),
+			prec.left(5,seq($.aexpr,choice('*','/'),$.aexpr)),
+			prec.left(4,seq($.aexpr,choice('+','-'),$.aexpr)),
+			prec.left(3,seq($.aexpr,$.relop,$.aexpr)),
+			prec.left(3,seq($.sexpr,$.relop,$.sexpr)),
+			prec.left(2,seq($.aexpr,$.and_tok,$.aexpr)),
+			prec.left(1,seq($.aexpr,$.or_tok,$.aexpr))
+		),
+		relop: $ => choice('=','<','>',/<\s*=/,/=\s*</,/>\s*=/,/=\s*>/,/<\s*>/,/>\s*</),
+		// following are some operator groups defined by Ref.1 but not used here
+		//alop: $ => choice($.aop,$.relop,$.lop),
+		//aop: $ => choice('+','-','*','/','^'),
+		//lop: $ => choice($.and_tok,$.or_tok),
+		//unop: $ => prec(2,choice('+','-',$.not_tok)),
+
+		avar: $ => choice($.realvar,$.intvar),
+		_character: $ => choice($._letter,$._digit,$._spchar,$.quote,$._space),
+		_digit: $ => /[0-9]/,
+		expr: $ => choice($.aexpr,$.sexpr),
+		raw_integer: $ => prec.left(1,repeat1($._digit)),
+		integer: $ => seq(optional(choice('+','-')),repeat1($._digit)),
+		intvar: $ => prec.left(1,seq($._name,'%',optional($.subscript))),
+		_letter: $ => /[A-Z]|[a-z]/,
+		line: $ => seq($.linenum,repeat(seq($.statement,':')),$.statement,'\n'),
+		linenum: $ => /[0-9]+/,
+		literal: $ => repeat1($._character),
+		lowercase: $ => /[a-z]/,
+		_name: $ => /[A-Z]([A-Z]|[0-9])*/,
+		quote: $ => '"',
+		real: $ => /(\+|\-)?([0-9]+\.?[0-9]*|\.[0-9]+)(E(\+|\-)?[0-9]{1,2})?/,
+		realvar: $ => prec.left(1,seq($._name,optional($.subscript))),
+		_schar: $ => choice($._letter,$._digit,$._spchar,$._space),
+		sexpr: $ => choice(
+			$.string,
+			$.svar,
+			$.sfcall,
+			prec.left(1,seq($.sexpr,$.sop,$.sexpr)),
+			seq('(',$.sexpr,')')
+		),
+		sop: $ => '+',
+		_space: $ => ' ',
+		_spchar: $ => /[\+\-\*\/\^=<>\(\),\.:;%\$\#\?\&\'@\!\[\]\{\}\\\|_`\~]/,
+		string: $ => prec(1,seq('"',repeat($._schar),'"')),
+		subscript: $ => seq('(',$.aexpr,repeat(seq(',',$.aexpr)),')'),
+		svar: $ => prec.left(1,seq($._name,'$',optional($.subscript))),
+		uppercase: $ => /[A-Z]/,
+		var: $ => choice($.avar,$.svar)
+	}
+});

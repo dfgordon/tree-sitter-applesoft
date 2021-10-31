@@ -1,0 +1,26 @@
+===================
+Math Functions
+===================
+
+10 XA = ABS(X1+X2)
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement
+			(assignment
+				(avar
+					(realvar))
+				(aexpr
+					(fcall
+						(abs_tok)
+						(aexpr
+							(binary_aexpr
+								(aexpr
+									(avar
+										(realvar)))
+								(aexpr
+									(avar
+										(realvar)))))))))))
