@@ -1,0 +1,163 @@
+===================
+Redirection
+===================
+
+10 PR# 1 : IN# 1
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (prn_tok) (integer))
+		(statement (inn_tok) (integer))))
+
+===================
+Input
+===================
+
+10 INPUT DAY%,PRICE
+20 INPUT "ENTER PASSWORD: ";PA$
+30 INPUT ""; X
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (input_tok) (intvar) (realvar)))
+	(line
+		(linenum)
+		(statement (input_tok) (string) (svar)))
+	(line
+		(linenum)
+		(statement (input_tok) (string) (realvar))))
+
+===================
+Get
+===================
+
+10 GET A$ : GET S$(N) : GET C1$,C2$,C3$
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (get_tok) (svar))
+		(statement (get_tok) (svar (subscript (realvar))))
+		(statement (get_tok) (svar) (svar) (svar))))
+
+===================
+Read and Data
+===================
+
+10 READ PRICE
+20 READ A, B, M%(I), J%, S$(2*J-1), T$
+30 RESTORE
+40 DATA 1.5, 4, 5, 6, 7, HI HO, "HI,HO"
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (read_tok) (realvar)))
+	(line
+		(linenum)
+		(statement (read_tok)
+			(realvar)
+			(realvar)
+			(intvar (subscript (realvar)))
+			(intvar)
+			(svar (subscript (binary_aexpr (binary_aexpr (integer) (times_tok) (realvar)) (minus_tok) (integer))))
+			(svar)))
+	(line
+		(linenum)
+		(statement (restore_tok)))
+	(line
+		(linenum)
+		(statement (data_tok)
+			(real)
+			(integer)
+			(integer)
+			(integer)
+			(integer)
+			(literal)
+			(string))))
+
+===================
+Paddles
+===================
+
+10 X = PDL(0): Y = PDL(1)
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (fcall (pdl_tok) (integer))))
+		(statement (assignment (realvar) (eq_tok) (fcall (pdl_tok) (integer))))))
+
+===================
+Print
+===================
+
+10 PRINT TAB(M);"*";TAB(M+N);A$+B$;TAB(M+N+N);X-Y;: PRINT: PRINT
+20 PRINT A,B,C
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (print_tok)
+			(sfcall (tab_tok) (realvar))
+			(string)
+			(sfcall (tab_tok) (binary_aexpr (realvar) (plus_tok) (realvar)))
+			(binary_sexpr (svar) (plus_tok) (svar))
+			(sfcall (tab_tok) (binary_aexpr (binary_aexpr (realvar) (plus_tok) (realvar)) (plus_tok) (realvar)))
+			(binary_aexpr (realvar) (minus_tok) (realvar)))
+		(statement (print_tok))
+		(statement (print_tok)))
+	(line
+	 (linenum)
+	 (statement (print_tok) (realvar) (realvar) (realvar))))
+
+===================
+Formatting
+===================
+
+10 TEXT: HOME: A = POS(0)
+20 HTAB 5: VTAB X: PRINT Y
+30 INVERSE: PRINT "INV"
+40 FLASH: PRINT SPC(5);"FLA"
+50 NORMAL: SPEED = 10: PRINT "HELLO"
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (text_tok))
+		(statement (home_tok))
+		(statement (assignment (realvar) (eq_tok) (fcall (pos_tok) (integer)))))
+	(line
+		(linenum)
+		(statement (htab_tok) (integer))
+		(statement (vtab_tok) (realvar))
+		(statement (print_tok) (realvar)))
+	(line
+		(linenum)
+		(statement (inverse_tok))
+		(statement (print_tok) (string)))
+	(line
+		(linenum)
+		(statement (flash_tok))
+		(statement (print_tok) (sfcall (spc_tok) (integer)) (string)))
+	(line
+		(linenum)
+		(statement (normal_tok))
+		(statement (speedeq_tok) (integer))
+		(statement (print_tok) (string))))

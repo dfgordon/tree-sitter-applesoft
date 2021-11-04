@@ -1,0 +1,28 @@
+===================
+Low Resolution
+===================
+
+10 GR: COLOR = C(J): PLOT X+1,Y-1
+20 HLIN 0,39 AT Y
+30 VLIN 10,Y AT X
+40 PRINT SCRN(X+1,Y-1)
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (gr_tok))
+		(statement (coloreq_tok) (realvar (subscript (realvar))))
+		(statement (plot_tok)
+			(binary_aexpr (realvar) (plus_tok) (integer))
+			(binary_aexpr (realvar) (minus_tok) (integer))))
+	(line
+		(linenum) (statement (hlin_tok) (integer) (integer) (at_tok) (realvar)))
+	(line
+		(linenum) (statement (vlin_tok) (integer) (realvar) (at_tok) (realvar)))
+	(line
+		(linenum)
+		(statement (print_tok) (fcall (scrn_tok)
+			(binary_aexpr (realvar) (plus_tok) (integer))
+			(binary_aexpr (realvar) (minus_tok) (integer))))))

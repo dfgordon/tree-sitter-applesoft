@@ -8,7 +8,24 @@ Once the parser is built, it can be used from within several languages, includin
 Current Status
 --------------
 
-As of this writing the parser has only been in development for a few days, but it appears to be essentially working.  It parses complex AppleSoft BASIC programs such as the high level *Realm* sources without reporting any syntax errors.  This of course does not mean the parser is error-free, only that it can digest selected real-life AppleSoft BASIC programs.
+A large number of tests (see `test/corpus`) are working, but more are still to be added.
+
+Emulation
+---------
+
+The parser does not yet perfectly emulate the Apple II ROM (A2ROM).  The tests in `test/corpus/emulation.txt` illusrate cases where the A2ROM would parse things differently.  For example,
+
+```bas
+100 IF B = A THEN 100
+```
+
+would be parsed by the A2ROM as
+
+```bas
+100 IF B = AT HEN100
+```
+
+while `Tree-Sitter` parses this "correctly."
 
 Tasks
 -------

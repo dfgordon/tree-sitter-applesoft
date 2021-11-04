@@ -1,0 +1,58 @@
+===================
+Hidden token 1
+===================
+
+100 FOR A = LOFT OR LEFT TO 15
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement
+			(for_tok) (real_scalar) (eq_tok)
+			(binary_aexpr (realvar) (or_tok) (realvar)) (to_tok) (integer))))
+
+===================
+Hidden token 2
+===================
+
+100 IF B = A THEN 100
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement
+			(if_tok) (binary_aexpr (realvar) (eq_tok) (realvar)) (then_tok) (linenum))))
+
+===================
+Disjoint tokens
+===================
+
+100 AB = 1 0 : P RI NT AB
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement
+			(assignment (realvar) (eq_tok) (integer)))
+		(statement
+			(print_tok) (realvar))))
+
+===================
+AT and ATN
+===================
+
+100 HLIN 1,AT N(X) AT 5
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement
+			(hlin_tok) (integer) (fcall (atn_tok) (realvar)) (at_tok) (integer))))
