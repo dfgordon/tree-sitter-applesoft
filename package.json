@@ -16,14 +16,13 @@
     "lexer"
   ],
   "author": "Daniel Gordon",
-  "license": "ISC",
+  "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/dfgordon/tree-sitter-applesoft/issues"
   },
   "homepage": "https://github.com/dfgordon/tree-sitter-applesoft#readme",
   "dependencies": {
-    "nan": "^2.15.0",
-    "tree-sitter-cli": "^0.20.0"
+    "nan": "^2.15.0"
   },
   "tree-sitter": [
     {
@@ -33,5 +32,8 @@
       ],
       "first-line-regex": "[0-9]+\\s*.*"
     }
-  ]
+  ],
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.0"
+  }
 }
