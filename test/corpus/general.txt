@@ -1,0 +1,60 @@
+===================
+Delete
+===================
+
+10 DEL 20,30
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (del_tok) (linenum) (linenum))))
+
+===================
+Remark
+===================
+
+10 REM HERE IS A REMARK: THIS IS STILL A REMARK
+20 PRINT "HELLO"
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (rem_tok)))
+	(line
+		(linenum)
+		(statement (print_tok) (string))))
+
+===================
+Other
+===================
+
+10 CLEAR
+20 LIST : LIST 10,: LIST 10,20
+30 RUN 100
+100 NEW
+1000 CONT
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (clear_tok)))
+	(line
+		(linenum)
+		(statement (list_tok))
+		(statement (list_tok) (linenum))
+		(statement (list_tok) (linenum) (linenum)))
+	(line
+		(linenum)
+		(statement (run_tok) (linenum)))
+	(line
+		(linenum)
+		(statement (new_tok)))
+	(line
+		(linenum)
+		(statement (cont_tok))))

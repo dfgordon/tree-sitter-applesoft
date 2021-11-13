@@ -1,5 +1,5 @@
 {
-  "name": "AppleSoft",
+  "name": "applesoft",
   "rules": {
     "source_file": {
       "type": "REPEAT",
@@ -18,1181 +18,432 @@
       }
     },
     "end_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "E *N *D"
-        }
-      }
+      "type": "PATTERN",
+      "value": "E *N *D"
     },
     "for_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "F *O *R"
-        }
-      }
+      "type": "PATTERN",
+      "value": "F *O *R"
     },
     "next_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "N *E *X *T"
-        }
-      }
+      "type": "PATTERN",
+      "value": "N *E *X *T"
     },
     "data_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "D *A *T *A"
-        }
-      }
+      "type": "PATTERN",
+      "value": "D *A *T *A"
     },
     "input_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "I *N *P *U *T"
-        }
-      }
+      "type": "PATTERN",
+      "value": "I *N *P *U *T"
     },
     "del_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "D *E *L"
-        }
-      }
+      "type": "PATTERN",
+      "value": "D *E *L"
     },
     "dim_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "D *I *M"
-        }
-      }
+      "type": "PATTERN",
+      "value": "D *I *M"
     },
     "read_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "R *E *A *D"
-        }
-      }
+      "type": "PATTERN",
+      "value": "R *E *A *D"
     },
     "gr_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "G *R"
-        }
-      }
+      "type": "PATTERN",
+      "value": "G *R"
     },
     "text_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "T *E *X *T"
-        }
-      }
+      "type": "PATTERN",
+      "value": "T *E *X *T"
     },
     "prn_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "P *R *#"
-        }
-      }
+      "type": "PATTERN",
+      "value": "P *R *#"
     },
     "inn_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "I *N *#"
-        }
-      }
+      "type": "PATTERN",
+      "value": "I *N *#"
     },
     "call_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "C *A *L *L"
-        }
-      }
+      "type": "PATTERN",
+      "value": "C *A *L *L"
     },
     "plot_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "P *L *O *T"
-        }
-      }
+      "type": "PATTERN",
+      "value": "P *L *O *T"
     },
     "hlin_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "H *L *I *N"
-        }
-      }
+      "type": "PATTERN",
+      "value": "H *L *I *N"
     },
     "vlin_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "V *L *I *N"
-        }
-      }
+      "type": "PATTERN",
+      "value": "V *L *I *N"
     },
     "hgr2_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "H *G *R *2"
-        }
-      }
+      "type": "PATTERN",
+      "value": "H *G *R *2"
     },
     "hgr_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "H *G *R"
-        }
-      }
+      "type": "PATTERN",
+      "value": "H *G *R"
     },
     "hcoloreq_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "H *C *O *L *O *R *="
-        }
-      }
+      "type": "PATTERN",
+      "value": "H *C *O *L *O *R *="
     },
     "hplot_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "H *P *L *O *T"
-        }
-      }
+      "type": "PATTERN",
+      "value": "H *P *L *O *T"
     },
     "draw_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "D *R *A *W"
-        }
-      }
+      "type": "PATTERN",
+      "value": "D *R *A *W"
     },
     "xdraw_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "X *D *R *A *W"
-        }
-      }
+      "type": "PATTERN",
+      "value": "X *D *R *A *W"
     },
     "htab_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "H *T *A *B"
-        }
-      }
+      "type": "PATTERN",
+      "value": "H *T *A *B"
     },
     "home_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "H *O *M *E"
-        }
-      }
+      "type": "PATTERN",
+      "value": "H *O *M *E"
     },
     "roteq_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "R *O *T *="
-        }
-      }
+      "type": "PATTERN",
+      "value": "R *O *T *="
     },
     "scaleeq_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "S *C *A *L *E *="
-        }
-      }
+      "type": "PATTERN",
+      "value": "S *C *A *L *E *="
     },
     "shload_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "S *H *L *O *A *D"
-        }
-      }
+      "type": "PATTERN",
+      "value": "S *H *L *O *A *D"
     },
     "trace_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "T *R *A *C *E"
-        }
-      }
+      "type": "PATTERN",
+      "value": "T *R *A *C *E"
     },
     "notrace_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "N *O *T *R *A *C *E"
-        }
-      }
+      "type": "PATTERN",
+      "value": "N *O *T *R *A *C *E"
     },
     "normal_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "N *O *R *M *A *L"
-        }
-      }
+      "type": "PATTERN",
+      "value": "N *O *R *M *A *L"
     },
     "inverse_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "I *N *V *E *R *S *E"
-        }
-      }
+      "type": "PATTERN",
+      "value": "I *N *V *E *R *S *E"
     },
     "flash_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "F *L *A *S *H"
-        }
-      }
+      "type": "PATTERN",
+      "value": "F *L *A *S *H"
     },
     "coloreq_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "C *O *L *O *R *="
-        }
-      }
+      "type": "PATTERN",
+      "value": "C *O *L *O *R *="
     },
     "pop_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "P *O *P"
-        }
-      }
+      "type": "PATTERN",
+      "value": "P *O *P"
     },
     "vtab_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "V *T *A *B"
-        }
-      }
+      "type": "PATTERN",
+      "value": "V *T *A *B"
     },
     "himem_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "H *I *M *E *M *:"
-        }
-      }
+      "type": "PATTERN",
+      "value": "H *I *M *E *M *:"
     },
     "lomem_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "L *O *M *E *M *:"
-        }
-      }
+      "type": "PATTERN",
+      "value": "L *O *M *E *M *:"
     },
     "onerr_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "O *N *E *R *R"
-        }
-      }
+      "type": "PATTERN",
+      "value": "O *N *E *R *R"
     },
     "resume_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "R *E *S *U *M *E"
-        }
-      }
+      "type": "PATTERN",
+      "value": "R *E *S *U *M *E"
     },
     "recall_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "R *E *C *A *L *L"
-        }
-      }
+      "type": "PATTERN",
+      "value": "R *E *C *A *L *L"
     },
     "store_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "S *T *O *R *E"
-        }
-      }
+      "type": "PATTERN",
+      "value": "S *T *O *R *E"
     },
     "speedeq_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "S *P *E *E *D *="
-        }
-      }
+      "type": "PATTERN",
+      "value": "S *P *E *E *D *="
     },
     "let_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "L *E *T"
-        }
-      }
+      "type": "PATTERN",
+      "value": "L *E *T"
     },
     "goto_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "G *O *T *O"
-        }
-      }
+      "type": "PATTERN",
+      "value": "G *O *T *O"
     },
     "run_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "R *U *N"
-        }
-      }
+      "type": "PATTERN",
+      "value": "R *U *N"
     },
     "if_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "I *F"
-        }
-      }
+      "type": "PATTERN",
+      "value": "I *F"
     },
     "restore_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "R *E *S *T *O *R *E"
-        }
-      }
+      "type": "PATTERN",
+      "value": "R *E *S *T *O *R *E"
     },
     "amp_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "STRING",
-          "value": "&"
-        }
-      }
+      "type": "STRING",
+      "value": "&"
     },
     "gosub_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "G *O *S *U *B"
-        }
-      }
+      "type": "PATTERN",
+      "value": "G *O *S *U *B"
     },
     "return_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "R *E *T *U *R *N"
-        }
-      }
+      "type": "PATTERN",
+      "value": "R *E *T *U *R *N"
     },
     "rem_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "R *E *M"
-        }
-      }
+      "type": "PATTERN",
+      "value": "R *E *M"
     },
     "stop_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "S *T *O *P"
-        }
-      }
+      "type": "PATTERN",
+      "value": "S *T *O *P"
     },
     "on_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "O *N"
-        }
-      }
+      "type": "PATTERN",
+      "value": "O *N"
     },
     "wait_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "W *A *I *T"
-        }
-      }
+      "type": "PATTERN",
+      "value": "W *A *I *T"
     },
     "load_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "L *O *A *D"
-        }
-      }
+      "type": "PATTERN",
+      "value": "L *O *A *D"
     },
     "save_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "S *A *V *E"
-        }
-      }
+      "type": "PATTERN",
+      "value": "S *A *V *E"
     },
     "def_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "D *E *F"
-        }
-      }
+      "type": "PATTERN",
+      "value": "D *E *F"
     },
     "poke_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "P *O *K *E"
-        }
-      }
+      "type": "PATTERN",
+      "value": "P *O *K *E"
     },
     "print_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "P *R *I *N *T"
-        }
-      }
+      "type": "PATTERN",
+      "value": "P *R *I *N *T"
     },
     "cont_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "C *O *N *T"
-        }
-      }
+      "type": "PATTERN",
+      "value": "C *O *N *T"
     },
     "list_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "L *I *S *T"
-        }
-      }
+      "type": "PATTERN",
+      "value": "L *I *S *T"
     },
     "clear_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "C *L *E *A *R"
-        }
-      }
+      "type": "PATTERN",
+      "value": "C *L *E *A *R"
     },
     "get_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "G *E *T"
-        }
-      }
+      "type": "PATTERN",
+      "value": "G *E *T"
     },
     "new_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "N *E *W"
-        }
-      }
+      "type": "PATTERN",
+      "value": "N *E *W"
     },
-    "tab_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "T *A *B"
-        }
-      }
+    "tabp_tok": {
+      "type": "PATTERN",
+      "value": "T *A *B *\\("
     },
     "to_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "T *O"
-        }
-      }
+      "type": "PATTERN",
+      "value": "T *O"
     },
     "fn_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "F *N"
-        }
-      }
+      "type": "PATTERN",
+      "value": "F *N"
     },
-    "spc_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "S *P *C"
-        }
-      }
+    "spcp_tok": {
+      "type": "PATTERN",
+      "value": "S *P *C *\\("
     },
     "then_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "T *H *E *N"
-        }
-      }
+      "type": "PATTERN",
+      "value": "T *H *E *N"
     },
     "at_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "A *T"
-        }
-      }
+      "type": "PATTERN",
+      "value": "A *T"
     },
     "not_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "N *O *T"
-        }
-      }
+      "type": "PATTERN",
+      "value": "N *O *T"
     },
     "step_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "S *T *E *P"
-        }
-      }
+      "type": "PATTERN",
+      "value": "S *T *E *P"
     },
     "plus_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "STRING",
-          "value": "+"
-        }
-      }
+      "type": "STRING",
+      "value": "+"
     },
     "minus_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "STRING",
-          "value": "-"
-        }
-      }
+      "type": "STRING",
+      "value": "-"
     },
     "times_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "STRING",
-          "value": "*"
-        }
-      }
+      "type": "STRING",
+      "value": "*"
     },
     "div_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "STRING",
-          "value": "/"
-        }
-      }
+      "type": "STRING",
+      "value": "/"
     },
     "pow_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "STRING",
-          "value": "^"
-        }
-      }
+      "type": "STRING",
+      "value": "^"
     },
     "and_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "A *N *D"
-        }
-      }
+      "type": "PATTERN",
+      "value": "A *N *D"
     },
     "or_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "O *R"
-        }
-      }
+      "type": "PATTERN",
+      "value": "O *R"
     },
     "gtr_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "STRING",
-          "value": ">"
-        }
-      }
+      "type": "STRING",
+      "value": ">"
     },
     "eq_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "STRING",
-          "value": "="
-        }
-      }
+      "type": "STRING",
+      "value": "="
     },
     "less_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "STRING",
-          "value": "<"
-        }
-      }
+      "type": "STRING",
+      "value": "<"
     },
     "sgn_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "S *G *N"
-        }
-      }
+      "type": "PATTERN",
+      "value": "S *G *N"
     },
     "int_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "I *N *T"
-        }
-      }
+      "type": "PATTERN",
+      "value": "I *N *T"
     },
     "abs_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "A *B *S"
-        }
-      }
+      "type": "PATTERN",
+      "value": "A *B *S"
     },
     "usr_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "U *S *R"
-        }
-      }
+      "type": "PATTERN",
+      "value": "U *S *R"
     },
     "fre_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "F *R *E"
-        }
-      }
+      "type": "PATTERN",
+      "value": "F *R *E"
     },
-    "scrn_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "S *C *R *N"
-        }
-      }
+    "scrnp_tok": {
+      "type": "PATTERN",
+      "value": "S *C *R *N *\\("
     },
     "pdl_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "P *D *L"
-        }
-      }
+      "type": "PATTERN",
+      "value": "P *D *L"
     },
     "pos_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "P *O *S"
-        }
-      }
+      "type": "PATTERN",
+      "value": "P *O *S"
     },
     "sqr_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "S *Q *R"
-        }
-      }
+      "type": "PATTERN",
+      "value": "S *Q *R"
     },
     "rnd_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "R *N *D"
-        }
-      }
+      "type": "PATTERN",
+      "value": "R *N *D"
     },
     "log_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "L *O *G"
-        }
-      }
+      "type": "PATTERN",
+      "value": "L *O *G"
     },
     "exp_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "E *X *P"
-        }
-      }
+      "type": "PATTERN",
+      "value": "E *X *P"
     },
     "cos_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "C *O *S"
-        }
-      }
+      "type": "PATTERN",
+      "value": "C *O *S"
     },
     "sin_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "S *I *N"
-        }
-      }
+      "type": "PATTERN",
+      "value": "S *I *N"
     },
     "tan_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "T *A *N"
-        }
-      }
+      "type": "PATTERN",
+      "value": "T *A *N"
     },
     "atn_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "A *T *N"
-        }
-      }
+      "type": "PATTERN",
+      "value": "A *TN"
     },
     "peek_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "P *E *E *K"
-        }
-      }
+      "type": "PATTERN",
+      "value": "P *E *E *K"
     },
     "len_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "L *E *N"
-        }
-      }
+      "type": "PATTERN",
+      "value": "L *E *N"
     },
     "str_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "S *T *R *\\$"
-        }
-      }
+      "type": "PATTERN",
+      "value": "S *T *R *\\$"
     },
     "val_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "V *A *L"
-        }
-      }
+      "type": "PATTERN",
+      "value": "V *A *L"
     },
     "asc_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "A *S *C"
-        }
-      }
+      "type": "PATTERN",
+      "value": "A *S *C"
     },
     "chr_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "C *H *R *\\$"
-        }
-      }
+      "type": "PATTERN",
+      "value": "C *H *R *\\$"
     },
     "left_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "L *E *F *T *\\$"
-        }
-      }
+      "type": "PATTERN",
+      "value": "L *E *F *T *\\$"
     },
     "right_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "R *I *G *H *T *\\$"
-        }
-      }
+      "type": "PATTERN",
+      "value": "R *I *G *H *T *\\$"
     },
     "mid_tok": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "PATTERN",
-          "value": "M *I *D *\\$"
-        }
-      }
+      "type": "PATTERN",
+      "value": "M *I *D *\\$"
     },
     "statement": {
       "type": "CHOICE",
@@ -1230,6 +481,10 @@
               "name": "_aexpr"
             }
           ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "cont_tok"
         },
         {
           "type": "SEQ",
@@ -1294,6 +549,27 @@
             {
               "type": "SYMBOL",
               "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "del_tok"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "linenum"
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "SYMBOL",
+              "name": "linenum"
             }
           ]
         },
@@ -1560,6 +836,18 @@
               "name": "hplot_tok"
             },
             {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "to_tok"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
               "type": "SYMBOL",
               "name": "_aexpr"
             },
@@ -1572,33 +860,28 @@
               "name": "_aexpr"
             },
             {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "to_tok"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "_aexpr"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": ","
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "_aexpr"
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "to_tok"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_aexpr"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_aexpr"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -1746,6 +1029,69 @@
           "name": "inverse_tok"
         },
         {
+          "type": "SYMBOL",
+          "name": "load_tok"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "list_tok"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "linenum"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "minus_tok"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ","
+                        }
+                      ]
+                    },
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "linenum"
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "type": "SEQ",
           "members": [
             {
@@ -1757,6 +1103,10 @@
               "name": "_aexpr"
             }
           ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "new_tok"
         },
         {
           "type": "SEQ",
@@ -1803,6 +1153,10 @@
         {
           "type": "SYMBOL",
           "name": "normal_tok"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "notrace_tok"
         },
         {
           "type": "SEQ",
@@ -1974,8 +1328,17 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "STRING",
-                  "value": ";"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": ","
+                    },
+                    {
+                      "type": "STRING",
+                      "value": ";"
+                    }
+                  ]
                 },
                 {
                   "type": "BLANK"
@@ -2018,14 +1381,33 @@
           "members": [
             {
               "type": "SYMBOL",
+              "name": "recall_tok"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "int_scalar"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "real_scalar"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
               "name": "rem_tok"
             },
             {
-              "type": "REPEAT",
-              "content": {
-                "type": "PATTERN",
-                "value": "[0-9A-Za-z\" \\+\\-\\*\\/\\^=<>\\(\\),\\.:;%\\$\\#\\?\\&\\'@\\!\\[\\]\\{\\}\\\\\\|_`\\~]"
-              }
+              "type": "PATTERN",
+              "value": ".*"
             }
           ]
         },
@@ -2059,6 +1441,31 @@
           "members": [
             {
               "type": "SYMBOL",
+              "name": "run_tok"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "linenum"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "save_tok"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
               "name": "scaleeq_tok"
             },
             {
@@ -2066,6 +1473,10 @@
               "name": "_aexpr"
             }
           ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "shload_tok"
         },
         {
           "type": "SEQ",
@@ -2085,29 +1496,34 @@
           "name": "stop_tok"
         },
         {
-          "type": "SYMBOL",
-          "name": "text_tok"
-        },
-        {
           "type": "SEQ",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "usr_tok"
+              "name": "store_tok"
             },
             {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "int_scalar"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "real_scalar"
+                }
+              ]
             }
           ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text_tok"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "trace_tok"
         },
         {
           "type": "SEQ",
@@ -2606,11 +2022,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "scrn_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
+              "name": "scrnp_tok"
             },
             {
               "type": "SYMBOL",
@@ -2699,6 +2111,27 @@
             {
               "type": "SYMBOL",
               "name": "tan_tok"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "usr_tok"
             },
             {
               "type": "STRING",
@@ -2874,11 +2307,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "spc_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
+              "name": "spcp_tok"
             },
             {
               "type": "SYMBOL",
@@ -2916,11 +2345,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "tab_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
+              "name": "tabp_tok"
             },
             {
               "type": "SYMBOL",
@@ -3422,17 +2847,6 @@
       "type": "SYMBOL",
       "name": "plus_tok"
     },
-    "real_scalar": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 1,
-        "content": {
-          "type": "PATTERN",
-          "value": "[A-Z][A-Z0-9]*"
-        }
-      }
-    },
     "_var": {
       "type": "CHOICE",
       "members": [
@@ -3460,73 +2874,41 @@
       ]
     },
     "intvar": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "[A-Z][A-Z0-9]*"
+          "type": "SYMBOL",
+          "name": "_int_scalar"
         },
         {
-          "type": "STRING",
-          "value": "%"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "subscript"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "_int_array"
         }
       ]
     },
     "realvar": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "[A-Z][A-Z0-9]*"
+          "type": "SYMBOL",
+          "name": "_real_scalar"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "subscript"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "_real_array"
         }
       ]
     },
     "svar": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "[A-Z][A-Z0-9]*"
+          "type": "SYMBOL",
+          "name": "_string_scalar"
         },
         {
-          "type": "STRING",
-          "value": "$"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "subscript"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "_string_array"
         }
       ]
     },
@@ -3598,6 +2980,10 @@
         {
           "type": "SYMBOL",
           "name": "literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "real_data_item"
         }
       ]
     },
@@ -3608,7 +2994,7 @@
         "value": 1,
         "content": {
           "type": "PATTERN",
-          "value": "(\\+|\\-)?[0-9]([0-9 ]*[0-9])?"
+          "value": "[+-]?[0-9]([0-9 ]*[0-9])?"
         }
       }
     },
@@ -3636,13 +3022,24 @@
           "members": [
             {
               "type": "PATTERN",
-              "value": "(\\+|\\-)?[0-9 ]*\\.[0-9 ]*E?([0-9 ]*[0-9])?"
+              "value": "([+-] *)?[0-9]?[0-9 ]*\\.[0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)?"
             },
             {
               "type": "PATTERN",
-              "value": "(\\+|\\-)?[0-9 ]*\\.?[0-9 ]*E([0-9 ]*[0-9])?"
+              "value": "([+-] *)?[0-9][0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)"
             }
           ]
+        }
+      }
+    },
+    "real_data_item": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "PATTERN",
+          "value": "([+-]|[+-]? *E *[+-]?)"
         }
       }
     },
@@ -3672,6 +3069,113 @@
           ]
         }
       }
+    },
+    "_name": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_ext_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_ext_name"
+        }
+      ]
+    },
+    "real_scalar": {
+      "type": "SYMBOL",
+      "name": "_name"
+    },
+    "_real_scalar": {
+      "type": "SYMBOL",
+      "name": "_name"
+    },
+    "int_scalar": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_name"
+        },
+        {
+          "type": "STRING",
+          "value": "%"
+        }
+      ]
+    },
+    "_int_scalar": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_name"
+        },
+        {
+          "type": "STRING",
+          "value": "%"
+        }
+      ]
+    },
+    "_string_scalar": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_name"
+        },
+        {
+          "type": "STRING",
+          "value": "$"
+        }
+      ]
+    },
+    "_real_array": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "subscript"
+        }
+      ]
+    },
+    "_int_array": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_name"
+        },
+        {
+          "type": "STRING",
+          "value": "%"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "subscript"
+        }
+      ]
+    },
+    "_string_array": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_name"
+        },
+        {
+          "type": "STRING",
+          "value": "$"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "subscript"
+        }
+      ]
     }
   },
   "extras": [
@@ -3682,7 +3186,12 @@
   ],
   "conflicts": [],
   "precedences": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "_ext_name"
+    }
+  ],
   "inline": [],
   "supertypes": []
 }

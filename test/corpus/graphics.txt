@@ -23,6 +23,86 @@ Low Resolution
 		(linenum) (statement (vlin_tok) (integer) (realvar) (at_tok) (realvar)))
 	(line
 		(linenum)
-		(statement (print_tok) (fcall (scrn_tok)
+		(statement (print_tok) (fcall (scrnp_tok)
 			(binary_aexpr (realvar) (plus_tok) (integer))
 			(binary_aexpr (realvar) (minus_tok) (integer))))))
+
+===================
+High Resolution
+===================
+
+10 HGR: HCOLOR = C(J) / 8: HPLOT X+1,Y*5
+20 HPLOT X,Y TO X+16,Y-16
+30 HPLOT TO X2,Y2
+40 HPLOT 70,40 TO 210,40 TO X,Y TO A,B
+50 HGR2
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (hgr_tok))
+		(statement (hcoloreq_tok) (binary_aexpr (realvar (subscript (realvar))) (div_tok) (integer)))
+		(statement (hplot_tok) (binary_aexpr (realvar) (plus_tok) (integer)) (binary_aexpr (realvar) (times_tok) (integer))))
+	(line
+		(linenum)
+		(statement (hplot_tok) (realvar) (realvar) (to_tok)
+			(binary_aexpr (realvar) (plus_tok) (integer)) (binary_aexpr (realvar) (minus_tok) (integer))))
+	(line
+		(linenum)
+		(statement (hplot_tok) (to_tok) (realvar) (realvar)))
+	(line
+		(linenum)
+		(statement (hplot_tok) (integer) (integer)
+			(to_tok) (integer) (integer)
+			(to_tok) (realvar) (realvar)
+			(to_tok) (realvar) (realvar)))
+	(line
+		(linenum)
+		(statement (hgr2_tok))))
+
+===================
+Shape Tables
+===================
+
+10 SHLOAD
+20 ROT = 0: SCALE = 1: DRAW 5
+30 DRAW 1 AT 140,96
+40 DRAW SHAPE AT XCENTER + XOFFSET,YCENTER + YOFFSET
+20 ROT = 0: SCALE = 1: XDRAW 5
+30 XDRAW 1 AT 140,96
+40 XDRAW SHAPE AT XCENTER + XOFFSET,YCENTER + YOFFSET
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (shload_tok)))
+	(line
+		(linenum)
+		(statement (roteq_tok) (integer))
+		(statement (scaleeq_tok) (integer))
+		(statement (draw_tok) (integer)))
+	(line
+		(linenum)
+		(statement (draw_tok) (integer) (at_tok) (integer) (integer)))
+	(line
+		(linenum)
+		(statement (draw_tok) (realvar) (at_tok)
+			(binary_aexpr (realvar) (plus_tok) (realvar))
+			(binary_aexpr (realvar) (plus_tok) (realvar))))
+	(line
+		(linenum)
+		(statement (roteq_tok) (integer))
+		(statement (scaleeq_tok) (integer))
+		(statement (xdraw_tok) (integer)))
+	(line
+		(linenum)
+		(statement (xdraw_tok) (integer) (at_tok) (integer) (integer)))
+	(line
+		(linenum)
+		(statement (xdraw_tok) (realvar) (at_tok)
+			(binary_aexpr (realvar) (plus_tok) (realvar))
+			(binary_aexpr (realvar) (plus_tok) (realvar)))))

@@ -1,10 +1,10 @@
 [package]
-name = "tree-sitter-AppleSoft"
-description = "AppleSoft grammar for the tree-sitter parsing library"
+name = "tree-sitter-applesoft"
+description = "Applesoft grammar for the tree-sitter parsing library"
 version = "0.0.1"
-keywords = ["incremental", "parsing", "AppleSoft"]
+keywords = ["incremental", "parsing", "applesoft"]
 categories = ["parsing", "text-editors"]
-repository = "https://github.com/tree-sitter/tree-sitter-AppleSoft"
+repository = "https://github.com/tree-sitter/tree-sitter-applesoft"
 edition = "2018"
 license = "MIT"
 

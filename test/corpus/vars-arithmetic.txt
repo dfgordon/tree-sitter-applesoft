@@ -1,0 +1,254 @@
+===================
+Variables
+===================
+
+10 A = 5.4E10: B = 5.: C = .E: D = .
+20 A% = 100: B% = 010
+30 LET A$ = "Howard Phillips Lovecraft"
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (real)))
+		(statement (assignment (realvar) (eq_tok) (real)))
+		(statement (assignment (realvar) (eq_tok) (real)))
+		(statement (assignment (realvar) (eq_tok) (real))))
+	(line
+		(linenum)
+		(statement (assignment (intvar) (eq_tok) (integer)))
+		(statement (assignment (intvar) (eq_tok) (integer))))
+	(line
+		(linenum)
+		(statement (assignment (let_tok) (svar) (eq_tok) (string)))))
+
+===================
+Unary Operators
+===================
+
+10 X = +Y
+20 X = -Y
+30 X = NOT Y
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (unary_aexpr (plus_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (unary_aexpr (minus_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (unary_aexpr (not_tok) (realvar))))))
+
+===================
+Binary Operators
+===================
+
+10 X = X + Y
+20 X = X - Y
+30 X = X * Y
+40 X = X / Y
+50 X = X ^ Y
+60 X = X = Y
+70 X = X < Y
+80 X = X > Y
+90 X = X <= Y
+100 X = X >= Y
+110 X = X =< Y
+120 X = X => Y
+130 X = X <> Y
+140 X = X >< Y
+150 X = X AND Y
+160 X = X OR Y
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (plus_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (minus_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (times_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (div_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (pow_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (eq_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (less_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (gtr_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (less_tok) (eq_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (gtr_tok) (eq_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (eq_tok) (less_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (eq_tok) (gtr_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (less_tok) (gtr_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (gtr_tok) (less_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (and_tok) (realvar)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (or_tok) (realvar))))))
+
+
+===================
+Precedence Test 1
+===================
+
+10 X = A+B*C
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement
+			(assignment
+				(realvar) (eq_tok)
+				(binary_aexpr
+					(realvar) (plus_tok)
+					(binary_aexpr (realvar) (times_tok) (realvar)))))))
+
+===================
+Precedence Test 2
+===================
+
+10 X = (A+B)*C
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement
+			(assignment
+				(realvar) (eq_tok)
+				(binary_aexpr
+					(binary_aexpr (realvar) (plus_tok) (realvar))
+					(times_tok)
+					(realvar))))))
+
+===================
+Precedence Test 3
+===================
+
+10 X = A <= B + C
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement
+			(assignment
+				(realvar) (eq_tok)
+				(binary_aexpr
+					(realvar)
+					(less_tok) (eq_tok)
+					(binary_aexpr (realvar) (plus_tok) (realvar)))))))
+
+===================
+Math Functions
+===================
+
+10 XA = ABS(X1+X2)
+20 Y = SGN(X)
+30 Y = INT(X)
+40 Y = SQR(X)
+50 Y = SIN(X)
+60 Y = COS(X)
+70 Y = TAN(X)
+80 Y = ATN(X)
+90 Y = EXP(X)
+100 Y = LOG(X)
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement
+			(assignment
+				(realvar) (eq_tok)
+				(fcall
+					(abs_tok)
+					(binary_aexpr (realvar) (plus_tok) (realvar))))))
+	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (sgn_tok) (realvar)))))
+	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (int_tok) (realvar)))))
+	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (sqr_tok) (realvar)))))
+	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (sin_tok) (realvar)))))
+	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (cos_tok) (realvar)))))
+	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (tan_tok) (realvar)))))
+	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (atn_tok) (realvar)))))
+	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (exp_tok) (realvar)))))
+	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (log_tok) (realvar))))))
+
+
+===================
+Random Numbers
+===================
+
+10 X = RND(-5)
+20 X = RND ( 0 )
+30 X = RND(99)
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (fcall (rnd_tok) (integer)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (fcall (rnd_tok) (integer)))))
+	(line
+		(linenum)
+		(statement (assignment (realvar) (eq_tok) (fcall (rnd_tok) (integer))))))
+
+
+===================
+User Functions
+===================
+
+10 DEF FN CUB(X) = X^3
+20 Y = FN CUB(3)
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement
+			(def_tok) (fn_tok) (real_scalar) (real_scalar) (eq_tok) (binary_aexpr (realvar) (pow_tok) (integer))))
+	(line
+		(linenum)
+		(statement
+			(assignment
+				(realvar) (eq_tok) (fcall (fn_tok) (real_scalar) (integer) )))))

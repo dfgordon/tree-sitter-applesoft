@@ -2,7 +2,8 @@
 Hidden token 1
 ===================
 
-100 FOR A = LOFT OR LEFT TO 15
+10 FOR A = (LOFT) OR LEFT TO 15: REM OK
+20 FOR A = LOFT OR LEFT TO 15: REM ERR
 
 ---
 
@@ -10,14 +11,23 @@ Hidden token 1
 	(line
 		(linenum)
 		(statement
-			(for_tok) (real_scalar) (eq_tok)
-			(binary_aexpr (realvar) (or_tok) (realvar)) (to_tok) (integer))))
+			(for_tok) (real_scalar) (eq_tok) (binary_aexpr (realvar) (or_tok) (realvar)) (to_tok) (integer))
+		(statement
+			(rem_tok)))
+	(line
+		(linenum)
+		(statement
+			(for_tok) (real_scalar) (eq_tok) (realvar) (to_tok) (realvar))
+		(ERROR (to_tok) (integer))
+		(statement
+			(rem_tok))))
 
 ===================
 Hidden token 2
 ===================
 
-100 IF B = A THEN 100
+10 IF B = (A) THEN 100: REM OK
+20 IF B = A THEN 100: REM ERR
 
 ---
 
@@ -25,13 +35,27 @@ Hidden token 2
 	(line
 		(linenum)
 		(statement
-			(if_tok) (binary_aexpr (realvar) (eq_tok) (realvar)) (then_tok) (linenum))))
+			(if_tok) (binary_aexpr (realvar) (eq_tok) (realvar)) (then_tok) (linenum))
+		(statement
+			(rem_tok)))
+	(line
+		(linenum)
+		(ERROR (if_tok)
+			(binary_aexpr
+				(realvar)
+				(eq_tok)
+				(ERROR (at_tok) (UNEXPECTED 'E') (real_data_item) (UNEXPECTED '1'))
+			(integer)))
+		(statement
+			(rem_tok))))
 
 ===================
 Disjoint tokens
 ===================
 
-100 AB = 1 0 : P RI NT AB
+10 AB = 1 0 : P RI NT AB
+20 IFX1THEN20
+30 I F X 1 T H E N 3 0
 
 ---
 
@@ -41,13 +65,20 @@ Disjoint tokens
 		(statement
 			(assignment (realvar) (eq_tok) (integer)))
 		(statement
-			(print_tok) (realvar))))
+			(print_tok) (realvar)))
+	(line
+		(linenum)
+		(statement (if_tok) (realvar) (then_tok) (linenum)))
+	(line
+		(linenum)
+		(statement (if_tok) (realvar) (then_tok) (linenum))))
 
 ===================
 AT and ATN
 ===================
 
-100 HLIN 1,AT N(X) AT 5
+100 HLIN 1,ATN(X) AT 5: REM OK
+110 HLIN 1,AT N(X) AT 5: REM ERR
 
 ---
 
@@ -55,4 +86,35 @@ AT and ATN
 	(line
 		(linenum)
 		(statement
-			(hlin_tok) (integer) (fcall (atn_tok) (realvar)) (at_tok) (integer))))
+			(hlin_tok) (integer) (fcall (atn_tok) (realvar)) (at_tok) (integer))
+		(statement
+			(rem_tok)))
+	(line
+		(linenum)
+		(statement
+			(hlin_tok) (integer) (ERROR (at_tok)) (realvar (subscript (realvar))) (at_tok) (integer))
+		(statement
+			(rem_tok))))
+
+===================
+AT and TO
+===================
+
+100 FOR I = (A) TO B: REM OK
+100 FOR I = A TO B: REM ALSO OK
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement
+			(for_tok) (real_scalar) (eq_tok) (realvar) (to_tok) (realvar))
+		(statement
+			(rem_tok)))
+	(line
+		(linenum)
+		(statement
+			(for_tok) (real_scalar) (eq_tok) (realvar) (to_tok) (realvar))
+		(statement
+			(rem_tok))))

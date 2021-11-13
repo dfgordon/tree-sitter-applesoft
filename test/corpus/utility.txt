@@ -1,0 +1,87 @@
+===================
+Peek and Poke
+===================
+
+10 V1 = PEEK(A*16 + 5) : V2 = PEEK(255)
+20 POKE A1,V1 : POKE A*16 + 5,V2*2 / Y
+30 POKE 255,0
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement
+			(assignment (realvar) (eq_tok) (fcall (peek_tok)
+				(binary_aexpr (binary_aexpr (realvar) (times_tok) (integer)) (plus_tok) (integer)))))
+		(statement
+			(assignment (realvar) (eq_tok) (fcall (peek_tok) (integer)))))
+	(line
+		(linenum)
+		(statement (poke_tok) (realvar) (realvar))
+		(statement (poke_tok)
+			(binary_aexpr (binary_aexpr (realvar) (times_tok) (integer)) (plus_tok) (integer))
+			(binary_aexpr (binary_aexpr (realvar) (times_tok) (integer)) (div_tok) (realvar))))
+	(line
+		(linenum)
+		(statement (poke_tok) (integer) (integer))))
+
+===================
+Call and USR
+===================
+
+10 CALL 54915
+20 CALL -936
+30 CALL ROUTINE (J)
+40 PRINT USR (3)
+
+---
+
+(source_file
+	(line (linenum) (statement (call_tok) (integer)))
+	(line (linenum) (statement (call_tok) (integer)))
+	(line (linenum) (statement (call_tok) (realvar (subscript (realvar)))))
+	(line (linenum) (statement (print_tok) (fcall (usr_tok) (integer)))))
+
+===================
+Wait
+===================
+
+10 WAIT 49347, 15
+20 WAIT 49401, 240, 192
+30 WAIT ADDR%, M1%, M2%
+
+---
+
+(source_file
+	(line (linenum) (statement (wait_tok) (integer) (integer)))
+	(line (linenum) (statement (wait_tok) (integer) (integer) (integer)))
+	(line (linenum) (statement (wait_tok) (intvar) (intvar) (intvar))))
+
+===================
+Memory Management
+===================
+
+10 HIMEM: 24576
+20 LOMEM: 16384
+30 LET AVAIL = FRE(0)
+
+---
+
+(source_file
+	(line (linenum) (statement (himem_tok) (integer)))
+	(line (linenum) (statement (lomem_tok) (integer)))
+	(line (linenum) (statement (assignment (let_tok) (realvar) (eq_tok) (fcall (fre_tok) (integer))))))
+
+===================
+Debugging
+===================
+
+10 TRACE
+20 NOTRACE
+
+---
+
+(source_file
+	(line (linenum) (statement (trace_tok)))
+	(line (linenum) (statement (notrace_tok))))

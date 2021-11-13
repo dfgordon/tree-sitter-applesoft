@@ -1,6 +1,6 @@
 // References:
-// [1] Apple II AppleSoft BASIC Programmer's Reference Manual, Volume 1
-// [2] Apple II AppleSoft BASIC Programmer's Reference Manual, Volume 2
+// [1] Apple II Applesoft BASIC Programmer's Reference Manual, Volume 1
+// [2] Apple II Applesoft BASIC Programmer's Reference Manual, Volume 2
 
 // grammar-src.js is for human editing
 // grammar.js is the actual grammar (created by token_processor.py)
@@ -16,23 +16,25 @@
 // * line numbers cannot exceed 63999
 // * subscripts limited to 89 dimensions
 // * nested loops limited to 10 levels
+// * length of a line limited to 239 characters
 
 // Define constants for use in forming terminal nodes.
 // These are named after their equivalents in Ref. 2 Appendix B
-// N.B. (it appears) we can only use the token() function on rules composed of terminal symbols.
 
 const
 	// Apple II interpreter ignores spaces expect in a few special cases
-	// Apple II allows real numbers such as ".", "E", ".E", etc.
-	// Labels come from Ref. 2 Appendix B
-	REAL_DOT = /(\+|\-)?[0-9 ]*\.[0-9 ]*E?([0-9 ]*[0-9])?/,
-	REAL_E = /(\+|\-)?[0-9 ]*\.?[0-9 ]*E([0-9 ]*[0-9])?/,
+	// This real number excludes integers, unlike Ref. 2 p. 237
+	// Following captures the zero valued cases in the first table on p. 237
+	REAL_DOT = /([+-] *)?[0-9]?[0-9 ]*\.[0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)?/,
+	// Following captures forms without the decimal point
+	REAL_E = /([+-] *)?[0-9][0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)/,
+	// The following additional real numbers are acceptable in DATA statements
+	REAL_DATA = /([+-]|[+-]? *E *[+-]?)/,
+	// Remaining constants come from Ref. 2 Appendix B
 	SPCHAR = /[\+\-\*\/\^=<>\(\),\.:;%\$\#\?\&\'@\!\[\]\{\}\\\|_`\~]/,
 	DIGIT = /[0-9]/,
 	LETTER = /[A-Za-z]/,
-	INTEGER = /(\+|\-)?[0-9]([0-9 ]*[0-9])?/,
-	// We have to forbid spaces in NAME in order to succeed at present
-	NAME = /[A-Z][A-Z0-9]*/,
+	INTEGER = /[+-]?[0-9]([0-9 ]*[0-9])?/,
 	QUOTE = /"/,
 	SPACE = / /,
 	// schar = letter,digit,space,spchar
@@ -45,8 +47,11 @@ const
 // Tree-sitter grammar definition
 
 module.exports = grammar({
-	name: 'AppleSoft',
+	name: 'applesoft',
 	extras: $ => [' '],
+	// "name" is the term given in Ref. 2 for an identifier.
+	// external scanner is used to forbid keywords from appearing anywhere in the name.
+	externals: $ => [ $._ext_name ],
 
 	rules: {
 		source_file: $ => repeat(choice($.line,$._empty_line)),
@@ -63,9 +68,10 @@ module.exports = grammar({
 			seq('CALL',$._aexpr),
 			'CLEAR',
 			seq('COLOR=',$._aexpr),
+			'CONT',
 			seq('DATA',$._data_item,repeat(seq(',',$._data_item))),
 			seq('DEF','FN',$.real_scalar,'(',$.real_scalar,')','=',$._aexpr),
-			//seq('DEL',$.linenum,',',$.linenum),
+			seq('DEL',$.linenum,',',$.linenum),
 			seq('DIM',$._dim_item,repeat(seq(',',$._dim_item))),
 			seq('DRAW',$._aexpr,optional(seq('AT',$._aexpr,',',$._aexpr))),
 			'END',
@@ -81,7 +87,7 @@ module.exports = grammar({
 			seq('HIMEM:',$._aexpr),
 			seq('HLIN',$._aexpr,',',$._aexpr,'AT',$._aexpr),
 			'HOME',
-			seq('HPLOT',$._aexpr,',',$._aexpr,optional(seq('TO',$._aexpr,',',$._aexpr))),
+			seq('HPLOT',optional('TO'),$._aexpr,',',$._aexpr,repeat(seq('TO',$._aexpr,',',$._aexpr))),
 			seq('HTAB',$._aexpr),
 			// Ref. 2 explicitly has the compound statement, but this is implied
 			seq('IF',$._expr,'THEN',$.statement),
@@ -90,33 +96,37 @@ module.exports = grammar({
 			seq('IN#',$._aexpr),
 			seq('INPUT',optional(seq($._sexpr,';')),$._var,repeat(seq(',',$._var))),
 			'INVERSE',
-			//seq('LIST',optional($.linenum),optional(seq(choice('-',','),$.linenum))),
+			'LOAD', // cassette tape
+			seq('LIST',optional($.linenum),optional(seq(choice('-',','),optional($.linenum)))),
 			seq('LOMEM:',$._aexpr),
-			//'NEW',
+			'NEW',
 			seq('NEXT',optional(seq($._avar,repeat(seq(',',$._avar))))),
 			'NORMAL',
-			//'NOTRACE',
+			'NOTRACE',
 			seq('ON',$._aexpr,choice('GOTO','GOSUB'),$.linenum,repeat(seq(',',$.linenum))),
 			seq('ONERR','GOTO',$.linenum),
 			seq('PLOT',$._aexpr,',',$._aexpr),
 			seq('POKE',$._aexpr,',',$._aexpr),
 			'POP',
 			seq('PR#',$._aexpr),
-			// following differs from the reference, which seems to allow dropping the delimiter
-			seq('PRINT',optional($._expr),repeat(seq(choice(',',';'),$._expr)),optional(';')),
+			// the following differs from Ref. 2 in that we require the delimiter
+			seq('PRINT',optional($._expr),repeat(seq(choice(',',';'),$._expr)),optional(choice(',',';'))),
 			seq('READ',$._var,repeat(seq(',',$._var))),
-			seq('REM',repeat(CHARACTER)),
+			seq('RECALL',choice($.int_scalar,$.real_scalar)), // cassette tape, subscript omitted
+			seq('REM',/.*/),
 			'RESTORE',
 			'RESUME',
 			'RETURN',
 			seq('ROT=',$._aexpr),
-			//seq('RUN',optional(choice($.linenum,NAME))),
+			seq('RUN',optional($.linenum)),
+			'SAVE', // cassette tape
 			seq('SCALE=',$._aexpr),
+			'SHLOAD', // cassette tape
 			seq('SPEED=',$._aexpr),
 			'STOP',
+			seq('STORE',choice($.int_scalar,$.real_scalar)), // cassette tape, subscript omitted
 			'TEXT',
-			//'TRACE',
-			seq('USR','(',$._aexpr,')'),
+			'TRACE',
 			seq('VLIN',$._aexpr,',',$._aexpr,'AT',$._aexpr),
 			seq('VTAB',$._aexpr),
 			seq('WAIT',$._aexpr,',',$._aexpr,optional(seq(',',$._aexpr))),
@@ -129,9 +139,10 @@ module.exports = grammar({
 		),
 
 		// Numerical functions from Appendix A
+		// N.b. some have left parenthesis as part of the token
 
 		// following is the general fcall from Ref. 2 (not used)
-		//fcall: $=> seq(NAME,'(',repeat(seq($._expr,',')),$._expr,')'),
+		//fcall: $=> seq($._name,'(',repeat(seq($._expr,',')),$._expr,')'),
 		fcall: $ => choice(
 			seq('ABS','(',$._aexpr,')'),
 			seq('ASC','(',$._sexpr,')'),
@@ -147,26 +158,28 @@ module.exports = grammar({
 			seq('PEEK','(',$._aexpr,')'),
 			seq('POS','(',$._expr,')'),
 			seq('RND','(',$._aexpr,')'),
-			seq('SCRN','(',$._aexpr,',',$._aexpr,')'),
+			seq('SCRN(',$._aexpr,',',$._aexpr,')'),
 			seq('SGN','(',$._aexpr,')'),
 			seq('SIN','(',$._aexpr,')'),
 			seq('SQR','(',$._aexpr,')'),
 			seq('TAN','(',$._aexpr,')'),
+			seq('USR','(',$._aexpr,')'),
 			seq('VAL','(',$._sexpr,')')
 		),
 
 		// String functions from Appendix A
+		// N.b. some have left parenthesis as part of the token
 
 		// following is the general sfcall from Ref. 2 (not used)
-		//sfcall: $ => seq(NAME,'$','(',repeat(seq($._expr,',')),$._expr,')'),
+		//sfcall: $ => seq($._name,'$','(',repeat(seq($._expr,',')),$._expr,')'),
 		sfcall: $ => choice(
 			seq('CHR$','(',$._aexpr,')'),
 			seq('LEFT$','(',$._sexpr,',',$._aexpr,')'),
 			seq('MID$','(',$._sexpr,',',$._aexpr,optional(seq(',',$._aexpr)),')'),
 			seq('RIGHT$','(',$._sexpr,',',$._aexpr,')'),
-			seq('SPC','(',$._aexpr,')'),
+			seq('SPC(',$._aexpr,')'),
 			seq('STR$','(',$._aexpr,')'),
-			seq('TAB','(',$._aexpr,')')
+			seq('TAB(',$._aexpr,')')
 		),
 
 		// Program lines from Appendix B
@@ -230,23 +243,36 @@ module.exports = grammar({
 
 		// Variables from Appendix B
 
-		real_scalar: $ => token(prec(1,NAME)), // for interpretation, not in Ref. 2
 		_var: $ => choice($._avar,$.svar),
 		_avar: $ => choice($.realvar,$.intvar),
-		intvar: $ => seq(NAME,'%',optional($.subscript)),
-		realvar: $ => seq(NAME,optional($.subscript)),
-		svar: $ => seq(NAME,'$',optional($.subscript)),
+		intvar: $ => choice($._int_scalar,$._int_array),
+		realvar: $ => choice($._real_scalar,$._real_array),
+		svar: $ => choice($._string_scalar,$._string_array),
 		subscript: $ => seq('(',$._aexpr,repeat(seq(',',$._aexpr)),')'),
 		_dim_item: $ => choice($.intvar,$.realvar,$.svar),
 
 		// Literals from Appendix B
 
-		_data_item: $ => choice($.string,$.real,$.integer,$.literal),
+		_data_item: $ => choice($.string,$.real,$.integer,$.literal,$.real_data_item),
 		integer: $ => token(prec(1,INTEGER)),
 		// Unlike Ref. 2 the following disallows commas
 		// So far this has been needed to parse some forms of the DATA statement
 		literal: $ => token(prec(0,repeat1(DCHAR))),
 		real: $ => token(prec(1,choice(REAL_DOT,REAL_E))),
-		string: $ => token(prec(1,seq('"',repeat(SCHAR),'"')))
+		real_data_item: $ => token(prec(1,REAL_DATA)),
+		string: $ => token(prec(1,seq('"',repeat(SCHAR),'"'))),
+
+		// Items not in Appendix B added for convenience
+		// These are involved with the keyword exclusion scanner
+
+		_name: $ => seq($._ext_name,$._ext_name), // two stage external lexer
+		real_scalar: $ => $._name,
+		_real_scalar: $ => $._name,
+		int_scalar: $ => seq($._name,'%'),
+		_int_scalar: $ => seq($._name,'%'),
+		_string_scalar: $ => seq($._name,'$'),
+		_real_array: $ => seq($._name,$.subscript),
+		_int_array: $ => seq($._name,'%',$.subscript),
+		_string_array: $ => seq($._name,'$',$.subscript)
 	}
 });

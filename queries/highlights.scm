@@ -1,0 +1,2 @@
+(linenum) @comment
+(integer) @number

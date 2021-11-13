@@ -285,7 +285,7 @@
           "named": true
         },
         {
-          "type": "scrn_tok",
+          "type": "scrnp_tok",
           "named": true
         },
         {
@@ -321,11 +321,20 @@
           "named": true
         },
         {
+          "type": "usr_tok",
+          "named": true
+        },
+        {
           "type": "val_tok",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "int_scalar",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "intvar",
@@ -360,6 +369,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "real_scalar",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "realvar",
@@ -433,7 +447,7 @@
           "named": true
         },
         {
-          "type": "spc_tok",
+          "type": "spcp_tok",
           "named": true
         },
         {
@@ -449,7 +463,7 @@
           "named": true
         },
         {
-          "type": "tab_tok",
+          "type": "tabp_tok",
           "named": true
         },
         {
@@ -511,11 +525,19 @@
           "named": true
         },
         {
+          "type": "cont_tok",
+          "named": true
+        },
+        {
           "type": "data_tok",
           "named": true
         },
         {
           "type": "def_tok",
+          "named": true
+        },
+        {
+          "type": "del_tok",
           "named": true
         },
         {
@@ -611,6 +633,10 @@
           "named": true
         },
         {
+          "type": "int_scalar",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         },
@@ -627,11 +653,27 @@
           "named": true
         },
         {
+          "type": "list_tok",
+          "named": true
+        },
+        {
           "type": "literal",
           "named": true
         },
         {
+          "type": "load_tok",
+          "named": true
+        },
+        {
           "type": "lomem_tok",
+          "named": true
+        },
+        {
+          "type": "minus_tok",
+          "named": true
+        },
+        {
+          "type": "new_tok",
           "named": true
         },
         {
@@ -640,6 +682,10 @@
         },
         {
           "type": "normal_tok",
+          "named": true
+        },
+        {
+          "type": "notrace_tok",
           "named": true
         },
         {
@@ -679,11 +725,19 @@
           "named": true
         },
         {
+          "type": "real_data_item",
+          "named": true
+        },
+        {
           "type": "real_scalar",
           "named": true
         },
         {
           "type": "realvar",
+          "named": true
+        },
+        {
+          "type": "recall_tok",
           "named": true
         },
         {
@@ -707,11 +761,23 @@
           "named": true
         },
         {
+          "type": "run_tok",
+          "named": true
+        },
+        {
+          "type": "save_tok",
+          "named": true
+        },
+        {
           "type": "scaleeq_tok",
           "named": true
         },
         {
           "type": "sfcall",
+          "named": true
+        },
+        {
+          "type": "shload_tok",
           "named": true
         },
         {
@@ -728,6 +794,10 @@
         },
         {
           "type": "stop_tok",
+          "named": true
+        },
+        {
+          "type": "store_tok",
           "named": true
         },
         {
@@ -751,11 +821,11 @@
           "named": true
         },
         {
-          "type": "unary_aexpr",
+          "type": "trace_tok",
           "named": true
         },
         {
-          "type": "usr_tok",
+          "type": "unary_aexpr",
           "named": true
         },
         {
@@ -951,6 +1021,10 @@
     "named": true
   },
   {
+    "type": "cont_tok",
+    "named": true
+  },
+  {
     "type": "cos_tok",
     "named": true
   },
@@ -960,6 +1034,10 @@
   },
   {
     "type": "def_tok",
+    "named": true
+  },
+  {
+    "type": "del_tok",
     "named": true
   },
   {
@@ -1099,7 +1177,15 @@
     "named": true
   },
   {
+    "type": "list_tok",
+    "named": true
+  },
+  {
     "type": "literal",
+    "named": true
+  },
+  {
+    "type": "load_tok",
     "named": true
   },
   {
@@ -1119,6 +1205,10 @@
     "named": true
   },
   {
+    "type": "new_tok",
+    "named": true
+  },
+  {
     "type": "next_tok",
     "named": true
   },
@@ -1128,6 +1218,10 @@
   },
   {
     "type": "not_tok",
+    "named": true
+  },
+  {
+    "type": "notrace_tok",
     "named": true
   },
   {
@@ -1191,7 +1285,11 @@
     "named": true
   },
   {
-    "type": "real_scalar",
+    "type": "real_data_item",
+    "named": true
+  },
+  {
+    "type": "recall_tok",
     "named": true
   },
   {
@@ -1223,11 +1321,19 @@
     "named": true
   },
   {
+    "type": "run_tok",
+    "named": true
+  },
+  {
+    "type": "save_tok",
+    "named": true
+  },
+  {
     "type": "scaleeq_tok",
     "named": true
   },
   {
-    "type": "scrn_tok",
+    "type": "scrnp_tok",
     "named": true
   },
   {
@@ -1235,11 +1341,15 @@
     "named": true
   },
   {
+    "type": "shload_tok",
+    "named": true
+  },
+  {
     "type": "sin_tok",
     "named": true
   },
   {
-    "type": "spc_tok",
+    "type": "spcp_tok",
     "named": true
   },
   {
@@ -1259,6 +1369,10 @@
     "named": true
   },
   {
+    "type": "store_tok",
+    "named": true
+  },
+  {
     "type": "str_tok",
     "named": true
   },
@@ -1267,7 +1381,7 @@
     "named": true
   },
   {
-    "type": "tab_tok",
+    "type": "tabp_tok",
     "named": true
   },
   {
@@ -1288,6 +1402,10 @@
   },
   {
     "type": "to_tok",
+    "named": true
+  },
+  {
+    "type": "trace_tok",
     "named": true
   },
   {
