@@ -252,3 +252,38 @@ User Functions
 		(statement
 			(assignment
 				(realvar) (eq_tok) (fcall (fn_tok) (real_scalar) (integer) )))))
+
+
+===================
+Nested Expressions
+===================
+
+10 X = ((1-5.0)*FN CUB(ZA) + SQR(AB))/((1+5.0)*COS(X+Y)-(ZB+A*B))
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement
+			(assignment
+				(realvar) (eq_tok)
+				(binary_aexpr
+					(binary_aexpr
+						(binary_aexpr
+							(binary_aexpr (integer) (minus_tok) (real))
+							(times_tok)
+							(fcall (fn_tok) (real_scalar) (realvar)))
+						(plus_tok)
+						(fcall (sqr_tok) (realvar)))
+					(div_tok)
+					(binary_aexpr
+						(binary_aexpr
+							(binary_aexpr (integer) (plus_tok) (real))
+							(times_tok)
+							(fcall (cos_tok) (binary_aexpr (realvar) (plus_tok) (realvar))))
+						(minus_tok)
+						(binary_aexpr
+							(realvar)
+							(plus_tok)
+							(binary_aexpr (realvar) (times_tok) (realvar)))))))))

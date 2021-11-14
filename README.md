@@ -8,33 +8,31 @@ Once the parser is built, it can be used from within several languages, includin
 Current Status
 --------------
 
-A full set of tests (see `test/corpus`) are working.  The tests cover all statements and functions, including various syntax variations.  Emulation is getting close, but still not perfect (see below).
+A full set of tests (see `test/corpus`) are passing.  The tests cover all statements and functions, many syntax variations, and emulation behaviors.
 
 Emulation
 ---------
 
-This parser is meant to emulate the behavior of the Apple II ROM (A2ROM), including its pathologies, but with more helpful error detection.  The tests in `test/corpus/emulation.txt` illustrate some of these cases.  For example,
+This parser is intended to emulate the behavior of the Apple II ROM interpreter (A2ROM).  The emulation rules are:
+
+1. If the A2ROM would execute a statement without a `SYNTAX ERROR`, it is valid.
+2. If the A2ROM would execute a statement with a `SYNTAX ERROR`, it is invalid.
+3. If a statement is valid, `tree-sitter-applesoft` must resolve it according to the syntax defined in Ref. 2.
+4. If a statement is invalid, `tree-sitter-applesoft` must produce an error.
+5. Error identification must be accurate to within a line (we will usually do much better)
+
+Here are a few cases showing how `tree-sitter-applesoft` emulates the pathologies of the A2ROM:
 
 ```bas
-100 IF B = A THEN 100
+10 FOR A = LOFT OR LEFT TO 15
+11 REM ERR: parsed as FOR A = LOF TO RLEFT TO 15
+
+20 IF B = A THEN 100
+21 REM ERR: parsed as IF B = AT H E N 1 00
+
+30 FOR I = A TO B
+31 REM OK, the hidden AT is not tokenized
 ```
-
-produces a syntax error because of the `AT` token (`A THEN` becomes `AT HEN`), just as the A2ROM would.  On the other hand, `tree-sitter-applesoft` also produce a syntax error for
-
-```bas
-100 FOR I = A TO B
-```
-
-whereas the A2ROM would not.
-
-At present, the `PRINT` statement is also not precisely emulated.  The A2ROM would interpret the following two lines as the same statement:
-
-```bas
-100 PRINT A$ B$
-110 PRINT A$;B$
-```
-
-In contrast `tree-sitter-applesoft` considers the first form a syntax error.
 
 Tasks
 -------
@@ -45,3 +43,9 @@ This parser can serve a variety of purposes, such as checking for syntax errors 
 * Syntax highlights for the Atom editor
 * Python wrapper for error-checking BASIC programs on a modern system
 * Higher level BASIC abstraction language - "Applesoft metaBASIC" (tentative)
+
+References
+-----------
+
+1. [Applesoft BASIC Programmer's Reference Manual - Volume 1](https://www.apple.asimov.net/documentation/programming/basic/49163042-Apple-II-Applesoft-BASIC-Programmer-s-Reference-Manual-Volume-1.pdf)
+2. [Applesoft BASIC Programmer's Reference Manual - Volume 2](https://www.apple.asimov.net/documentation/programming/basic/49163108-Apple-II-Applesoft-BASIC-Programmer-s-Reference-Manual-Volume-2.pdf)

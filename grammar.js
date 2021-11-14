@@ -217,7 +217,7 @@ module.exports = grammar({
 			$.pop_tok,
 			seq($.prn_tok,$._aexpr),
 			// the following differs from Ref. 2 in that we require the delimiter
-			seq($.print_tok,optional($._expr),repeat(seq(choice(',',';'),$._expr)),optional(choice(',',';'))),
+			seq($.print_tok,repeat(seq($._expr,optional(choice(',',';'))))),
 			seq($.read_tok,$._var,repeat(seq(',',$._var))),
 			seq($.recall_tok,choice($.int_scalar,$.real_scalar)), // cassette tape, subscript omitted
 			seq($.rem_tok,/.*/),
@@ -378,8 +378,8 @@ module.exports = grammar({
 		int_scalar: $ => seq($._name,'%'),
 		_int_scalar: $ => seq($._name,'%'),
 		_string_scalar: $ => seq($._name,'$'),
-		_real_array: $ => seq($._name,$.subscript),
-		_int_array: $ => seq($._name,'%',$.subscript),
-		_string_array: $ => seq($._name,'$',$.subscript)
+		_real_array: $ => prec(1,seq($._name,$.subscript)),
+		_int_array: $ => prec(1,seq($._name,'%',$.subscript)),
+		_string_array: $ => prec(1,seq($._name,'$',$.subscript))
 	}
 });

@@ -87,11 +87,12 @@ def tok_ts_seq(tok):
         ans = "'" + t + "'"
     return ans
 
-# Build some C++-code for the scanner
+# Build some C++-code for the external scanner
+# N.b. `AT` token requires special handling
 
 scanner_code = ''
 for t in rules:
-    if len(t)>1:
+    if len(t)>1 and t!='AT':
         scanner_code += '    exclusions.push_back(exclusion("'+t+'",'+str(len(t))+'));\n'
 
 # Modify the scanner
@@ -111,8 +112,9 @@ for t in rules:
     # ATN cannot have space between T and N
     if t=='ATN':
         rule_value = '/A *TN/'
-    # TO cannot have space if there is an A preceding
-    # Maybe need an external scanner for this one - ingore for now
+    # AT and TO resolution: /A *TO/ = (A)(TO) ; /A *T +O/ = (AT)(O)
+    # Handle this by consuming the A (or not) as NAME in the external scanner.
+    # Hence nothing to do here.
     token_rule_string += '\t\t\t' + rules[t] + ': $ => '+rule_value+',\n'
 
 # Create the grammar from the working file

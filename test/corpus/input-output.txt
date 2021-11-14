@@ -107,6 +107,7 @@ Print
 
 10 PRINT TAB(M);"*";TAB(M+N);A$+B$;TAB(M+N+N);X-Y;: PRINT: PRINT
 20 PRINT A,B,C
+30 PRINT A$B$ TAB(4) C$;
 
 ---
 
@@ -124,7 +125,10 @@ Print
 		(statement (print_tok)))
 	(line
 	 (linenum)
-	 (statement (print_tok) (realvar) (realvar) (realvar))))
+	 (statement (print_tok) (realvar) (realvar) (realvar)))
+	(line
+	 (linenum)
+	 (statement (print_tok) (svar) (svar) (sfcall (tabp_tok) (integer)) (svar))))
 
 ===================
 Formatting
