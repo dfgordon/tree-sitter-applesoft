@@ -1,6 +1,6 @@
 [package]
 name = "tree-sitter-applesoft"
-description = "Applesoft grammar for the tree-sitter parsing library"
+description = "applesoft grammar for the tree-sitter parsing library"
 version = "0.0.1"
 keywords = ["incremental", "parsing", "applesoft"]
 categories = ["parsing", "text-editors"]
