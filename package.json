@@ -21,9 +21,6 @@
     "url": "https://github.com/dfgordon/tree-sitter-applesoft/issues"
   },
   "homepage": "https://github.com/dfgordon/tree-sitter-applesoft#readme",
-  "dependencies": {
-    "nan": "^2.15.0"
-  },
   "tree-sitter": [
     {
       "scope": "source.bas",
@@ -35,5 +32,8 @@
   ],
   "devDependencies": {
     "tree-sitter-cli": "^0.20.0"
+  },
+  "dependencies": {
+    "nan": "^2.14.2"
   }
 }

@@ -1,6 +1,7 @@
 test
+examples
 build
 script
-examples
-*.log
+.travis.yml
+.gitattributes
 target

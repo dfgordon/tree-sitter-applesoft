@@ -97,7 +97,7 @@ for t in rules:
 
 # Modify the scanner
 
-with open('src/scanner-src.cc','r') as f:
+with open('scanner-src.cc','r') as f:
     scanner = f.read()
     scanner = scanner.replace('// Build exclusions - DO NOT EDIT line',scanner_code)
 with open('src/scanner.cc','w') as f:
