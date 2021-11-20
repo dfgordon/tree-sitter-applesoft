@@ -70,7 +70,7 @@ module.exports = grammar({
 			seq('COLOR=',$._aexpr),
 			'CONT',
 			seq('DATA',$._data_item,repeat(seq(',',$._data_item))),
-			seq('DEF','FN',$.real_scalar,'(',$.real_scalar,')','=',$._aexpr),
+			seq('DEF','FN',$.fn_name,'(',$.real_scalar,')','=',$._aexpr),
 			seq('DEL',$.linenum,',',$.linenum),
 			seq('DIM',$._dim_item,repeat(seq(',',$._dim_item))),
 			seq('DRAW',$._aexpr,optional(seq('AT',$._aexpr,',',$._aexpr))),
@@ -113,7 +113,7 @@ module.exports = grammar({
 			seq('PRINT',repeat(seq($._expr,optional(choice(',',';'))))),
 			seq('READ',$._var,repeat(seq(',',$._var))),
 			seq('RECALL',choice($.int_scalar,$.real_scalar)), // cassette tape, subscript omitted
-			seq('REM',/.*/),
+			seq('REM',optional($.comment_text)),
 			'RESTORE',
 			'RESUME',
 			'RETURN',
@@ -133,6 +133,8 @@ module.exports = grammar({
 			seq('XDRAW',$._aexpr,optional(seq('AT',$._aexpr,',',$._aexpr)))
 		),
 
+		comment_text: $ => /.+/,
+
 		assignment: $ => choice(
 			seq(optional('LET'),$._avar,'=',$._aexpr),
 			seq(optional('LET'),$.svar,'=',$._sexpr)
@@ -149,7 +151,7 @@ module.exports = grammar({
 			seq('ATN','(',$._aexpr,')'),
 			seq('COS','(',$._aexpr,')'),
 			seq('EXP','(',$._aexpr,')'),
-			seq('FN',$.real_scalar,'(',$._aexpr,')'),
+			seq('FN',$.fn_name,'(',$._aexpr,')'),
 			seq('FRE','(',$._expr,')'),
 			seq('INT','(',$._aexpr,')'),
 			seq('LEN','(',$._sexpr,')'),
@@ -263,9 +265,10 @@ module.exports = grammar({
 		string: $ => token(prec(1,seq('"',repeat(SCHAR),'"'))),
 
 		// Items not in Appendix B added for convenience
-		// These are involved with the keyword exclusion scanner
+		// These are involved with the keyword exclusion scanner or highlights
 
 		_name: $ => seq($._ext_name,$._ext_name), // two stage external lexer
+		fn_name: $ => $._name,
 		real_scalar: $ => $._name,
 		_real_scalar: $ => $._name,
 		int_scalar: $ => seq($._name,'%'),

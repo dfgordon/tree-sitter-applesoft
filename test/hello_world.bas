@@ -1,2 +1,1 @@
-10 REM Hello World example
-20 PRINT "Hello World!"
+10 PRINT "Hello World!"

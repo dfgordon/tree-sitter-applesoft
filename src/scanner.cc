@@ -223,13 +223,13 @@ struct Scanner
 
   bool is_alphanumeric(int32_t c)
   {
-    return c >= 65 && c <= 90 || c >= 48 && c <= 57;
+    return (c >= 65 && c <= 90) || (c >= 48 && c <= 57);
   }
 
   unsigned serialize(char *buffer)
   {
     char *src = (char*)&id_end;
-    for (int i=0;i<sizeof(id_end);i++)
+    for (unsigned i=0;i<sizeof(id_end);i++)
       buffer[i] = src[i];
     return sizeof(id_end);
   }
@@ -243,7 +243,7 @@ struct Scanner
     if (length==sizeof(id_end))
     {
       char *dst = (char*)&id_end;
-      for (int i=0;i<sizeof(id_end);i++)
+      for (unsigned i=0;i<sizeof(id_end);i++)
         dst[i] = buffer[i];
     }
   }
@@ -270,7 +270,7 @@ struct Scanner
       for (auto & excl : exclusions)
         excl.next(c,tot_pos);
       at_excl.next(c,tot_pos);
-      identifier_matching = (id_pos==0 && is_alpha(c) || id_pos>0 && is_alphanumeric(c) || c==' ');
+      identifier_matching = ((id_pos==0 && is_alpha(c)) || (id_pos>0 && is_alphanumeric(c)) || c==' ');
       if (identifier_matching)
       {
         lexer->advance(lexer,false);

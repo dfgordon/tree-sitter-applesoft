@@ -177,7 +177,7 @@ module.exports = grammar({
 			seq($.coloreq_tok,$._aexpr),
 			$.cont_tok,
 			seq($.data_tok,$._data_item,repeat(seq(',',$._data_item))),
-			seq($.def_tok,$.fn_tok,$.real_scalar,'(',$.real_scalar,')',$.eq_tok,$._aexpr),
+			seq($.def_tok,$.fn_tok,$.fn_name,'(',$.real_scalar,')',$.eq_tok,$._aexpr),
 			seq($.del_tok,$.linenum,',',$.linenum),
 			seq($.dim_tok,$._dim_item,repeat(seq(',',$._dim_item))),
 			seq($.draw_tok,$._aexpr,optional(seq($.at_tok,$._aexpr,',',$._aexpr))),
@@ -220,7 +220,7 @@ module.exports = grammar({
 			seq($.print_tok,repeat(seq($._expr,optional(choice(',',';'))))),
 			seq($.read_tok,$._var,repeat(seq(',',$._var))),
 			seq($.recall_tok,choice($.int_scalar,$.real_scalar)), // cassette tape, subscript omitted
-			seq($.rem_tok,/.*/),
+			seq($.rem_tok,optional($.comment_text)),
 			$.restore_tok,
 			$.resume_tok,
 			$.return_tok,
@@ -240,6 +240,8 @@ module.exports = grammar({
 			seq($.xdraw_tok,$._aexpr,optional(seq($.at_tok,$._aexpr,',',$._aexpr)))
 		),
 
+		comment_text: $ => /.+/,
+
 		assignment: $ => choice(
 			seq(optional($.let_tok),$._avar,$.eq_tok,$._aexpr),
 			seq(optional($.let_tok),$.svar,$.eq_tok,$._sexpr)
@@ -256,7 +258,7 @@ module.exports = grammar({
 			seq($.atn_tok,'(',$._aexpr,')'),
 			seq($.cos_tok,'(',$._aexpr,')'),
 			seq($.exp_tok,'(',$._aexpr,')'),
-			seq($.fn_tok,$.real_scalar,'(',$._aexpr,')'),
+			seq($.fn_tok,$.fn_name,'(',$._aexpr,')'),
 			seq($.fre_tok,'(',$._expr,')'),
 			seq($.int_tok,'(',$._aexpr,')'),
 			seq($.len_tok,'(',$._sexpr,')'),
@@ -370,9 +372,10 @@ module.exports = grammar({
 		string: $ => token(prec(1,seq('"',repeat(SCHAR),'"'))),
 
 		// Items not in Appendix B added for convenience
-		// These are involved with the keyword exclusion scanner
+		// These are involved with the keyword exclusion scanner or highlights
 
 		_name: $ => seq($._ext_name,$._ext_name), // two stage external lexer
+		fn_name: $ => $._name,
 		real_scalar: $ => $._name,
 		_real_scalar: $ => $._name,
 		int_scalar: $ => seq($._name,'%'),

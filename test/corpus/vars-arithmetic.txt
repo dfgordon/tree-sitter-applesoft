@@ -246,12 +246,12 @@ User Functions
 	(line
 		(linenum)
 		(statement
-			(def_tok) (fn_tok) (real_scalar) (real_scalar) (eq_tok) (binary_aexpr (realvar) (pow_tok) (integer))))
+			(def_tok) (fn_tok) (fn_name) (real_scalar) (eq_tok) (binary_aexpr (realvar) (pow_tok) (integer))))
 	(line
 		(linenum)
 		(statement
 			(assignment
-				(realvar) (eq_tok) (fcall (fn_tok) (real_scalar) (integer) )))))
+				(realvar) (eq_tok) (fcall (fn_tok) (fn_name) (integer) )))))
 
 
 ===================
@@ -273,7 +273,7 @@ Nested Expressions
 						(binary_aexpr
 							(binary_aexpr (integer) (minus_tok) (real))
 							(times_tok)
-							(fcall (fn_tok) (real_scalar) (realvar)))
+							(fcall (fn_tok) (fn_name) (realvar)))
 						(plus_tok)
 						(fcall (sqr_tok) (realvar)))
 					(div_tok)

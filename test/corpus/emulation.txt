@@ -13,14 +13,14 @@ Hidden token 1
 		(statement
 			(for_tok) (real_scalar) (eq_tok) (binary_aexpr (realvar) (or_tok) (realvar)) (to_tok) (integer))
 		(statement
-			(rem_tok)))
+			(rem_tok) (comment_text)))
 	(line
 		(linenum)
 		(statement
 			(for_tok) (real_scalar) (eq_tok) (realvar) (to_tok) (realvar))
 		(ERROR (to_tok) (integer))
 		(statement
-			(rem_tok))))
+			(rem_tok) (comment_text))))
 
 ===================
 Hidden token 2
@@ -37,7 +37,7 @@ Hidden token 2
 		(statement
 			(if_tok) (binary_aexpr (realvar) (eq_tok) (realvar)) (then_tok) (linenum))
 		(statement
-			(rem_tok)))
+			(rem_tok) (comment_text)))
 	(line
 		(linenum)
 		(ERROR (if_tok)
@@ -47,7 +47,7 @@ Hidden token 2
 				(ERROR (at_tok) (UNEXPECTED 'E') (real_data_item) (UNEXPECTED '1'))
 			(integer)))
 		(statement
-			(rem_tok))))
+			(rem_tok) (comment_text))))
 
 ===================
 Disjoint tokens
@@ -88,13 +88,13 @@ AT and ATN
 		(statement
 			(hlin_tok) (integer) (fcall (atn_tok) (realvar)) (at_tok) (integer))
 		(statement
-			(rem_tok)))
+			(rem_tok) (comment_text)))
 	(line
 		(linenum)
 		(statement
 			(hlin_tok) (integer) (ERROR (at_tok)) (realvar (subscript (realvar))) (at_tok) (integer))
 		(statement
-			(rem_tok))))
+			(rem_tok) (comment_text))))
 
 ===================
 AT and TO
@@ -111,10 +111,10 @@ AT and TO
 		(statement
 			(for_tok) (real_scalar) (eq_tok) (realvar) (to_tok) (realvar))
 		(statement
-			(rem_tok)))
+			(rem_tok) (comment_text)))
 	(line
 		(linenum)
 		(statement
 			(for_tok) (real_scalar) (eq_tok) (realvar) (to_tok) (realvar))
 		(statement
-			(rem_tok))))
+			(rem_tok) (comment_text))))

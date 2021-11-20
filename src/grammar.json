@@ -528,7 +528,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "real_scalar"
+              "name": "fn_name"
             },
             {
               "type": "STRING",
@@ -1381,8 +1381,16 @@
               "name": "rem_tok"
             },
             {
-              "type": "PATTERN",
-              "value": ".*"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "comment_text"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
             }
           ]
         },
@@ -1628,6 +1636,10 @@
         }
       ]
     },
+    "comment_text": {
+      "type": "PATTERN",
+      "value": ".+"
+    },
     "assignment": {
       "type": "CHOICE",
       "members": [
@@ -1808,7 +1820,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "real_scalar"
+              "name": "fn_name"
             },
             {
               "type": "STRING",
@@ -3057,6 +3069,10 @@
           "name": "_ext_name"
         }
       ]
+    },
+    "fn_name": {
+      "type": "SYMBOL",
+      "name": "_name"
     },
     "real_scalar": {
       "type": "SYMBOL",

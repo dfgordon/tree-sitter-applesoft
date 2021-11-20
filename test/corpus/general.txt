@@ -23,7 +23,7 @@ Remark
 (source_file
 	(line
 		(linenum)
-		(statement (rem_tok)))
+		(statement (rem_tok) (comment_text)))
 	(line
 		(linenum)
 		(statement (print_tok) (string))))
