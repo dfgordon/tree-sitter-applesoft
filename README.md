@@ -1,48 +1,51 @@
 Parser for Applesoft BASIC
 ==========================
 
-This is a comprehensive language description and fast parser for Applesoft BASIC built using the [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) system.  The system auto-builds a C-language parser based on a language description contained in the file `grammar.js`.  Tree-sitter uses [Node.js](https://nodejs.org/en/) to build the parser.
+This is a comprehensive language description and fast parser for Applesoft BASIC built using the [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) system.  The system auto-builds a C-language parser based on a language description contained in the file `grammar.js`.
 
 Once the parser is built, it can be used from within several languages, including Python, Rust, Node.js, and others.
 
-Current Status
---------------
+Syntax Highlights
+-----------------
 
-A full set of tests (see `test/corpus`) are passing.  The tests cover all statements and functions, many syntax variations, and emulation behaviors.
+You can easily highlight files in [Atom](https://atom.io), see [atom-language-applesoft](https://github.com/dfgordon/atom-language-applesoft).  The parser itself can also highlight a file.
+
+Parsing Files
+-------------
+
+A simple way to parse a file, e.g., to error check it, is with [Node.js](https://nodejs.org/en/). The following has been tested with node 12.14.1.  First install the following modules by navigating to your node project folder and typing:
+```
+npm install tree-sitter@0.17
+npm install tree-sitter-applesoft
+```
+Then enter and run the following program (with deliberate error in the BASIC):
+```js
+const Parser = require('tree-sitter');
+const Applesoft = require('tree-sitter-applesoft');
+const parser = new Parser();
+parser.setLanguage(Applesoft);
+const basicCode = '10 PR#INT "HELLO WORLD!"\n';
+const tree = parser.parse(basicCode);
+console.log(tree.rootNode.toString());
+```
+This should print the syntax tree
+```
+(source_file (ERROR (linenum) (prn_tok) (ERROR (int_tok)) (string)))
+```
+Here, the parser tries to interpret the line of code as starting with the `PR#` token, which in turn leads to the `INT` token.
+
+For more on parsing with node, see the general guidance on [node-tree-sitter](https://github.com/tree-sitter/node-tree-sitter).
 
 Emulation
 ---------
 
-This parser is intended to emulate the behavior of the Apple II ROM interpreter (A2ROM).  The emulation rules are:
+This parser is intended to emulate the behavior of the Apple II ROM interpreter (A2ROM), including peculiarities arising from the tokenization of reserved words.  The emulation rules are:
 
 1. If the A2ROM would execute a statement without a `SYNTAX ERROR`, it is valid.
 2. If the A2ROM would execute a statement with a `SYNTAX ERROR`, it is invalid.
 3. If a statement is valid, `tree-sitter-applesoft` must resolve it according to the syntax defined in Ref. 2.
 4. If a statement is invalid, `tree-sitter-applesoft` must produce an error.
 5. Error identification must be accurate to within a line (we will usually do much better)
-
-Here are a few cases showing how `tree-sitter-applesoft` emulates the pathologies of the A2ROM:
-
-```bas
-10 FOR A = LOFT OR LEFT TO 15
-11 REM ERR: parsed as FOR A = LOF TO RLEFT TO 15
-
-20 IF B = A THEN 100
-21 REM ERR: parsed as IF B = AT H E N 1 00
-
-30 FOR I = A TO B
-31 REM OK, the hidden AT is not tokenized
-```
-
-Tasks
--------
-
-This parser can serve a variety of purposes, such as checking for syntax errors on a modern computer.  Further development envisioned here includes
-
-* Publish the working parser on `npm`
-* Syntax highlights for the Atom editor
-* Python wrapper for error-checking BASIC programs on a modern system
-* Higher level BASIC abstraction language - "Applesoft metaBASIC" (tentative)
 
 References
 -----------
