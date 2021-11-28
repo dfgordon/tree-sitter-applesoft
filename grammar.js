@@ -216,7 +216,6 @@ module.exports = grammar({
 			seq($.poke_tok,$._aexpr,',',$._aexpr),
 			$.pop_tok,
 			seq($.prn_tok,$._aexpr),
-			// the following differs from Ref. 2 in that we require the delimiter
 			seq($.print_tok,repeat(seq($._expr,optional(choice(',',';'))))),
 			seq($.read_tok,$._var,repeat(seq(',',$._var))),
 			seq($.recall_tok,choice($.int_scalar,$.real_scalar)), // cassette tape, subscript omitted

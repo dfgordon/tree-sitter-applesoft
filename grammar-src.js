@@ -109,7 +109,6 @@ module.exports = grammar({
 			seq('POKE',$._aexpr,',',$._aexpr),
 			'POP',
 			seq('PR#',$._aexpr),
-			// the following differs from Ref. 2 in that we require the delimiter
 			seq('PRINT',repeat(seq($._expr,optional(choice(',',';'))))),
 			seq('READ',$._var,repeat(seq(',',$._var))),
 			seq('RECALL',choice($.int_scalar,$.real_scalar)), // cassette tape, subscript omitted
