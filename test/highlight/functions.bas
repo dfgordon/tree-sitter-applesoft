@@ -1,4 +1,7 @@
 10 DEF FN CUB(X1) = X1^3
+11 REM ^ keyword.builtin
+12 REM    ^ function
+13 REM        ^ variable
 20 Y = ABS(X)
 30 Y = ASC(X)
 40 Y = ATN(X)
@@ -6,6 +9,7 @@
 60 Y = EXP(X)
 70 Y = FN CUB(X)
 80 Y = FRE(0)
+81 REM     ^ number
 90 Y = INT(X)
 100 Y = LEN(A$)
 110 Y = LOG(X)

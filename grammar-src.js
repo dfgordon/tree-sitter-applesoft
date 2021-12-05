@@ -185,8 +185,8 @@ module.exports = grammar({
 
 		// Program lines from Appendix B
 
-		line: $ => seq($.linenum,repeat(seq($.statement,':')),$.statement,'\n'),
-		_empty_line: $ => /\n/, // Would not exist on real Apple II
+		line: $ => seq($.linenum,repeat(seq($.statement,':')),$.statement,choice('\n','\r\n')),
+		_empty_line: $ => /\r\n|\n/, // Would not exist on real Apple II
 		linenum: $ => / *[0-9][0-9 ]*/,
 
 		// Expressions from Appendix B

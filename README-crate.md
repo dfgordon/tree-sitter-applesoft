@@ -16,7 +16,7 @@ fn main() {
     let code = "10 GOTO 10\n";
     let mut parser = tree_sitter::Parser::new();
     parser.set_language(tree_sitter_applesoft::language())
-      .expect("Error loading appelsoft grammar");
+      .expect("Error loading Applesoft grammar");
     let tree = parser.parse(code,None).unwrap();
 
     println!("{}",tree.root_node().to_sexp());

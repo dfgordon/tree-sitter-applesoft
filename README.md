@@ -1,14 +1,20 @@
 Parser for Applesoft BASIC
 ==========================
 
-This is a comprehensive language description and fast parser for Applesoft BASIC built using the [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) system.  The system auto-builds a C-language parser based on a language description contained in the file `grammar.js`.
+This is a comprehensive language description and fast parser for Applesoft BASIC built using the [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) system.  The system auto-builds a C-language parser based on a language description contained in the file `grammar.js`.  Bindings are available for several languages.  The following pre-built packages are available:
 
-Once the parser is built, it can be used from within several languages, including Python, Rust, Node.js, and others.
+* [Parsing Applesoft with JavaScript](https://www.npmjs.com/package/tree-sitter-applesoft)
+* [Parsing Applesoft with Rust](https://crates.io/crates/tree-sitter-applesoft)
 
 Syntax Highlights
 -----------------
 
-You can easily highlight files in [Atom](https://atom.io), see [atom-language-applesoft](https://github.com/dfgordon/atom-language-applesoft).  The parser itself can also highlight a file.
+Language extensions are available for highlighting in the following editors:
+
+* [Atom](https://atom.io), see [atom-language-applesoft](https://github.com/dfgordon/atom-language-applesoft)
+* [Code](https://code.visualstudio.com/), see [vscode-language-applesoft](https://github.com/dfgordon/vscode-language-applesoft)
+
+The Tree-sitter command line interface can also highlight a file, see [Tree-sitter highlighting](https://tree-sitter.github.io/tree-sitter/syntax-highlighting).
 
 Parsing Files
 -------------
@@ -18,7 +24,7 @@ A simple way to parse a file, e.g., to error check it, is with [Node.js](https:/
 npm install tree-sitter@0.17
 npm install tree-sitter-applesoft
 ```
-Then enter and run the following program (with deliberate error in the BASIC):
+Here is a short test program (with deliberate error in the BASIC):
 ```js
 const Parser = require('tree-sitter');
 const Applesoft = require('tree-sitter-applesoft');

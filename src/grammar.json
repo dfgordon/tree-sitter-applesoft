@@ -2374,14 +2374,23 @@
           "name": "statement"
         },
         {
-          "type": "STRING",
-          "value": "\n"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "\n"
+            },
+            {
+              "type": "STRING",
+              "value": "\r\n"
+            }
+          ]
         }
       ]
     },
     "_empty_line": {
       "type": "PATTERN",
-      "value": "\\n"
+      "value": "\\r\\n|\\n"
     },
     "linenum": {
       "type": "PATTERN",

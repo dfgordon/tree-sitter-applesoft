@@ -9,3 +9,5 @@
 200 X = 3.14159
 210 DEF FN CUB(X1) = X1^3
 220 PRINT FN CUB(ATN(SIN(X)+COS(X))): RETURN
+221 REM      ^ function
+222 REM          ^ function.builtin
