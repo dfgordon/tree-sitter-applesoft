@@ -19,9 +19,9 @@ The Tree-sitter command line interface can also highlight a file, see [Tree-sitt
 Parsing Files
 -------------
 
-A simple way to parse a file, e.g., to error check it, is with [Node.js](https://nodejs.org/en/). The following has been tested with node 12.14.1.  First install the following modules by navigating to your node project folder and typing:
+A simple way to parse a file, e.g., to error check it, is with [Node.js](https://nodejs.org/en/). The following has been tested with node 14.16.0.  First install the necessary modules by navigating to your node project folder and typing:
 ```
-npm install tree-sitter@0.17
+npm install tree-sitter
 npm install tree-sitter-applesoft
 ```
 Here is a short test program (with deliberate error in the BASIC):
@@ -34,11 +34,11 @@ const basicCode = '10 PR#INT "HELLO WORLD!"\n';
 const tree = parser.parse(basicCode);
 console.log(tree.rootNode.toString());
 ```
-This should print the syntax tree
+Save this as `test.js`, then type `node test.js`.  This should output the syntax tree
 ```
 (source_file (ERROR (linenum) (prn_tok) (ERROR (int_tok)) (string)))
 ```
-Here, the parser tries to interpret the line of code as starting with the `PR#` token, which in turn leads to the `INT` token.
+Here, the parser must interpret the erroneous line of code as starting with the `PR#` token, which in turn leads to the `INT` token.
 
 For more on parsing with node, see the general guidance on [node-tree-sitter](https://github.com/tree-sitter/node-tree-sitter).
 
