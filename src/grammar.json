@@ -19,191 +19,191 @@
     },
     "end_tok": {
       "type": "PATTERN",
-      "value": "E *N *D"
+      "value": "[Ee] *[Nn] *[Dd]"
     },
     "for_tok": {
       "type": "PATTERN",
-      "value": "F *O *R"
+      "value": "[Ff] *[Oo] *[Rr]"
     },
     "next_tok": {
       "type": "PATTERN",
-      "value": "N *E *X *T"
+      "value": "[Nn] *[Ee] *[Xx] *[Tt]"
     },
     "data_tok": {
       "type": "PATTERN",
-      "value": "D *A *T *A"
+      "value": "[Dd] *[Aa] *[Tt] *[Aa]"
     },
     "input_tok": {
       "type": "PATTERN",
-      "value": "I *N *P *U *T"
+      "value": "[Ii] *[Nn] *[Pp] *[Uu] *[Tt]"
     },
     "del_tok": {
       "type": "PATTERN",
-      "value": "D *E *L"
+      "value": "[Dd] *[Ee] *[Ll]"
     },
     "dim_tok": {
       "type": "PATTERN",
-      "value": "D *I *M"
+      "value": "[Dd] *[Ii] *[Mm]"
     },
     "read_tok": {
       "type": "PATTERN",
-      "value": "R *E *A *D"
+      "value": "[Rr] *[Ee] *[Aa] *[Dd]"
     },
     "gr_tok": {
       "type": "PATTERN",
-      "value": "G *R"
+      "value": "[Gg] *[Rr]"
     },
     "text_tok": {
       "type": "PATTERN",
-      "value": "T *E *X *T"
+      "value": "[Tt] *[Ee] *[Xx] *[Tt]"
     },
     "prn_tok": {
       "type": "PATTERN",
-      "value": "P *R *#"
+      "value": "[Pp] *[Rr] *[##]"
     },
     "inn_tok": {
       "type": "PATTERN",
-      "value": "I *N *#"
+      "value": "[Ii] *[Nn] *[##]"
     },
     "call_tok": {
       "type": "PATTERN",
-      "value": "C *A *L *L"
+      "value": "[Cc] *[Aa] *[Ll] *[Ll]"
     },
     "plot_tok": {
       "type": "PATTERN",
-      "value": "P *L *O *T"
+      "value": "[Pp] *[Ll] *[Oo] *[Tt]"
     },
     "hlin_tok": {
       "type": "PATTERN",
-      "value": "H *L *I *N"
+      "value": "[Hh] *[Ll] *[Ii] *[Nn]"
     },
     "vlin_tok": {
       "type": "PATTERN",
-      "value": "V *L *I *N"
+      "value": "[Vv] *[Ll] *[Ii] *[Nn]"
     },
     "hgr2_tok": {
       "type": "PATTERN",
-      "value": "H *G *R *2"
+      "value": "[Hh] *[Gg] *[Rr] *[22]"
     },
     "hgr_tok": {
       "type": "PATTERN",
-      "value": "H *G *R"
+      "value": "[Hh] *[Gg] *[Rr]"
     },
     "hcoloreq_tok": {
       "type": "PATTERN",
-      "value": "H *C *O *L *O *R *="
+      "value": "[Hh] *[Cc] *[Oo] *[Ll] *[Oo] *[Rr] *[==]"
     },
     "hplot_tok": {
       "type": "PATTERN",
-      "value": "H *P *L *O *T"
+      "value": "[Hh] *[Pp] *[Ll] *[Oo] *[Tt]"
     },
     "draw_tok": {
       "type": "PATTERN",
-      "value": "D *R *A *W"
+      "value": "[Dd] *[Rr] *[Aa] *[Ww]"
     },
     "xdraw_tok": {
       "type": "PATTERN",
-      "value": "X *D *R *A *W"
+      "value": "[Xx] *[Dd] *[Rr] *[Aa] *[Ww]"
     },
     "htab_tok": {
       "type": "PATTERN",
-      "value": "H *T *A *B"
+      "value": "[Hh] *[Tt] *[Aa] *[Bb]"
     },
     "home_tok": {
       "type": "PATTERN",
-      "value": "H *O *M *E"
+      "value": "[Hh] *[Oo] *[Mm] *[Ee]"
     },
     "roteq_tok": {
       "type": "PATTERN",
-      "value": "R *O *T *="
+      "value": "[Rr] *[Oo] *[Tt] *[==]"
     },
     "scaleeq_tok": {
       "type": "PATTERN",
-      "value": "S *C *A *L *E *="
+      "value": "[Ss] *[Cc] *[Aa] *[Ll] *[Ee] *[==]"
     },
     "shload_tok": {
       "type": "PATTERN",
-      "value": "S *H *L *O *A *D"
+      "value": "[Ss] *[Hh] *[Ll] *[Oo] *[Aa] *[Dd]"
     },
     "trace_tok": {
       "type": "PATTERN",
-      "value": "T *R *A *C *E"
+      "value": "[Tt] *[Rr] *[Aa] *[Cc] *[Ee]"
     },
     "notrace_tok": {
       "type": "PATTERN",
-      "value": "N *O *T *R *A *C *E"
+      "value": "[Nn] *[Oo] *[Tt] *[Rr] *[Aa] *[Cc] *[Ee]"
     },
     "normal_tok": {
       "type": "PATTERN",
-      "value": "N *O *R *M *A *L"
+      "value": "[Nn] *[Oo] *[Rr] *[Mm] *[Aa] *[Ll]"
     },
     "inverse_tok": {
       "type": "PATTERN",
-      "value": "I *N *V *E *R *S *E"
+      "value": "[Ii] *[Nn] *[Vv] *[Ee] *[Rr] *[Ss] *[Ee]"
     },
     "flash_tok": {
       "type": "PATTERN",
-      "value": "F *L *A *S *H"
+      "value": "[Ff] *[Ll] *[Aa] *[Ss] *[Hh]"
     },
     "coloreq_tok": {
       "type": "PATTERN",
-      "value": "C *O *L *O *R *="
+      "value": "[Cc] *[Oo] *[Ll] *[Oo] *[Rr] *[==]"
     },
     "pop_tok": {
       "type": "PATTERN",
-      "value": "P *O *P"
+      "value": "[Pp] *[Oo] *[Pp]"
     },
     "vtab_tok": {
       "type": "PATTERN",
-      "value": "V *T *A *B"
+      "value": "[Vv] *[Tt] *[Aa] *[Bb]"
     },
     "himem_tok": {
       "type": "PATTERN",
-      "value": "H *I *M *E *M *:"
+      "value": "[Hh] *[Ii] *[Mm] *[Ee] *[Mm] *[::]"
     },
     "lomem_tok": {
       "type": "PATTERN",
-      "value": "L *O *M *E *M *:"
+      "value": "[Ll] *[Oo] *[Mm] *[Ee] *[Mm] *[::]"
     },
     "onerr_tok": {
       "type": "PATTERN",
-      "value": "O *N *E *R *R"
+      "value": "[Oo] *[Nn] *[Ee] *[Rr] *[Rr]"
     },
     "resume_tok": {
       "type": "PATTERN",
-      "value": "R *E *S *U *M *E"
+      "value": "[Rr] *[Ee] *[Ss] *[Uu] *[Mm] *[Ee]"
     },
     "recall_tok": {
       "type": "PATTERN",
-      "value": "R *E *C *A *L *L"
+      "value": "[Rr] *[Ee] *[Cc] *[Aa] *[Ll] *[Ll]"
     },
     "store_tok": {
       "type": "PATTERN",
-      "value": "S *T *O *R *E"
+      "value": "[Ss] *[Tt] *[Oo] *[Rr] *[Ee]"
     },
     "speedeq_tok": {
       "type": "PATTERN",
-      "value": "S *P *E *E *D *="
+      "value": "[Ss] *[Pp] *[Ee] *[Ee] *[Dd] *[==]"
     },
     "let_tok": {
       "type": "PATTERN",
-      "value": "L *E *T"
+      "value": "[Ll] *[Ee] *[Tt]"
     },
     "goto_tok": {
       "type": "PATTERN",
-      "value": "G *O *T *O"
+      "value": "[Gg] *[Oo] *[Tt] *[Oo]"
     },
     "run_tok": {
       "type": "PATTERN",
-      "value": "R *U *N"
+      "value": "[Rr] *[Uu] *[Nn]"
     },
     "if_tok": {
       "type": "PATTERN",
-      "value": "I *F"
+      "value": "[Ii] *[Ff]"
     },
     "restore_tok": {
       "type": "PATTERN",
-      "value": "R *E *S *T *O *R *E"
+      "value": "[Rr] *[Ee] *[Ss] *[Tt] *[Oo] *[Rr] *[Ee]"
     },
     "amp_tok": {
       "type": "STRING",
@@ -211,99 +211,99 @@
     },
     "gosub_tok": {
       "type": "PATTERN",
-      "value": "G *O *S *U *B"
+      "value": "[Gg] *[Oo] *[Ss] *[Uu] *[Bb]"
     },
     "return_tok": {
       "type": "PATTERN",
-      "value": "R *E *T *U *R *N"
+      "value": "[Rr] *[Ee] *[Tt] *[Uu] *[Rr] *[Nn]"
     },
     "rem_tok": {
       "type": "PATTERN",
-      "value": "R *E *M"
+      "value": "[Rr] *[Ee] *[Mm]"
     },
     "stop_tok": {
       "type": "PATTERN",
-      "value": "S *T *O *P"
+      "value": "[Ss] *[Tt] *[Oo] *[Pp]"
     },
     "on_tok": {
       "type": "PATTERN",
-      "value": "O *N"
+      "value": "[Oo] *[Nn]"
     },
     "wait_tok": {
       "type": "PATTERN",
-      "value": "W *A *I *T"
+      "value": "[Ww] *[Aa] *[Ii] *[Tt]"
     },
     "load_tok": {
       "type": "PATTERN",
-      "value": "L *O *A *D"
+      "value": "[Ll] *[Oo] *[Aa] *[Dd]"
     },
     "save_tok": {
       "type": "PATTERN",
-      "value": "S *A *V *E"
+      "value": "[Ss] *[Aa] *[Vv] *[Ee]"
     },
     "def_tok": {
       "type": "PATTERN",
-      "value": "D *E *F"
+      "value": "[Dd] *[Ee] *[Ff]"
     },
     "poke_tok": {
       "type": "PATTERN",
-      "value": "P *O *K *E"
+      "value": "[Pp] *[Oo] *[Kk] *[Ee]"
     },
     "print_tok": {
       "type": "PATTERN",
-      "value": "P *R *I *N *T"
+      "value": "[Pp] *[Rr] *[Ii] *[Nn] *[Tt]"
     },
     "cont_tok": {
       "type": "PATTERN",
-      "value": "C *O *N *T"
+      "value": "[Cc] *[Oo] *[Nn] *[Tt]"
     },
     "list_tok": {
       "type": "PATTERN",
-      "value": "L *I *S *T"
+      "value": "[Ll] *[Ii] *[Ss] *[Tt]"
     },
     "clear_tok": {
       "type": "PATTERN",
-      "value": "C *L *E *A *R"
+      "value": "[Cc] *[Ll] *[Ee] *[Aa] *[Rr]"
     },
     "get_tok": {
       "type": "PATTERN",
-      "value": "G *E *T"
+      "value": "[Gg] *[Ee] *[Tt]"
     },
     "new_tok": {
       "type": "PATTERN",
-      "value": "N *E *W"
+      "value": "[Nn] *[Ee] *[Ww]"
     },
     "tabp_tok": {
       "type": "PATTERN",
-      "value": "T *A *B *\\("
+      "value": "[Tt] *[Aa] *[Bb] *[\\(\\(]"
     },
     "to_tok": {
       "type": "PATTERN",
-      "value": "T *O"
+      "value": "[Tt] *[Oo]"
     },
     "fn_tok": {
       "type": "PATTERN",
-      "value": "F *N"
+      "value": "[Ff] *[Nn]"
     },
     "spcp_tok": {
       "type": "PATTERN",
-      "value": "S *P *C *\\("
+      "value": "[Ss] *[Pp] *[Cc] *[\\(\\(]"
     },
     "then_tok": {
       "type": "PATTERN",
-      "value": "T *H *E *N"
+      "value": "[Tt] *[Hh] *[Ee] *[Nn]"
     },
     "at_tok": {
       "type": "PATTERN",
-      "value": "A *T"
+      "value": "[Aa] *[Tt]"
     },
     "not_tok": {
       "type": "PATTERN",
-      "value": "N *O *T"
+      "value": "[Nn] *[Oo] *[Tt]"
     },
     "step_tok": {
       "type": "PATTERN",
-      "value": "S *T *E *P"
+      "value": "[Ss] *[Tt] *[Ee] *[Pp]"
     },
     "plus_tok": {
       "type": "STRING",
@@ -327,11 +327,11 @@
     },
     "and_tok": {
       "type": "PATTERN",
-      "value": "A *N *D"
+      "value": "[Aa] *[Nn] *[Dd]"
     },
     "or_tok": {
       "type": "PATTERN",
-      "value": "O *R"
+      "value": "[Oo] *[Rr]"
     },
     "gtr_tok": {
       "type": "STRING",
@@ -347,63 +347,63 @@
     },
     "sgn_tok": {
       "type": "PATTERN",
-      "value": "S *G *N"
+      "value": "[Ss] *[Gg] *[Nn]"
     },
     "int_tok": {
       "type": "PATTERN",
-      "value": "I *N *T"
+      "value": "[Ii] *[Nn] *[Tt]"
     },
     "abs_tok": {
       "type": "PATTERN",
-      "value": "A *B *S"
+      "value": "[Aa] *[Bb] *[Ss]"
     },
     "usr_tok": {
       "type": "PATTERN",
-      "value": "U *S *R"
+      "value": "[Uu] *[Ss] *[Rr]"
     },
     "fre_tok": {
       "type": "PATTERN",
-      "value": "F *R *E"
+      "value": "[Ff] *[Rr] *[Ee]"
     },
     "scrnp_tok": {
       "type": "PATTERN",
-      "value": "S *C *R *N *\\("
+      "value": "[Ss] *[Cc] *[Rr] *[Nn] *[\\(\\(]"
     },
     "pdl_tok": {
       "type": "PATTERN",
-      "value": "P *D *L"
+      "value": "[Pp] *[Dd] *[Ll]"
     },
     "pos_tok": {
       "type": "PATTERN",
-      "value": "P *O *S"
+      "value": "[Pp] *[Oo] *[Ss]"
     },
     "sqr_tok": {
       "type": "PATTERN",
-      "value": "S *Q *R"
+      "value": "[Ss] *[Qq] *[Rr]"
     },
     "rnd_tok": {
       "type": "PATTERN",
-      "value": "R *N *D"
+      "value": "[Rr] *[Nn] *[Dd]"
     },
     "log_tok": {
       "type": "PATTERN",
-      "value": "L *O *G"
+      "value": "[Ll] *[Oo] *[Gg]"
     },
     "exp_tok": {
       "type": "PATTERN",
-      "value": "E *X *P"
+      "value": "[Ee] *[Xx] *[Pp]"
     },
     "cos_tok": {
       "type": "PATTERN",
-      "value": "C *O *S"
+      "value": "[Cc] *[Oo] *[Ss]"
     },
     "sin_tok": {
       "type": "PATTERN",
-      "value": "S *I *N"
+      "value": "[Ss] *[Ii] *[Nn]"
     },
     "tan_tok": {
       "type": "PATTERN",
-      "value": "T *A *N"
+      "value": "[Tt] *[Aa] *[Nn]"
     },
     "atn_tok": {
       "type": "PATTERN",
@@ -411,39 +411,39 @@
     },
     "peek_tok": {
       "type": "PATTERN",
-      "value": "P *E *E *K"
+      "value": "[Pp] *[Ee] *[Ee] *[Kk]"
     },
     "len_tok": {
       "type": "PATTERN",
-      "value": "L *E *N"
+      "value": "[Ll] *[Ee] *[Nn]"
     },
     "str_tok": {
       "type": "PATTERN",
-      "value": "S *T *R *\\$"
+      "value": "[Ss] *[Tt] *[Rr] *[\\$\\$]"
     },
     "val_tok": {
       "type": "PATTERN",
-      "value": "V *A *L"
+      "value": "[Vv] *[Aa] *[Ll]"
     },
     "asc_tok": {
       "type": "PATTERN",
-      "value": "A *S *C"
+      "value": "[Aa] *[Ss] *[Cc]"
     },
     "chr_tok": {
       "type": "PATTERN",
-      "value": "C *H *R *\\$"
+      "value": "[Cc] *[Hh] *[Rr] *[\\$\\$]"
     },
     "left_tok": {
       "type": "PATTERN",
-      "value": "L *E *F *T *\\$"
+      "value": "[Ll] *[Ee] *[Ff] *[Tt] *[\\$\\$]"
     },
     "right_tok": {
       "type": "PATTERN",
-      "value": "R *I *G *H *T *\\$"
+      "value": "[Rr] *[Ii] *[Gg] *[Hh] *[Tt] *[\\$\\$]"
     },
     "mid_tok": {
       "type": "PATTERN",
-      "value": "M *I *D *\\$"
+      "value": "[Mm] *[Ii] *[Dd] *[\\$\\$]"
     },
     "statement": {
       "type": "CHOICE",

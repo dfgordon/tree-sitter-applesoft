@@ -53,6 +53,11 @@ This parser is intended to emulate the behavior of the Apple II ROM interpreter 
 4. If a statement is invalid, `tree-sitter-applesoft` must produce an error.
 5. Error identification must be accurate to within a line (we will usually do much better)
 
+A2ROM versions
+--------------
+
+Later versions of the A2ROM allow lower case in the line entry.  The pre-build script `token_processor.py` has a flag to control whether the parser allows lower case or not (lower case is allowed in strings either way).  Once the parser is built this behavior is locked in.  The pre-built packages allow lower case, unless otherwise noted.
+
 References
 -----------
 

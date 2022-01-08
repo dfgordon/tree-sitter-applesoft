@@ -4,3 +4,4 @@ build
 *.log
 package-lock.json
 target
+applesoft.tmGrammar.json

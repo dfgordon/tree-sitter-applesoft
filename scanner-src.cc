@@ -112,6 +112,7 @@ struct Scanner
   std::vector<exclusion> exclusions;
   at_exclusion at_excl;
   int id_end;
+  const bool allow_lower_case = true;
 
   Scanner()
   {
@@ -127,6 +128,11 @@ struct Scanner
   bool is_alphanumeric(int32_t c)
   {
     return (c >= 65 && c <= 90) || (c >= 48 && c <= 57);
+  }
+
+  int32_t adj_case(int32_t c)
+  {
+    return (c >= 97 && c <= 122 && allow_lower_case) ? c - 32 : c;
   }
 
   unsigned serialize(char *buffer)
@@ -168,7 +174,7 @@ struct Scanner
     lexer->mark_end(lexer); // force another pass
     do
     {
-      c = lexer->lookahead;
+      c = adj_case(lexer->lookahead);
       // loop to accumulate keyword matches
       for (auto & excl : exclusions)
         excl.next(c,tot_pos);

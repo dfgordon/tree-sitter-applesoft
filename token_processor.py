@@ -1,9 +1,21 @@
-'''This program takes a CSV file with all the tokens and
-formats them as tree-sitter rules.
-It then creates a finished grammar from the working file.'''
+'''This program performs automatic edits to the sources for the parser.
+Inputs:
+`token_list.txt` - CSV file with the A2ROM tokens
+`allow_lower_case` - variable defined below
+Mappings:
+`scanner-src.cc` to `src/scanner.cc`,
+`grammar-src.js` to `grammar.js`
+Products:
+`applesoft.tmGrammar.json` (simple TextMate grammar, not the main grammar)'''
 
 import csv
 import re
+import json
+
+# This flag controls the parser's case sensitivity.
+# To emulate older A2ROM behavior set it to false.
+
+allow_lower_case = True
 
 # First step is to gather and check the tokens
 
@@ -59,32 +71,40 @@ for i,t in enumerate(tokens):
             id += c
     rules[t.upper()] = id + "_tok"
 
-# Form a token rule as regex
+# Form a token rule as regex for Tree-sitter (JavaScript)
 
-def tok_regex(tok):
+def allow(c):
+    if allow_lower_case:
+        return '[' + c + c.lower() + ']'
+    else:
+        return c
+
+def tok_regex_js(tok):
     ans = ''
     if len(tok)>1:
-        for c in t[:-1]:
-            ans += c + ' *'
-        ans += t[-1]
+        
+        for c in tok[:-1]:
+            ans += allow(c) + ' *'
+        ans += allow(tok[-1])
         ans = '/' + ans + '/'
         ans = ans.replace('$','\$')
         ans = ans.replace('(','\(')
     else:
-        ans = "'" + t + "'"
+        ans = "'" + tok + "'"
     return ans
 
-# Form a token rule as TS sequence
+# Form a token rule as regex for TextMate (JSON)
 
-def tok_ts_seq(tok):
+def tok_regex_json(tok):
     ans = ''
     if len(tok)>1:
-        ans = 'seq('
-        for c in t[:-1]:
-            ans += "'" + c + "',"
-        ans += "'" + t[-1] + "')"
+        for c in tok[:-1]:
+            ans += allow(c) + ' *'
+        ans += allow(tok[-1])
+        ans = ans.replace('$','\$')
+        ans = ans.replace('(','\(')
     else:
-        ans = "'" + t + "'"
+        ans = tok
     return ans
 
 # Build some C++-code for the external scanner
@@ -100,6 +120,10 @@ for t in rules:
 with open('scanner-src.cc','r') as f:
     scanner = f.read()
     scanner = scanner.replace('// Build exclusions - DO NOT EDIT line',scanner_code)
+    if allow_lower_case:
+        scanner = re.sub('allow_lower_case\s*=\s*(true|false)','allow_lower_case = true',scanner)
+    else:
+        scanner = re.sub('allow_lower_case\s*=\s*(true|false)','allow_lower_case = false',scanner)
 with open('src/scanner.cc','w') as f:
     f.write(scanner)
 
@@ -107,7 +131,7 @@ with open('src/scanner.cc','w') as f:
 
 token_rule_string = ''
 for t in rules:
-    rule_value = tok_regex(t)
+    rule_value = tok_regex_js(t)
     # Special Cases:
     # ATN cannot have space between T and N
     if t=='ATN':
@@ -127,3 +151,37 @@ with open('grammar-src.js','r') as f:
     grammar = grammar.replace('\t\t// token rules go here DO NOT EDIT this line',token_rule_string)
 with open('grammar.js','w') as f:
     f.write(grammar)
+
+# Create a simple TextMate grammar for use where needed (e.g. vscode hover highlights).
+# This grammar is very light, Tree-sitter grammar should always be preferred.
+
+tmGrammar = {}
+tmGrammar['scopeName'] = 'source.bas'
+tmGrammar['patterns'] = []
+
+if allow_lower_case:
+    var_match_rule = '[A-Za-z]+[$%]?'
+    comment_match_rule = '[Rr] *[Ee] *[Mm].*$'
+else:
+    var_match_rule = '[A-Z]+[$%]?'
+    comment_match_rule = 'R *E *M.*$'
+
+# Ordering of list is significant
+
+tmGrammar['patterns'] += [{'name': 'comment',
+    'match': comment_match_rule}]
+
+for t in rules:
+    if len(t)>1:
+        tmGrammar['patterns'] += [{'name': 'keyword.control',
+            'match': tok_regex_json(t)}]
+
+tmGrammar['patterns'] += [{'name': 'string',
+    'begin': '"',
+    'end': '"'}]
+
+tmGrammar['patterns'] += [{'name': 'variable',
+    'match': var_match_rule}]
+
+with open('applesoft.tmGrammar.json','w') as f:
+    f.write(json.dumps(tmGrammar,sort_keys=False,indent=4))
