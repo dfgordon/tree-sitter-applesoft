@@ -3,8 +3,10 @@ Parser for Applesoft BASIC
 
 This is a comprehensive language description and fast parser for Applesoft BASIC built using the [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) system.  The system auto-builds a C-language parser based on a language description contained in the file `grammar.js`.  Bindings are available for several languages.  The following pre-built packages are available:
 
+* [Parsing Applesoft with C++](https://github.com/dfgordon/tree-sitter-applesoft/releases)
 * [Parsing Applesoft with JavaScript](https://www.npmjs.com/package/tree-sitter-applesoft)
 * [Parsing Applesoft with Rust](https://crates.io/crates/tree-sitter-applesoft)
+* [Parsing Applesoft with WASM](https://github.com/dfgordon/tree-sitter-applesoft/releases)
 
 Syntax Highlights
 -----------------
