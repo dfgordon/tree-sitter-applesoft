@@ -1,9 +1,10 @@
 // References:
-// [1] Apple II Applesoft BASIC Programmer's Reference Manual, Volume 1
-// [2] Apple II Applesoft BASIC Programmer's Reference Manual, Volume 2
+// [1] Apple II Applesoft BASIC Programmer's Reference Manual, Volume 1, Apple Computer, Inc., Cupertino, 1982
+// [2] Apple II Applesoft BASIC Programmer's Reference Manual, Volume 2, Apple Computer, Inc., Cupertino, 1982
 
 // grammar-src.js is for human editing
-// grammar.js is the actual grammar (created by token_processor.py)
+// grammar.js is the actual grammar
+// After editing this file run `build.py` to regenerate all the products
 
 // The term TOKEN may be used in two senses herein: Tokens recognized by the Apple II ROM,
 // vs. tokens defined by Tree-sitter.  The token_processor.py program is
@@ -18,31 +19,55 @@
 // * nested loops limited to 10 levels
 // * length of a line limited to 239 characters
 
+function regex_or(lst)
+{
+	let ans = lst[0];
+	lst.slice(1).forEach(r => {
+		ans = new RegExp(ans.source + '|' + r.source);
+	});
+	return ans;
+}
+
 // Define constants for use in forming terminal nodes.
 // These are named after their equivalents in Ref. 2 Appendix B
 
-const
-	// Apple II interpreter ignores spaces expect in a few special cases
+// Do not set this flag manually, let `build.py` handle it
+const allow_lower_case = true;
+
+// This real number excludes integers, unlike Ref. 2 p. 237
+// Following captures the zero valued cases in the first table on p. 237
+let REAL_DOT = /([+-] *)?[0-9]?[0-9 ]*\.[0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)?/;
+// Following captures forms without the decimal point
+let REAL_E = /([+-] *)?[0-9][0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)/;
+// The following additional real numbers are acceptable in DATA statements
+let REAL_DATA = /([+-]|[+-]? *E *[+-]?)/;
+
+if (allow_lower_case)
+{
 	// This real number excludes integers, unlike Ref. 2 p. 237
 	// Following captures the zero valued cases in the first table on p. 237
-	REAL_DOT = /([+-] *)?[0-9]?[0-9 ]*\.[0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)?/,
+	REAL_DOT = /([+-] *)?[0-9]?[0-9 ]*\.[0-9 ]*([Ee] *[+-]? *([0-9] *[0-9]?)?)?/;
 	// Following captures forms without the decimal point
-	REAL_E = /([+-] *)?[0-9][0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)/,
+	REAL_E = /([+-] *)?[0-9][0-9 ]*([Ee] *[+-]? *([0-9] *[0-9]?)?)/;
 	// The following additional real numbers are acceptable in DATA statements
-	REAL_DATA = /([+-]|[+-]? *E *[+-]?)/,
-	// Remaining constants come from Ref. 2 Appendix B
-	SPCHAR = /[\+\-\*\/\^=<>\(\),\.:;%\$\#\?\&\'@\!\[\]\{\}\\\|_`\~]/,
+	REAL_DATA = /([+-]|[+-]? *[Ee] *[+-]?)/;
+}
+
+const
 	DIGIT = /[0-9]/,
 	LETTER = /[A-Za-z]/,
 	INTEGER = /[+-]?[0-9]([0-9 ]*[0-9])?/,
 	QUOTE = /"/,
 	SPACE = / /,
-	// schar = letter,digit,space,spchar
-	SCHAR = /[0-9A-Za-z \+\-\*\/\^=<>\(\),\.:;%\$\#\?\&\'@\!\[\]\{\}\\\|_`\~]/,
-	// character = letter,digit,space,spchar,quote
-	CHARACTER = /[0-9A-Za-z" \+\-\*\/\^=<>\(\),\.:;%\$\#\?\&\'@\!\[\]\{\}\\\|_`\~]/,
-	// dchar = character without the comma (not in Ref. 2, using this to parse DATA statements)
-	DCHAR = /[0-9A-Za-z" \+\-\*\/\^=<>\(\)\.:;%\$\#\?\&\'@\!\[\]\{\}\\\|_`\~]/
+	COMMA = /,/,
+	// Ref. 2 includes any control character in SPCHAR, while we exclude NULL, LF, CR.
+	SPCHAR_NO_COMMA = /[+\-*\/^=<>().:;%$#?&'@!\[\]{}\\|_`~\x01-\x09\x0b\x0c\x0e-\x1f]/,
+	SPCHAR = regex_or([SPCHAR_NO_COMMA,COMMA]),
+	SCHAR = regex_or([LETTER,DIGIT,SPCHAR,SPACE]),
+	// DCHAR_1 and DCHAR_N replace `character` from Ref. 2, used for DATA literal
+	// Ref. 2 allows comma in `literal`, but this seems to be a mistake, so we do not.
+	DCHAR_1 = regex_or([LETTER,DIGIT,SPCHAR_NO_COMMA,SPACE]),
+	DCHAR_N = regex_or([DCHAR_1,QUOTE]);
 
 // Tree-sitter grammar definition
 
@@ -117,7 +142,7 @@ module.exports = grammar({
 			save_tok: $ => /[Ss] *[Aa] *[Vv] *[Ee]/,
 			def_tok: $ => /[Dd] *[Ee] *[Ff]/,
 			poke_tok: $ => /[Pp] *[Oo] *[Kk] *[Ee]/,
-			print_tok: $ => /[Pp] *[Rr] *[Ii] *[Nn] *[Tt]/,
+			print_tok: $ => /[Pp] *[Rr] *[Ii] *[Nn] *[Tt]|\?/,
 			cont_tok: $ => /[Cc] *[Oo] *[Nn] *[Tt]/,
 			list_tok: $ => /[Ll] *[Ii] *[Ss] *[Tt]/,
 			clear_tok: $ => /[Cc] *[Ll] *[Ee] *[Aa] *[Rr]/,
@@ -156,7 +181,7 @@ module.exports = grammar({
 			cos_tok: $ => /[Cc] *[Oo] *[Ss]/,
 			sin_tok: $ => /[Ss] *[Ii] *[Nn]/,
 			tan_tok: $ => /[Tt] *[Aa] *[Nn]/,
-			atn_tok: $ => /A *TN/,
+			atn_tok: $ => /[Aa] *[Tt][Nn]/,
 			peek_tok: $ => /[Pp] *[Ee] *[Ee] *[Kk]/,
 			len_tok: $ => /[Ll] *[Ee] *[Nn]/,
 			str_tok: $ => /[Ss] *[Tt] *[Rr] *[\$\$]/,
@@ -172,11 +197,12 @@ module.exports = grammar({
 
 		statement: $ => choice(
 			$.assignment,
-			seq($.call_tok,$._aexpr),
+			// Optional string after CALL is to allow for the CHAIN pattern
+			seq($.call_tok,$._aexpr,optional($.string)),
 			$.clear_tok,
 			seq($.coloreq_tok,$._aexpr),
 			$.cont_tok,
-			seq($.data_tok,$._data_item,repeat(seq(',',$._data_item))),
+			seq($.data_tok,repeat(seq($._data_item,',')),$._data_item),
 			seq($.def_tok,$.fn_tok,$.fn_name,'(',$.real_scalar,')',$.eq_tok,$._aexpr),
 			seq($.del_tok,$.linenum,',',$.linenum),
 			seq($.dim_tok,$._dim_item,repeat(seq(',',$._dim_item))),
@@ -236,7 +262,18 @@ module.exports = grammar({
 			seq($.vlin_tok,$._aexpr,',',$._aexpr,$.at_tok,$._aexpr),
 			seq($.vtab_tok,$._aexpr),
 			seq($.wait_tok,$._aexpr,',',$._aexpr,optional(seq(',',$._aexpr))),
-			seq($.xdraw_tok,$._aexpr,optional(seq($.at_tok,$._aexpr,',',$._aexpr)))
+			seq($.xdraw_tok,$._aexpr,optional(seq($.at_tok,$._aexpr,',',$._aexpr))),
+			seq($.amp_tok,$.string),
+			seq($.amp_tok,'(',$._expr,repeat(seq(',',$._expr)),')')
+		),
+
+		// terminal_statement rule is used to handle strings without closing quotes,
+		// which are legal at the end of a line.
+		terminal_statement: $ => choice(
+			seq($.call_tok,$._aexpr,$.terminal_string),
+			seq($.data_tok,repeat(seq($._data_item,',')),$.terminal_string),
+			seq($.print_tok,repeat(seq($._expr,optional(choice(',',';')))),$.terminal_string),
+			seq($.amp_tok,$.terminal_string)
 		),
 
 		comment_text: $ => /.+/,
@@ -292,7 +329,7 @@ module.exports = grammar({
 
 		// Program lines from Appendix B
 
-		line: $ => seq($.linenum,repeat(seq($.statement,':')),$.statement,choice('\n','\r\n')),
+		line: $ => seq($.linenum,repeat(seq($.statement,':')),choice($.statement,$.terminal_statement),choice('\n','\r\n')),
 		_empty_line: $ => /\r\n|\n/, // Would not exist on real Apple II
 		linenum: $ => / *[0-9][0-9 ]*/,
 
@@ -332,7 +369,7 @@ module.exports = grammar({
 			seq($.less_tok,$.eq_tok),seq($.eq_tok,$.less_tok),
 			seq($.gtr_tok,$.eq_tok),seq($.eq_tok,$.gtr_tok),
 			seq($.less_tok,$.gtr_tok),seq($.gtr_tok,$.less_tok)),
-		// following are some operator groups defined by Ref.1 but not used here
+		// following are some operator groups defined by Ref.2 but not used here
 		//alop: $ => choice($.aop,$._relop,$.lop),
 		//aop: $ => choice($.plus_tok,$.minus_tok,$.times_tok,$.div_tok,$.pow_tok),
 		//lop: $ => choice($.and_tok,$.or_tok),
@@ -357,31 +394,40 @@ module.exports = grammar({
 		realvar: $ => choice($._real_scalar,$._real_array),
 		svar: $ => choice($._string_scalar,$._string_array),
 		subscript: $ => seq('(',$._aexpr,repeat(seq(',',$._aexpr)),')'),
-		_dim_item: $ => choice($.intvar,$.realvar,$.svar),
+		_dim_item: $ => choice($.int_array,$.real_array,$.string_array),
 
 		// Literals from Appendix B
 
 		_data_item: $ => choice($.string,$.real,$.integer,$.literal,$.real_data_item),
 		integer: $ => token(prec(1,INTEGER)),
-		// Unlike Ref. 2 the following disallows commas
+		// Unlike Ref. 2 the following disallows commas and cannot start with a quote
 		// So far this has been needed to parse some forms of the DATA statement
-		literal: $ => token(prec(0,repeat1(DCHAR))),
+		literal: $ => token(prec(0,seq(DCHAR_1,repeat(DCHAR_N)))),
 		real: $ => token(prec(1,choice(REAL_DOT,REAL_E))),
-		real_data_item: $ => token(prec(1,REAL_DATA)),
 		string: $ => token(prec(1,seq('"',repeat(SCHAR),'"'))),
 
-		// Items not in Appendix B added for convenience
-		// These are involved with the keyword exclusion scanner or highlights
+		// "Extra" items not in Appendix B
+		// These are added for convenience or to account for certain exceptions
 
-		_name: $ => seq($._ext_name,$._ext_name), // two stage external lexer
+		terminal_string: $ => token(prec(1,seq('"',repeat(SCHAR)))),
+		real_data_item: $ => token(prec(1,REAL_DATA)),
 		fn_name: $ => $._name,
 		real_scalar: $ => $._name,
 		_real_scalar: $ => $._name,
 		int_scalar: $ => seq($._name,'%'),
 		_int_scalar: $ => seq($._name,'%'),
 		_string_scalar: $ => seq($._name,'$'),
+		real_array: $ => prec(1,seq($._name,$.subscript)),
 		_real_array: $ => prec(1,seq($._name,$.subscript)),
+		int_array: $ => prec(1,seq($._name,'%',$.subscript)),
 		_int_array: $ => prec(1,seq($._name,'%',$.subscript)),
-		_string_array: $ => prec(1,seq($._name,'$',$.subscript))
+		string_array: $ => prec(1,seq($._name,'$',$.subscript)),
+		_string_array: $ => prec(1,seq($._name,'$',$.subscript)),
+
+		// This is the rule that triggers the external scanner.
+		// Due to tree-sitter design, lexing a variable name requires two stages:
+		// (i) lookahead: find maximum run of a valid variable name, and return empty token
+		// (ii) advance: add the actual characters
+		_name: $ => seq($._ext_name,$._ext_name)
 	}
 });

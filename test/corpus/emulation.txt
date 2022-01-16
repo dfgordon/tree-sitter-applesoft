@@ -118,3 +118,95 @@ AT and TO
 			(for_tok) (real_scalar) (eq_tok) (realvar) (to_tok) (realvar))
 		(statement
 			(rem_tok) (comment_text))))
+
+===================
+Terminal Strings
+===================
+
+10 PRINT "HELLO";: PRINT " WORLD!
+20 DATA HELLO "world,"WORLD,WORLD
+30 & "100
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (print_tok) (string))
+		(terminal_statement (print_tok) (terminal_string)))
+	(line
+		(linenum)
+		(terminal_statement (data_tok) (literal) (terminal_string)))
+	(line
+		(linenum)
+		(terminal_statement (amp_tok) (terminal_string))))
+
+===================
+Alternative PRINT
+===================
+
+10 ? "HELLO";: ? " WORLD!
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (print_tok) (string))
+		(terminal_statement (print_tok) (terminal_string))))
+
+===================
+Control Characters
+===================
+
+100 PRINT "SOUND BELL"
+110 DATA "HELLO","",HE"LLO"
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (print_tok) (string)))
+	(line
+		(linenum)
+		(statement (data_tok) (literal) (string) (literal))))
+
+===================
+Ampersand Call
+===================
+
+100 & "string argument"
+110 & (X+Y,"hello",CHR$(X))
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (amp_tok) (string)))
+	(line
+		(linenum)
+		(statement
+			(amp_tok)
+			(binary_aexpr
+				(realvar) (plus_tok) (realvar))
+			(string)
+			(sfcall (chr_tok) (realvar)))))
+
+===================
+CHAIN Pattern
+===================
+
+100 CALL 520"NEXT PROGRAM"
+110 CALL 520"PART TWO
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (call_tok) (integer) (string)))
+	(line
+		(linenum)
+		(terminal_statement (call_tok) (integer) (terminal_string))))

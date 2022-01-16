@@ -4,3 +4,5 @@
 20 PRINT A$ " " "WORLD": REM dispensing with separator
 21 REM   ^ variable
 22 REM                   ^ comment
+30 PRINT "Terminal String
+31 REM   ^ string

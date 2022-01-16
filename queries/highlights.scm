@@ -5,6 +5,7 @@
 (integer) @number
 (real) @number
 (string) @string
+(terminal_string) @string
 (svar) @variable
 (realvar) @variable
 (real_scalar) @variable

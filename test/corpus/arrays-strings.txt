@@ -12,8 +12,8 @@ Arrays
 		(linenum)
 		(statement
 			(dim_tok)
-				(svar (subscript (integer) (integer) (realvar)))
-				(realvar (subscript (integer) (integer) (integer)))))
+				(string_array (subscript (integer) (integer) (realvar)))
+				(real_array (subscript (integer) (integer) (integer)))))
 	(line
 		(linenum)
 		(statement

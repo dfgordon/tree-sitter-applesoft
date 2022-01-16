@@ -1,22 +1,27 @@
 Parser for Applesoft BASIC
 ==========================
 
-This is a comprehensive language description and fast parser for Applesoft BASIC built using the [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) system.  The system auto-builds a C-language parser based on a language description contained in the file `grammar.js`.  Bindings are available for several languages.  The following pre-built packages are available:
+This is a comprehensive language description and fast parser for Applesoft BASIC built using the [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) system.  Bindings are available for several languages.  The following pre-built packages are available:
 
 * [Parsing Applesoft with C++](https://github.com/dfgordon/tree-sitter-applesoft/releases)
 * [Parsing Applesoft with JavaScript](https://www.npmjs.com/package/tree-sitter-applesoft)
 * [Parsing Applesoft with Rust](https://crates.io/crates/tree-sitter-applesoft)
 * [Parsing Applesoft with WASM](https://github.com/dfgordon/tree-sitter-applesoft/releases)
 
-Syntax Highlights
------------------
+Language Support for Editors
+----------------------------
 
-Language extensions are available for highlighting in the following editors:
+This parser is the basis of language extensions for:
 
 * [Atom](https://atom.io), see [atom-language-applesoft](https://github.com/dfgordon/atom-language-applesoft)
+    - highlights only
 * [Code](https://code.visualstudio.com/), see [vscode-language-applesoft](https://github.com/dfgordon/vscode-language-applesoft)
+    - highlights, hovers, completions, diagnostics
+* [Neovim](https://neovim.io), see [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+    - highlights only
+    - language must be [manually installed](https://github.com/nvim-treesitter/nvim-treesitter#advanced-setup)
 
-The Tree-sitter command line interface can also highlight a file, see [Tree-sitter highlighting](https://tree-sitter.github.io/tree-sitter/syntax-highlighting).
+The Tree-sitter command line interface can highlight a file, see [Tree-sitter highlighting](https://tree-sitter.github.io/tree-sitter/syntax-highlighting).
 
 Parsing Files
 -------------
@@ -55,10 +60,16 @@ This parser is intended to emulate the behavior of the Apple II ROM interpreter 
 4. If a statement is invalid, `tree-sitter-applesoft` must produce an error.
 5. Error identification must be accurate to within a line (we will usually do much better)
 
-A2ROM versions
---------------
+The parser targets the version of the A2ROM described in the references. Case sensitivity is optional.
 
-Later versions of the A2ROM allow lower case in the line entry.  The pre-build script `token_processor.py` has a flag to control whether the parser allows lower case or not (lower case is allowed in strings either way).  Once the parser is built this behavior is locked in.  The pre-built packages allow lower case, unless otherwise noted.
+Build Process
+-------------
+
+The build products are generated using `build.py`.  The Docker daemon must be running for `build.py` to succeed.
+
+This is a cascaded build.  The starting files are `token_list.txt`, `grammar-src.js`, and `scanner-src.cc`.  These are used by `token_processor.py` to produce `grammar.js` and `src/scanner.cc` (a simplified TextMate grammar is also generated here).  These are used by `tree-sitter generate` to produce `src/parser.c` and, in turn, the bindings for Node and Rust.  These are used by `tree-sitter build-wasm` to produce the WASM parser.
+
+The `build.py` script produces two versions of the WASM parser, one case sensitive, one case insensitive.  It leaves all the other products in the case insensitive state.
 
 References
 -----------

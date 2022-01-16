@@ -182,7 +182,7 @@ Cassette Tape
 (source_file
 	(line
 		(linenum)
-		(statement (dim_tok) (realvar (subscript (integer))) (intvar (subscript (integer)))))
+		(statement (dim_tok) (real_array (subscript (integer))) (int_array (subscript (integer)))))
 	(line
 		(linenum)
 		(statement (recall_tok) (real_scalar))

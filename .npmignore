@@ -6,3 +6,4 @@ script
 .gitattributes
 target
 applesoft.tmGrammar.json
+*.wasm

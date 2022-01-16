@@ -337,6 +337,21 @@
     "fields": {}
   },
   {
+    "type": "int_array",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "subscript",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "int_scalar",
     "named": true,
     "fields": {}
@@ -370,6 +385,25 @@
         },
         {
           "type": "statement",
+          "named": true
+        },
+        {
+          "type": "terminal_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "real_array",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "subscript",
           "named": true
         }
       ]
@@ -501,6 +535,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "amp_tok",
+          "named": true
+        },
         {
           "type": "assignment",
           "named": true
@@ -646,6 +684,10 @@
           "named": true
         },
         {
+          "type": "int_array",
+          "named": true
+        },
+        {
           "type": "int_scalar",
           "named": true
         },
@@ -738,6 +780,10 @@
           "named": true
         },
         {
+          "type": "real_array",
+          "named": true
+        },
+        {
           "type": "real_data_item",
           "named": true
         },
@@ -818,6 +864,10 @@
           "named": true
         },
         {
+          "type": "string_array",
+          "named": true
+        },
+        {
           "type": "svar",
           "named": true
         },
@@ -855,6 +905,21 @@
         },
         {
           "type": "xdraw_tok",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string_array",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "subscript",
           "named": true
         }
       ]
@@ -909,6 +974,89 @@
       "types": [
         {
           "type": "subscript",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "terminal_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "amp_tok",
+          "named": true
+        },
+        {
+          "type": "binary_aexpr",
+          "named": true
+        },
+        {
+          "type": "binary_sexpr",
+          "named": true
+        },
+        {
+          "type": "call_tok",
+          "named": true
+        },
+        {
+          "type": "data_tok",
+          "named": true
+        },
+        {
+          "type": "fcall",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "intvar",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "print_tok",
+          "named": true
+        },
+        {
+          "type": "real",
+          "named": true
+        },
+        {
+          "type": "real_data_item",
+          "named": true
+        },
+        {
+          "type": "realvar",
+          "named": true
+        },
+        {
+          "type": "sfcall",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "svar",
+          "named": true
+        },
+        {
+          "type": "terminal_string",
+          "named": true
+        },
+        {
+          "type": "unary_aexpr",
           "named": true
         }
       ]
@@ -1003,6 +1151,10 @@
   },
   {
     "type": "abs_tok",
+    "named": true
+  },
+  {
+    "type": "amp_tok",
     "named": true
   },
   {
@@ -1407,6 +1559,10 @@
   },
   {
     "type": "tan_tok",
+    "named": true
+  },
+  {
+    "type": "terminal_string",
     "named": true
   },
   {
