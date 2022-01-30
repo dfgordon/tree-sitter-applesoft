@@ -1012,6 +1012,10 @@
           "named": true
         },
         {
+          "type": "if_tok",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         },
@@ -1052,7 +1056,15 @@
           "named": true
         },
         {
+          "type": "terminal_statement",
+          "named": true
+        },
+        {
           "type": "terminal_string",
+          "named": true
+        },
+        {
+          "type": "then_tok",
           "named": true
         },
         {
@@ -1112,14 +1124,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "\n",
-    "named": false
-  },
-  {
-    "type": "\r\n",
-    "named": false
   },
   {
     "type": "$",

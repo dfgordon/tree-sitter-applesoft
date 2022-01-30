@@ -60,14 +60,16 @@ const
 	QUOTE = /"/,
 	SPACE = / /,
 	COMMA = /,/,
+	COLON = /:/,
 	// Ref. 2 includes any control character in SPCHAR, while we exclude NULL, LF, CR.
-	SPCHAR_NO_COMMA = /[+\-*\/^=<>().:;%$#?&'@!\[\]{}\\|_`~\x01-\x09\x0b\x0c\x0e-\x1f]/,
-	SPCHAR = regex_or([SPCHAR_NO_COMMA,COMMA]),
+	SPCHAR_NO_SEP = /[+\-*\/^=<>().;%$#?&'@!\[\]{}\\|_`~\x01-\x09\x0b\x0c\x0e-\x1f]/,
+	SPCHAR = regex_or([SPCHAR_NO_SEP,COMMA,COLON]),
 	SCHAR = regex_or([LETTER,DIGIT,SPCHAR,SPACE]),
 	// DCHAR_1 and DCHAR_N replace `character` from Ref. 2, used for DATA literal
-	// Ref. 2 allows comma in `literal`, but this seems to be a mistake, so we do not.
-	DCHAR_1 = regex_or([LETTER,DIGIT,SPCHAR_NO_COMMA,SPACE]),
-	DCHAR_N = regex_or([DCHAR_1,QUOTE]);
+	// Ref. 2 erroneously allows commas and colons in DATA literals.
+	// Also, leading spaces are ignored, but trailing spaces are included.
+	DCHAR_1 = regex_or([LETTER,DIGIT,SPCHAR_NO_SEP]),
+	DCHAR_N = regex_or([DCHAR_1,QUOTE,SPACE]);
 
 // Tree-sitter grammar definition
 
@@ -202,7 +204,7 @@ module.exports = grammar({
 			$.clear_tok,
 			seq($.coloreq_tok,$._aexpr),
 			$.cont_tok,
-			seq($.data_tok,repeat(seq($._data_item,',')),$._data_item),
+			seq($.data_tok,optional($._data_item),repeat(seq(',',optional($._data_item)))),
 			seq($.def_tok,$.fn_tok,$.fn_name,'(',$.real_scalar,')',$.eq_tok,$._aexpr),
 			seq($.del_tok,$.linenum,',',$.linenum),
 			seq($.dim_tok,$._dim_item,repeat(seq(',',$._dim_item))),
@@ -242,7 +244,7 @@ module.exports = grammar({
 			seq($.poke_tok,$._aexpr,',',$._aexpr),
 			$.pop_tok,
 			seq($.prn_tok,$._aexpr),
-			seq($.print_tok,repeat(seq($._expr,optional(choice(',',';'))))),
+			seq($.print_tok,repeat((choice(',',';',$._expr)))),
 			seq($.read_tok,$._var,repeat(seq(',',$._var))),
 			seq($.recall_tok,choice($.int_scalar,$.real_scalar)), // cassette tape, subscript omitted
 			seq($.rem_tok,optional($.comment_text)),
@@ -270,9 +272,10 @@ module.exports = grammar({
 		// terminal_statement rule is used to handle strings without closing quotes,
 		// which are legal at the end of a line.
 		terminal_statement: $ => choice(
+			seq($.if_tok,$._expr,$.then_tok,$.terminal_statement),
 			seq($.call_tok,$._aexpr,$.terminal_string),
-			seq($.data_tok,repeat(seq($._data_item,',')),$.terminal_string),
-			seq($.print_tok,repeat(seq($._expr,optional(choice(',',';')))),$.terminal_string),
+			seq($.data_tok,optional($._data_item),repeat(seq(',',optional($._data_item))),$.terminal_string),
+			seq($.print_tok,repeat((choice(',',';',$._expr))),$.terminal_string),
 			seq($.amp_tok,$.terminal_string)
 		),
 
@@ -327,11 +330,15 @@ module.exports = grammar({
 			seq($.tabp_tok,$._aexpr,')')
 		),
 
-		// Program lines from Appendix B
-
-		line: $ => seq($.linenum,repeat(seq($.statement,':')),choice($.statement,$.terminal_statement),choice('\n','\r\n')),
-		_empty_line: $ => /\r\n|\n/, // Would not exist on real Apple II
+		// Program lines - differs from Appendix B due to terminal strings
+		line: $ => seq($.linenum,
+			repeat(':'),
+			repeat(seq($.statement,repeat1(':'))),
+			choice(seq($.statement,repeat(':')),$.terminal_statement),
+			$._newline),
 		linenum: $ => / *[0-9][0-9 ]*/,
+		_newline: $ => /\r?\n/,
+		_empty_line: $ => /\r?\n/, // Would not exist on real Apple II
 
 		// Expressions from Appendix B
 

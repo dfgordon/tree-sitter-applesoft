@@ -123,8 +123,9 @@ AT and TO
 Terminal Strings
 ===================
 
-10 PRINT "HELLO";: PRINT " WORLD!
-20 DATA HELLO "world,"WORLD,WORLD
+10 PRINT "HELLO";::: PRINT " WORLD!
+11 ::::PRINT "HI
+20 DATA ,,HELLO "world,,,"WORLD,WORLD
 30 & "100
 
 ---
@@ -133,6 +134,9 @@ Terminal Strings
 	(line
 		(linenum)
 		(statement (print_tok) (string))
+		(terminal_statement (print_tok) (terminal_string)))
+	(line
+		(linenum)
 		(terminal_statement (print_tok) (terminal_string)))
 	(line
 		(linenum)

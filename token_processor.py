@@ -216,9 +216,13 @@ for t in rules:
         tmGrammar['patterns'] += [{'name': highlight_name,
             'match': tok_regex_json(t)}]
 
-tmGrammar['patterns'] += [{'name': 'string',
-    'begin': '"',
-    'end': '"'}]
+# Don't allow tmGrammar to highlight strings.
+# Because: vscode will use this to highlight things that TS does *not* highlight.
+# This is not the behavior we want.
+
+# tmGrammar['patterns'] += [{'name': 'string',
+#     'begin': '"',
+#     'end': '("|\r?\n)'}]
 
 tmGrammar['patterns'] += [{'name': 'variable',
     'match': var_match_rule}]
