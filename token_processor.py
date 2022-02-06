@@ -40,7 +40,6 @@ if allow_lower_case==None:
 # First step is to gather and check the tokens
 
 tokens = []
-rules = {}
 
 # Mapping of special characters to javascript identifier fragments
 
@@ -61,8 +60,11 @@ sp_map = {  '#' : 'n',
 
 with open('token_list.txt','r') as f:
     reader = csv.reader(f,delimiter=',')
+    i = 0
     for row in reader:
-        tokens += row
+        for item in row:
+            tokens += [{'code':i+0x80,'lexeme':item}]
+            i += 1
 
 expected_num = 0xea-0x80+1
 if len(tokens)!=expected_num:
@@ -72,32 +74,32 @@ else:
 
 check = set()
 for t in tokens:
-    check.add(t)
+    check.add(t['lexeme'])
 if len(check)!=len(tokens):
     raise ValueError('There were duplicate tokens.')
 else:
     print('Uniqueness check OK')
 
-# Now set up dictionary of tokens and associated tree-sitter rules
+# Now add the rule id's
 
-for i,t in enumerate(tokens):
-    print(hex(0x80+i),t) # not used, just for spot checking
+for t in tokens:
+    print(hex(t['code']),t['lexeme']) # spot check
     # form a suitable javascript identifier
     id = ''
-    for c in t:
+    for c in t['lexeme']:
         if c in sp_map.keys():
             id += sp_map[c]
         else:
             id += c
-    rules[t.upper()] = id + "_tok"
+    t['rule id'] = id + "_tok"
 
 # Form a token rule as regex for Tree-sitter (JavaScript)
 
 def allow(c):
     if allow_lower_case:
-        return '[' + c + c.lower() + ']'
+        return '[' + c.upper() + c.lower() + ']'
     else:
-        return c
+        return c.upper()
 
 def tok_regex_js(tok):
     ans = ''
@@ -131,9 +133,10 @@ def tok_regex_json(tok):
 # N.b. `AT` token requires special handling
 
 scanner_code = ''
-for t in rules:
-    if len(t)>1 and t!='AT':
-        scanner_code += '    exclusions.push_back(exclusion("'+t+'",'+str(len(t))+'));\n'
+for t in tokens:
+    lx = t['lexeme']
+    if len(lx)>1 and lx!='at':
+        scanner_code += '    exclusions.push_back(exclusion("'+lx.upper()+'",'+str(len(lx))+'));\n'
 
 # Modify the scanner
 
@@ -144,20 +147,22 @@ with open('scanner-src.cc','r') as f:
         scanner = re.sub('allow_lower_case\s*=\s*(true|false)','allow_lower_case = true',scanner)
     else:
         scanner = re.sub('allow_lower_case\s*=\s*(true|false)','allow_lower_case = false',scanner)
+        scanner = re.sub('applesoft_external','applesoftcasesens_external',scanner)
 with open(pathlib.Path('src')/pathlib.Path('scanner.cc'),'w') as f:
     f.write(scanner)
 
 # Define all the token rules for the JavaScript grammar
 
 token_rule_string = ''
-for t in rules:
-    rule_value = tok_regex_js(t)
+for t in tokens:
+    lx = t['lexeme']
+    rule_value = tok_regex_js(lx)
     # Special Cases:
     # ? shorthand for PRINT
-    if t=='PRINT':
+    if lx=='print':
         rule_value = rule_value[:-1] + '|\?/'
     # ATN cannot have space between T and N
-    if t=='ATN':
+    if lx=='atn':
         if allow_lower_case:
             rule_value = '/[Aa] *[Tt][Nn]/'
         else:
@@ -165,19 +170,25 @@ for t in rules:
     # AT and TO resolution: /A *TO/ = (A)(TO) ; /A *T +O/ = (AT)(O)
     # Handle this by consuming the A (or not) as NAME in the external scanner.
     # Hence nothing to do here.
-    token_rule_string += '\t\t\t' + rules[t] + ': $ => '+rule_value+',\n'
+    token_rule_string += '\t\t\t' + t['rule id'] + ': $ => '+rule_value+',\n'
 
 # Create the grammar from the working file
 
 with open('grammar-src.js','r') as f:
     grammar = f.read()
-    for t in rules:
-        patt = "'" + t + "'"
-        grammar = re.sub(re.escape(patt),'$.'+rules[t],grammar)
+    for t in tokens:
+        lx = t['lexeme']
+        patt = "'" + lx.upper() + "'"
+        grammar = re.sub(re.escape(patt),'$.'+t['rule id'],grammar)
     grammar = grammar.replace('\t\t// token rules go here DO NOT EDIT this line',token_rule_string)
     grammar = re.sub('allow_lower_case\s*=\s*\w+','allow_lower_case = '+str(allow_lower_case).lower(),grammar)
 with open('grammar.js','w') as f:
     f.write(grammar)
+
+# Write out the token data for possible use elsewhere
+
+with open('token_list.json','w') as f:
+    f.write(json.dumps(tokens,sort_keys=True,indent=4))
 
 # Create a simple TextMate grammar for use where needed (e.g. vscode hover highlights).
 # This grammar is very light, Tree-sitter grammar should always be preferred.
@@ -206,15 +217,16 @@ tmGrammar['patterns'] += [{'name': 'comment',
 tmGrammar['patterns'] += [{'name': 'support.function',
     'match': atn_match_rule}]
 
-for t in rules:
-    if len(t)>1:
+for t in tokens:
+    lx = t['lexeme']
+    if len(lx)>1:
         highlight_name = 'keyword.control'
-        match = re.search(rules[t]+'[) @]*(\w+)',highlights)
+        match = re.search(t['rule id']+'[) @]*(\w+)',highlights)
         if (match):
             if ('function' in match[1]):
                 highlight_name = 'support.function'
         tmGrammar['patterns'] += [{'name': highlight_name,
-            'match': tok_regex_json(t)}]
+            'match': tok_regex_json(lx)}]
 
 # Don't allow tmGrammar to highlight strings.
 # Because: vscode will use this to highlight things that TS does *not* highlight.

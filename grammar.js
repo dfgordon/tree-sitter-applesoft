@@ -33,6 +33,7 @@ function regex_or(lst)
 
 // Do not set this flag manually, let `build.py` handle it
 const allow_lower_case = true;
+const language_name = allow_lower_case ? 'applesoft' : 'applesoftcasesens'
 
 // This real number excludes integers, unlike Ref. 2 p. 237
 // Following captures the zero valued cases in the first table on p. 237
@@ -74,7 +75,7 @@ const
 // Tree-sitter grammar definition
 
 module.exports = grammar({
-	name: 'applesoft',
+	name: language_name,
 	extras: $ => [' '],
 	// "name" is the term given in Ref. 2 for an identifier.
 	// external scanner is used to forbid keywords from appearing anywhere in the name.

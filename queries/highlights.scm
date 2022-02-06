@@ -11,6 +11,9 @@
 (real_scalar) @variable
 (intvar) @variable
 (int_scalar) @variable
+(int_array) @variable
+(real_array) @variable
+(string_array) @variable
 
 (rem_tok) @comment
 (plus_tok) @operator
