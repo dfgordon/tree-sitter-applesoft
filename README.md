@@ -1,6 +1,8 @@
 Parser for Applesoft BASIC
 ==========================
 
+![unit tests](https://github.com/dfgordon/tree-sitter-applesoft/actions/workflows/node.js.yml/badge.svg)
+
 This is a comprehensive language description and fast parser for Applesoft BASIC built using the [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) system.  Bindings are available for several languages.  The following pre-built packages are available:
 
 * [Parsing Applesoft with C++](https://github.com/dfgordon/tree-sitter-applesoft/releases)
