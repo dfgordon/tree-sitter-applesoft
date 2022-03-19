@@ -2,7 +2,7 @@ test
 examples
 build
 script
-.travis.yml
+.github
 .gitattributes
 target
 applesoft.tmGrammar.json

@@ -6,14 +6,18 @@
 (real) @number
 (string) @string
 (terminal_string) @string
+(literal) @string
+(data_real) @number
+(data_integer) @number
+
 (svar) @variable
+(string_array) @variable
 (realvar) @variable
 (real_scalar) @variable
+(real_array) @variable
 (intvar) @variable
 (int_scalar) @variable
 (int_array) @variable
-(real_array) @variable
-(string_array) @variable
 
 (rem_tok) @comment
 (plus_tok) @operator

@@ -67,7 +67,7 @@ The parser targets the version of the A2ROM described in the references. Case se
 Build Process
 -------------
 
-The build products are generated using `build.py`.  The Docker daemon must be running for `build.py` to succeed.
+The build products are generated using `build.py`.  The Docker daemon must be running for `build.py` to succeed.  The daemon may require `sudo`.
 
 This is a cascaded build.  The starting files are `token_list.txt`, `grammar-src.js`, and `scanner-src.cc`.  These are used by `token_processor.py` to produce `grammar.js` and `src/scanner.cc` (a simplified TextMate grammar is also generated here).  These are used by `tree-sitter generate` to produce `src/parser.c` and, in turn, the bindings for Node and Rust.  These are used by `tree-sitter build-wasm` to produce the WASM parser.
 

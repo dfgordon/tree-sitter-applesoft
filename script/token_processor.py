@@ -148,7 +148,7 @@ with open('scanner-src.cc','r') as f:
     else:
         scanner = re.sub('allow_lower_case\s*=\s*(true|false)','allow_lower_case = false',scanner)
         scanner = re.sub('applesoft_external','applesoftcasesens_external',scanner)
-with open(pathlib.Path('src')/pathlib.Path('scanner.cc'),'w') as f:
+with open(pathlib.Path.cwd().parent/'src'/'scanner.cc','w') as f:
     f.write(scanner)
 
 # Define all the token rules for the JavaScript grammar
@@ -182,7 +182,7 @@ with open('grammar-src.js','r') as f:
         grammar = re.sub(re.escape(patt),'$.'+t['rule id'],grammar)
     grammar = grammar.replace('\t\t// token rules go here DO NOT EDIT this line',token_rule_string)
     grammar = re.sub('allow_lower_case\s*=\s*\w+','allow_lower_case = '+str(allow_lower_case).lower(),grammar)
-with open('grammar.js','w') as f:
+with open(pathlib.Path.cwd().parent/'grammar.js','w') as f:
     f.write(grammar)
 
 # Write out the token data for possible use elsewhere
@@ -198,7 +198,7 @@ tmGrammar['scopeName'] = 'source.bas'
 tmGrammar['patterns'] = []
 
 # Use tree-sitter highlight query to help assign highlight names
-with open(pathlib.Path('queries')/pathlib.Path('highlights.scm'),'r') as f:
+with open(pathlib.Path.cwd().parent/'queries'/'highlights.scm','r') as f:
     highlights = f.read()
 
 if allow_lower_case:

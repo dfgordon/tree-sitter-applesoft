@@ -55,7 +55,7 @@ Read and Data
 10 READ PRICE
 20 READ A, B, M%(I), J%, S$(2*J-1), T$
 30 RESTORE
-40 DATA 1.5, 4, 5, 6, 7, HI HO, "HI,HO", E
+40 DATA 1.5, 4, 5, 6A, 7e2B, HI HO, "HI,HO", E, e, Elephant
 50 DATA PRINT A$;,,PRINT B$:PRINT C$
 
 ---
@@ -79,14 +79,16 @@ Read and Data
 	(line
 		(linenum)
 		(statement (data_tok)
-			(real)
-			(integer)
-			(integer)
-			(integer)
-			(integer)
+			(data_real)
+			(data_integer)
+			(data_integer)
+			(literal)
+			(literal)
 			(literal)
 			(string)
-			(real_data_item)))
+			(data_real)
+			(literal)
+			(literal)))
 	(line
 		(linenum)
 		(statement (data_tok) (literal) (literal))

@@ -189,6 +189,11 @@
     }
   },
   {
+    "type": "data_real",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "fcall",
     "named": true,
     "fields": {},
@@ -576,6 +581,14 @@
           "named": true
         },
         {
+          "type": "data_integer",
+          "named": true
+        },
+        {
+          "type": "data_real",
+          "named": true
+        },
+        {
           "type": "data_tok",
           "named": true
         },
@@ -781,10 +794,6 @@
         },
         {
           "type": "real_array",
-          "named": true
-        },
-        {
-          "type": "real_data_item",
           "named": true
         },
         {
@@ -1004,6 +1013,14 @@
           "named": true
         },
         {
+          "type": "data_integer",
+          "named": true
+        },
+        {
+          "type": "data_real",
+          "named": true
+        },
+        {
           "type": "data_tok",
           "named": true
         },
@@ -1033,10 +1050,6 @@
         },
         {
           "type": "real",
-          "named": true
-        },
-        {
-          "type": "real_data_item",
           "named": true
         },
         {
@@ -1203,6 +1216,10 @@
   },
   {
     "type": "cos_tok",
+    "named": true
+  },
+  {
+    "type": "data_integer",
     "named": true
   },
   {
@@ -1459,10 +1476,6 @@
   },
   {
     "type": "real",
-    "named": true
-  },
-  {
-    "type": "real_data_item",
     "named": true
   },
   {

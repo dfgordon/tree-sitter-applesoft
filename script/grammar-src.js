@@ -40,18 +40,16 @@ const language_name = allow_lower_case ? 'applesoft' : 'applesoftcasesens'
 let REAL_DOT = /([+-] *)?[0-9]?[0-9 ]*\.[0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)?/;
 // Following captures forms without the decimal point
 let REAL_E = /([+-] *)?[0-9][0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)/;
-// The following additional real numbers are acceptable in DATA statements
-let REAL_DATA = /([+-]|[+-]? *E *[+-]?)/;
+
+// Real numbers in DATA have greater syntactic range, but lower case is never allowed.
+const REAL_DATA_DOT = REAL_DOT;
+const REAL_DATA_E = REAL_E;
+const REAL_DATA_BARE = /([+-]|[+-]? *E *[+-]?)/;
 
 if (allow_lower_case)
 {
-	// This real number excludes integers, unlike Ref. 2 p. 237
-	// Following captures the zero valued cases in the first table on p. 237
-	REAL_DOT = /([+-] *)?[0-9]?[0-9 ]*\.[0-9 ]*([Ee] *[+-]? *([0-9] *[0-9]?)?)?/;
-	// Following captures forms without the decimal point
-	REAL_E = /([+-] *)?[0-9][0-9 ]*([Ee] *[+-]? *([0-9] *[0-9]?)?)/;
-	// The following additional real numbers are acceptable in DATA statements
-	REAL_DATA = /([+-]|[+-]? *[Ee] *[+-]?)/;
+	REAL_DOT = new RegExp(REAL_DOT.source.replace('E','[Ee]'));
+	REAL_E = new RegExp(REAL_E.source.replace('E','[Ee]'));
 }
 
 const
@@ -69,6 +67,7 @@ const
 	// DCHAR_1 and DCHAR_N replace `character` from Ref. 2, used for DATA literal
 	// Ref. 2 erroneously allows commas and colons in DATA literals.
 	// Also, leading spaces are ignored, but trailing spaces are included.
+	// This treatment of spaces is consistent with READ but not the tokenizer.
 	DCHAR_1 = regex_or([LETTER,DIGIT,SPCHAR_NO_SEP]),
 	DCHAR_N = regex_or([DCHAR_1,QUOTE,SPACE]);
 
@@ -80,6 +79,9 @@ module.exports = grammar({
 	// "name" is the term given in Ref. 2 for an identifier.
 	// external scanner is used to forbid keywords from appearing anywhere in the name.
 	externals: $ => [ $._ext_name ],
+	//conflicts: $ => [
+	//	[ $.statement,$.terminal_statement ],
+	//],
 
 	rules: {
 		source_file: $ => repeat(choice($.line,$._empty_line)),
@@ -297,13 +299,22 @@ module.exports = grammar({
 		subscript: $ => seq('(',$._aexpr,repeat(seq(',',$._aexpr)),')'),
 		_dim_item: $ => choice($.int_array,$.real_array,$.string_array),
 
+		// DATA items
+		// DATA is rather tricky because it is parsed in 2 or 3 different ways:
+		// by the tokenizer, by READ, and possibly by the execution parser.
+		// Unfortunately these are not consistent.  This parser emulates
+		// READ, and therefore not the tokenizer.  Downstream tools need to
+		// be aware of this.  The authors of Appendix B did not address this,
+		// and their definition of the `literal` is surely problematic.
+
+		_data_item: $ => choice($.string,$.literal,$.data_integer,$.data_real),
+		data_integer: $ => INTEGER,
+		data_real: $ => choice(REAL_DATA_DOT,REAL_DATA_E,REAL_DATA_BARE),
+		literal: $ => token(prec(0,seq(DCHAR_1,repeat(DCHAR_N)))),
+
 		// Literals from Appendix B
 
-		_data_item: $ => choice($.string,$.real,$.integer,$.literal,$.real_data_item),
 		integer: $ => token(prec(1,INTEGER)),
-		// Unlike Ref. 2 the following disallows commas and cannot start with a quote
-		// So far this has been needed to parse some forms of the DATA statement
-		literal: $ => token(prec(0,seq(DCHAR_1,repeat(DCHAR_N)))),
 		real: $ => token(prec(1,choice(REAL_DOT,REAL_E))),
 		string: $ => token(prec(1,seq('"',repeat(SCHAR),'"'))),
 
@@ -311,7 +322,6 @@ module.exports = grammar({
 		// These are added for convenience or to account for certain exceptions
 
 		terminal_string: $ => token(prec(1,seq('"',repeat(SCHAR)))),
-		real_data_item: $ => token(prec(1,REAL_DATA)),
 		fn_name: $ => $._name,
 		real_scalar: $ => $._name,
 		_real_scalar: $ => $._name,
