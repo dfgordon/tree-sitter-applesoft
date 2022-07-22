@@ -17,2538 +17,6 @@
         ]
       }
     },
-    "end_tok": {
-      "type": "PATTERN",
-      "value": "[Ee] *[Nn] *[Dd]"
-    },
-    "for_tok": {
-      "type": "PATTERN",
-      "value": "[Ff] *[Oo] *[Rr]"
-    },
-    "next_tok": {
-      "type": "PATTERN",
-      "value": "[Nn] *[Ee] *[Xx] *[Tt]"
-    },
-    "data_tok": {
-      "type": "PATTERN",
-      "value": "[Dd] *[Aa] *[Tt] *[Aa]"
-    },
-    "input_tok": {
-      "type": "PATTERN",
-      "value": "[Ii] *[Nn] *[Pp] *[Uu] *[Tt]"
-    },
-    "del_tok": {
-      "type": "PATTERN",
-      "value": "[Dd] *[Ee] *[Ll]"
-    },
-    "dim_tok": {
-      "type": "PATTERN",
-      "value": "[Dd] *[Ii] *[Mm]"
-    },
-    "read_tok": {
-      "type": "PATTERN",
-      "value": "[Rr] *[Ee] *[Aa] *[Dd]"
-    },
-    "gr_tok": {
-      "type": "PATTERN",
-      "value": "[Gg] *[Rr]"
-    },
-    "text_tok": {
-      "type": "PATTERN",
-      "value": "[Tt] *[Ee] *[Xx] *[Tt]"
-    },
-    "prn_tok": {
-      "type": "PATTERN",
-      "value": "[Pp] *[Rr] *[##]"
-    },
-    "inn_tok": {
-      "type": "PATTERN",
-      "value": "[Ii] *[Nn] *[##]"
-    },
-    "call_tok": {
-      "type": "PATTERN",
-      "value": "[Cc] *[Aa] *[Ll] *[Ll]"
-    },
-    "plot_tok": {
-      "type": "PATTERN",
-      "value": "[Pp] *[Ll] *[Oo] *[Tt]"
-    },
-    "hlin_tok": {
-      "type": "PATTERN",
-      "value": "[Hh] *[Ll] *[Ii] *[Nn]"
-    },
-    "vlin_tok": {
-      "type": "PATTERN",
-      "value": "[Vv] *[Ll] *[Ii] *[Nn]"
-    },
-    "hgr2_tok": {
-      "type": "PATTERN",
-      "value": "[Hh] *[Gg] *[Rr] *[22]"
-    },
-    "hgr_tok": {
-      "type": "PATTERN",
-      "value": "[Hh] *[Gg] *[Rr]"
-    },
-    "hcoloreq_tok": {
-      "type": "PATTERN",
-      "value": "[Hh] *[Cc] *[Oo] *[Ll] *[Oo] *[Rr] *[==]"
-    },
-    "hplot_tok": {
-      "type": "PATTERN",
-      "value": "[Hh] *[Pp] *[Ll] *[Oo] *[Tt]"
-    },
-    "draw_tok": {
-      "type": "PATTERN",
-      "value": "[Dd] *[Rr] *[Aa] *[Ww]"
-    },
-    "xdraw_tok": {
-      "type": "PATTERN",
-      "value": "[Xx] *[Dd] *[Rr] *[Aa] *[Ww]"
-    },
-    "htab_tok": {
-      "type": "PATTERN",
-      "value": "[Hh] *[Tt] *[Aa] *[Bb]"
-    },
-    "home_tok": {
-      "type": "PATTERN",
-      "value": "[Hh] *[Oo] *[Mm] *[Ee]"
-    },
-    "roteq_tok": {
-      "type": "PATTERN",
-      "value": "[Rr] *[Oo] *[Tt] *[==]"
-    },
-    "scaleeq_tok": {
-      "type": "PATTERN",
-      "value": "[Ss] *[Cc] *[Aa] *[Ll] *[Ee] *[==]"
-    },
-    "shload_tok": {
-      "type": "PATTERN",
-      "value": "[Ss] *[Hh] *[Ll] *[Oo] *[Aa] *[Dd]"
-    },
-    "trace_tok": {
-      "type": "PATTERN",
-      "value": "[Tt] *[Rr] *[Aa] *[Cc] *[Ee]"
-    },
-    "notrace_tok": {
-      "type": "PATTERN",
-      "value": "[Nn] *[Oo] *[Tt] *[Rr] *[Aa] *[Cc] *[Ee]"
-    },
-    "normal_tok": {
-      "type": "PATTERN",
-      "value": "[Nn] *[Oo] *[Rr] *[Mm] *[Aa] *[Ll]"
-    },
-    "inverse_tok": {
-      "type": "PATTERN",
-      "value": "[Ii] *[Nn] *[Vv] *[Ee] *[Rr] *[Ss] *[Ee]"
-    },
-    "flash_tok": {
-      "type": "PATTERN",
-      "value": "[Ff] *[Ll] *[Aa] *[Ss] *[Hh]"
-    },
-    "coloreq_tok": {
-      "type": "PATTERN",
-      "value": "[Cc] *[Oo] *[Ll] *[Oo] *[Rr] *[==]"
-    },
-    "pop_tok": {
-      "type": "PATTERN",
-      "value": "[Pp] *[Oo] *[Pp]"
-    },
-    "vtab_tok": {
-      "type": "PATTERN",
-      "value": "[Vv] *[Tt] *[Aa] *[Bb]"
-    },
-    "himem_tok": {
-      "type": "PATTERN",
-      "value": "[Hh] *[Ii] *[Mm] *[Ee] *[Mm] *[::]"
-    },
-    "lomem_tok": {
-      "type": "PATTERN",
-      "value": "[Ll] *[Oo] *[Mm] *[Ee] *[Mm] *[::]"
-    },
-    "onerr_tok": {
-      "type": "PATTERN",
-      "value": "[Oo] *[Nn] *[Ee] *[Rr] *[Rr]"
-    },
-    "resume_tok": {
-      "type": "PATTERN",
-      "value": "[Rr] *[Ee] *[Ss] *[Uu] *[Mm] *[Ee]"
-    },
-    "recall_tok": {
-      "type": "PATTERN",
-      "value": "[Rr] *[Ee] *[Cc] *[Aa] *[Ll] *[Ll]"
-    },
-    "store_tok": {
-      "type": "PATTERN",
-      "value": "[Ss] *[Tt] *[Oo] *[Rr] *[Ee]"
-    },
-    "speedeq_tok": {
-      "type": "PATTERN",
-      "value": "[Ss] *[Pp] *[Ee] *[Ee] *[Dd] *[==]"
-    },
-    "let_tok": {
-      "type": "PATTERN",
-      "value": "[Ll] *[Ee] *[Tt]"
-    },
-    "goto_tok": {
-      "type": "PATTERN",
-      "value": "[Gg] *[Oo] *[Tt] *[Oo]"
-    },
-    "run_tok": {
-      "type": "PATTERN",
-      "value": "[Rr] *[Uu] *[Nn]"
-    },
-    "if_tok": {
-      "type": "PATTERN",
-      "value": "[Ii] *[Ff]"
-    },
-    "restore_tok": {
-      "type": "PATTERN",
-      "value": "[Rr] *[Ee] *[Ss] *[Tt] *[Oo] *[Rr] *[Ee]"
-    },
-    "amp_tok": {
-      "type": "STRING",
-      "value": "&"
-    },
-    "gosub_tok": {
-      "type": "PATTERN",
-      "value": "[Gg] *[Oo] *[Ss] *[Uu] *[Bb]"
-    },
-    "return_tok": {
-      "type": "PATTERN",
-      "value": "[Rr] *[Ee] *[Tt] *[Uu] *[Rr] *[Nn]"
-    },
-    "rem_tok": {
-      "type": "PATTERN",
-      "value": "[Rr] *[Ee] *[Mm]"
-    },
-    "stop_tok": {
-      "type": "PATTERN",
-      "value": "[Ss] *[Tt] *[Oo] *[Pp]"
-    },
-    "on_tok": {
-      "type": "PATTERN",
-      "value": "[Oo] *[Nn]"
-    },
-    "wait_tok": {
-      "type": "PATTERN",
-      "value": "[Ww] *[Aa] *[Ii] *[Tt]"
-    },
-    "load_tok": {
-      "type": "PATTERN",
-      "value": "[Ll] *[Oo] *[Aa] *[Dd]"
-    },
-    "save_tok": {
-      "type": "PATTERN",
-      "value": "[Ss] *[Aa] *[Vv] *[Ee]"
-    },
-    "def_tok": {
-      "type": "PATTERN",
-      "value": "[Dd] *[Ee] *[Ff]"
-    },
-    "poke_tok": {
-      "type": "PATTERN",
-      "value": "[Pp] *[Oo] *[Kk] *[Ee]"
-    },
-    "print_tok": {
-      "type": "PATTERN",
-      "value": "[Pp] *[Rr] *[Ii] *[Nn] *[Tt]|\\?"
-    },
-    "cont_tok": {
-      "type": "PATTERN",
-      "value": "[Cc] *[Oo] *[Nn] *[Tt]"
-    },
-    "list_tok": {
-      "type": "PATTERN",
-      "value": "[Ll] *[Ii] *[Ss] *[Tt]"
-    },
-    "clear_tok": {
-      "type": "PATTERN",
-      "value": "[Cc] *[Ll] *[Ee] *[Aa] *[Rr]"
-    },
-    "get_tok": {
-      "type": "PATTERN",
-      "value": "[Gg] *[Ee] *[Tt]"
-    },
-    "new_tok": {
-      "type": "PATTERN",
-      "value": "[Nn] *[Ee] *[Ww]"
-    },
-    "tabp_tok": {
-      "type": "PATTERN",
-      "value": "[Tt] *[Aa] *[Bb] *[\\(\\(]"
-    },
-    "to_tok": {
-      "type": "PATTERN",
-      "value": "[Tt] *[Oo]"
-    },
-    "fn_tok": {
-      "type": "PATTERN",
-      "value": "[Ff] *[Nn]"
-    },
-    "spcp_tok": {
-      "type": "PATTERN",
-      "value": "[Ss] *[Pp] *[Cc] *[\\(\\(]"
-    },
-    "then_tok": {
-      "type": "PATTERN",
-      "value": "[Tt] *[Hh] *[Ee] *[Nn]"
-    },
-    "at_tok": {
-      "type": "PATTERN",
-      "value": "[Aa] *[Tt]"
-    },
-    "not_tok": {
-      "type": "PATTERN",
-      "value": "[Nn] *[Oo] *[Tt]"
-    },
-    "step_tok": {
-      "type": "PATTERN",
-      "value": "[Ss] *[Tt] *[Ee] *[Pp]"
-    },
-    "plus_tok": {
-      "type": "STRING",
-      "value": "+"
-    },
-    "minus_tok": {
-      "type": "STRING",
-      "value": "-"
-    },
-    "times_tok": {
-      "type": "STRING",
-      "value": "*"
-    },
-    "div_tok": {
-      "type": "STRING",
-      "value": "/"
-    },
-    "pow_tok": {
-      "type": "STRING",
-      "value": "^"
-    },
-    "and_tok": {
-      "type": "PATTERN",
-      "value": "[Aa] *[Nn] *[Dd]"
-    },
-    "or_tok": {
-      "type": "PATTERN",
-      "value": "[Oo] *[Rr]"
-    },
-    "gtr_tok": {
-      "type": "STRING",
-      "value": ">"
-    },
-    "eq_tok": {
-      "type": "STRING",
-      "value": "="
-    },
-    "less_tok": {
-      "type": "STRING",
-      "value": "<"
-    },
-    "sgn_tok": {
-      "type": "PATTERN",
-      "value": "[Ss] *[Gg] *[Nn]"
-    },
-    "int_tok": {
-      "type": "PATTERN",
-      "value": "[Ii] *[Nn] *[Tt]"
-    },
-    "abs_tok": {
-      "type": "PATTERN",
-      "value": "[Aa] *[Bb] *[Ss]"
-    },
-    "usr_tok": {
-      "type": "PATTERN",
-      "value": "[Uu] *[Ss] *[Rr]"
-    },
-    "fre_tok": {
-      "type": "PATTERN",
-      "value": "[Ff] *[Rr] *[Ee]"
-    },
-    "scrnp_tok": {
-      "type": "PATTERN",
-      "value": "[Ss] *[Cc] *[Rr] *[Nn] *[\\(\\(]"
-    },
-    "pdl_tok": {
-      "type": "PATTERN",
-      "value": "[Pp] *[Dd] *[Ll]"
-    },
-    "pos_tok": {
-      "type": "PATTERN",
-      "value": "[Pp] *[Oo] *[Ss]"
-    },
-    "sqr_tok": {
-      "type": "PATTERN",
-      "value": "[Ss] *[Qq] *[Rr]"
-    },
-    "rnd_tok": {
-      "type": "PATTERN",
-      "value": "[Rr] *[Nn] *[Dd]"
-    },
-    "log_tok": {
-      "type": "PATTERN",
-      "value": "[Ll] *[Oo] *[Gg]"
-    },
-    "exp_tok": {
-      "type": "PATTERN",
-      "value": "[Ee] *[Xx] *[Pp]"
-    },
-    "cos_tok": {
-      "type": "PATTERN",
-      "value": "[Cc] *[Oo] *[Ss]"
-    },
-    "sin_tok": {
-      "type": "PATTERN",
-      "value": "[Ss] *[Ii] *[Nn]"
-    },
-    "tan_tok": {
-      "type": "PATTERN",
-      "value": "[Tt] *[Aa] *[Nn]"
-    },
-    "atn_tok": {
-      "type": "PATTERN",
-      "value": "[Aa] *[Tt][Nn]"
-    },
-    "peek_tok": {
-      "type": "PATTERN",
-      "value": "[Pp] *[Ee] *[Ee] *[Kk]"
-    },
-    "len_tok": {
-      "type": "PATTERN",
-      "value": "[Ll] *[Ee] *[Nn]"
-    },
-    "str_tok": {
-      "type": "PATTERN",
-      "value": "[Ss] *[Tt] *[Rr] *[\\$\\$]"
-    },
-    "val_tok": {
-      "type": "PATTERN",
-      "value": "[Vv] *[Aa] *[Ll]"
-    },
-    "asc_tok": {
-      "type": "PATTERN",
-      "value": "[Aa] *[Ss] *[Cc]"
-    },
-    "chr_tok": {
-      "type": "PATTERN",
-      "value": "[Cc] *[Hh] *[Rr] *[\\$\\$]"
-    },
-    "left_tok": {
-      "type": "PATTERN",
-      "value": "[Ll] *[Ee] *[Ff] *[Tt] *[\\$\\$]"
-    },
-    "right_tok": {
-      "type": "PATTERN",
-      "value": "[Rr] *[Ii] *[Gg] *[Hh] *[Tt] *[\\$\\$]"
-    },
-    "mid_tok": {
-      "type": "PATTERN",
-      "value": "[Mm] *[Ii] *[Dd] *[\\$\\$]"
-    },
-    "statement": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "assignment"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "call_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "string"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "clear_tok"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "coloreq_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "cont_tok"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "data_tok"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_data_item"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "_data_item"
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "def_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "fn_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "fn_name"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "real_scalar"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "eq_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "del_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "linenum"
-            },
-            {
-              "type": "STRING",
-              "value": ","
-            },
-            {
-              "type": "SYMBOL",
-              "name": "linenum"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "dim_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_dim_item"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_dim_item"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "draw_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "at_tok"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "_aexpr"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": ","
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "_aexpr"
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "end_tok"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "flash_tok"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "for_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "real_scalar"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "eq_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "to_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "step_tok"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "_aexpr"
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "get_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_var"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_var"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "gosub_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "linenum"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "goto_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "linenum"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "gr_tok"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "hcoloreq_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hgr_tok"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hgr2_tok"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "himem_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "hlin_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ","
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "at_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "home_tok"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "hplot_tok"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "to_tok"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ","
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "to_tok"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_aexpr"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_aexpr"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "htab_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "if_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_expr"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "then_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "statement"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "if_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_expr"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "then_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "linenum"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "if_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_expr"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "goto_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "linenum"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "inn_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "input_tok"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "_sexpr"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": ";"
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_var"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_var"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "inverse_tok"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "load_tok"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "list_tok"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "linenum"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "CHOICE",
-                      "members": [
-                        {
-                          "type": "SYMBOL",
-                          "name": "minus_tok"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": ","
-                        }
-                      ]
-                    },
-                    {
-                      "type": "CHOICE",
-                      "members": [
-                        {
-                          "type": "SYMBOL",
-                          "name": "linenum"
-                        },
-                        {
-                          "type": "BLANK"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "lomem_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "new_tok"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "next_tok"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "_avar"
-                    },
-                    {
-                      "type": "REPEAT",
-                      "content": {
-                        "type": "SEQ",
-                        "members": [
-                          {
-                            "type": "STRING",
-                            "value": ","
-                          },
-                          {
-                            "type": "SYMBOL",
-                            "name": "_avar"
-                          }
-                        ]
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "normal_tok"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "notrace_tok"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "on_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "goto_tok"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "gosub_tok"
-                }
-              ]
-            },
-            {
-              "type": "SYMBOL",
-              "name": "linenum"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "linenum"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "onerr_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "goto_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "linenum"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "plot_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ","
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "poke_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ","
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "pop_tok"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "prn_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "print_tok"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "STRING",
-                    "value": ";"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_expr"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "read_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_var"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_var"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "recall_tok"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "int_scalar"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "real_scalar"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "rem_tok"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "comment_text"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "restore_tok"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "resume_tok"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "return_tok"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "roteq_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "run_tok"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "linenum"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "save_tok"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "scaleeq_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "shload_tok"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "speedeq_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "stop_tok"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "store_tok"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "int_scalar"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "real_scalar"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "text_tok"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "trace_tok"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "vlin_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ","
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "at_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "vtab_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "wait_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ","
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": ","
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "_aexpr"
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "xdraw_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "at_tok"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "_aexpr"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": ","
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "_aexpr"
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "amp_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "string"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "amp_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_expr"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_expr"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        }
-      ]
-    },
-    "terminal_statement": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "if_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_expr"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "then_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "terminal_statement"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "call_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "terminal_string"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "data_tok"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_data_item"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "_data_item"
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  }
-                ]
-              }
-            },
-            {
-              "type": "SYMBOL",
-              "name": "terminal_string"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "print_tok"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "STRING",
-                    "value": ";"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_expr"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "SYMBOL",
-              "name": "terminal_string"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "amp_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "terminal_string"
-            }
-          ]
-        }
-      ]
-    },
-    "comment_text": {
-      "type": "PATTERN",
-      "value": ".+"
-    },
-    "assignment": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "let_tok"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_avar"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "eq_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "let_tok"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "SYMBOL",
-              "name": "svar"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "eq_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_sexpr"
-            }
-          ]
-        }
-      ]
-    },
-    "fcall": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "abs_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "asc_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_sexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "atn_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "cos_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "exp_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "fn_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "fn_name"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "fre_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_expr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "int_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "len_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_sexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "log_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "pdl_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "peek_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "pos_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_expr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "rnd_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "scrnp_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ","
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "sgn_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "sin_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "sqr_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "tan_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "usr_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "val_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_sexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        }
-      ]
-    },
-    "sfcall": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "chr_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "left_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_sexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ","
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "mid_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_sexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ","
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": ","
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "_aexpr"
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "right_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_sexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ","
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "spcp_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "str_tok"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "tabp_tok"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_aexpr"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        }
-      ]
-    },
     "line": {
       "type": "SEQ",
       "members": [
@@ -2625,6 +93,2578 @@
       "type": "PATTERN",
       "value": "\\r?\\n"
     },
+    "tok_end": {
+      "type": "PATTERN",
+      "value": "[Ee] *[Nn] *[Dd]"
+    },
+    "tok_for": {
+      "type": "PATTERN",
+      "value": "[Ff] *[Oo] *[Rr]"
+    },
+    "tok_next": {
+      "type": "PATTERN",
+      "value": "[Nn] *[Ee] *[Xx] *[Tt]"
+    },
+    "tok_data": {
+      "type": "PATTERN",
+      "value": "[Dd] *[Aa] *[Tt] *[Aa]"
+    },
+    "tok_input": {
+      "type": "PATTERN",
+      "value": "[Ii] *[Nn] *[Pp] *[Uu] *[Tt]"
+    },
+    "tok_del": {
+      "type": "PATTERN",
+      "value": "[Dd] *[Ee] *[Ll]"
+    },
+    "tok_dim": {
+      "type": "PATTERN",
+      "value": "[Dd] *[Ii] *[Mm]"
+    },
+    "tok_read": {
+      "type": "PATTERN",
+      "value": "[Rr] *[Ee] *[Aa] *[Dd]"
+    },
+    "tok_gr": {
+      "type": "PATTERN",
+      "value": "[Gg] *[Rr]"
+    },
+    "tok_text": {
+      "type": "PATTERN",
+      "value": "[Tt] *[Ee] *[Xx] *[Tt]"
+    },
+    "tok_prn": {
+      "type": "PATTERN",
+      "value": "[Pp] *[Rr] *[##]"
+    },
+    "tok_inn": {
+      "type": "PATTERN",
+      "value": "[Ii] *[Nn] *[##]"
+    },
+    "tok_call": {
+      "type": "PATTERN",
+      "value": "[Cc] *[Aa] *[Ll] *[Ll]"
+    },
+    "tok_plot": {
+      "type": "PATTERN",
+      "value": "[Pp] *[Ll] *[Oo] *[Tt]"
+    },
+    "tok_hlin": {
+      "type": "PATTERN",
+      "value": "[Hh] *[Ll] *[Ii] *[Nn]"
+    },
+    "tok_vlin": {
+      "type": "PATTERN",
+      "value": "[Vv] *[Ll] *[Ii] *[Nn]"
+    },
+    "tok_hgr2": {
+      "type": "PATTERN",
+      "value": "[Hh] *[Gg] *[Rr] *[22]"
+    },
+    "tok_hgr": {
+      "type": "PATTERN",
+      "value": "[Hh] *[Gg] *[Rr]"
+    },
+    "tok_hcoloreq": {
+      "type": "PATTERN",
+      "value": "[Hh] *[Cc] *[Oo] *[Ll] *[Oo] *[Rr] *[==]"
+    },
+    "tok_hplot": {
+      "type": "PATTERN",
+      "value": "[Hh] *[Pp] *[Ll] *[Oo] *[Tt]"
+    },
+    "tok_draw": {
+      "type": "PATTERN",
+      "value": "[Dd] *[Rr] *[Aa] *[Ww]"
+    },
+    "tok_xdraw": {
+      "type": "PATTERN",
+      "value": "[Xx] *[Dd] *[Rr] *[Aa] *[Ww]"
+    },
+    "tok_htab": {
+      "type": "PATTERN",
+      "value": "[Hh] *[Tt] *[Aa] *[Bb]"
+    },
+    "tok_home": {
+      "type": "PATTERN",
+      "value": "[Hh] *[Oo] *[Mm] *[Ee]"
+    },
+    "tok_roteq": {
+      "type": "PATTERN",
+      "value": "[Rr] *[Oo] *[Tt] *[==]"
+    },
+    "tok_scaleeq": {
+      "type": "PATTERN",
+      "value": "[Ss] *[Cc] *[Aa] *[Ll] *[Ee] *[==]"
+    },
+    "tok_shload": {
+      "type": "PATTERN",
+      "value": "[Ss] *[Hh] *[Ll] *[Oo] *[Aa] *[Dd]"
+    },
+    "tok_trace": {
+      "type": "PATTERN",
+      "value": "[Tt] *[Rr] *[Aa] *[Cc] *[Ee]"
+    },
+    "tok_notrace": {
+      "type": "PATTERN",
+      "value": "[Nn] *[Oo] *[Tt] *[Rr] *[Aa] *[Cc] *[Ee]"
+    },
+    "tok_normal": {
+      "type": "PATTERN",
+      "value": "[Nn] *[Oo] *[Rr] *[Mm] *[Aa] *[Ll]"
+    },
+    "tok_inverse": {
+      "type": "PATTERN",
+      "value": "[Ii] *[Nn] *[Vv] *[Ee] *[Rr] *[Ss] *[Ee]"
+    },
+    "tok_flash": {
+      "type": "PATTERN",
+      "value": "[Ff] *[Ll] *[Aa] *[Ss] *[Hh]"
+    },
+    "tok_coloreq": {
+      "type": "PATTERN",
+      "value": "[Cc] *[Oo] *[Ll] *[Oo] *[Rr] *[==]"
+    },
+    "tok_pop": {
+      "type": "PATTERN",
+      "value": "[Pp] *[Oo] *[Pp]"
+    },
+    "tok_vtab": {
+      "type": "PATTERN",
+      "value": "[Vv] *[Tt] *[Aa] *[Bb]"
+    },
+    "tok_himem": {
+      "type": "PATTERN",
+      "value": "[Hh] *[Ii] *[Mm] *[Ee] *[Mm] *[::]"
+    },
+    "tok_lomem": {
+      "type": "PATTERN",
+      "value": "[Ll] *[Oo] *[Mm] *[Ee] *[Mm] *[::]"
+    },
+    "tok_onerr": {
+      "type": "PATTERN",
+      "value": "[Oo] *[Nn] *[Ee] *[Rr] *[Rr]"
+    },
+    "tok_resume": {
+      "type": "PATTERN",
+      "value": "[Rr] *[Ee] *[Ss] *[Uu] *[Mm] *[Ee]"
+    },
+    "tok_recall": {
+      "type": "PATTERN",
+      "value": "[Rr] *[Ee] *[Cc] *[Aa] *[Ll] *[Ll]"
+    },
+    "tok_store": {
+      "type": "PATTERN",
+      "value": "[Ss] *[Tt] *[Oo] *[Rr] *[Ee]"
+    },
+    "tok_speedeq": {
+      "type": "PATTERN",
+      "value": "[Ss] *[Pp] *[Ee] *[Ee] *[Dd] *[==]"
+    },
+    "tok_let": {
+      "type": "PATTERN",
+      "value": "[Ll] *[Ee] *[Tt]"
+    },
+    "tok_goto": {
+      "type": "PATTERN",
+      "value": "[Gg] *[Oo] *[Tt] *[Oo]"
+    },
+    "tok_run": {
+      "type": "PATTERN",
+      "value": "[Rr] *[Uu] *[Nn]"
+    },
+    "tok_if": {
+      "type": "PATTERN",
+      "value": "[Ii] *[Ff]"
+    },
+    "tok_restore": {
+      "type": "PATTERN",
+      "value": "[Rr] *[Ee] *[Ss] *[Tt] *[Oo] *[Rr] *[Ee]"
+    },
+    "tok_amp": {
+      "type": "STRING",
+      "value": "&"
+    },
+    "tok_gosub": {
+      "type": "PATTERN",
+      "value": "[Gg] *[Oo] *[Ss] *[Uu] *[Bb]"
+    },
+    "tok_return": {
+      "type": "PATTERN",
+      "value": "[Rr] *[Ee] *[Tt] *[Uu] *[Rr] *[Nn]"
+    },
+    "tok_rem": {
+      "type": "PATTERN",
+      "value": "[Rr] *[Ee] *[Mm]"
+    },
+    "tok_stop": {
+      "type": "PATTERN",
+      "value": "[Ss] *[Tt] *[Oo] *[Pp]"
+    },
+    "tok_on": {
+      "type": "PATTERN",
+      "value": "[Oo] *[Nn]"
+    },
+    "tok_wait": {
+      "type": "PATTERN",
+      "value": "[Ww] *[Aa] *[Ii] *[Tt]"
+    },
+    "tok_load": {
+      "type": "PATTERN",
+      "value": "[Ll] *[Oo] *[Aa] *[Dd]"
+    },
+    "tok_save": {
+      "type": "PATTERN",
+      "value": "[Ss] *[Aa] *[Vv] *[Ee]"
+    },
+    "tok_def": {
+      "type": "PATTERN",
+      "value": "[Dd] *[Ee] *[Ff]"
+    },
+    "tok_poke": {
+      "type": "PATTERN",
+      "value": "[Pp] *[Oo] *[Kk] *[Ee]"
+    },
+    "tok_print": {
+      "type": "PATTERN",
+      "value": "[Pp] *[Rr] *[Ii] *[Nn] *[Tt]|\\?"
+    },
+    "tok_cont": {
+      "type": "PATTERN",
+      "value": "[Cc] *[Oo] *[Nn] *[Tt]"
+    },
+    "tok_list": {
+      "type": "PATTERN",
+      "value": "[Ll] *[Ii] *[Ss] *[Tt]"
+    },
+    "tok_clear": {
+      "type": "PATTERN",
+      "value": "[Cc] *[Ll] *[Ee] *[Aa] *[Rr]"
+    },
+    "tok_get": {
+      "type": "PATTERN",
+      "value": "[Gg] *[Ee] *[Tt]"
+    },
+    "tok_new": {
+      "type": "PATTERN",
+      "value": "[Nn] *[Ee] *[Ww]"
+    },
+    "tok_tabp": {
+      "type": "PATTERN",
+      "value": "[Tt] *[Aa] *[Bb] *[\\(\\(]"
+    },
+    "tok_to": {
+      "type": "PATTERN",
+      "value": "[Tt] *[Oo]"
+    },
+    "tok_fn": {
+      "type": "PATTERN",
+      "value": "[Ff] *[Nn]"
+    },
+    "tok_spcp": {
+      "type": "PATTERN",
+      "value": "[Ss] *[Pp] *[Cc] *[\\(\\(]"
+    },
+    "tok_then": {
+      "type": "PATTERN",
+      "value": "[Tt] *[Hh] *[Ee] *[Nn]"
+    },
+    "tok_at": {
+      "type": "PATTERN",
+      "value": "[Aa] *[Tt]"
+    },
+    "tok_not": {
+      "type": "PATTERN",
+      "value": "[Nn] *[Oo] *[Tt]"
+    },
+    "tok_step": {
+      "type": "PATTERN",
+      "value": "[Ss] *[Tt] *[Ee] *[Pp]"
+    },
+    "tok_plus": {
+      "type": "STRING",
+      "value": "+"
+    },
+    "tok_minus": {
+      "type": "STRING",
+      "value": "-"
+    },
+    "tok_times": {
+      "type": "STRING",
+      "value": "*"
+    },
+    "tok_div": {
+      "type": "STRING",
+      "value": "/"
+    },
+    "tok_pow": {
+      "type": "STRING",
+      "value": "^"
+    },
+    "tok_and": {
+      "type": "PATTERN",
+      "value": "[Aa] *[Nn] *[Dd]"
+    },
+    "tok_or": {
+      "type": "PATTERN",
+      "value": "[Oo] *[Rr]"
+    },
+    "tok_gtr": {
+      "type": "STRING",
+      "value": ">"
+    },
+    "tok_eq": {
+      "type": "STRING",
+      "value": "="
+    },
+    "tok_less": {
+      "type": "STRING",
+      "value": "<"
+    },
+    "tok_sgn": {
+      "type": "PATTERN",
+      "value": "[Ss] *[Gg] *[Nn]"
+    },
+    "tok_int": {
+      "type": "PATTERN",
+      "value": "[Ii] *[Nn] *[Tt]"
+    },
+    "tok_abs": {
+      "type": "PATTERN",
+      "value": "[Aa] *[Bb] *[Ss]"
+    },
+    "tok_usr": {
+      "type": "PATTERN",
+      "value": "[Uu] *[Ss] *[Rr]"
+    },
+    "tok_fre": {
+      "type": "PATTERN",
+      "value": "[Ff] *[Rr] *[Ee]"
+    },
+    "tok_scrnp": {
+      "type": "PATTERN",
+      "value": "[Ss] *[Cc] *[Rr] *[Nn] *[\\(\\(]"
+    },
+    "tok_pdl": {
+      "type": "PATTERN",
+      "value": "[Pp] *[Dd] *[Ll]"
+    },
+    "tok_pos": {
+      "type": "PATTERN",
+      "value": "[Pp] *[Oo] *[Ss]"
+    },
+    "tok_sqr": {
+      "type": "PATTERN",
+      "value": "[Ss] *[Qq] *[Rr]"
+    },
+    "tok_rnd": {
+      "type": "PATTERN",
+      "value": "[Rr] *[Nn] *[Dd]"
+    },
+    "tok_log": {
+      "type": "PATTERN",
+      "value": "[Ll] *[Oo] *[Gg]"
+    },
+    "tok_exp": {
+      "type": "PATTERN",
+      "value": "[Ee] *[Xx] *[Pp]"
+    },
+    "tok_cos": {
+      "type": "PATTERN",
+      "value": "[Cc] *[Oo] *[Ss]"
+    },
+    "tok_sin": {
+      "type": "PATTERN",
+      "value": "[Ss] *[Ii] *[Nn]"
+    },
+    "tok_tan": {
+      "type": "PATTERN",
+      "value": "[Tt] *[Aa] *[Nn]"
+    },
+    "tok_atn": {
+      "type": "PATTERN",
+      "value": "[Aa] *[Tt][Nn]"
+    },
+    "tok_peek": {
+      "type": "PATTERN",
+      "value": "[Pp] *[Ee] *[Ee] *[Kk]"
+    },
+    "tok_len": {
+      "type": "PATTERN",
+      "value": "[Ll] *[Ee] *[Nn]"
+    },
+    "tok_str": {
+      "type": "PATTERN",
+      "value": "[Ss] *[Tt] *[Rr] *[\\$\\$]"
+    },
+    "tok_val": {
+      "type": "PATTERN",
+      "value": "[Vv] *[Aa] *[Ll]"
+    },
+    "tok_asc": {
+      "type": "PATTERN",
+      "value": "[Aa] *[Ss] *[Cc]"
+    },
+    "tok_chr": {
+      "type": "PATTERN",
+      "value": "[Cc] *[Hh] *[Rr] *[\\$\\$]"
+    },
+    "tok_left": {
+      "type": "PATTERN",
+      "value": "[Ll] *[Ee] *[Ff] *[Tt] *[\\$\\$]"
+    },
+    "tok_right": {
+      "type": "PATTERN",
+      "value": "[Rr] *[Ii] *[Gg] *[Hh] *[Tt] *[\\$\\$]"
+    },
+    "tok_mid": {
+      "type": "PATTERN",
+      "value": "[Mm] *[Ii] *[Dd] *[\\$\\$]"
+    },
+    "statement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "assignment"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_call"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "str"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_clear"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_coloreq"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_cont"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_data"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_data_item"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "_data_item"
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_def"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_fn"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "name_real"
+              },
+              "named": true,
+              "value": "name_fn"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_real_scalar"
+              },
+              "named": true,
+              "value": "var_real"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_eq"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_del"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "linenum"
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "SYMBOL",
+              "name": "linenum"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_dim"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "dim_item"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "dim_item"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_draw"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "tok_at"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_aexpr"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": ","
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_aexpr"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_end"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_flash"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_for"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_real_scalar"
+              },
+              "named": true,
+              "value": "var_real"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_eq"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_to"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "tok_step"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_aexpr"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_get"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_var"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_var"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_gosub"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "linenum"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_goto"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "linenum"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_gr"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_hcoloreq"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_hgr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_hgr2"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_himem"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_hlin"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_at"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_home"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_hplot"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "tok_to"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "tok_to"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_aexpr"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_aexpr"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_htab"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_if"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_expr"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_then"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "statement"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_if"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_expr"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_then"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "linenum"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_if"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_expr"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_goto"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "linenum"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_inn"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_input"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_sexpr"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": ";"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_var"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_var"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_inverse"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_load"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_list"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "linenum"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "tok_minus"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ","
+                        }
+                      ]
+                    },
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "linenum"
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_lomem"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_new"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_next"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_avar"
+                    },
+                    {
+                      "type": "REPEAT",
+                      "content": {
+                        "type": "SEQ",
+                        "members": [
+                          {
+                            "type": "STRING",
+                            "value": ","
+                          },
+                          {
+                            "type": "SYMBOL",
+                            "name": "_avar"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_normal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_notrace"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_on"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "tok_goto"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "tok_gosub"
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "linenum"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "linenum"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_onerr"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_goto"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "linenum"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_plot"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_poke"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_pop"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_prn"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_print"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ";"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_expr"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_read"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_var"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_var"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_recall"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_int_scalar"
+                  },
+                  "named": true,
+                  "value": "var_int"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_real_scalar"
+                  },
+                  "named": true,
+                  "value": "var_real"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_rem"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "comment_text"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_restore"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_resume"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_return"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_roteq"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_run"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "linenum"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_save"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_scaleeq"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_shload"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_speedeq"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_stop"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_store"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_int_scalar"
+                  },
+                  "named": true,
+                  "value": "var_int"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_real_scalar"
+                  },
+                  "named": true,
+                  "value": "var_real"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_text"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_trace"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_vlin"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_at"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_vtab"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_wait"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": ","
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_aexpr"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_xdraw"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "tok_at"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_aexpr"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": ","
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_aexpr"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_amp"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "str"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_amp"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_expr"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_expr"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        }
+      ]
+    },
+    "terminal_statement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_if"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_expr"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_then"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "terminal_statement"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_call"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "terminal_str"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_data"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_data_item"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "_data_item"
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "terminal_str"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_print"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ";"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_expr"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "terminal_str"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_amp"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "terminal_str"
+            }
+          ]
+        }
+      ]
+    },
+    "comment_text": {
+      "type": "PATTERN",
+      "value": ".+"
+    },
+    "assignment": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "tok_let"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_avar"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_eq"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "tok_let"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "var_str"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_eq"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_sexpr"
+            }
+          ]
+        }
+      ]
+    },
+    "fcall": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_abs"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_asc"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_sexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_atn"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_cos"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_exp"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_fn"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "name_real"
+              },
+              "named": true,
+              "value": "name_fn"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_fre"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_expr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_int"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_len"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_sexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_log"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_pdl"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_peek"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_pos"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_expr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_rnd"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_scrnp"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_sgn"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_sin"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_sqr"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_tan"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_usr"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_val"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_sexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        }
+      ]
+    },
+    "sfcall": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_chr"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_left"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_sexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_mid"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_sexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": ","
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_aexpr"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_right"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_sexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_spcp"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_str"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_tabp"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_aexpr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        }
+      ]
+    },
     "_expr": {
       "type": "CHOICE",
       "members": [
@@ -2647,7 +2687,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "integer"
+          "name": "int"
         },
         {
           "type": "SYMBOL",
@@ -2682,7 +2722,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "plus_tok"
+                "name": "tok_plus"
               },
               {
                 "type": "SYMBOL",
@@ -2695,7 +2735,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "minus_tok"
+                "name": "tok_minus"
               },
               {
                 "type": "SYMBOL",
@@ -2708,7 +2748,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "not_tok"
+                "name": "tok_not"
               },
               {
                 "type": "SYMBOL",
@@ -2734,7 +2774,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "pow_tok"
+                "name": "tok_pow"
               },
               {
                 "type": "SYMBOL",
@@ -2758,11 +2798,11 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "times_tok"
+                    "name": "tok_times"
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "div_tok"
+                    "name": "tok_div"
                   }
                 ]
               },
@@ -2788,11 +2828,11 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "plus_tok"
+                    "name": "tok_plus"
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "minus_tok"
+                    "name": "tok_minus"
                   }
                 ]
               },
@@ -2857,7 +2897,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "and_tok"
+                "name": "tok_and"
               },
               {
                 "type": "SYMBOL",
@@ -2878,7 +2918,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "or_tok"
+                "name": "tok_or"
               },
               {
                 "type": "SYMBOL",
@@ -2915,26 +2955,26 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "eq_tok"
+          "name": "tok_eq"
         },
         {
           "type": "SYMBOL",
-          "name": "less_tok"
+          "name": "tok_less"
         },
         {
           "type": "SYMBOL",
-          "name": "gtr_tok"
+          "name": "tok_gtr"
         },
         {
           "type": "SEQ",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "less_tok"
+              "name": "tok_less"
             },
             {
               "type": "SYMBOL",
-              "name": "eq_tok"
+              "name": "tok_eq"
             }
           ]
         },
@@ -2943,11 +2983,11 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "eq_tok"
+              "name": "tok_eq"
             },
             {
               "type": "SYMBOL",
-              "name": "less_tok"
+              "name": "tok_less"
             }
           ]
         },
@@ -2956,11 +2996,11 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "gtr_tok"
+              "name": "tok_gtr"
             },
             {
               "type": "SYMBOL",
-              "name": "eq_tok"
+              "name": "tok_eq"
             }
           ]
         },
@@ -2969,11 +3009,11 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "eq_tok"
+              "name": "tok_eq"
             },
             {
               "type": "SYMBOL",
-              "name": "gtr_tok"
+              "name": "tok_gtr"
             }
           ]
         },
@@ -2982,11 +3022,11 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "less_tok"
+              "name": "tok_less"
             },
             {
               "type": "SYMBOL",
-              "name": "gtr_tok"
+              "name": "tok_gtr"
             }
           ]
         },
@@ -2995,11 +3035,11 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "gtr_tok"
+              "name": "tok_gtr"
             },
             {
               "type": "SYMBOL",
-              "name": "less_tok"
+              "name": "tok_less"
             }
           ]
         }
@@ -3010,11 +3050,11 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "string"
+          "name": "str"
         },
         {
           "type": "SYMBOL",
-          "name": "svar"
+          "name": "var_str"
         },
         {
           "type": "SYMBOL",
@@ -3070,7 +3110,7 @@
     },
     "_sop": {
       "type": "SYMBOL",
-      "name": "plus_tok"
+      "name": "tok_plus"
     },
     "_var": {
       "type": "CHOICE",
@@ -3081,7 +3121,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "svar"
+          "name": "var_str"
         }
       ]
     },
@@ -3090,20 +3130,20 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "realvar"
+          "name": "var_real"
         },
         {
           "type": "SYMBOL",
-          "name": "intvar"
+          "name": "var_int"
         }
       ]
     },
-    "intvar": {
+    "var_int": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_int_scalar"
+          "name": "name_int"
         },
         {
           "type": "SYMBOL",
@@ -3111,12 +3151,12 @@
         }
       ]
     },
-    "realvar": {
+    "var_real": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_real_scalar"
+          "name": "name_real"
         },
         {
           "type": "SYMBOL",
@@ -3124,16 +3164,16 @@
         }
       ]
     },
-    "svar": {
+    "var_str": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_string_scalar"
+          "name": "name_str"
         },
         {
           "type": "SYMBOL",
-          "name": "_string_array"
+          "name": "_str_array"
         }
       ]
     },
@@ -3170,20 +3210,35 @@
         }
       ]
     },
-    "_dim_item": {
+    "dim_item": {
       "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "int_array"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_int_array"
+          },
+          "named": true,
+          "value": "var_int"
         },
         {
-          "type": "SYMBOL",
-          "name": "real_array"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_real_array"
+          },
+          "named": true,
+          "value": "var_real"
         },
         {
-          "type": "SYMBOL",
-          "name": "string_array"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_str_array"
+          },
+          "named": true,
+          "value": "var_str"
         }
       ]
     },
@@ -3191,16 +3246,21 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "string"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "str"
+          },
+          "named": true,
+          "value": "data_str"
         },
         {
           "type": "SYMBOL",
-          "name": "literal"
+          "name": "data_literal"
         },
         {
           "type": "SYMBOL",
-          "name": "data_integer"
+          "name": "data_int"
         },
         {
           "type": "SYMBOL",
@@ -3208,7 +3268,7 @@
         }
       ]
     },
-    "data_integer": {
+    "data_int": {
       "type": "PATTERN",
       "value": "[+-]?[0-9]([0-9 ]*[0-9])?"
     },
@@ -3229,7 +3289,7 @@
         }
       ]
     },
-    "literal": {
+    "data_literal": {
       "type": "TOKEN",
       "content": {
         "type": "PREC",
@@ -3252,7 +3312,7 @@
         }
       }
     },
-    "integer": {
+    "int": {
       "type": "TOKEN",
       "content": {
         "type": "PREC",
@@ -3283,7 +3343,7 @@
         }
       }
     },
-    "string": {
+    "str": {
       "type": "TOKEN",
       "content": {
         "type": "PREC",
@@ -3310,7 +3370,7 @@
         }
       }
     },
-    "terminal_string": {
+    "terminal_str": {
       "type": "TOKEN",
       "content": {
         "type": "PREC",
@@ -3333,19 +3393,11 @@
         }
       }
     },
-    "fn_name": {
+    "name_real": {
       "type": "SYMBOL",
       "name": "_name"
     },
-    "real_scalar": {
-      "type": "SYMBOL",
-      "name": "_name"
-    },
-    "_real_scalar": {
-      "type": "SYMBOL",
-      "name": "_name"
-    },
-    "int_scalar": {
+    "name_int": {
       "type": "SEQ",
       "members": [
         {
@@ -3358,20 +3410,7 @@
         }
       ]
     },
-    "_int_scalar": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_name"
-        },
-        {
-          "type": "STRING",
-          "value": "%"
-        }
-      ]
-    },
-    "_string_scalar": {
+    "name_str": {
       "type": "SEQ",
       "members": [
         {
@@ -3384,23 +3423,6 @@
         }
       ]
     },
-    "real_array": {
-      "type": "PREC",
-      "value": 1,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "_name"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "subscript"
-          }
-        ]
-      }
-    },
     "_real_array": {
       "type": "PREC",
       "value": 1,
@@ -3409,28 +3431,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "_name"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "subscript"
-          }
-        ]
-      }
-    },
-    "int_array": {
-      "type": "PREC",
-      "value": 1,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "_name"
-          },
-          {
-            "type": "STRING",
-            "value": "%"
+            "name": "name_real"
           },
           {
             "type": "SYMBOL",
@@ -3447,11 +3448,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "_name"
-          },
-          {
-            "type": "STRING",
-            "value": "%"
+            "name": "name_int"
           },
           {
             "type": "SYMBOL",
@@ -3460,7 +3457,7 @@
         ]
       }
     },
-    "string_array": {
+    "_str_array": {
       "type": "PREC",
       "value": 1,
       "content": {
@@ -3468,11 +3465,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "_name"
-          },
-          {
-            "type": "STRING",
-            "value": "$"
+            "name": "name_str"
           },
           {
             "type": "SYMBOL",
@@ -3481,26 +3474,13 @@
         ]
       }
     },
-    "_string_array": {
-      "type": "PREC",
-      "value": 1,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "_name"
-          },
-          {
-            "type": "STRING",
-            "value": "$"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "subscript"
-          }
-        ]
-      }
+    "_real_scalar": {
+      "type": "SYMBOL",
+      "name": "name_real"
+    },
+    "_int_scalar": {
+      "type": "SYMBOL",
+      "name": "name_int"
     },
     "_name": {
       "type": "SEQ",

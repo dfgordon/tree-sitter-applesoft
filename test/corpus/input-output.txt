@@ -9,8 +9,8 @@ Redirection
 (source_file
 	(line
 		(linenum)
-		(statement (prn_tok) (integer))
-		(statement (inn_tok) (integer))))
+		(statement (tok_prn) (int))
+		(statement (tok_inn) (int))))
 
 ===================
 Input
@@ -25,13 +25,13 @@ Input
 (source_file
 	(line
 		(linenum)
-		(statement (input_tok) (intvar) (realvar)))
+		(statement (tok_input) (var_int (name_int)) (var_real (name_real))))
 	(line
 		(linenum)
-		(statement (input_tok) (string) (svar)))
+		(statement (tok_input) (str) (var_str (name_str))))
 	(line
 		(linenum)
-		(statement (input_tok) (string) (realvar))))
+		(statement (tok_input) (str) (var_real (name_real)))))
 
 ===================
 Get
@@ -44,9 +44,9 @@ Get
 (source_file
 	(line
 		(linenum)
-		(statement (get_tok) (svar))
-		(statement (get_tok) (svar (subscript (realvar))))
-		(statement (get_tok) (svar) (svar) (svar))))
+		(statement (tok_get) (var_str (name_str)))
+		(statement (tok_get) (var_str (name_str) (subscript (var_real (name_real)))))
+		(statement (tok_get) (var_str (name_str)) (var_str (name_str)) (var_str (name_str)))))
 
 ===================
 Read and Data
@@ -63,36 +63,36 @@ Read and Data
 (source_file
 	(line
 		(linenum)
-		(statement (read_tok) (realvar)))
+		(statement (tok_read) (var_real (name_real))))
 	(line
 		(linenum)
-		(statement (read_tok)
-			(realvar)
-			(realvar)
-			(intvar (subscript (realvar)))
-			(intvar)
-			(svar (subscript (binary_aexpr (binary_aexpr (integer) (times_tok) (realvar)) (minus_tok) (integer))))
-			(svar)))
+		(statement (tok_read)
+			(var_real (name_real))
+			(var_real (name_real))
+			(var_int (name_int) (subscript (var_real (name_real))))
+			(var_int (name_int))
+			(var_str (name_str) (subscript (binary_aexpr (binary_aexpr (int) (tok_times) (var_real (name_real))) (tok_minus) (int))))
+			(var_str (name_str))))
 	(line
 		(linenum)
-		(statement (restore_tok)))
+		(statement (tok_restore)))
 	(line
 		(linenum)
-		(statement (data_tok)
+		(statement (tok_data)
 			(data_real)
-			(data_integer)
-			(data_integer)
-			(literal)
-			(literal)
-			(literal)
-			(string)
+			(data_int)
+			(data_int)
+			(data_literal)
+			(data_literal)
+			(data_literal)
+			(data_str)
 			(data_real)
-			(literal)
-			(literal)))
+			(data_literal)
+			(data_literal)))
 	(line
 		(linenum)
-		(statement (data_tok) (literal) (literal))
-		(statement (print_tok) (svar))))
+		(statement (tok_data) (data_literal) (data_literal))
+		(statement (tok_print) (var_str (name_str)))))
 
 ===================
 Paddles
@@ -105,8 +105,8 @@ Paddles
 (source_file
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (fcall (pdl_tok) (integer))))
-		(statement (assignment (realvar) (eq_tok) (fcall (pdl_tok) (integer))))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_pdl) (int))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_pdl) (int))))))
 
 ===================
 Print
@@ -121,21 +121,21 @@ Print
 (source_file
 	(line
 		(linenum)
-		(statement (print_tok)
-			(sfcall (tabp_tok) (realvar))
-			(string)
-			(sfcall (tabp_tok) (binary_aexpr (realvar) (plus_tok) (realvar)))
-			(binary_sexpr (svar) (plus_tok) (svar))
-			(sfcall (tabp_tok) (binary_aexpr (binary_aexpr (realvar) (plus_tok) (realvar)) (plus_tok) (realvar)))
-			(binary_aexpr (realvar) (minus_tok) (realvar)))
-		(statement (print_tok))
-		(statement (print_tok)))
+		(statement (tok_print)
+			(sfcall (tok_tabp) (var_real (name_real)))
+			(str)
+			(sfcall (tok_tabp) (binary_aexpr (var_real (name_real)) (tok_plus) (var_real (name_real))))
+			(binary_sexpr (var_str (name_str)) (tok_plus) (var_str (name_str)))
+			(sfcall (tok_tabp) (binary_aexpr (binary_aexpr (var_real (name_real)) (tok_plus) (var_real (name_real))) (tok_plus) (var_real (name_real))))
+			(binary_aexpr (var_real (name_real)) (tok_minus) (var_real (name_real))))
+		(statement (tok_print))
+		(statement (tok_print)))
 	(line
 	 (linenum)
-	 (statement (print_tok) (realvar) (realvar) (realvar)))
+	 (statement (tok_print) (var_real (name_real)) (var_real (name_real)) (var_real (name_real))))
 	(line
 	 (linenum)
-	 (statement (print_tok) (svar) (svar) (sfcall (tabp_tok) (integer)) (svar))))
+	 (statement (tok_print) (var_str (name_str)) (var_str (name_str)) (sfcall (tok_tabp) (int)) (var_str (name_str)))))
 
 ===================
 Formatting
@@ -152,27 +152,27 @@ Formatting
 (source_file
 	(line
 		(linenum)
-		(statement (text_tok))
-		(statement (home_tok))
-		(statement (assignment (realvar) (eq_tok) (fcall (pos_tok) (integer)))))
+		(statement (tok_text))
+		(statement (tok_home))
+		(statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_pos) (int)))))
 	(line
 		(linenum)
-		(statement (htab_tok) (integer))
-		(statement (vtab_tok) (realvar))
-		(statement (print_tok) (realvar)))
+		(statement (tok_htab) (int))
+		(statement (tok_vtab) (var_real (name_real)))
+		(statement (tok_print) (var_real (name_real))))
 	(line
 		(linenum)
-		(statement (inverse_tok))
-		(statement (print_tok) (string)))
+		(statement (tok_inverse))
+		(statement (tok_print) (str)))
 	(line
 		(linenum)
-		(statement (flash_tok))
-		(statement (print_tok) (sfcall (spcp_tok) (integer)) (string)))
+		(statement (tok_flash))
+		(statement (tok_print) (sfcall (tok_spcp) (int)) (str)))
 	(line
 		(linenum)
-		(statement (normal_tok))
-		(statement (speedeq_tok) (integer))
-		(statement (print_tok) (string))))
+		(statement (tok_normal))
+		(statement (tok_speedeq) (int))
+		(statement (tok_print) (str))))
 
 ===================
 Cassette Tape
@@ -189,19 +189,19 @@ Cassette Tape
 (source_file
 	(line
 		(linenum)
-		(statement (dim_tok) (real_array (subscript (integer))) (int_array (subscript (integer)))))
+		(statement (tok_dim) (dim_item (var_real (name_real) (subscript (int)))) (dim_item (var_int (name_int) (subscript (int))))))
 	(line
 		(linenum)
-		(statement (recall_tok) (real_scalar))
-		(statement (recall_tok) (int_scalar))
-		(statement (shload_tok)))
+		(statement (tok_recall) (var_real (name_real)))
+		(statement (tok_recall) (var_int (name_int)))
+		(statement (tok_shload)))
 	(line
 		(linenum)
-		(statement (store_tok) (real_scalar))
-		(statement (store_tok) (int_scalar)))
+		(statement (tok_store) (var_real (name_real)))
+		(statement (tok_store) (var_int (name_int))))
 	(line
 		(linenum)
-		(statement (save_tok)))
+		(statement (tok_save)))
 	(line
 		(linenum)
-		(statement (load_tok))))
+		(statement (tok_load))))

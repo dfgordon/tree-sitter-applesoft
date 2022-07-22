@@ -28,28 +28,13 @@ The Tree-sitter command line interface can highlight a file, see [Tree-sitter hi
 Parsing Files
 -------------
 
-A simple way to parse a file, e.g., to error check it, is with [Node.js](https://nodejs.org/en/). The following has been tested with node 14.16.0.  First install the necessary modules by navigating to your node project folder and typing:
+For a quick study in parsing Applesoft, download `applesoft-cpp-parsing.zip` from the [latest release](https://github.com/dfgordon/tree-sitter-applesoft/releases).  Unpack and build it (see the README).  Run the executable by typing `./abas`.  For this example, enter the line `10 pr#int "hello world!"` (error is deliberate), followed by `bye`.  This should output the syntax tree
 ```
-npm install tree-sitter
-npm install tree-sitter-applesoft
+(source_file (ERROR (linenum) (tok_prn) (tok_int) (str)))
 ```
-Here is a short test program (with deliberate error in the BASIC):
-```js
-const Parser = require('tree-sitter');
-const Applesoft = require('tree-sitter-applesoft');
-const parser = new Parser();
-parser.setLanguage(Applesoft);
-const basicCode = '10 PR#INT "HELLO WORLD!"\n';
-const tree = parser.parse(basicCode);
-console.log(tree.rootNode.toString());
-```
-Save this as `test.js`, then type `node test.js`.  This should output the syntax tree
-```
-(source_file (ERROR (linenum) (prn_tok) (ERROR (int_tok)) (string)))
-```
-Here, the parser must interpret the erroneous line of code as starting with the `PR#` token, which in turn leads to the `INT` token.
+Here, the parser must interpret the erroneous line of code as starting with the `PR#` token, which in turn leads to the `INT` token.  The important thing is that the parser detects the error.
 
-For more on parsing with node, see the general guidance on [node-tree-sitter](https://github.com/tree-sitter/node-tree-sitter).
+You can use `./abas` as a syntax checker in this way (also by redirecting input, e.g., `./abas < myprog.bas`), but the main purpose of the `applesoft-cpp-parsing` project is to provide a building block for more elaborate C++ projects requiring an Applesoft parser.
 
 Emulation
 ---------

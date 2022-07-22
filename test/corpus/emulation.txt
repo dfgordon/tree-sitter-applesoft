@@ -11,16 +11,16 @@ Hidden token 1
 	(line
 		(linenum)
 		(statement
-			(for_tok) (real_scalar) (eq_tok) (binary_aexpr (realvar) (or_tok) (realvar)) (to_tok) (integer))
+			(tok_for) (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_or) (var_real (name_real))) (tok_to) (int))
 		(statement
-			(rem_tok) (comment_text)))
+			(tok_rem) (comment_text)))
 	(line
 		(linenum)
 		(statement
-			(for_tok) (real_scalar) (eq_tok) (realvar) (to_tok) (realvar))
-		(ERROR (to_tok) (integer))
+			(tok_for) (var_real (name_real)) (tok_eq) (var_real (name_real)) (tok_to) (var_real (name_real)))
+		(ERROR (tok_to) (int))
 		(statement
-			(rem_tok) (comment_text))))
+			(tok_rem) (comment_text))))
 
 ===================
 Hidden token 2
@@ -35,19 +35,19 @@ Hidden token 2
 	(line
 		(linenum)
 		(statement
-			(if_tok) (binary_aexpr (realvar) (eq_tok) (realvar)) (then_tok) (linenum))
+			(tok_if) (binary_aexpr (var_real (name_real)) (tok_eq) (var_real (name_real))) (tok_then) (linenum))
 		(statement
-			(rem_tok) (comment_text)))
+			(tok_rem) (comment_text)))
 	(line
 		(linenum)
-		(ERROR (if_tok)
+		(ERROR (tok_if)
 			(binary_aexpr
-				(realvar)
-				(eq_tok)
-				(ERROR (at_tok) (UNEXPECTED 'E'))
-			(integer)))
+				(var_real (name_real))
+				(tok_eq)
+				(ERROR (tok_at) (UNEXPECTED 'E'))
+			(int)))
 		(statement
-			(rem_tok) (comment_text))))
+			(tok_rem) (comment_text))))
 
 ===================
 Disjoint tokens
@@ -63,15 +63,15 @@ Disjoint tokens
 	(line
 		(linenum)
 		(statement
-			(assignment (realvar) (eq_tok) (integer)))
+			(assignment (var_real (name_real)) (tok_eq) (int)))
 		(statement
-			(print_tok) (realvar)))
+			(tok_print) (var_real (name_real))))
 	(line
 		(linenum)
-		(statement (if_tok) (realvar) (then_tok) (linenum)))
+		(statement (tok_if) (var_real (name_real)) (tok_then) (linenum)))
 	(line
 		(linenum)
-		(statement (if_tok) (realvar) (then_tok) (linenum))))
+		(statement (tok_if) (var_real (name_real)) (tok_then) (linenum))))
 
 ===================
 AT and ATN
@@ -86,15 +86,15 @@ AT and ATN
 	(line
 		(linenum)
 		(statement
-			(hlin_tok) (integer) (fcall (atn_tok) (realvar)) (at_tok) (integer))
+			(tok_hlin) (int) (fcall (tok_atn) (var_real (name_real))) (tok_at) (int))
 		(statement
-			(rem_tok) (comment_text)))
+			(tok_rem) (comment_text)))
 	(line
 		(linenum)
 		(statement
-			(hlin_tok) (integer) (ERROR (at_tok)) (realvar (subscript (realvar))) (at_tok) (integer))
+			(tok_hlin) (int) (ERROR (tok_at)) (var_real (name_real) (subscript (var_real (name_real)))) (tok_at) (int))
 		(statement
-			(rem_tok) (comment_text))))
+			(tok_rem) (comment_text))))
 
 ===================
 AT and TO
@@ -109,15 +109,15 @@ AT and TO
 	(line
 		(linenum)
 		(statement
-			(for_tok) (real_scalar) (eq_tok) (realvar) (to_tok) (realvar))
+			(tok_for) (var_real (name_real)) (tok_eq) (var_real (name_real)) (tok_to) (var_real (name_real)))
 		(statement
-			(rem_tok) (comment_text)))
+			(tok_rem) (comment_text)))
 	(line
 		(linenum)
 		(statement
-			(for_tok) (real_scalar) (eq_tok) (realvar) (to_tok) (realvar))
+			(tok_for) (var_real (name_real)) (tok_eq) (var_real (name_real)) (tok_to) (var_real (name_real)))
 		(statement
-			(rem_tok) (comment_text))))
+			(tok_rem) (comment_text))))
 
 ===================
 Terminal Strings
@@ -133,17 +133,17 @@ Terminal Strings
 (source_file
 	(line
 		(linenum)
-		(statement (print_tok) (string))
-		(terminal_statement (print_tok) (terminal_string)))
+		(statement (tok_print) (str))
+		(terminal_statement (tok_print) (terminal_str)))
 	(line
 		(linenum)
-		(terminal_statement (print_tok) (terminal_string)))
+		(terminal_statement (tok_print) (terminal_str)))
 	(line
 		(linenum)
-		(terminal_statement (data_tok) (literal) (terminal_string)))
+		(terminal_statement (tok_data) (data_literal) (terminal_str)))
 	(line
 		(linenum)
-		(terminal_statement (amp_tok) (terminal_string))))
+		(terminal_statement (tok_amp) (terminal_str))))
 
 ===================
 Alternative PRINT
@@ -156,8 +156,8 @@ Alternative PRINT
 (source_file
 	(line
 		(linenum)
-		(statement (print_tok) (string))
-		(terminal_statement (print_tok) (terminal_string))))
+		(statement (tok_print) (str))
+		(terminal_statement (tok_print) (terminal_str))))
 
 ===================
 Control Characters
@@ -171,10 +171,10 @@ Control Characters
 (source_file
 	(line
 		(linenum)
-		(statement (print_tok) (string)))
+		(statement (tok_print) (str)))
 	(line
 		(linenum)
-		(statement (data_tok) (literal) (string) (literal))))
+		(statement (tok_data) (data_literal) (data_str) (data_literal))))
 
 ===================
 Ampersand Call
@@ -188,15 +188,15 @@ Ampersand Call
 (source_file
 	(line
 		(linenum)
-		(statement (amp_tok) (string)))
+		(statement (tok_amp) (str)))
 	(line
 		(linenum)
 		(statement
-			(amp_tok)
+			(tok_amp)
 			(binary_aexpr
-				(realvar) (plus_tok) (realvar))
-			(string)
-			(sfcall (chr_tok) (realvar)))))
+				(var_real (name_real)) (tok_plus) (var_real (name_real)))
+			(str)
+			(sfcall (tok_chr) (var_real (name_real))))))
 
 ===================
 CHAIN Pattern
@@ -210,7 +210,7 @@ CHAIN Pattern
 (source_file
 	(line
 		(linenum)
-		(statement (call_tok) (integer) (string)))
+		(statement (tok_call) (int) (str)))
 	(line
 		(linenum)
-		(terminal_statement (call_tok) (integer) (terminal_string))))
+		(terminal_statement (tok_call) (int) (terminal_str))))

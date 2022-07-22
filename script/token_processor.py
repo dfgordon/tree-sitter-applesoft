@@ -91,7 +91,7 @@ for t in tokens:
             id += sp_map[c]
         else:
             id += c
-    t['rule id'] = id + "_tok"
+    t['rule id'] = "tok_" + id
 
 # Form a token rule as regex for Tree-sitter (JavaScript)
 

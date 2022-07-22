@@ -11,17 +11,17 @@ Variables
 (source_file
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (real)))
-		(statement (assignment (realvar) (eq_tok) (real)))
-		(statement (assignment (realvar) (eq_tok) (real)))
-		(statement (assignment (realvar) (eq_tok) (real))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (real)))
+		(statement (assignment (var_real (name_real)) (tok_eq) (real)))
+		(statement (assignment (var_real (name_real)) (tok_eq) (real)))
+		(statement (assignment (var_real (name_real)) (tok_eq) (real))))
 	(line
 		(linenum)
-		(statement (assignment (intvar) (eq_tok) (integer)))
-		(statement (assignment (intvar) (eq_tok) (integer))))
+		(statement (assignment (var_int (name_int)) (tok_eq) (int)))
+		(statement (assignment (var_int (name_int)) (tok_eq) (int))))
 	(line
 		(linenum)
-		(statement (assignment (let_tok) (svar) (eq_tok) (string)))))
+		(statement (assignment (tok_let) (var_str (name_str)) (tok_eq) (str)))))
 
 ===================
 Unary Operators
@@ -36,13 +36,13 @@ Unary Operators
 (source_file
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (unary_aexpr (plus_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (unary_aexpr (tok_plus) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (unary_aexpr (minus_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (unary_aexpr (tok_minus) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (unary_aexpr (not_tok) (realvar))))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (unary_aexpr (tok_not) (var_real (name_real)))))))
 
 ===================
 Binary Operators
@@ -70,52 +70,52 @@ Binary Operators
 (source_file
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (plus_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_plus) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (minus_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_minus) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (times_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_times) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (div_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_div) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (pow_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_pow) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (eq_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_eq) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (less_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_less) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (gtr_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_gtr) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (less_tok) (eq_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_less) (tok_eq) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (gtr_tok) (eq_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_gtr) (tok_eq) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (eq_tok) (less_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_eq) (tok_less) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (eq_tok) (gtr_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_eq) (tok_gtr) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (less_tok) (gtr_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_less) (tok_gtr) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (gtr_tok) (less_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_gtr) (tok_less) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (and_tok) (realvar)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_and) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (binary_aexpr (realvar) (or_tok) (realvar))))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_or) (var_real (name_real)))))))
 
 
 ===================
@@ -131,10 +131,10 @@ Precedence Test 1
 		(linenum)
 		(statement
 			(assignment
-				(realvar) (eq_tok)
+				(var_real (name_real)) (tok_eq)
 				(binary_aexpr
-					(realvar) (plus_tok)
-					(binary_aexpr (realvar) (times_tok) (realvar)))))))
+					(var_real (name_real)) (tok_plus)
+					(binary_aexpr (var_real (name_real)) (tok_times) (var_real (name_real))))))))
 
 ===================
 Precedence Test 2
@@ -149,11 +149,11 @@ Precedence Test 2
 		(linenum)
 		(statement
 			(assignment
-				(realvar) (eq_tok)
+				(var_real (name_real)) (tok_eq)
 				(binary_aexpr
-					(binary_aexpr (realvar) (plus_tok) (realvar))
-					(times_tok)
-					(realvar))))))
+					(binary_aexpr (var_real (name_real)) (tok_plus) (var_real (name_real)))
+					(tok_times)
+					(var_real (name_real)))))))
 
 ===================
 Precedence Test 3
@@ -168,11 +168,11 @@ Precedence Test 3
 		(linenum)
 		(statement
 			(assignment
-				(realvar) (eq_tok)
+				(var_real (name_real)) (tok_eq)
 				(binary_aexpr
-					(realvar)
-					(less_tok) (eq_tok)
-					(binary_aexpr (realvar) (plus_tok) (realvar)))))))
+					(var_real (name_real))
+					(tok_less) (tok_eq)
+					(binary_aexpr (var_real (name_real)) (tok_plus) (var_real (name_real))))))))
 
 ===================
 Math Functions
@@ -196,19 +196,19 @@ Math Functions
 		(linenum)
 		(statement
 			(assignment
-				(realvar) (eq_tok)
+				(var_real (name_real)) (tok_eq)
 				(fcall
-					(abs_tok)
-					(binary_aexpr (realvar) (plus_tok) (realvar))))))
-	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (sgn_tok) (realvar)))))
-	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (int_tok) (realvar)))))
-	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (sqr_tok) (realvar)))))
-	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (sin_tok) (realvar)))))
-	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (cos_tok) (realvar)))))
-	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (tan_tok) (realvar)))))
-	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (atn_tok) (realvar)))))
-	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (exp_tok) (realvar)))))
-	(line (linenum) (statement (assignment (realvar) (eq_tok) (fcall (log_tok) (realvar))))))
+					(tok_abs)
+					(binary_aexpr (var_real (name_real)) (tok_plus) (var_real (name_real)))))))
+	(line (linenum) (statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_sgn) (var_real (name_real))))))
+	(line (linenum) (statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_int) (var_real (name_real))))))
+	(line (linenum) (statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_sqr) (var_real (name_real))))))
+	(line (linenum) (statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_sin) (var_real (name_real))))))
+	(line (linenum) (statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_cos) (var_real (name_real))))))
+	(line (linenum) (statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_tan) (var_real (name_real))))))
+	(line (linenum) (statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_atn) (var_real (name_real))))))
+	(line (linenum) (statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_exp) (var_real (name_real))))))
+	(line (linenum) (statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_log) (var_real (name_real)))))))
 
 
 ===================
@@ -224,13 +224,13 @@ Random Numbers
 (source_file
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (fcall (rnd_tok) (integer)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_rnd) (int)))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (fcall (rnd_tok) (integer)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_rnd) (int)))))
 	(line
 		(linenum)
-		(statement (assignment (realvar) (eq_tok) (fcall (rnd_tok) (integer))))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_rnd) (int))))))
 
 
 ===================
@@ -246,12 +246,12 @@ User Functions
 	(line
 		(linenum)
 		(statement
-			(def_tok) (fn_tok) (fn_name) (real_scalar) (eq_tok) (binary_aexpr (realvar) (pow_tok) (integer))))
+			(tok_def) (tok_fn) (name_fn) (var_real (name_real)) (tok_eq) (binary_aexpr (var_real (name_real)) (tok_pow) (int))))
 	(line
 		(linenum)
 		(statement
 			(assignment
-				(realvar) (eq_tok) (fcall (fn_tok) (fn_name) (integer) )))))
+				(var_real (name_real)) (tok_eq) (fcall (tok_fn) (name_fn) (int) )))))
 
 
 ===================
@@ -267,23 +267,23 @@ Nested Expressions
 		(linenum)
 		(statement
 			(assignment
-				(realvar) (eq_tok)
+				(var_real (name_real)) (tok_eq)
 				(binary_aexpr
 					(binary_aexpr
 						(binary_aexpr
-							(binary_aexpr (integer) (minus_tok) (real))
-							(times_tok)
-							(fcall (fn_tok) (fn_name) (realvar)))
-						(plus_tok)
-						(fcall (sqr_tok) (realvar)))
-					(div_tok)
+							(binary_aexpr (int) (tok_minus) (real))
+							(tok_times)
+							(fcall (tok_fn) (name_fn) (var_real (name_real))))
+						(tok_plus)
+						(fcall (tok_sqr) (var_real (name_real))))
+					(tok_div)
 					(binary_aexpr
 						(binary_aexpr
-							(binary_aexpr (integer) (plus_tok) (real))
-							(times_tok)
-							(fcall (cos_tok) (binary_aexpr (realvar) (plus_tok) (realvar))))
-						(minus_tok)
+							(binary_aexpr (int) (tok_plus) (real))
+							(tok_times)
+							(fcall (tok_cos) (binary_aexpr (var_real (name_real)) (tok_plus) (var_real (name_real)))))
+						(tok_minus)
 						(binary_aexpr
-							(realvar)
-							(plus_tok)
-							(binary_aexpr (realvar) (times_tok) (realvar)))))))))
+							(var_real (name_real))
+							(tok_plus)
+							(binary_aexpr (var_real (name_real)) (tok_times) (var_real (name_real))))))))))

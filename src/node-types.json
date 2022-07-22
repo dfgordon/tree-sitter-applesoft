@@ -16,23 +16,11 @@
           "named": true
         },
         {
-          "type": "eq_tok",
-          "named": true
-        },
-        {
           "type": "fcall",
           "named": true
         },
         {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "intvar",
-          "named": true
-        },
-        {
-          "type": "let_tok",
+          "type": "int",
           "named": true
         },
         {
@@ -40,23 +28,35 @@
           "named": true
         },
         {
-          "type": "realvar",
-          "named": true
-        },
-        {
           "type": "sfcall",
           "named": true
         },
         {
-          "type": "string",
+          "type": "str",
           "named": true
         },
         {
-          "type": "svar",
+          "type": "tok_eq",
+          "named": true
+        },
+        {
+          "type": "tok_let",
           "named": true
         },
         {
           "type": "unary_aexpr",
+          "named": true
+        },
+        {
+          "type": "var_int",
+          "named": true
+        },
+        {
+          "type": "var_real",
+          "named": true
+        },
+        {
+          "type": "var_str",
           "named": true
         }
       ]
@@ -71,10 +71,6 @@
       "required": true,
       "types": [
         {
-          "type": "and_tok",
-          "named": true
-        },
-        {
           "type": "binary_aexpr",
           "named": true
         },
@@ -83,47 +79,11 @@
           "named": true
         },
         {
-          "type": "div_tok",
-          "named": true
-        },
-        {
-          "type": "eq_tok",
-          "named": true
-        },
-        {
           "type": "fcall",
           "named": true
         },
         {
-          "type": "gtr_tok",
-          "named": true
-        },
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "intvar",
-          "named": true
-        },
-        {
-          "type": "less_tok",
-          "named": true
-        },
-        {
-          "type": "minus_tok",
-          "named": true
-        },
-        {
-          "type": "or_tok",
-          "named": true
-        },
-        {
-          "type": "plus_tok",
-          "named": true
-        },
-        {
-          "type": "pow_tok",
+          "type": "int",
           "named": true
         },
         {
@@ -131,27 +91,67 @@
           "named": true
         },
         {
-          "type": "realvar",
-          "named": true
-        },
-        {
           "type": "sfcall",
           "named": true
         },
         {
-          "type": "string",
+          "type": "str",
           "named": true
         },
         {
-          "type": "svar",
+          "type": "tok_and",
           "named": true
         },
         {
-          "type": "times_tok",
+          "type": "tok_div",
+          "named": true
+        },
+        {
+          "type": "tok_eq",
+          "named": true
+        },
+        {
+          "type": "tok_gtr",
+          "named": true
+        },
+        {
+          "type": "tok_less",
+          "named": true
+        },
+        {
+          "type": "tok_minus",
+          "named": true
+        },
+        {
+          "type": "tok_or",
+          "named": true
+        },
+        {
+          "type": "tok_plus",
+          "named": true
+        },
+        {
+          "type": "tok_pow",
+          "named": true
+        },
+        {
+          "type": "tok_times",
           "named": true
         },
         {
           "type": "unary_aexpr",
+          "named": true
+        },
+        {
+          "type": "var_int",
+          "named": true
+        },
+        {
+          "type": "var_real",
+          "named": true
+        },
+        {
+          "type": "var_str",
           "named": true
         }
       ]
@@ -170,19 +170,19 @@
           "named": true
         },
         {
-          "type": "plus_tok",
-          "named": true
-        },
-        {
           "type": "sfcall",
           "named": true
         },
         {
-          "type": "string",
+          "type": "str",
           "named": true
         },
         {
-          "type": "svar",
+          "type": "tok_plus",
+          "named": true
+        },
+        {
+          "type": "var_str",
           "named": true
         }
       ]
@@ -194,6 +194,29 @@
     "fields": {}
   },
   {
+    "type": "dim_item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "var_int",
+          "named": true
+        },
+        {
+          "type": "var_real",
+          "named": true
+        },
+        {
+          "type": "var_str",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "fcall",
     "named": true,
     "fields": {},
@@ -201,18 +224,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "abs_tok",
-          "named": true
-        },
-        {
-          "type": "asc_tok",
-          "named": true
-        },
-        {
-          "type": "atn_tok",
-          "named": true
-        },
         {
           "type": "binary_aexpr",
           "named": true
@@ -222,59 +233,15 @@
           "named": true
         },
         {
-          "type": "cos_tok",
-          "named": true
-        },
-        {
-          "type": "exp_tok",
-          "named": true
-        },
-        {
           "type": "fcall",
           "named": true
         },
         {
-          "type": "fn_name",
+          "type": "int",
           "named": true
         },
         {
-          "type": "fn_tok",
-          "named": true
-        },
-        {
-          "type": "fre_tok",
-          "named": true
-        },
-        {
-          "type": "int_tok",
-          "named": true
-        },
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "intvar",
-          "named": true
-        },
-        {
-          "type": "len_tok",
-          "named": true
-        },
-        {
-          "type": "log_tok",
-          "named": true
-        },
-        {
-          "type": "pdl_tok",
-          "named": true
-        },
-        {
-          "type": "peek_tok",
-          "named": true
-        },
-        {
-          "type": "pos_tok",
+          "type": "name_fn",
           "named": true
         },
         {
@@ -282,43 +249,95 @@
           "named": true
         },
         {
-          "type": "realvar",
-          "named": true
-        },
-        {
-          "type": "rnd_tok",
-          "named": true
-        },
-        {
-          "type": "scrnp_tok",
-          "named": true
-        },
-        {
           "type": "sfcall",
           "named": true
         },
         {
-          "type": "sgn_tok",
+          "type": "str",
           "named": true
         },
         {
-          "type": "sin_tok",
+          "type": "tok_abs",
           "named": true
         },
         {
-          "type": "sqr_tok",
+          "type": "tok_asc",
           "named": true
         },
         {
-          "type": "string",
+          "type": "tok_atn",
           "named": true
         },
         {
-          "type": "svar",
+          "type": "tok_cos",
           "named": true
         },
         {
-          "type": "tan_tok",
+          "type": "tok_exp",
+          "named": true
+        },
+        {
+          "type": "tok_fn",
+          "named": true
+        },
+        {
+          "type": "tok_fre",
+          "named": true
+        },
+        {
+          "type": "tok_int",
+          "named": true
+        },
+        {
+          "type": "tok_len",
+          "named": true
+        },
+        {
+          "type": "tok_log",
+          "named": true
+        },
+        {
+          "type": "tok_pdl",
+          "named": true
+        },
+        {
+          "type": "tok_peek",
+          "named": true
+        },
+        {
+          "type": "tok_pos",
+          "named": true
+        },
+        {
+          "type": "tok_rnd",
+          "named": true
+        },
+        {
+          "type": "tok_scrnp",
+          "named": true
+        },
+        {
+          "type": "tok_sgn",
+          "named": true
+        },
+        {
+          "type": "tok_sin",
+          "named": true
+        },
+        {
+          "type": "tok_sqr",
+          "named": true
+        },
+        {
+          "type": "tok_tan",
+          "named": true
+        },
+        {
+          "type": "tok_usr",
+          "named": true
+        },
+        {
+          "type": "tok_val",
           "named": true
         },
         {
@@ -326,51 +345,15 @@
           "named": true
         },
         {
-          "type": "usr_tok",
+          "type": "var_int",
           "named": true
         },
         {
-          "type": "val_tok",
+          "type": "var_real",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "fn_name",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "int_array",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
+        },
         {
-          "type": "subscript",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "int_scalar",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "intvar",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "subscript",
+          "type": "var_str",
           "named": true
         }
       ]
@@ -400,39 +383,24 @@
     }
   },
   {
-    "type": "real_array",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "subscript",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "real_scalar",
+    "type": "name_fn",
     "named": true,
     "fields": {}
   },
   {
-    "type": "realvar",
+    "type": "name_int",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "subscript",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
+  },
+  {
+    "type": "name_real",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "name_str",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "sfcall",
@@ -451,27 +419,11 @@
           "named": true
         },
         {
-          "type": "chr_tok",
-          "named": true
-        },
-        {
           "type": "fcall",
           "named": true
         },
         {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "intvar",
-          "named": true
-        },
-        {
-          "type": "left_tok",
-          "named": true
-        },
-        {
-          "type": "mid_tok",
+          "type": "int",
           "named": true
         },
         {
@@ -479,39 +431,55 @@
           "named": true
         },
         {
-          "type": "realvar",
-          "named": true
-        },
-        {
-          "type": "right_tok",
-          "named": true
-        },
-        {
           "type": "sfcall",
           "named": true
         },
         {
-          "type": "spcp_tok",
+          "type": "str",
           "named": true
         },
         {
-          "type": "str_tok",
+          "type": "tok_chr",
           "named": true
         },
         {
-          "type": "string",
+          "type": "tok_left",
           "named": true
         },
         {
-          "type": "svar",
+          "type": "tok_mid",
           "named": true
         },
         {
-          "type": "tabp_tok",
+          "type": "tok_right",
+          "named": true
+        },
+        {
+          "type": "tok_spcp",
+          "named": true
+        },
+        {
+          "type": "tok_str",
+          "named": true
+        },
+        {
+          "type": "tok_tabp",
           "named": true
         },
         {
           "type": "unary_aexpr",
+          "named": true
+        },
+        {
+          "type": "var_int",
+          "named": true
+        },
+        {
+          "type": "var_real",
+          "named": true
+        },
+        {
+          "type": "var_str",
           "named": true
         }
       ]
@@ -541,15 +509,7 @@
       "required": true,
       "types": [
         {
-          "type": "amp_tok",
-          "named": true
-        },
-        {
           "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "at_tok",
           "named": true
         },
         {
@@ -561,27 +521,15 @@
           "named": true
         },
         {
-          "type": "call_tok",
-          "named": true
-        },
-        {
-          "type": "clear_tok",
-          "named": true
-        },
-        {
-          "type": "coloreq_tok",
-          "named": true
-        },
-        {
           "type": "comment_text",
           "named": true
         },
         {
-          "type": "cont_tok",
+          "type": "data_int",
           "named": true
         },
         {
-          "type": "data_integer",
+          "type": "data_literal",
           "named": true
         },
         {
@@ -589,31 +537,11 @@
           "named": true
         },
         {
-          "type": "data_tok",
+          "type": "data_str",
           "named": true
         },
         {
-          "type": "def_tok",
-          "named": true
-        },
-        {
-          "type": "del_tok",
-          "named": true
-        },
-        {
-          "type": "dim_tok",
-          "named": true
-        },
-        {
-          "type": "draw_tok",
-          "named": true
-        },
-        {
-          "type": "end_tok",
-          "named": true
-        },
-        {
-          "type": "eq_tok",
+          "type": "dim_item",
           "named": true
         },
         {
@@ -621,99 +549,7 @@
           "named": true
         },
         {
-          "type": "flash_tok",
-          "named": true
-        },
-        {
-          "type": "fn_name",
-          "named": true
-        },
-        {
-          "type": "fn_tok",
-          "named": true
-        },
-        {
-          "type": "for_tok",
-          "named": true
-        },
-        {
-          "type": "get_tok",
-          "named": true
-        },
-        {
-          "type": "gosub_tok",
-          "named": true
-        },
-        {
-          "type": "goto_tok",
-          "named": true
-        },
-        {
-          "type": "gr_tok",
-          "named": true
-        },
-        {
-          "type": "hcoloreq_tok",
-          "named": true
-        },
-        {
-          "type": "hgr2_tok",
-          "named": true
-        },
-        {
-          "type": "hgr_tok",
-          "named": true
-        },
-        {
-          "type": "himem_tok",
-          "named": true
-        },
-        {
-          "type": "hlin_tok",
-          "named": true
-        },
-        {
-          "type": "home_tok",
-          "named": true
-        },
-        {
-          "type": "hplot_tok",
-          "named": true
-        },
-        {
-          "type": "htab_tok",
-          "named": true
-        },
-        {
-          "type": "if_tok",
-          "named": true
-        },
-        {
-          "type": "inn_tok",
-          "named": true
-        },
-        {
-          "type": "input_tok",
-          "named": true
-        },
-        {
-          "type": "int_array",
-          "named": true
-        },
-        {
-          "type": "int_scalar",
-          "named": true
-        },
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "intvar",
-          "named": true
-        },
-        {
-          "type": "inverse_tok",
+          "type": "int",
           "named": true
         },
         {
@@ -721,71 +557,7 @@
           "named": true
         },
         {
-          "type": "list_tok",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "load_tok",
-          "named": true
-        },
-        {
-          "type": "lomem_tok",
-          "named": true
-        },
-        {
-          "type": "minus_tok",
-          "named": true
-        },
-        {
-          "type": "new_tok",
-          "named": true
-        },
-        {
-          "type": "next_tok",
-          "named": true
-        },
-        {
-          "type": "normal_tok",
-          "named": true
-        },
-        {
-          "type": "notrace_tok",
-          "named": true
-        },
-        {
-          "type": "on_tok",
-          "named": true
-        },
-        {
-          "type": "onerr_tok",
-          "named": true
-        },
-        {
-          "type": "plot_tok",
-          "named": true
-        },
-        {
-          "type": "poke_tok",
-          "named": true
-        },
-        {
-          "type": "pop_tok",
-          "named": true
-        },
-        {
-          "type": "print_tok",
-          "named": true
-        },
-        {
-          "type": "prn_tok",
-          "named": true
-        },
-        {
-          "type": "read_tok",
+          "type": "name_fn",
           "named": true
         },
         {
@@ -793,63 +565,7 @@
           "named": true
         },
         {
-          "type": "real_array",
-          "named": true
-        },
-        {
-          "type": "real_scalar",
-          "named": true
-        },
-        {
-          "type": "realvar",
-          "named": true
-        },
-        {
-          "type": "recall_tok",
-          "named": true
-        },
-        {
-          "type": "rem_tok",
-          "named": true
-        },
-        {
-          "type": "restore_tok",
-          "named": true
-        },
-        {
-          "type": "resume_tok",
-          "named": true
-        },
-        {
-          "type": "return_tok",
-          "named": true
-        },
-        {
-          "type": "roteq_tok",
-          "named": true
-        },
-        {
-          "type": "run_tok",
-          "named": true
-        },
-        {
-          "type": "save_tok",
-          "named": true
-        },
-        {
-          "type": "scaleeq_tok",
-          "named": true
-        },
-        {
           "type": "sfcall",
-          "named": true
-        },
-        {
-          "type": "shload_tok",
-          "named": true
-        },
-        {
-          "type": "speedeq_tok",
           "named": true
         },
         {
@@ -857,43 +573,287 @@
           "named": true
         },
         {
-          "type": "step_tok",
+          "type": "str",
           "named": true
         },
         {
-          "type": "stop_tok",
+          "type": "tok_amp",
           "named": true
         },
         {
-          "type": "store_tok",
+          "type": "tok_at",
           "named": true
         },
         {
-          "type": "string",
+          "type": "tok_call",
           "named": true
         },
         {
-          "type": "string_array",
+          "type": "tok_clear",
           "named": true
         },
         {
-          "type": "svar",
+          "type": "tok_coloreq",
           "named": true
         },
         {
-          "type": "text_tok",
+          "type": "tok_cont",
           "named": true
         },
         {
-          "type": "then_tok",
+          "type": "tok_data",
           "named": true
         },
         {
-          "type": "to_tok",
+          "type": "tok_def",
           "named": true
         },
         {
-          "type": "trace_tok",
+          "type": "tok_del",
+          "named": true
+        },
+        {
+          "type": "tok_dim",
+          "named": true
+        },
+        {
+          "type": "tok_draw",
+          "named": true
+        },
+        {
+          "type": "tok_end",
+          "named": true
+        },
+        {
+          "type": "tok_eq",
+          "named": true
+        },
+        {
+          "type": "tok_flash",
+          "named": true
+        },
+        {
+          "type": "tok_fn",
+          "named": true
+        },
+        {
+          "type": "tok_for",
+          "named": true
+        },
+        {
+          "type": "tok_get",
+          "named": true
+        },
+        {
+          "type": "tok_gosub",
+          "named": true
+        },
+        {
+          "type": "tok_goto",
+          "named": true
+        },
+        {
+          "type": "tok_gr",
+          "named": true
+        },
+        {
+          "type": "tok_hcoloreq",
+          "named": true
+        },
+        {
+          "type": "tok_hgr",
+          "named": true
+        },
+        {
+          "type": "tok_hgr2",
+          "named": true
+        },
+        {
+          "type": "tok_himem",
+          "named": true
+        },
+        {
+          "type": "tok_hlin",
+          "named": true
+        },
+        {
+          "type": "tok_home",
+          "named": true
+        },
+        {
+          "type": "tok_hplot",
+          "named": true
+        },
+        {
+          "type": "tok_htab",
+          "named": true
+        },
+        {
+          "type": "tok_if",
+          "named": true
+        },
+        {
+          "type": "tok_inn",
+          "named": true
+        },
+        {
+          "type": "tok_input",
+          "named": true
+        },
+        {
+          "type": "tok_inverse",
+          "named": true
+        },
+        {
+          "type": "tok_list",
+          "named": true
+        },
+        {
+          "type": "tok_load",
+          "named": true
+        },
+        {
+          "type": "tok_lomem",
+          "named": true
+        },
+        {
+          "type": "tok_minus",
+          "named": true
+        },
+        {
+          "type": "tok_new",
+          "named": true
+        },
+        {
+          "type": "tok_next",
+          "named": true
+        },
+        {
+          "type": "tok_normal",
+          "named": true
+        },
+        {
+          "type": "tok_notrace",
+          "named": true
+        },
+        {
+          "type": "tok_on",
+          "named": true
+        },
+        {
+          "type": "tok_onerr",
+          "named": true
+        },
+        {
+          "type": "tok_plot",
+          "named": true
+        },
+        {
+          "type": "tok_poke",
+          "named": true
+        },
+        {
+          "type": "tok_pop",
+          "named": true
+        },
+        {
+          "type": "tok_print",
+          "named": true
+        },
+        {
+          "type": "tok_prn",
+          "named": true
+        },
+        {
+          "type": "tok_read",
+          "named": true
+        },
+        {
+          "type": "tok_recall",
+          "named": true
+        },
+        {
+          "type": "tok_rem",
+          "named": true
+        },
+        {
+          "type": "tok_restore",
+          "named": true
+        },
+        {
+          "type": "tok_resume",
+          "named": true
+        },
+        {
+          "type": "tok_return",
+          "named": true
+        },
+        {
+          "type": "tok_roteq",
+          "named": true
+        },
+        {
+          "type": "tok_run",
+          "named": true
+        },
+        {
+          "type": "tok_save",
+          "named": true
+        },
+        {
+          "type": "tok_scaleeq",
+          "named": true
+        },
+        {
+          "type": "tok_shload",
+          "named": true
+        },
+        {
+          "type": "tok_speedeq",
+          "named": true
+        },
+        {
+          "type": "tok_step",
+          "named": true
+        },
+        {
+          "type": "tok_stop",
+          "named": true
+        },
+        {
+          "type": "tok_store",
+          "named": true
+        },
+        {
+          "type": "tok_text",
+          "named": true
+        },
+        {
+          "type": "tok_then",
+          "named": true
+        },
+        {
+          "type": "tok_to",
+          "named": true
+        },
+        {
+          "type": "tok_trace",
+          "named": true
+        },
+        {
+          "type": "tok_vlin",
+          "named": true
+        },
+        {
+          "type": "tok_vtab",
+          "named": true
+        },
+        {
+          "type": "tok_wait",
+          "named": true
+        },
+        {
+          "type": "tok_xdraw",
           "named": true
         },
         {
@@ -901,34 +861,15 @@
           "named": true
         },
         {
-          "type": "vlin_tok",
+          "type": "var_int",
           "named": true
         },
         {
-          "type": "vtab_tok",
+          "type": "var_real",
           "named": true
         },
         {
-          "type": "wait_tok",
-          "named": true
-        },
-        {
-          "type": "xdraw_tok",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "string_array",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "subscript",
+          "type": "var_str",
           "named": true
         }
       ]
@@ -951,11 +892,7 @@
           "named": true
         },
         {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "intvar",
+          "type": "int",
           "named": true
         },
         {
@@ -963,26 +900,15 @@
           "named": true
         },
         {
-          "type": "realvar",
+          "type": "unary_aexpr",
           "named": true
         },
         {
-          "type": "unary_aexpr",
+          "type": "var_int",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "svar",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
+        },
         {
-          "type": "subscript",
+          "type": "var_real",
           "named": true
         }
       ]
@@ -997,10 +923,6 @@
       "required": true,
       "types": [
         {
-          "type": "amp_tok",
-          "named": true
-        },
-        {
           "type": "binary_aexpr",
           "named": true
         },
@@ -1009,11 +931,11 @@
           "named": true
         },
         {
-          "type": "call_tok",
+          "type": "data_int",
           "named": true
         },
         {
-          "type": "data_integer",
+          "type": "data_literal",
           "named": true
         },
         {
@@ -1021,7 +943,7 @@
           "named": true
         },
         {
-          "type": "data_tok",
+          "type": "data_str",
           "named": true
         },
         {
@@ -1029,23 +951,7 @@
           "named": true
         },
         {
-          "type": "if_tok",
-          "named": true
-        },
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "intvar",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "print_tok",
+          "type": "int",
           "named": true
         },
         {
@@ -1053,19 +959,11 @@
           "named": true
         },
         {
-          "type": "realvar",
-          "named": true
-        },
-        {
           "type": "sfcall",
           "named": true
         },
         {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "svar",
+          "type": "str",
           "named": true
         },
         {
@@ -1073,15 +971,47 @@
           "named": true
         },
         {
-          "type": "terminal_string",
+          "type": "terminal_str",
           "named": true
         },
         {
-          "type": "then_tok",
+          "type": "tok_amp",
+          "named": true
+        },
+        {
+          "type": "tok_call",
+          "named": true
+        },
+        {
+          "type": "tok_data",
+          "named": true
+        },
+        {
+          "type": "tok_if",
+          "named": true
+        },
+        {
+          "type": "tok_print",
+          "named": true
+        },
+        {
+          "type": "tok_then",
           "named": true
         },
         {
           "type": "unary_aexpr",
+          "named": true
+        },
+        {
+          "type": "var_int",
+          "named": true
+        },
+        {
+          "type": "var_real",
+          "named": true
+        },
+        {
+          "type": "var_str",
           "named": true
         }
       ]
@@ -1104,23 +1034,7 @@
           "named": true
         },
         {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "intvar",
-          "named": true
-        },
-        {
-          "type": "minus_tok",
-          "named": true
-        },
-        {
-          "type": "not_tok",
-          "named": true
-        },
-        {
-          "type": "plus_tok",
+          "type": "int",
           "named": true
         },
         {
@@ -1128,11 +1042,84 @@
           "named": true
         },
         {
-          "type": "realvar",
+          "type": "tok_minus",
+          "named": true
+        },
+        {
+          "type": "tok_not",
+          "named": true
+        },
+        {
+          "type": "tok_plus",
           "named": true
         },
         {
           "type": "unary_aexpr",
+          "named": true
+        },
+        {
+          "type": "var_int",
+          "named": true
+        },
+        {
+          "type": "var_real",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "var_int",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name_int",
+          "named": true
+        },
+        {
+          "type": "subscript",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "var_real",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name_real",
+          "named": true
+        },
+        {
+          "type": "subscript",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "var_str",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name_str",
+          "named": true
+        },
+        {
+          "type": "subscript",
           "named": true
         }
       ]
@@ -1167,203 +1154,23 @@
     "named": false
   },
   {
-    "type": "abs_tok",
-    "named": true
-  },
-  {
-    "type": "amp_tok",
-    "named": true
-  },
-  {
-    "type": "and_tok",
-    "named": true
-  },
-  {
-    "type": "asc_tok",
-    "named": true
-  },
-  {
-    "type": "at_tok",
-    "named": true
-  },
-  {
-    "type": "atn_tok",
-    "named": true
-  },
-  {
-    "type": "call_tok",
-    "named": true
-  },
-  {
-    "type": "chr_tok",
-    "named": true
-  },
-  {
-    "type": "clear_tok",
-    "named": true
-  },
-  {
-    "type": "coloreq_tok",
-    "named": true
-  },
-  {
     "type": "comment_text",
     "named": true
   },
   {
-    "type": "cont_tok",
+    "type": "data_int",
     "named": true
   },
   {
-    "type": "cos_tok",
+    "type": "data_literal",
     "named": true
   },
   {
-    "type": "data_integer",
+    "type": "data_str",
     "named": true
   },
   {
-    "type": "data_tok",
-    "named": true
-  },
-  {
-    "type": "def_tok",
-    "named": true
-  },
-  {
-    "type": "del_tok",
-    "named": true
-  },
-  {
-    "type": "dim_tok",
-    "named": true
-  },
-  {
-    "type": "div_tok",
-    "named": true
-  },
-  {
-    "type": "draw_tok",
-    "named": true
-  },
-  {
-    "type": "end_tok",
-    "named": true
-  },
-  {
-    "type": "eq_tok",
-    "named": true
-  },
-  {
-    "type": "exp_tok",
-    "named": true
-  },
-  {
-    "type": "flash_tok",
-    "named": true
-  },
-  {
-    "type": "fn_tok",
-    "named": true
-  },
-  {
-    "type": "for_tok",
-    "named": true
-  },
-  {
-    "type": "fre_tok",
-    "named": true
-  },
-  {
-    "type": "get_tok",
-    "named": true
-  },
-  {
-    "type": "gosub_tok",
-    "named": true
-  },
-  {
-    "type": "goto_tok",
-    "named": true
-  },
-  {
-    "type": "gr_tok",
-    "named": true
-  },
-  {
-    "type": "gtr_tok",
-    "named": true
-  },
-  {
-    "type": "hcoloreq_tok",
-    "named": true
-  },
-  {
-    "type": "hgr2_tok",
-    "named": true
-  },
-  {
-    "type": "hgr_tok",
-    "named": true
-  },
-  {
-    "type": "himem_tok",
-    "named": true
-  },
-  {
-    "type": "hlin_tok",
-    "named": true
-  },
-  {
-    "type": "home_tok",
-    "named": true
-  },
-  {
-    "type": "hplot_tok",
-    "named": true
-  },
-  {
-    "type": "htab_tok",
-    "named": true
-  },
-  {
-    "type": "if_tok",
-    "named": true
-  },
-  {
-    "type": "inn_tok",
-    "named": true
-  },
-  {
-    "type": "input_tok",
-    "named": true
-  },
-  {
-    "type": "int_tok",
-    "named": true
-  },
-  {
-    "type": "integer",
-    "named": true
-  },
-  {
-    "type": "inverse_tok",
-    "named": true
-  },
-  {
-    "type": "left_tok",
-    "named": true
-  },
-  {
-    "type": "len_tok",
-    "named": true
-  },
-  {
-    "type": "less_tok",
-    "named": true
-  },
-  {
-    "type": "let_tok",
+    "type": "int",
     "named": true
   },
   {
@@ -1371,259 +1178,443 @@
     "named": true
   },
   {
-    "type": "list_tok",
-    "named": true
-  },
-  {
-    "type": "literal",
-    "named": true
-  },
-  {
-    "type": "load_tok",
-    "named": true
-  },
-  {
-    "type": "log_tok",
-    "named": true
-  },
-  {
-    "type": "lomem_tok",
-    "named": true
-  },
-  {
-    "type": "mid_tok",
-    "named": true
-  },
-  {
-    "type": "minus_tok",
-    "named": true
-  },
-  {
-    "type": "new_tok",
-    "named": true
-  },
-  {
-    "type": "next_tok",
-    "named": true
-  },
-  {
-    "type": "normal_tok",
-    "named": true
-  },
-  {
-    "type": "not_tok",
-    "named": true
-  },
-  {
-    "type": "notrace_tok",
-    "named": true
-  },
-  {
-    "type": "on_tok",
-    "named": true
-  },
-  {
-    "type": "onerr_tok",
-    "named": true
-  },
-  {
-    "type": "or_tok",
-    "named": true
-  },
-  {
-    "type": "pdl_tok",
-    "named": true
-  },
-  {
-    "type": "peek_tok",
-    "named": true
-  },
-  {
-    "type": "plot_tok",
-    "named": true
-  },
-  {
-    "type": "plus_tok",
-    "named": true
-  },
-  {
-    "type": "poke_tok",
-    "named": true
-  },
-  {
-    "type": "pop_tok",
-    "named": true
-  },
-  {
-    "type": "pos_tok",
-    "named": true
-  },
-  {
-    "type": "pow_tok",
-    "named": true
-  },
-  {
-    "type": "print_tok",
-    "named": true
-  },
-  {
-    "type": "prn_tok",
-    "named": true
-  },
-  {
-    "type": "read_tok",
-    "named": true
-  },
-  {
     "type": "real",
     "named": true
   },
   {
-    "type": "recall_tok",
+    "type": "str",
     "named": true
   },
   {
-    "type": "rem_tok",
+    "type": "terminal_str",
     "named": true
   },
   {
-    "type": "restore_tok",
+    "type": "tok_abs",
     "named": true
   },
   {
-    "type": "resume_tok",
+    "type": "tok_amp",
     "named": true
   },
   {
-    "type": "return_tok",
+    "type": "tok_and",
     "named": true
   },
   {
-    "type": "right_tok",
+    "type": "tok_asc",
     "named": true
   },
   {
-    "type": "rnd_tok",
+    "type": "tok_at",
     "named": true
   },
   {
-    "type": "roteq_tok",
+    "type": "tok_atn",
     "named": true
   },
   {
-    "type": "run_tok",
+    "type": "tok_call",
     "named": true
   },
   {
-    "type": "save_tok",
+    "type": "tok_chr",
     "named": true
   },
   {
-    "type": "scaleeq_tok",
+    "type": "tok_clear",
     "named": true
   },
   {
-    "type": "scrnp_tok",
+    "type": "tok_coloreq",
     "named": true
   },
   {
-    "type": "sgn_tok",
+    "type": "tok_cont",
     "named": true
   },
   {
-    "type": "shload_tok",
+    "type": "tok_cos",
     "named": true
   },
   {
-    "type": "sin_tok",
+    "type": "tok_data",
     "named": true
   },
   {
-    "type": "spcp_tok",
+    "type": "tok_def",
     "named": true
   },
   {
-    "type": "speedeq_tok",
+    "type": "tok_del",
     "named": true
   },
   {
-    "type": "sqr_tok",
+    "type": "tok_dim",
     "named": true
   },
   {
-    "type": "step_tok",
+    "type": "tok_div",
     "named": true
   },
   {
-    "type": "stop_tok",
+    "type": "tok_draw",
     "named": true
   },
   {
-    "type": "store_tok",
+    "type": "tok_end",
     "named": true
   },
   {
-    "type": "str_tok",
+    "type": "tok_eq",
     "named": true
   },
   {
-    "type": "string",
+    "type": "tok_exp",
     "named": true
   },
   {
-    "type": "tabp_tok",
+    "type": "tok_flash",
     "named": true
   },
   {
-    "type": "tan_tok",
+    "type": "tok_fn",
     "named": true
   },
   {
-    "type": "terminal_string",
+    "type": "tok_for",
     "named": true
   },
   {
-    "type": "text_tok",
+    "type": "tok_fre",
     "named": true
   },
   {
-    "type": "then_tok",
+    "type": "tok_get",
     "named": true
   },
   {
-    "type": "times_tok",
+    "type": "tok_gosub",
     "named": true
   },
   {
-    "type": "to_tok",
+    "type": "tok_goto",
     "named": true
   },
   {
-    "type": "trace_tok",
+    "type": "tok_gr",
     "named": true
   },
   {
-    "type": "usr_tok",
+    "type": "tok_gtr",
     "named": true
   },
   {
-    "type": "val_tok",
+    "type": "tok_hcoloreq",
     "named": true
   },
   {
-    "type": "vlin_tok",
+    "type": "tok_hgr",
     "named": true
   },
   {
-    "type": "vtab_tok",
+    "type": "tok_hgr2",
     "named": true
   },
   {
-    "type": "wait_tok",
+    "type": "tok_himem",
     "named": true
   },
   {
-    "type": "xdraw_tok",
+    "type": "tok_hlin",
+    "named": true
+  },
+  {
+    "type": "tok_home",
+    "named": true
+  },
+  {
+    "type": "tok_hplot",
+    "named": true
+  },
+  {
+    "type": "tok_htab",
+    "named": true
+  },
+  {
+    "type": "tok_if",
+    "named": true
+  },
+  {
+    "type": "tok_inn",
+    "named": true
+  },
+  {
+    "type": "tok_input",
+    "named": true
+  },
+  {
+    "type": "tok_int",
+    "named": true
+  },
+  {
+    "type": "tok_inverse",
+    "named": true
+  },
+  {
+    "type": "tok_left",
+    "named": true
+  },
+  {
+    "type": "tok_len",
+    "named": true
+  },
+  {
+    "type": "tok_less",
+    "named": true
+  },
+  {
+    "type": "tok_let",
+    "named": true
+  },
+  {
+    "type": "tok_list",
+    "named": true
+  },
+  {
+    "type": "tok_load",
+    "named": true
+  },
+  {
+    "type": "tok_log",
+    "named": true
+  },
+  {
+    "type": "tok_lomem",
+    "named": true
+  },
+  {
+    "type": "tok_mid",
+    "named": true
+  },
+  {
+    "type": "tok_minus",
+    "named": true
+  },
+  {
+    "type": "tok_new",
+    "named": true
+  },
+  {
+    "type": "tok_next",
+    "named": true
+  },
+  {
+    "type": "tok_normal",
+    "named": true
+  },
+  {
+    "type": "tok_not",
+    "named": true
+  },
+  {
+    "type": "tok_notrace",
+    "named": true
+  },
+  {
+    "type": "tok_on",
+    "named": true
+  },
+  {
+    "type": "tok_onerr",
+    "named": true
+  },
+  {
+    "type": "tok_or",
+    "named": true
+  },
+  {
+    "type": "tok_pdl",
+    "named": true
+  },
+  {
+    "type": "tok_peek",
+    "named": true
+  },
+  {
+    "type": "tok_plot",
+    "named": true
+  },
+  {
+    "type": "tok_plus",
+    "named": true
+  },
+  {
+    "type": "tok_poke",
+    "named": true
+  },
+  {
+    "type": "tok_pop",
+    "named": true
+  },
+  {
+    "type": "tok_pos",
+    "named": true
+  },
+  {
+    "type": "tok_pow",
+    "named": true
+  },
+  {
+    "type": "tok_print",
+    "named": true
+  },
+  {
+    "type": "tok_prn",
+    "named": true
+  },
+  {
+    "type": "tok_read",
+    "named": true
+  },
+  {
+    "type": "tok_recall",
+    "named": true
+  },
+  {
+    "type": "tok_rem",
+    "named": true
+  },
+  {
+    "type": "tok_restore",
+    "named": true
+  },
+  {
+    "type": "tok_resume",
+    "named": true
+  },
+  {
+    "type": "tok_return",
+    "named": true
+  },
+  {
+    "type": "tok_right",
+    "named": true
+  },
+  {
+    "type": "tok_rnd",
+    "named": true
+  },
+  {
+    "type": "tok_roteq",
+    "named": true
+  },
+  {
+    "type": "tok_run",
+    "named": true
+  },
+  {
+    "type": "tok_save",
+    "named": true
+  },
+  {
+    "type": "tok_scaleeq",
+    "named": true
+  },
+  {
+    "type": "tok_scrnp",
+    "named": true
+  },
+  {
+    "type": "tok_sgn",
+    "named": true
+  },
+  {
+    "type": "tok_shload",
+    "named": true
+  },
+  {
+    "type": "tok_sin",
+    "named": true
+  },
+  {
+    "type": "tok_spcp",
+    "named": true
+  },
+  {
+    "type": "tok_speedeq",
+    "named": true
+  },
+  {
+    "type": "tok_sqr",
+    "named": true
+  },
+  {
+    "type": "tok_step",
+    "named": true
+  },
+  {
+    "type": "tok_stop",
+    "named": true
+  },
+  {
+    "type": "tok_store",
+    "named": true
+  },
+  {
+    "type": "tok_str",
+    "named": true
+  },
+  {
+    "type": "tok_tabp",
+    "named": true
+  },
+  {
+    "type": "tok_tan",
+    "named": true
+  },
+  {
+    "type": "tok_text",
+    "named": true
+  },
+  {
+    "type": "tok_then",
+    "named": true
+  },
+  {
+    "type": "tok_times",
+    "named": true
+  },
+  {
+    "type": "tok_to",
+    "named": true
+  },
+  {
+    "type": "tok_trace",
+    "named": true
+  },
+  {
+    "type": "tok_usr",
+    "named": true
+  },
+  {
+    "type": "tok_val",
+    "named": true
+  },
+  {
+    "type": "tok_vlin",
+    "named": true
+  },
+  {
+    "type": "tok_vtab",
+    "named": true
+  },
+  {
+    "type": "tok_wait",
+    "named": true
+  },
+  {
+    "type": "tok_xdraw",
     "named": true
   }
 ]

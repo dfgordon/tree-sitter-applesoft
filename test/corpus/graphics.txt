@@ -12,20 +12,20 @@ Low Resolution
 (source_file
 	(line
 		(linenum)
-		(statement (gr_tok))
-		(statement (coloreq_tok) (realvar (subscript (realvar))))
-		(statement (plot_tok)
-			(binary_aexpr (realvar) (plus_tok) (integer))
-			(binary_aexpr (realvar) (minus_tok) (integer))))
+		(statement (tok_gr))
+		(statement (tok_coloreq) (var_real (name_real) (subscript (var_real (name_real)))))
+		(statement (tok_plot)
+			(binary_aexpr (var_real (name_real)) (tok_plus) (int))
+			(binary_aexpr (var_real (name_real)) (tok_minus) (int))))
 	(line
-		(linenum) (statement (hlin_tok) (integer) (integer) (at_tok) (realvar)))
+		(linenum) (statement (tok_hlin) (int) (int) (tok_at) (var_real (name_real))))
 	(line
-		(linenum) (statement (vlin_tok) (integer) (realvar) (at_tok) (realvar)))
+		(linenum) (statement (tok_vlin) (int) (var_real (name_real)) (tok_at) (var_real (name_real))))
 	(line
 		(linenum)
-		(statement (print_tok) (fcall (scrnp_tok)
-			(binary_aexpr (realvar) (plus_tok) (integer))
-			(binary_aexpr (realvar) (minus_tok) (integer))))))
+		(statement (tok_print) (fcall (tok_scrnp)
+			(binary_aexpr (var_real (name_real)) (tok_plus) (int))
+			(binary_aexpr (var_real (name_real)) (tok_minus) (int))))))
 
 ===================
 High Resolution
@@ -42,25 +42,25 @@ High Resolution
 (source_file
 	(line
 		(linenum)
-		(statement (hgr_tok))
-		(statement (hcoloreq_tok) (binary_aexpr (realvar (subscript (realvar))) (div_tok) (integer)))
-		(statement (hplot_tok) (binary_aexpr (realvar) (plus_tok) (integer)) (binary_aexpr (realvar) (times_tok) (integer))))
+		(statement (tok_hgr))
+		(statement (tok_hcoloreq) (binary_aexpr (var_real (name_real) (subscript (var_real (name_real)))) (tok_div) (int)))
+		(statement (tok_hplot) (binary_aexpr (var_real (name_real)) (tok_plus) (int)) (binary_aexpr (var_real (name_real)) (tok_times) (int))))
 	(line
 		(linenum)
-		(statement (hplot_tok) (realvar) (realvar) (to_tok)
-			(binary_aexpr (realvar) (plus_tok) (integer)) (binary_aexpr (realvar) (minus_tok) (integer))))
+		(statement (tok_hplot) (var_real (name_real)) (var_real (name_real)) (tok_to)
+			(binary_aexpr (var_real (name_real)) (tok_plus) (int)) (binary_aexpr (var_real (name_real)) (tok_minus) (int))))
 	(line
 		(linenum)
-		(statement (hplot_tok) (to_tok) (realvar) (realvar)))
+		(statement (tok_hplot) (tok_to) (var_real (name_real)) (var_real (name_real))))
 	(line
 		(linenum)
-		(statement (hplot_tok) (integer) (integer)
-			(to_tok) (integer) (integer)
-			(to_tok) (realvar) (realvar)
-			(to_tok) (realvar) (realvar)))
+		(statement (tok_hplot) (int) (int)
+			(tok_to) (int) (int)
+			(tok_to) (var_real (name_real)) (var_real (name_real))
+			(tok_to) (var_real (name_real)) (var_real (name_real))))
 	(line
 		(linenum)
-		(statement (hgr2_tok))))
+		(statement (tok_hgr2))))
 
 ===================
 Shape Tables
@@ -79,30 +79,30 @@ Shape Tables
 (source_file
 	(line
 		(linenum)
-		(statement (shload_tok)))
+		(statement (tok_shload)))
 	(line
 		(linenum)
-		(statement (roteq_tok) (integer))
-		(statement (scaleeq_tok) (integer))
-		(statement (draw_tok) (integer)))
+		(statement (tok_roteq) (int))
+		(statement (tok_scaleeq) (int))
+		(statement (tok_draw) (int)))
 	(line
 		(linenum)
-		(statement (draw_tok) (integer) (at_tok) (integer) (integer)))
+		(statement (tok_draw) (int) (tok_at) (int) (int)))
 	(line
 		(linenum)
-		(statement (draw_tok) (realvar) (at_tok)
-			(binary_aexpr (realvar) (plus_tok) (realvar))
-			(binary_aexpr (realvar) (plus_tok) (realvar))))
+		(statement (tok_draw) (var_real (name_real)) (tok_at)
+			(binary_aexpr (var_real (name_real)) (tok_plus) (var_real (name_real)))
+			(binary_aexpr (var_real (name_real)) (tok_plus) (var_real (name_real)))))
 	(line
 		(linenum)
-		(statement (roteq_tok) (integer))
-		(statement (scaleeq_tok) (integer))
-		(statement (xdraw_tok) (integer)))
+		(statement (tok_roteq) (int))
+		(statement (tok_scaleeq) (int))
+		(statement (tok_xdraw) (int)))
 	(line
 		(linenum)
-		(statement (xdraw_tok) (integer) (at_tok) (integer) (integer)))
+		(statement (tok_xdraw) (int) (tok_at) (int) (int)))
 	(line
 		(linenum)
-		(statement (xdraw_tok) (realvar) (at_tok)
-			(binary_aexpr (realvar) (plus_tok) (realvar))
-			(binary_aexpr (realvar) (plus_tok) (realvar)))))
+		(statement (tok_xdraw) (var_real (name_real)) (tok_at)
+			(binary_aexpr (var_real (name_real)) (tok_plus) (var_real (name_real)))
+			(binary_aexpr (var_real (name_real)) (tok_plus) (var_real (name_real))))))

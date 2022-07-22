@@ -2,536 +2,536 @@
     {
         "code": 128,
         "lexeme": "end",
-        "rule id": "end_tok"
+        "rule id": "tok_end"
     },
     {
         "code": 129,
         "lexeme": "for",
-        "rule id": "for_tok"
+        "rule id": "tok_for"
     },
     {
         "code": 130,
         "lexeme": "next",
-        "rule id": "next_tok"
+        "rule id": "tok_next"
     },
     {
         "code": 131,
         "lexeme": "data",
-        "rule id": "data_tok"
+        "rule id": "tok_data"
     },
     {
         "code": 132,
         "lexeme": "input",
-        "rule id": "input_tok"
+        "rule id": "tok_input"
     },
     {
         "code": 133,
         "lexeme": "del",
-        "rule id": "del_tok"
+        "rule id": "tok_del"
     },
     {
         "code": 134,
         "lexeme": "dim",
-        "rule id": "dim_tok"
+        "rule id": "tok_dim"
     },
     {
         "code": 135,
         "lexeme": "read",
-        "rule id": "read_tok"
+        "rule id": "tok_read"
     },
     {
         "code": 136,
         "lexeme": "gr",
-        "rule id": "gr_tok"
+        "rule id": "tok_gr"
     },
     {
         "code": 137,
         "lexeme": "text",
-        "rule id": "text_tok"
+        "rule id": "tok_text"
     },
     {
         "code": 138,
         "lexeme": "pr#",
-        "rule id": "prn_tok"
+        "rule id": "tok_prn"
     },
     {
         "code": 139,
         "lexeme": "in#",
-        "rule id": "inn_tok"
+        "rule id": "tok_inn"
     },
     {
         "code": 140,
         "lexeme": "call",
-        "rule id": "call_tok"
+        "rule id": "tok_call"
     },
     {
         "code": 141,
         "lexeme": "plot",
-        "rule id": "plot_tok"
+        "rule id": "tok_plot"
     },
     {
         "code": 142,
         "lexeme": "hlin",
-        "rule id": "hlin_tok"
+        "rule id": "tok_hlin"
     },
     {
         "code": 143,
         "lexeme": "vlin",
-        "rule id": "vlin_tok"
+        "rule id": "tok_vlin"
     },
     {
         "code": 144,
         "lexeme": "hgr2",
-        "rule id": "hgr2_tok"
+        "rule id": "tok_hgr2"
     },
     {
         "code": 145,
         "lexeme": "hgr",
-        "rule id": "hgr_tok"
+        "rule id": "tok_hgr"
     },
     {
         "code": 146,
         "lexeme": "hcolor=",
-        "rule id": "hcoloreq_tok"
+        "rule id": "tok_hcoloreq"
     },
     {
         "code": 147,
         "lexeme": "hplot",
-        "rule id": "hplot_tok"
+        "rule id": "tok_hplot"
     },
     {
         "code": 148,
         "lexeme": "draw",
-        "rule id": "draw_tok"
+        "rule id": "tok_draw"
     },
     {
         "code": 149,
         "lexeme": "xdraw",
-        "rule id": "xdraw_tok"
+        "rule id": "tok_xdraw"
     },
     {
         "code": 150,
         "lexeme": "htab",
-        "rule id": "htab_tok"
+        "rule id": "tok_htab"
     },
     {
         "code": 151,
         "lexeme": "home",
-        "rule id": "home_tok"
+        "rule id": "tok_home"
     },
     {
         "code": 152,
         "lexeme": "rot=",
-        "rule id": "roteq_tok"
+        "rule id": "tok_roteq"
     },
     {
         "code": 153,
         "lexeme": "scale=",
-        "rule id": "scaleeq_tok"
+        "rule id": "tok_scaleeq"
     },
     {
         "code": 154,
         "lexeme": "shload",
-        "rule id": "shload_tok"
+        "rule id": "tok_shload"
     },
     {
         "code": 155,
         "lexeme": "trace",
-        "rule id": "trace_tok"
+        "rule id": "tok_trace"
     },
     {
         "code": 156,
         "lexeme": "notrace",
-        "rule id": "notrace_tok"
+        "rule id": "tok_notrace"
     },
     {
         "code": 157,
         "lexeme": "normal",
-        "rule id": "normal_tok"
+        "rule id": "tok_normal"
     },
     {
         "code": 158,
         "lexeme": "inverse",
-        "rule id": "inverse_tok"
+        "rule id": "tok_inverse"
     },
     {
         "code": 159,
         "lexeme": "flash",
-        "rule id": "flash_tok"
+        "rule id": "tok_flash"
     },
     {
         "code": 160,
         "lexeme": "color=",
-        "rule id": "coloreq_tok"
+        "rule id": "tok_coloreq"
     },
     {
         "code": 161,
         "lexeme": "pop",
-        "rule id": "pop_tok"
+        "rule id": "tok_pop"
     },
     {
         "code": 162,
         "lexeme": "vtab",
-        "rule id": "vtab_tok"
+        "rule id": "tok_vtab"
     },
     {
         "code": 163,
         "lexeme": "himem:",
-        "rule id": "himem_tok"
+        "rule id": "tok_himem"
     },
     {
         "code": 164,
         "lexeme": "lomem:",
-        "rule id": "lomem_tok"
+        "rule id": "tok_lomem"
     },
     {
         "code": 165,
         "lexeme": "onerr",
-        "rule id": "onerr_tok"
+        "rule id": "tok_onerr"
     },
     {
         "code": 166,
         "lexeme": "resume",
-        "rule id": "resume_tok"
+        "rule id": "tok_resume"
     },
     {
         "code": 167,
         "lexeme": "recall",
-        "rule id": "recall_tok"
+        "rule id": "tok_recall"
     },
     {
         "code": 168,
         "lexeme": "store",
-        "rule id": "store_tok"
+        "rule id": "tok_store"
     },
     {
         "code": 169,
         "lexeme": "speed=",
-        "rule id": "speedeq_tok"
+        "rule id": "tok_speedeq"
     },
     {
         "code": 170,
         "lexeme": "let",
-        "rule id": "let_tok"
+        "rule id": "tok_let"
     },
     {
         "code": 171,
         "lexeme": "goto",
-        "rule id": "goto_tok"
+        "rule id": "tok_goto"
     },
     {
         "code": 172,
         "lexeme": "run",
-        "rule id": "run_tok"
+        "rule id": "tok_run"
     },
     {
         "code": 173,
         "lexeme": "if",
-        "rule id": "if_tok"
+        "rule id": "tok_if"
     },
     {
         "code": 174,
         "lexeme": "restore",
-        "rule id": "restore_tok"
+        "rule id": "tok_restore"
     },
     {
         "code": 175,
         "lexeme": "&",
-        "rule id": "amp_tok"
+        "rule id": "tok_amp"
     },
     {
         "code": 176,
         "lexeme": "gosub",
-        "rule id": "gosub_tok"
+        "rule id": "tok_gosub"
     },
     {
         "code": 177,
         "lexeme": "return",
-        "rule id": "return_tok"
+        "rule id": "tok_return"
     },
     {
         "code": 178,
         "lexeme": "rem",
-        "rule id": "rem_tok"
+        "rule id": "tok_rem"
     },
     {
         "code": 179,
         "lexeme": "stop",
-        "rule id": "stop_tok"
+        "rule id": "tok_stop"
     },
     {
         "code": 180,
         "lexeme": "on",
-        "rule id": "on_tok"
+        "rule id": "tok_on"
     },
     {
         "code": 181,
         "lexeme": "wait",
-        "rule id": "wait_tok"
+        "rule id": "tok_wait"
     },
     {
         "code": 182,
         "lexeme": "load",
-        "rule id": "load_tok"
+        "rule id": "tok_load"
     },
     {
         "code": 183,
         "lexeme": "save",
-        "rule id": "save_tok"
+        "rule id": "tok_save"
     },
     {
         "code": 184,
         "lexeme": "def",
-        "rule id": "def_tok"
+        "rule id": "tok_def"
     },
     {
         "code": 185,
         "lexeme": "poke",
-        "rule id": "poke_tok"
+        "rule id": "tok_poke"
     },
     {
         "code": 186,
         "lexeme": "print",
-        "rule id": "print_tok"
+        "rule id": "tok_print"
     },
     {
         "code": 187,
         "lexeme": "cont",
-        "rule id": "cont_tok"
+        "rule id": "tok_cont"
     },
     {
         "code": 188,
         "lexeme": "list",
-        "rule id": "list_tok"
+        "rule id": "tok_list"
     },
     {
         "code": 189,
         "lexeme": "clear",
-        "rule id": "clear_tok"
+        "rule id": "tok_clear"
     },
     {
         "code": 190,
         "lexeme": "get",
-        "rule id": "get_tok"
+        "rule id": "tok_get"
     },
     {
         "code": 191,
         "lexeme": "new",
-        "rule id": "new_tok"
+        "rule id": "tok_new"
     },
     {
         "code": 192,
         "lexeme": "tab(",
-        "rule id": "tabp_tok"
+        "rule id": "tok_tabp"
     },
     {
         "code": 193,
         "lexeme": "to",
-        "rule id": "to_tok"
+        "rule id": "tok_to"
     },
     {
         "code": 194,
         "lexeme": "fn",
-        "rule id": "fn_tok"
+        "rule id": "tok_fn"
     },
     {
         "code": 195,
         "lexeme": "spc(",
-        "rule id": "spcp_tok"
+        "rule id": "tok_spcp"
     },
     {
         "code": 196,
         "lexeme": "then",
-        "rule id": "then_tok"
+        "rule id": "tok_then"
     },
     {
         "code": 197,
         "lexeme": "at",
-        "rule id": "at_tok"
+        "rule id": "tok_at"
     },
     {
         "code": 198,
         "lexeme": "not",
-        "rule id": "not_tok"
+        "rule id": "tok_not"
     },
     {
         "code": 199,
         "lexeme": "step",
-        "rule id": "step_tok"
+        "rule id": "tok_step"
     },
     {
         "code": 200,
         "lexeme": "+",
-        "rule id": "plus_tok"
+        "rule id": "tok_plus"
     },
     {
         "code": 201,
         "lexeme": "-",
-        "rule id": "minus_tok"
+        "rule id": "tok_minus"
     },
     {
         "code": 202,
         "lexeme": "*",
-        "rule id": "times_tok"
+        "rule id": "tok_times"
     },
     {
         "code": 203,
         "lexeme": "/",
-        "rule id": "div_tok"
+        "rule id": "tok_div"
     },
     {
         "code": 204,
         "lexeme": "^",
-        "rule id": "pow_tok"
+        "rule id": "tok_pow"
     },
     {
         "code": 205,
         "lexeme": "and",
-        "rule id": "and_tok"
+        "rule id": "tok_and"
     },
     {
         "code": 206,
         "lexeme": "or",
-        "rule id": "or_tok"
+        "rule id": "tok_or"
     },
     {
         "code": 207,
         "lexeme": ">",
-        "rule id": "gtr_tok"
+        "rule id": "tok_gtr"
     },
     {
         "code": 208,
         "lexeme": "=",
-        "rule id": "eq_tok"
+        "rule id": "tok_eq"
     },
     {
         "code": 209,
         "lexeme": "<",
-        "rule id": "less_tok"
+        "rule id": "tok_less"
     },
     {
         "code": 210,
         "lexeme": "sgn",
-        "rule id": "sgn_tok"
+        "rule id": "tok_sgn"
     },
     {
         "code": 211,
         "lexeme": "int",
-        "rule id": "int_tok"
+        "rule id": "tok_int"
     },
     {
         "code": 212,
         "lexeme": "abs",
-        "rule id": "abs_tok"
+        "rule id": "tok_abs"
     },
     {
         "code": 213,
         "lexeme": "usr",
-        "rule id": "usr_tok"
+        "rule id": "tok_usr"
     },
     {
         "code": 214,
         "lexeme": "fre",
-        "rule id": "fre_tok"
+        "rule id": "tok_fre"
     },
     {
         "code": 215,
         "lexeme": "scrn(",
-        "rule id": "scrnp_tok"
+        "rule id": "tok_scrnp"
     },
     {
         "code": 216,
         "lexeme": "pdl",
-        "rule id": "pdl_tok"
+        "rule id": "tok_pdl"
     },
     {
         "code": 217,
         "lexeme": "pos",
-        "rule id": "pos_tok"
+        "rule id": "tok_pos"
     },
     {
         "code": 218,
         "lexeme": "sqr",
-        "rule id": "sqr_tok"
+        "rule id": "tok_sqr"
     },
     {
         "code": 219,
         "lexeme": "rnd",
-        "rule id": "rnd_tok"
+        "rule id": "tok_rnd"
     },
     {
         "code": 220,
         "lexeme": "log",
-        "rule id": "log_tok"
+        "rule id": "tok_log"
     },
     {
         "code": 221,
         "lexeme": "exp",
-        "rule id": "exp_tok"
+        "rule id": "tok_exp"
     },
     {
         "code": 222,
         "lexeme": "cos",
-        "rule id": "cos_tok"
+        "rule id": "tok_cos"
     },
     {
         "code": 223,
         "lexeme": "sin",
-        "rule id": "sin_tok"
+        "rule id": "tok_sin"
     },
     {
         "code": 224,
         "lexeme": "tan",
-        "rule id": "tan_tok"
+        "rule id": "tok_tan"
     },
     {
         "code": 225,
         "lexeme": "atn",
-        "rule id": "atn_tok"
+        "rule id": "tok_atn"
     },
     {
         "code": 226,
         "lexeme": "peek",
-        "rule id": "peek_tok"
+        "rule id": "tok_peek"
     },
     {
         "code": 227,
         "lexeme": "len",
-        "rule id": "len_tok"
+        "rule id": "tok_len"
     },
     {
         "code": 228,
         "lexeme": "str$",
-        "rule id": "str_tok"
+        "rule id": "tok_str"
     },
     {
         "code": 229,
         "lexeme": "val",
-        "rule id": "val_tok"
+        "rule id": "tok_val"
     },
     {
         "code": 230,
         "lexeme": "asc",
-        "rule id": "asc_tok"
+        "rule id": "tok_asc"
     },
     {
         "code": 231,
         "lexeme": "chr$",
-        "rule id": "chr_tok"
+        "rule id": "tok_chr"
     },
     {
         "code": 232,
         "lexeme": "left$",
-        "rule id": "left_tok"
+        "rule id": "tok_left"
     },
     {
         "code": 233,
         "lexeme": "right$",
-        "rule id": "right_tok"
+        "rule id": "tok_right"
     },
     {
         "code": 234,
         "lexeme": "mid$",
-        "rule id": "mid_tok"
+        "rule id": "tok_mid"
     }
 ]

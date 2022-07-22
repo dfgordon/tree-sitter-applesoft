@@ -11,15 +11,15 @@ Arrays
 	(line
 		(linenum)
 		(statement
-			(dim_tok)
-				(string_array (subscript (integer) (integer) (realvar)))
-				(real_array (subscript (integer) (integer) (integer)))))
+			(tok_dim)
+				(dim_item (var_str (name_str) (subscript (int) (int) (var_real (name_real)))))
+				(dim_item (var_real (name_real) (subscript (int) (int) (int))))))
 	(line
 		(linenum)
 		(statement
-			(assignment (svar) (eq_tok) (svar (subscript (integer) (intvar) (integer)))))
+			(assignment (var_str (name_str)) (tok_eq) (var_str (name_str) (subscript (int) (var_int (name_int)) (int)))))
 		(statement
-			(assignment (realvar) (eq_tok) (realvar (subscript (integer) (integer) (integer)))))))
+			(assignment (var_real (name_real)) (tok_eq) (var_real (name_real) (subscript (int) (int) (int)))))))
 
 ===================
 Strings
@@ -34,16 +34,16 @@ Strings
 (source_file
 	(line
 		(linenum)
-		(statement (assignment (let_tok) (svar) (eq_tok) (string)))
-		(statement (assignment (svar) (eq_tok) (sfcall (left_tok) (svar) (integer)))))
+		(statement (assignment (tok_let) (var_str (name_str)) (tok_eq) (str)))
+		(statement (assignment (var_str (name_str)) (tok_eq) (sfcall (tok_left) (var_str (name_str)) (int)))))
 	(line
 		(linenum)
 		(statement
-			(assignment (realvar) (eq_tok) (fcall (len_tok)
-				(binary_sexpr (binary_sexpr (svar) (plus_tok) (string)) (plus_tok) (svar))))))
+			(assignment (var_real (name_real)) (tok_eq) (fcall (tok_len)
+				(binary_sexpr (binary_sexpr (var_str (name_str)) (tok_plus) (str)) (tok_plus) (var_str (name_str)))))))
 	(line
 		(linenum)
-		(statement (assignment (svar) (eq_tok) (sfcall (str_tok) (real))))))
+		(statement (assignment (var_str (name_str)) (tok_eq) (sfcall (tok_str) (real))))))
 
 ===================
 Strings 2
@@ -59,13 +59,13 @@ Strings 2
 		(linenum)
 		(statement
 			(assignment
-				(svar) (eq_tok)
+				(var_str (name_str)) (tok_eq)
 				(sfcall
-					(mid_tok)
-					(svar (subscript (integer) (integer)))
-					(integer) (integer)))))
+					(tok_mid)
+					(var_str (name_str) (subscript (int) (int)))
+					(int) (int)))))
 	(line
 		(linenum)
 		(statement
 			(assignment
-				(intvar) (eq_tok) (fcall (len_tok) (binary_sexpr (svar) (plus_tok) (string)))))))
+				(var_int (name_int)) (tok_eq) (fcall (tok_len) (binary_sexpr (var_str (name_str)) (tok_plus) (str)))))))

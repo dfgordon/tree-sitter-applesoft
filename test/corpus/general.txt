@@ -9,7 +9,7 @@ Delete
 (source_file
 	(line
 		(linenum)
-		(statement (del_tok) (linenum) (linenum))))
+		(statement (tok_del) (linenum) (linenum))))
 
 ===================
 Remark
@@ -23,10 +23,10 @@ Remark
 (source_file
 	(line
 		(linenum)
-		(statement (rem_tok) (comment_text)))
+		(statement (tok_rem) (comment_text)))
 	(line
 		(linenum)
-		(statement (print_tok) (string))))
+		(statement (tok_print) (str))))
 
 ===================
 Other
@@ -43,18 +43,18 @@ Other
 (source_file
 	(line
 		(linenum)
-		(statement (clear_tok)))
+		(statement (tok_clear)))
 	(line
 		(linenum)
-		(statement (list_tok))
-		(statement (list_tok) (linenum))
-		(statement (list_tok) (linenum) (linenum)))
+		(statement (tok_list))
+		(statement (tok_list) (linenum))
+		(statement (tok_list) (linenum) (linenum)))
 	(line
 		(linenum)
-		(statement (run_tok) (linenum)))
+		(statement (tok_run) (linenum)))
 	(line
 		(linenum)
-		(statement (new_tok)))
+		(statement (tok_new)))
 	(line
 		(linenum)
-		(statement (cont_tok))))
+		(statement (tok_cont))))

@@ -12,19 +12,19 @@ Peek and Poke
 	(line
 		(linenum)
 		(statement
-			(assignment (realvar) (eq_tok) (fcall (peek_tok)
-				(binary_aexpr (binary_aexpr (realvar) (times_tok) (integer)) (plus_tok) (integer)))))
+			(assignment (var_real (name_real)) (tok_eq) (fcall (tok_peek)
+				(binary_aexpr (binary_aexpr (var_real (name_real)) (tok_times) (int)) (tok_plus) (int)))))
 		(statement
-			(assignment (realvar) (eq_tok) (fcall (peek_tok) (integer)))))
+			(assignment (var_real (name_real)) (tok_eq) (fcall (tok_peek) (int)))))
 	(line
 		(linenum)
-		(statement (poke_tok) (realvar) (realvar))
-		(statement (poke_tok)
-			(binary_aexpr (binary_aexpr (realvar) (times_tok) (integer)) (plus_tok) (integer))
-			(binary_aexpr (binary_aexpr (realvar) (times_tok) (integer)) (div_tok) (realvar))))
+		(statement (tok_poke) (var_real (name_real)) (var_real (name_real)))
+		(statement (tok_poke)
+			(binary_aexpr (binary_aexpr (var_real (name_real)) (tok_times) (int)) (tok_plus) (int))
+			(binary_aexpr (binary_aexpr (var_real (name_real)) (tok_times) (int)) (tok_div) (var_real (name_real)))))
 	(line
 		(linenum)
-		(statement (poke_tok) (integer) (integer))))
+		(statement (tok_poke) (int) (int))))
 
 ===================
 Call and USR
@@ -38,10 +38,10 @@ Call and USR
 ---
 
 (source_file
-	(line (linenum) (statement (call_tok) (integer)))
-	(line (linenum) (statement (call_tok) (integer)))
-	(line (linenum) (statement (call_tok) (realvar (subscript (realvar)))))
-	(line (linenum) (statement (print_tok) (fcall (usr_tok) (integer)))))
+	(line (linenum) (statement (tok_call) (int)))
+	(line (linenum) (statement (tok_call) (int)))
+	(line (linenum) (statement (tok_call) (var_real (name_real) (subscript (var_real (name_real))))))
+	(line (linenum) (statement (tok_print) (fcall (tok_usr) (int)))))
 
 ===================
 Wait
@@ -54,9 +54,9 @@ Wait
 ---
 
 (source_file
-	(line (linenum) (statement (wait_tok) (integer) (integer)))
-	(line (linenum) (statement (wait_tok) (integer) (integer) (integer)))
-	(line (linenum) (statement (wait_tok) (intvar) (intvar) (intvar))))
+	(line (linenum) (statement (tok_wait) (int) (int)))
+	(line (linenum) (statement (tok_wait) (int) (int) (int)))
+	(line (linenum) (statement (tok_wait) (var_int (name_int)) (var_int (name_int)) (var_int (name_int)))))
 
 ===================
 Memory Management
@@ -69,9 +69,9 @@ Memory Management
 ---
 
 (source_file
-	(line (linenum) (statement (himem_tok) (integer)))
-	(line (linenum) (statement (lomem_tok) (integer)))
-	(line (linenum) (statement (assignment (let_tok) (realvar) (eq_tok) (fcall (fre_tok) (integer))))))
+	(line (linenum) (statement (tok_himem) (int)))
+	(line (linenum) (statement (tok_lomem) (int)))
+	(line (linenum) (statement (assignment (tok_let) (var_real (name_real)) (tok_eq) (fcall (tok_fre) (int))))))
 
 ===================
 Debugging
@@ -83,5 +83,5 @@ Debugging
 ---
 
 (source_file
-	(line (linenum) (statement (trace_tok)))
-	(line (linenum) (statement (notrace_tok))))
+	(line (linenum) (statement (tok_trace)))
+	(line (linenum) (statement (tok_notrace))))

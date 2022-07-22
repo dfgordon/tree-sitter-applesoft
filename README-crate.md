@@ -5,7 +5,7 @@ This is the rust binding for [tree-sitter-applesoft](https://github.com/dfgordon
 ```toml
 [dependencies]
 tree-sitter = "~0.20.6"
-tree-sitter-applesoft = "~1.2.2"
+tree-sitter-applesoft = "~2.0.0"
 ```
 Here is a trivial `main.rs` example:
 ```rust
@@ -24,6 +24,6 @@ fn main() {
 ```
 This should print the syntax tree
 ```
-(source_file (line (linenum) (statement (goto_tok) (linenum))))
+(source_file (line (linenum) (statement (tok_goto) (linenum))))
 ```
 For more on parsing with rust, see the general guidance [here](https://github.com/tree-sitter/tree-sitter/blob/master/lib/binding_rust/README.md).

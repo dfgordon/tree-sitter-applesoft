@@ -35,7 +35,7 @@ function regex_or(lst)
 const allow_lower_case = true;
 const language_name = allow_lower_case ? 'applesoft' : 'applesoftcasesens'
 
-// This real number excludes integers, unlike Ref. 2 p. 237
+// This real number excludes ------------------s, unlike Ref. 2 p. 237
 // Following captures the zero valued cases in the first table on p. 237
 let REAL_DOT = /([+-] *)?[0-9]?[0-9 ]*\.[0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)?/;
 // Following captures forms without the decimal point
@@ -85,254 +85,7 @@ module.exports = grammar({
 
 	rules: {
 		source_file: $ => repeat(choice($.line,$._empty_line)),
-
-		// Assign a rule to all tokenized statements and functions
-		// These are taken from Table H-3 in Ref. 2
-
-			end_tok: $ => /[Ee] *[Nn] *[Dd]/,
-			for_tok: $ => /[Ff] *[Oo] *[Rr]/,
-			next_tok: $ => /[Nn] *[Ee] *[Xx] *[Tt]/,
-			data_tok: $ => /[Dd] *[Aa] *[Tt] *[Aa]/,
-			input_tok: $ => /[Ii] *[Nn] *[Pp] *[Uu] *[Tt]/,
-			del_tok: $ => /[Dd] *[Ee] *[Ll]/,
-			dim_tok: $ => /[Dd] *[Ii] *[Mm]/,
-			read_tok: $ => /[Rr] *[Ee] *[Aa] *[Dd]/,
-			gr_tok: $ => /[Gg] *[Rr]/,
-			text_tok: $ => /[Tt] *[Ee] *[Xx] *[Tt]/,
-			prn_tok: $ => /[Pp] *[Rr] *[##]/,
-			inn_tok: $ => /[Ii] *[Nn] *[##]/,
-			call_tok: $ => /[Cc] *[Aa] *[Ll] *[Ll]/,
-			plot_tok: $ => /[Pp] *[Ll] *[Oo] *[Tt]/,
-			hlin_tok: $ => /[Hh] *[Ll] *[Ii] *[Nn]/,
-			vlin_tok: $ => /[Vv] *[Ll] *[Ii] *[Nn]/,
-			hgr2_tok: $ => /[Hh] *[Gg] *[Rr] *[22]/,
-			hgr_tok: $ => /[Hh] *[Gg] *[Rr]/,
-			hcoloreq_tok: $ => /[Hh] *[Cc] *[Oo] *[Ll] *[Oo] *[Rr] *[==]/,
-			hplot_tok: $ => /[Hh] *[Pp] *[Ll] *[Oo] *[Tt]/,
-			draw_tok: $ => /[Dd] *[Rr] *[Aa] *[Ww]/,
-			xdraw_tok: $ => /[Xx] *[Dd] *[Rr] *[Aa] *[Ww]/,
-			htab_tok: $ => /[Hh] *[Tt] *[Aa] *[Bb]/,
-			home_tok: $ => /[Hh] *[Oo] *[Mm] *[Ee]/,
-			roteq_tok: $ => /[Rr] *[Oo] *[Tt] *[==]/,
-			scaleeq_tok: $ => /[Ss] *[Cc] *[Aa] *[Ll] *[Ee] *[==]/,
-			shload_tok: $ => /[Ss] *[Hh] *[Ll] *[Oo] *[Aa] *[Dd]/,
-			trace_tok: $ => /[Tt] *[Rr] *[Aa] *[Cc] *[Ee]/,
-			notrace_tok: $ => /[Nn] *[Oo] *[Tt] *[Rr] *[Aa] *[Cc] *[Ee]/,
-			normal_tok: $ => /[Nn] *[Oo] *[Rr] *[Mm] *[Aa] *[Ll]/,
-			inverse_tok: $ => /[Ii] *[Nn] *[Vv] *[Ee] *[Rr] *[Ss] *[Ee]/,
-			flash_tok: $ => /[Ff] *[Ll] *[Aa] *[Ss] *[Hh]/,
-			coloreq_tok: $ => /[Cc] *[Oo] *[Ll] *[Oo] *[Rr] *[==]/,
-			pop_tok: $ => /[Pp] *[Oo] *[Pp]/,
-			vtab_tok: $ => /[Vv] *[Tt] *[Aa] *[Bb]/,
-			himem_tok: $ => /[Hh] *[Ii] *[Mm] *[Ee] *[Mm] *[::]/,
-			lomem_tok: $ => /[Ll] *[Oo] *[Mm] *[Ee] *[Mm] *[::]/,
-			onerr_tok: $ => /[Oo] *[Nn] *[Ee] *[Rr] *[Rr]/,
-			resume_tok: $ => /[Rr] *[Ee] *[Ss] *[Uu] *[Mm] *[Ee]/,
-			recall_tok: $ => /[Rr] *[Ee] *[Cc] *[Aa] *[Ll] *[Ll]/,
-			store_tok: $ => /[Ss] *[Tt] *[Oo] *[Rr] *[Ee]/,
-			speedeq_tok: $ => /[Ss] *[Pp] *[Ee] *[Ee] *[Dd] *[==]/,
-			let_tok: $ => /[Ll] *[Ee] *[Tt]/,
-			goto_tok: $ => /[Gg] *[Oo] *[Tt] *[Oo]/,
-			run_tok: $ => /[Rr] *[Uu] *[Nn]/,
-			if_tok: $ => /[Ii] *[Ff]/,
-			restore_tok: $ => /[Rr] *[Ee] *[Ss] *[Tt] *[Oo] *[Rr] *[Ee]/,
-			amp_tok: $ => '&',
-			gosub_tok: $ => /[Gg] *[Oo] *[Ss] *[Uu] *[Bb]/,
-			return_tok: $ => /[Rr] *[Ee] *[Tt] *[Uu] *[Rr] *[Nn]/,
-			rem_tok: $ => /[Rr] *[Ee] *[Mm]/,
-			stop_tok: $ => /[Ss] *[Tt] *[Oo] *[Pp]/,
-			on_tok: $ => /[Oo] *[Nn]/,
-			wait_tok: $ => /[Ww] *[Aa] *[Ii] *[Tt]/,
-			load_tok: $ => /[Ll] *[Oo] *[Aa] *[Dd]/,
-			save_tok: $ => /[Ss] *[Aa] *[Vv] *[Ee]/,
-			def_tok: $ => /[Dd] *[Ee] *[Ff]/,
-			poke_tok: $ => /[Pp] *[Oo] *[Kk] *[Ee]/,
-			print_tok: $ => /[Pp] *[Rr] *[Ii] *[Nn] *[Tt]|\?/,
-			cont_tok: $ => /[Cc] *[Oo] *[Nn] *[Tt]/,
-			list_tok: $ => /[Ll] *[Ii] *[Ss] *[Tt]/,
-			clear_tok: $ => /[Cc] *[Ll] *[Ee] *[Aa] *[Rr]/,
-			get_tok: $ => /[Gg] *[Ee] *[Tt]/,
-			new_tok: $ => /[Nn] *[Ee] *[Ww]/,
-			tabp_tok: $ => /[Tt] *[Aa] *[Bb] *[\(\(]/,
-			to_tok: $ => /[Tt] *[Oo]/,
-			fn_tok: $ => /[Ff] *[Nn]/,
-			spcp_tok: $ => /[Ss] *[Pp] *[Cc] *[\(\(]/,
-			then_tok: $ => /[Tt] *[Hh] *[Ee] *[Nn]/,
-			at_tok: $ => /[Aa] *[Tt]/,
-			not_tok: $ => /[Nn] *[Oo] *[Tt]/,
-			step_tok: $ => /[Ss] *[Tt] *[Ee] *[Pp]/,
-			plus_tok: $ => '+',
-			minus_tok: $ => '-',
-			times_tok: $ => '*',
-			div_tok: $ => '/',
-			pow_tok: $ => '^',
-			and_tok: $ => /[Aa] *[Nn] *[Dd]/,
-			or_tok: $ => /[Oo] *[Rr]/,
-			gtr_tok: $ => '>',
-			eq_tok: $ => '=',
-			less_tok: $ => '<',
-			sgn_tok: $ => /[Ss] *[Gg] *[Nn]/,
-			int_tok: $ => /[Ii] *[Nn] *[Tt]/,
-			abs_tok: $ => /[Aa] *[Bb] *[Ss]/,
-			usr_tok: $ => /[Uu] *[Ss] *[Rr]/,
-			fre_tok: $ => /[Ff] *[Rr] *[Ee]/,
-			scrnp_tok: $ => /[Ss] *[Cc] *[Rr] *[Nn] *[\(\(]/,
-			pdl_tok: $ => /[Pp] *[Dd] *[Ll]/,
-			pos_tok: $ => /[Pp] *[Oo] *[Ss]/,
-			sqr_tok: $ => /[Ss] *[Qq] *[Rr]/,
-			rnd_tok: $ => /[Rr] *[Nn] *[Dd]/,
-			log_tok: $ => /[Ll] *[Oo] *[Gg]/,
-			exp_tok: $ => /[Ee] *[Xx] *[Pp]/,
-			cos_tok: $ => /[Cc] *[Oo] *[Ss]/,
-			sin_tok: $ => /[Ss] *[Ii] *[Nn]/,
-			tan_tok: $ => /[Tt] *[Aa] *[Nn]/,
-			atn_tok: $ => /[Aa] *[Tt][Nn]/,
-			peek_tok: $ => /[Pp] *[Ee] *[Ee] *[Kk]/,
-			len_tok: $ => /[Ll] *[Ee] *[Nn]/,
-			str_tok: $ => /[Ss] *[Tt] *[Rr] *[\$\$]/,
-			val_tok: $ => /[Vv] *[Aa] *[Ll]/,
-			asc_tok: $ => /[Aa] *[Ss] *[Cc]/,
-			chr_tok: $ => /[Cc] *[Hh] *[Rr] *[\$\$]/,
-			left_tok: $ => /[Ll] *[Ee] *[Ff] *[Tt] *[\$\$]/,
-			right_tok: $ => /[Rr] *[Ii] *[Gg] *[Hh] *[Tt] *[\$\$]/,
-			mid_tok: $ => /[Mm] *[Ii] *[Dd] *[\$\$]/,
-
-
-		// Statements from Appendix A
-
-		statement: $ => choice(
-			$.assignment,
-			// Optional string after CALL is to allow for the CHAIN pattern
-			seq($.call_tok,$._aexpr,optional($.string)),
-			$.clear_tok,
-			seq($.coloreq_tok,$._aexpr),
-			$.cont_tok,
-			seq($.data_tok,optional($._data_item),repeat(seq(',',optional($._data_item)))),
-			seq($.def_tok,$.fn_tok,$.fn_name,'(',$.real_scalar,')',$.eq_tok,$._aexpr),
-			seq($.del_tok,$.linenum,',',$.linenum),
-			seq($.dim_tok,$._dim_item,repeat(seq(',',$._dim_item))),
-			seq($.draw_tok,$._aexpr,optional(seq($.at_tok,$._aexpr,',',$._aexpr))),
-			$.end_tok,
-			$.flash_tok,
-			seq($.for_tok,$.real_scalar,$.eq_tok,$._aexpr,$.to_tok,$._aexpr,optional(seq($.step_tok,$._aexpr))),
-			seq($.get_tok,$._var,repeat(seq(',',$._var))),
-			seq($.gosub_tok,$.linenum),
-			seq($.goto_tok,$.linenum),
-			$.gr_tok,
-			seq($.hcoloreq_tok,$._aexpr),
-			$.hgr_tok,
-			$.hgr2_tok,
-			seq($.himem_tok,$._aexpr),
-			seq($.hlin_tok,$._aexpr,',',$._aexpr,$.at_tok,$._aexpr),
-			$.home_tok,
-			seq($.hplot_tok,optional($.to_tok),$._aexpr,',',$._aexpr,repeat(seq($.to_tok,$._aexpr,',',$._aexpr))),
-			seq($.htab_tok,$._aexpr),
-			// Ref. 2 explicitly has the compound statement, but this is implied
-			seq($.if_tok,$._expr,$.then_tok,$.statement),
-			seq($.if_tok,$._expr,$.then_tok,$.linenum),
-			seq($.if_tok,$._expr,$.goto_tok,$.linenum),
-			seq($.inn_tok,$._aexpr),
-			seq($.input_tok,optional(seq($._sexpr,';')),$._var,repeat(seq(',',$._var))),
-			$.inverse_tok,
-			$.load_tok, // cassette tape
-			seq($.list_tok,optional($.linenum),optional(seq(choice($.minus_tok,','),optional($.linenum)))),
-			seq($.lomem_tok,$._aexpr),
-			$.new_tok,
-			seq($.next_tok,optional(seq($._avar,repeat(seq(',',$._avar))))),
-			$.normal_tok,
-			$.notrace_tok,
-			seq($.on_tok,$._aexpr,choice($.goto_tok,$.gosub_tok),$.linenum,repeat(seq(',',$.linenum))),
-			seq($.onerr_tok,$.goto_tok,$.linenum),
-			seq($.plot_tok,$._aexpr,',',$._aexpr),
-			seq($.poke_tok,$._aexpr,',',$._aexpr),
-			$.pop_tok,
-			seq($.prn_tok,$._aexpr),
-			seq($.print_tok,repeat((choice(',',';',$._expr)))),
-			seq($.read_tok,$._var,repeat(seq(',',$._var))),
-			seq($.recall_tok,choice($.int_scalar,$.real_scalar)), // cassette tape, subscript omitted
-			seq($.rem_tok,optional($.comment_text)),
-			$.restore_tok,
-			$.resume_tok,
-			$.return_tok,
-			seq($.roteq_tok,$._aexpr),
-			seq($.run_tok,optional($.linenum)),
-			$.save_tok, // cassette tape
-			seq($.scaleeq_tok,$._aexpr),
-			$.shload_tok, // cassette tape
-			seq($.speedeq_tok,$._aexpr),
-			$.stop_tok,
-			seq($.store_tok,choice($.int_scalar,$.real_scalar)), // cassette tape, subscript omitted
-			$.text_tok,
-			$.trace_tok,
-			seq($.vlin_tok,$._aexpr,',',$._aexpr,$.at_tok,$._aexpr),
-			seq($.vtab_tok,$._aexpr),
-			seq($.wait_tok,$._aexpr,',',$._aexpr,optional(seq(',',$._aexpr))),
-			seq($.xdraw_tok,$._aexpr,optional(seq($.at_tok,$._aexpr,',',$._aexpr))),
-			seq($.amp_tok,$.string),
-			seq($.amp_tok,'(',$._expr,repeat(seq(',',$._expr)),')')
-		),
-
-		// terminal_statement rule is used to handle strings without closing quotes,
-		// which are legal at the end of a line.
-		terminal_statement: $ => choice(
-			seq($.if_tok,$._expr,$.then_tok,$.terminal_statement),
-			seq($.call_tok,$._aexpr,$.terminal_string),
-			seq($.data_tok,optional($._data_item),repeat(seq(',',optional($._data_item))),$.terminal_string),
-			seq($.print_tok,repeat((choice(',',';',$._expr))),$.terminal_string),
-			seq($.amp_tok,$.terminal_string)
-		),
-
-		comment_text: $ => /.+/,
-
-		assignment: $ => choice(
-			seq(optional($.let_tok),$._avar,$.eq_tok,$._aexpr),
-			seq(optional($.let_tok),$.svar,$.eq_tok,$._sexpr)
-		),
-
-		// Numerical functions from Appendix A
-		// N.b. some have left parenthesis as part of the token
-
-		// following is the general fcall from Ref. 2 (not used)
-		//fcall: $=> seq($._name,'(',repeat(seq($._expr,',')),$._expr,')'),
-		fcall: $ => choice(
-			seq($.abs_tok,'(',$._aexpr,')'),
-			seq($.asc_tok,'(',$._sexpr,')'),
-			seq($.atn_tok,'(',$._aexpr,')'),
-			seq($.cos_tok,'(',$._aexpr,')'),
-			seq($.exp_tok,'(',$._aexpr,')'),
-			seq($.fn_tok,$.fn_name,'(',$._aexpr,')'),
-			seq($.fre_tok,'(',$._expr,')'),
-			seq($.int_tok,'(',$._aexpr,')'),
-			seq($.len_tok,'(',$._sexpr,')'),
-			seq($.log_tok,'(',$._aexpr,')'),
-			seq($.pdl_tok,'(',$._aexpr,')'),
-			seq($.peek_tok,'(',$._aexpr,')'),
-			seq($.pos_tok,'(',$._expr,')'),
-			seq($.rnd_tok,'(',$._aexpr,')'),
-			seq($.scrnp_tok,$._aexpr,',',$._aexpr,')'),
-			seq($.sgn_tok,'(',$._aexpr,')'),
-			seq($.sin_tok,'(',$._aexpr,')'),
-			seq($.sqr_tok,'(',$._aexpr,')'),
-			seq($.tan_tok,'(',$._aexpr,')'),
-			seq($.usr_tok,'(',$._aexpr,')'),
-			seq($.val_tok,'(',$._sexpr,')')
-		),
-
-		// String functions from Appendix A
-		// N.b. some have left parenthesis as part of the token
-
-		// following is the general sfcall from Ref. 2 (not used)
-		//sfcall: $ => seq($._name,'$','(',repeat(seq($._expr,',')),$._expr,')'),
-		sfcall: $ => choice(
-			seq($.chr_tok,'(',$._aexpr,')'),
-			seq($.left_tok,'(',$._sexpr,',',$._aexpr,')'),
-			seq($.mid_tok,'(',$._sexpr,',',$._aexpr,optional(seq(',',$._aexpr)),')'),
-			seq($.right_tok,'(',$._sexpr,',',$._aexpr,')'),
-			seq($.spcp_tok,$._aexpr,')'),
-			seq($.str_tok,'(',$._aexpr,')'),
-			seq($.tabp_tok,$._aexpr,')')
-		),
-
+		
 		// Program lines - differs from Appendix B due to terminal strings
 		line: $ => seq($.linenum,
 			repeat(':'),
@@ -343,13 +96,260 @@ module.exports = grammar({
 		_newline: $ => /\r?\n/,
 		_empty_line: $ => /\r?\n/, // Would not exist on real Apple II
 
+		// Assign a rule to all tokenized statements and functions
+		// These are taken from Table H-3 in Ref. 2
+
+			tok_end: $ => /[Ee] *[Nn] *[Dd]/,
+			tok_for: $ => /[Ff] *[Oo] *[Rr]/,
+			tok_next: $ => /[Nn] *[Ee] *[Xx] *[Tt]/,
+			tok_data: $ => /[Dd] *[Aa] *[Tt] *[Aa]/,
+			tok_input: $ => /[Ii] *[Nn] *[Pp] *[Uu] *[Tt]/,
+			tok_del: $ => /[Dd] *[Ee] *[Ll]/,
+			tok_dim: $ => /[Dd] *[Ii] *[Mm]/,
+			tok_read: $ => /[Rr] *[Ee] *[Aa] *[Dd]/,
+			tok_gr: $ => /[Gg] *[Rr]/,
+			tok_text: $ => /[Tt] *[Ee] *[Xx] *[Tt]/,
+			tok_prn: $ => /[Pp] *[Rr] *[##]/,
+			tok_inn: $ => /[Ii] *[Nn] *[##]/,
+			tok_call: $ => /[Cc] *[Aa] *[Ll] *[Ll]/,
+			tok_plot: $ => /[Pp] *[Ll] *[Oo] *[Tt]/,
+			tok_hlin: $ => /[Hh] *[Ll] *[Ii] *[Nn]/,
+			tok_vlin: $ => /[Vv] *[Ll] *[Ii] *[Nn]/,
+			tok_hgr2: $ => /[Hh] *[Gg] *[Rr] *[22]/,
+			tok_hgr: $ => /[Hh] *[Gg] *[Rr]/,
+			tok_hcoloreq: $ => /[Hh] *[Cc] *[Oo] *[Ll] *[Oo] *[Rr] *[==]/,
+			tok_hplot: $ => /[Hh] *[Pp] *[Ll] *[Oo] *[Tt]/,
+			tok_draw: $ => /[Dd] *[Rr] *[Aa] *[Ww]/,
+			tok_xdraw: $ => /[Xx] *[Dd] *[Rr] *[Aa] *[Ww]/,
+			tok_htab: $ => /[Hh] *[Tt] *[Aa] *[Bb]/,
+			tok_home: $ => /[Hh] *[Oo] *[Mm] *[Ee]/,
+			tok_roteq: $ => /[Rr] *[Oo] *[Tt] *[==]/,
+			tok_scaleeq: $ => /[Ss] *[Cc] *[Aa] *[Ll] *[Ee] *[==]/,
+			tok_shload: $ => /[Ss] *[Hh] *[Ll] *[Oo] *[Aa] *[Dd]/,
+			tok_trace: $ => /[Tt] *[Rr] *[Aa] *[Cc] *[Ee]/,
+			tok_notrace: $ => /[Nn] *[Oo] *[Tt] *[Rr] *[Aa] *[Cc] *[Ee]/,
+			tok_normal: $ => /[Nn] *[Oo] *[Rr] *[Mm] *[Aa] *[Ll]/,
+			tok_inverse: $ => /[Ii] *[Nn] *[Vv] *[Ee] *[Rr] *[Ss] *[Ee]/,
+			tok_flash: $ => /[Ff] *[Ll] *[Aa] *[Ss] *[Hh]/,
+			tok_coloreq: $ => /[Cc] *[Oo] *[Ll] *[Oo] *[Rr] *[==]/,
+			tok_pop: $ => /[Pp] *[Oo] *[Pp]/,
+			tok_vtab: $ => /[Vv] *[Tt] *[Aa] *[Bb]/,
+			tok_himem: $ => /[Hh] *[Ii] *[Mm] *[Ee] *[Mm] *[::]/,
+			tok_lomem: $ => /[Ll] *[Oo] *[Mm] *[Ee] *[Mm] *[::]/,
+			tok_onerr: $ => /[Oo] *[Nn] *[Ee] *[Rr] *[Rr]/,
+			tok_resume: $ => /[Rr] *[Ee] *[Ss] *[Uu] *[Mm] *[Ee]/,
+			tok_recall: $ => /[Rr] *[Ee] *[Cc] *[Aa] *[Ll] *[Ll]/,
+			tok_store: $ => /[Ss] *[Tt] *[Oo] *[Rr] *[Ee]/,
+			tok_speedeq: $ => /[Ss] *[Pp] *[Ee] *[Ee] *[Dd] *[==]/,
+			tok_let: $ => /[Ll] *[Ee] *[Tt]/,
+			tok_goto: $ => /[Gg] *[Oo] *[Tt] *[Oo]/,
+			tok_run: $ => /[Rr] *[Uu] *[Nn]/,
+			tok_if: $ => /[Ii] *[Ff]/,
+			tok_restore: $ => /[Rr] *[Ee] *[Ss] *[Tt] *[Oo] *[Rr] *[Ee]/,
+			tok_amp: $ => '&',
+			tok_gosub: $ => /[Gg] *[Oo] *[Ss] *[Uu] *[Bb]/,
+			tok_return: $ => /[Rr] *[Ee] *[Tt] *[Uu] *[Rr] *[Nn]/,
+			tok_rem: $ => /[Rr] *[Ee] *[Mm]/,
+			tok_stop: $ => /[Ss] *[Tt] *[Oo] *[Pp]/,
+			tok_on: $ => /[Oo] *[Nn]/,
+			tok_wait: $ => /[Ww] *[Aa] *[Ii] *[Tt]/,
+			tok_load: $ => /[Ll] *[Oo] *[Aa] *[Dd]/,
+			tok_save: $ => /[Ss] *[Aa] *[Vv] *[Ee]/,
+			tok_def: $ => /[Dd] *[Ee] *[Ff]/,
+			tok_poke: $ => /[Pp] *[Oo] *[Kk] *[Ee]/,
+			tok_print: $ => /[Pp] *[Rr] *[Ii] *[Nn] *[Tt]|\?/,
+			tok_cont: $ => /[Cc] *[Oo] *[Nn] *[Tt]/,
+			tok_list: $ => /[Ll] *[Ii] *[Ss] *[Tt]/,
+			tok_clear: $ => /[Cc] *[Ll] *[Ee] *[Aa] *[Rr]/,
+			tok_get: $ => /[Gg] *[Ee] *[Tt]/,
+			tok_new: $ => /[Nn] *[Ee] *[Ww]/,
+			tok_tabp: $ => /[Tt] *[Aa] *[Bb] *[\(\(]/,
+			tok_to: $ => /[Tt] *[Oo]/,
+			tok_fn: $ => /[Ff] *[Nn]/,
+			tok_spcp: $ => /[Ss] *[Pp] *[Cc] *[\(\(]/,
+			tok_then: $ => /[Tt] *[Hh] *[Ee] *[Nn]/,
+			tok_at: $ => /[Aa] *[Tt]/,
+			tok_not: $ => /[Nn] *[Oo] *[Tt]/,
+			tok_step: $ => /[Ss] *[Tt] *[Ee] *[Pp]/,
+			tok_plus: $ => '+',
+			tok_minus: $ => '-',
+			tok_times: $ => '*',
+			tok_div: $ => '/',
+			tok_pow: $ => '^',
+			tok_and: $ => /[Aa] *[Nn] *[Dd]/,
+			tok_or: $ => /[Oo] *[Rr]/,
+			tok_gtr: $ => '>',
+			tok_eq: $ => '=',
+			tok_less: $ => '<',
+			tok_sgn: $ => /[Ss] *[Gg] *[Nn]/,
+			tok_int: $ => /[Ii] *[Nn] *[Tt]/,
+			tok_abs: $ => /[Aa] *[Bb] *[Ss]/,
+			tok_usr: $ => /[Uu] *[Ss] *[Rr]/,
+			tok_fre: $ => /[Ff] *[Rr] *[Ee]/,
+			tok_scrnp: $ => /[Ss] *[Cc] *[Rr] *[Nn] *[\(\(]/,
+			tok_pdl: $ => /[Pp] *[Dd] *[Ll]/,
+			tok_pos: $ => /[Pp] *[Oo] *[Ss]/,
+			tok_sqr: $ => /[Ss] *[Qq] *[Rr]/,
+			tok_rnd: $ => /[Rr] *[Nn] *[Dd]/,
+			tok_log: $ => /[Ll] *[Oo] *[Gg]/,
+			tok_exp: $ => /[Ee] *[Xx] *[Pp]/,
+			tok_cos: $ => /[Cc] *[Oo] *[Ss]/,
+			tok_sin: $ => /[Ss] *[Ii] *[Nn]/,
+			tok_tan: $ => /[Tt] *[Aa] *[Nn]/,
+			tok_atn: $ => /[Aa] *[Tt][Nn]/,
+			tok_peek: $ => /[Pp] *[Ee] *[Ee] *[Kk]/,
+			tok_len: $ => /[Ll] *[Ee] *[Nn]/,
+			tok_str: $ => /[Ss] *[Tt] *[Rr] *[\$\$]/,
+			tok_val: $ => /[Vv] *[Aa] *[Ll]/,
+			tok_asc: $ => /[Aa] *[Ss] *[Cc]/,
+			tok_chr: $ => /[Cc] *[Hh] *[Rr] *[\$\$]/,
+			tok_left: $ => /[Ll] *[Ee] *[Ff] *[Tt] *[\$\$]/,
+			tok_right: $ => /[Rr] *[Ii] *[Gg] *[Hh] *[Tt] *[\$\$]/,
+			tok_mid: $ => /[Mm] *[Ii] *[Dd] *[\$\$]/,
+
+
+		// Statements from Appendix A
+
+		statement: $ => choice(
+			$.assignment,
+			// Optional string after CALL is to allow for the CHAIN pattern
+			seq($.tok_call,$._aexpr,optional($.str)),
+			$.tok_clear,
+			seq($.tok_coloreq,$._aexpr),
+			$.tok_cont,
+			seq($.tok_data,optional($._data_item),repeat(seq(',',optional($._data_item)))),
+			seq($.tok_def,$.tok_fn,alias($.name_real,$.name_fn),'(',alias($._real_scalar,$.var_real),')',$.tok_eq,$._aexpr),
+			seq($.tok_del,$.linenum,',',$.linenum),
+			seq($.tok_dim,$.dim_item,repeat(seq(',',$.dim_item))),
+			seq($.tok_draw,$._aexpr,optional(seq($.tok_at,$._aexpr,',',$._aexpr))),
+			$.tok_end,
+			$.tok_flash,
+			seq($.tok_for,alias($._real_scalar,$.var_real),$.tok_eq,$._aexpr,$.tok_to,$._aexpr,optional(seq($.tok_step,$._aexpr))),
+			seq($.tok_get,$._var,repeat(seq(',',$._var))),
+			seq($.tok_gosub,$.linenum),
+			seq($.tok_goto,$.linenum),
+			$.tok_gr,
+			seq($.tok_hcoloreq,$._aexpr),
+			$.tok_hgr,
+			$.tok_hgr2,
+			seq($.tok_himem,$._aexpr),
+			seq($.tok_hlin,$._aexpr,',',$._aexpr,$.tok_at,$._aexpr),
+			$.tok_home,
+			seq($.tok_hplot,optional($.tok_to),$._aexpr,',',$._aexpr,repeat(seq($.tok_to,$._aexpr,',',$._aexpr))),
+			seq($.tok_htab,$._aexpr),
+			// Ref. 2 explicitly has the compound statement, but this is implied
+			seq($.tok_if,$._expr,$.tok_then,$.statement),
+			seq($.tok_if,$._expr,$.tok_then,$.linenum),
+			seq($.tok_if,$._expr,$.tok_goto,$.linenum),
+			seq($.tok_inn,$._aexpr),
+			seq($.tok_input,optional(seq($._sexpr,';')),$._var,repeat(seq(',',$._var))),
+			$.tok_inverse,
+			$.tok_load, // cassette tape
+			seq($.tok_list,optional($.linenum),optional(seq(choice($.tok_minus,','),optional($.linenum)))),
+			seq($.tok_lomem,$._aexpr),
+			$.tok_new,
+			seq($.tok_next,optional(seq($._avar,repeat(seq(',',$._avar))))),
+			$.tok_normal,
+			$.tok_notrace,
+			seq($.tok_on,$._aexpr,choice($.tok_goto,$.tok_gosub),$.linenum,repeat(seq(',',$.linenum))),
+			seq($.tok_onerr,$.tok_goto,$.linenum),
+			seq($.tok_plot,$._aexpr,',',$._aexpr),
+			seq($.tok_poke,$._aexpr,',',$._aexpr),
+			$.tok_pop,
+			seq($.tok_prn,$._aexpr),
+			seq($.tok_print,repeat((choice(',',';',$._expr)))),
+			seq($.tok_read,$._var,repeat(seq(',',$._var))),
+			seq($.tok_recall,choice(alias($._int_scalar,$.var_int),alias($._real_scalar,$.var_real))), // cassette tape, subscript omitted
+			seq($.tok_rem,optional($.comment_text)),
+			$.tok_restore,
+			$.tok_resume,
+			$.tok_return,
+			seq($.tok_roteq,$._aexpr),
+			seq($.tok_run,optional($.linenum)),
+			$.tok_save, // cassette tape
+			seq($.tok_scaleeq,$._aexpr),
+			$.tok_shload, // cassette tape
+			seq($.tok_speedeq,$._aexpr),
+			$.tok_stop,
+			seq($.tok_store,choice(alias($._int_scalar,$.var_int),alias($._real_scalar,$.var_real))), // cassette tape, subscript omitted
+			$.tok_text,
+			$.tok_trace,
+			seq($.tok_vlin,$._aexpr,',',$._aexpr,$.tok_at,$._aexpr),
+			seq($.tok_vtab,$._aexpr),
+			seq($.tok_wait,$._aexpr,',',$._aexpr,optional(seq(',',$._aexpr))),
+			seq($.tok_xdraw,$._aexpr,optional(seq($.tok_at,$._aexpr,',',$._aexpr))),
+			seq($.tok_amp,$.str),
+			seq($.tok_amp,'(',$._expr,repeat(seq(',',$._expr)),')')
+		),
+
+		// terminal_statement rule is used to handle strings without closing quotes,
+		// which are legal at the end of a line.
+		terminal_statement: $ => choice(
+			seq($.tok_if,$._expr,$.tok_then,$.terminal_statement),
+			seq($.tok_call,$._aexpr,$.terminal_str),
+			seq($.tok_data,optional($._data_item),repeat(seq(',',optional($._data_item))),$.terminal_str),
+			seq($.tok_print,repeat((choice(',',';',$._expr))),$.terminal_str),
+			seq($.tok_amp,$.terminal_str)
+		),
+
+		comment_text: $ => /.+/,
+
+		assignment: $ => choice(
+			seq(optional($.tok_let),$._avar,$.tok_eq,$._aexpr),
+			seq(optional($.tok_let),$.var_str,$.tok_eq,$._sexpr)
+		),
+
+		// Numerical functions from Appendix A
+		// N.b. some have left parenthesis as part of the token
+
+		// following is the general fcall from Ref. 2 (not used)
+		//fcall: $=> seq($.name,'(',repeat(seq($._expr,',')),$._expr,')'),
+		fcall: $ => choice(
+			seq($.tok_abs,'(',$._aexpr,')'),
+			seq($.tok_asc,'(',$._sexpr,')'),
+			seq($.tok_atn,'(',$._aexpr,')'),
+			seq($.tok_cos,'(',$._aexpr,')'),
+			seq($.tok_exp,'(',$._aexpr,')'),
+			seq($.tok_fn,alias($.name_real,$.name_fn),'(',$._aexpr,')'),
+			seq($.tok_fre,'(',$._expr,')'),
+			seq($.tok_int,'(',$._aexpr,')'),
+			seq($.tok_len,'(',$._sexpr,')'),
+			seq($.tok_log,'(',$._aexpr,')'),
+			seq($.tok_pdl,'(',$._aexpr,')'),
+			seq($.tok_peek,'(',$._aexpr,')'),
+			seq($.tok_pos,'(',$._expr,')'),
+			seq($.tok_rnd,'(',$._aexpr,')'),
+			seq($.tok_scrnp,$._aexpr,',',$._aexpr,')'),
+			seq($.tok_sgn,'(',$._aexpr,')'),
+			seq($.tok_sin,'(',$._aexpr,')'),
+			seq($.tok_sqr,'(',$._aexpr,')'),
+			seq($.tok_tan,'(',$._aexpr,')'),
+			seq($.tok_usr,'(',$._aexpr,')'),
+			seq($.tok_val,'(',$._sexpr,')')
+		),
+
+		// String functions from Appendix A
+		// N.b. some have left parenthesis as part of the token
+
+		// following is the general sfcall from Ref. 2 (not used)
+		//sfcall: $ => seq($.name_str,'(',repeat(seq($._expr,',')),$._expr,')'),
+		sfcall: $ => choice(
+			seq($.tok_chr,'(',$._aexpr,')'),
+			seq($.tok_left,'(',$._sexpr,',',$._aexpr,')'),
+			seq($.tok_mid,'(',$._sexpr,',',$._aexpr,optional(seq(',',$._aexpr)),')'),
+			seq($.tok_right,'(',$._sexpr,',',$._aexpr,')'),
+			seq($.tok_spcp,$._aexpr,')'),
+			seq($.tok_str,'(',$._aexpr,')'),
+			seq($.tok_tabp,$._aexpr,')')
+		),
+
 		// Expressions from Appendix B
 
 		_expr: $ => choice($._aexpr,$._sexpr),
 
 		_aexpr: $ => choice(
 			$.real,
-			$.integer,
+			$.int,
 			$._avar,
 			$.fcall,
 			$.unary_aexpr,
@@ -361,50 +361,54 @@ module.exports = grammar({
 			//seq($._sexpr,$._relop,$._sexpr),
 		),
 		unary_aexpr: $ => prec(7,choice(
-			seq($.plus_tok,$._aexpr),
-			seq($.minus_tok,$._aexpr),
-			seq($.not_tok,$._aexpr)
+			seq($.tok_plus,$._aexpr),
+			seq($.tok_minus,$._aexpr),
+			seq($.tok_not,$._aexpr)
 		)),
 		binary_aexpr: $ => choice(
-			prec.left(6,seq($._aexpr,$.pow_tok,$._aexpr)),
-			prec.left(5,seq($._aexpr,choice($.times_tok,$.div_tok),$._aexpr)),
-			prec.left(4,seq($._aexpr,choice($.plus_tok,$.minus_tok),$._aexpr)),
+			prec.left(6,seq($._aexpr,$.tok_pow,$._aexpr)),
+			prec.left(5,seq($._aexpr,choice($.tok_times,$.tok_div),$._aexpr)),
+			prec.left(4,seq($._aexpr,choice($.tok_plus,$.tok_minus),$._aexpr)),
 			prec.left(3,seq($._aexpr,$._relop,$._aexpr)),
 			prec.left(3,seq($._sexpr,$._relop,$._sexpr)),
-			prec.left(2,seq($._aexpr,$.and_tok,$._aexpr)),
-			prec.left(1,seq($._aexpr,$.or_tok,$._aexpr))
+			prec.left(2,seq($._aexpr,$.tok_and,$._aexpr)),
+			prec.left(1,seq($._aexpr,$.tok_or,$._aexpr))
 		),
 		_parenthesized_aexpr: $ => prec(1,seq('(',$._aexpr,')')),
-		_relop: $ => choice($.eq_tok,$.less_tok,$.gtr_tok,
-			seq($.less_tok,$.eq_tok),seq($.eq_tok,$.less_tok),
-			seq($.gtr_tok,$.eq_tok),seq($.eq_tok,$.gtr_tok),
-			seq($.less_tok,$.gtr_tok),seq($.gtr_tok,$.less_tok)),
+		_relop: $ => choice($.tok_eq,$.tok_less,$.tok_gtr,
+			seq($.tok_less,$.tok_eq),seq($.tok_eq,$.tok_less),
+			seq($.tok_gtr,$.tok_eq),seq($.tok_eq,$.tok_gtr),
+			seq($.tok_less,$.tok_gtr),seq($.tok_gtr,$.tok_less)),
 		// following are some operator groups defined by Ref.2 but not used here
 		//alop: $ => choice($.aop,$._relop,$.lop),
-		//aop: $ => choice($.plus_tok,$.minus_tok,$.times_tok,$.div_tok,$.pow_tok),
-		//lop: $ => choice($.and_tok,$.or_tok),
-		//unop: $ => choice($.plus_tok,$.minus_tok,$.not_tok),
+		//aop: $ => choice($.tok_plus,$.tok_minus,$.tok_times,$.tok_div,$.tok_pow),
+		//lop: $ => choice($.tok_and,$.tok_or),
+		//unop: $ => choice($.tok_plus,$.tok_minus,$.tok_not),
 
 		_sexpr: $ => choice(
-			$.string,
-			$.svar,
+			$.str,
+			$.var_str,
 			$.sfcall,
 			$.binary_sexpr,
 			$._parenthesized_sexpr
 		),
 		binary_sexpr: $ => prec.left(1,seq($._sexpr,$._sop,$._sexpr)),
 		_parenthesized_sexpr: $ => seq('(',$._sexpr,')'),
-		_sop: $ => $.plus_tok,
+		_sop: $ => $.tok_plus,
 
 		// Variables from Appendix B
+		// Renamed: intvar -> var_int, realvar -> var_real, svar -> var_str
 
-		_var: $ => choice($._avar,$.svar),
-		_avar: $ => choice($.realvar,$.intvar),
-		intvar: $ => choice($._int_scalar,$._int_array),
-		realvar: $ => choice($._real_scalar,$._real_array),
-		svar: $ => choice($._string_scalar,$._string_array),
+		_var: $ => choice($._avar,$.var_str),
+		_avar: $ => choice($.var_real,$.var_int),
+		var_int: $ => choice($.name_int,$._int_array),
+		var_real: $ => choice($.name_real,$._real_array),
+		var_str: $ => choice($.name_str,$._str_array),
 		subscript: $ => seq('(',$._aexpr,repeat(seq(',',$._aexpr)),')'),
-		_dim_item: $ => choice($.int_array,$.real_array,$.string_array),
+		dim_item: $ => choice(
+			alias($._int_array, $.var_int),
+			alias($._real_array, $.var_real),
+			alias($._str_array, $.var_str)),
 
 		// DATA items
 		// DATA is rather tricky because it is parsed in 2 or 3 different ways:
@@ -414,33 +418,29 @@ module.exports = grammar({
 		// be aware of this.  The authors of Appendix B did not address this,
 		// and their definition of the `literal` is surely problematic.
 
-		_data_item: $ => choice($.string,$.literal,$.data_integer,$.data_real),
-		data_integer: $ => INTEGER,
+		_data_item: $ => choice(alias($.str,$.data_str),$.data_literal,$.data_int,$.data_real),
+		data_int: $ => INTEGER,
 		data_real: $ => choice(REAL_DATA_DOT,REAL_DATA_E,REAL_DATA_BARE),
-		literal: $ => token(prec(0,seq(DCHAR_1,repeat(DCHAR_N)))),
+		data_literal: $ => token(prec(0,seq(DCHAR_1,repeat(DCHAR_N)))),
 
 		// Literals from Appendix B
 
-		integer: $ => token(prec(1,INTEGER)),
+		int: $ => token(prec(1,INTEGER)),
 		real: $ => token(prec(1,choice(REAL_DOT,REAL_E))),
-		string: $ => token(prec(1,seq('"',repeat(SCHAR),'"'))),
+		str: $ => token(prec(1,seq('"',repeat(SCHAR),'"'))),
 
 		// "Extra" items not in Appendix B
 		// These are added for convenience or to account for certain exceptions
 
-		terminal_string: $ => token(prec(1,seq('"',repeat(SCHAR)))),
-		fn_name: $ => $._name,
-		real_scalar: $ => $._name,
-		_real_scalar: $ => $._name,
-		int_scalar: $ => seq($._name,'%'),
-		_int_scalar: $ => seq($._name,'%'),
-		_string_scalar: $ => seq($._name,'$'),
-		real_array: $ => prec(1,seq($._name,$.subscript)),
-		_real_array: $ => prec(1,seq($._name,$.subscript)),
-		int_array: $ => prec(1,seq($._name,'%',$.subscript)),
-		_int_array: $ => prec(1,seq($._name,'%',$.subscript)),
-		string_array: $ => prec(1,seq($._name,'$',$.subscript)),
-		_string_array: $ => prec(1,seq($._name,'$',$.subscript)),
+		terminal_str: $ => token(prec(1, seq('"', repeat(SCHAR)))),
+		name_real: $ => $._name,
+		name_int: $ => seq($._name,'%'),
+		name_str: $ => seq($._name,'$'),
+		_real_array: $ => prec(1,seq($.name_real,$.subscript)),
+		_int_array: $ => prec(1,seq($.name_int,$.subscript)),
+		_str_array: $ => prec(1, seq($.name_str,$.subscript)),
+		_real_scalar: $ => $.name_real,
+		_int_scalar: $ => $.name_int,
 
 		// This is the rule that triggers the external scanner.
 		// Due to tree-sitter design, lexing a variable name requires two stages:

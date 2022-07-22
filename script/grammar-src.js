@@ -35,7 +35,7 @@ function regex_or(lst)
 const allow_lower_case = true;
 const language_name = allow_lower_case ? 'applesoft' : 'applesoftcasesens'
 
-// This real number excludes integers, unlike Ref. 2 p. 237
+// This real number excludes ------------------s, unlike Ref. 2 p. 237
 // Following captures the zero valued cases in the first table on p. 237
 let REAL_DOT = /([+-] *)?[0-9]?[0-9 ]*\.[0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)?/;
 // Following captures forms without the decimal point
@@ -85,6 +85,16 @@ module.exports = grammar({
 
 	rules: {
 		source_file: $ => repeat(choice($.line,$._empty_line)),
+		
+		// Program lines - differs from Appendix B due to terminal strings
+		line: $ => seq($.linenum,
+			repeat(':'),
+			repeat(seq($.statement,repeat1(':'))),
+			choice(seq($.statement,repeat(':')),$.terminal_statement),
+			$._newline),
+		linenum: $ => / *[0-9][0-9 ]*/,
+		_newline: $ => /\r?\n/,
+		_empty_line: $ => /\r?\n/, // Would not exist on real Apple II
 
 		// Assign a rule to all tokenized statements and functions
 		// These are taken from Table H-3 in Ref. 2
@@ -96,18 +106,18 @@ module.exports = grammar({
 		statement: $ => choice(
 			$.assignment,
 			// Optional string after CALL is to allow for the CHAIN pattern
-			seq('CALL',$._aexpr,optional($.string)),
+			seq('CALL',$._aexpr,optional($.str)),
 			'CLEAR',
 			seq('COLOR=',$._aexpr),
 			'CONT',
 			seq('DATA',optional($._data_item),repeat(seq(',',optional($._data_item)))),
-			seq('DEF','FN',$.fn_name,'(',$.real_scalar,')','=',$._aexpr),
+			seq('DEF','FN',alias($.name_real,$.name_fn),'(',alias($._real_scalar,$.var_real),')','=',$._aexpr),
 			seq('DEL',$.linenum,',',$.linenum),
-			seq('DIM',$._dim_item,repeat(seq(',',$._dim_item))),
+			seq('DIM',$.dim_item,repeat(seq(',',$.dim_item))),
 			seq('DRAW',$._aexpr,optional(seq('AT',$._aexpr,',',$._aexpr))),
 			'END',
 			'FLASH',
-			seq('FOR',$.real_scalar,'=',$._aexpr,'TO',$._aexpr,optional(seq('STEP',$._aexpr))),
+			seq('FOR',alias($._real_scalar,$.var_real),'=',$._aexpr,'TO',$._aexpr,optional(seq('STEP',$._aexpr))),
 			seq('GET',$._var,repeat(seq(',',$._var))),
 			seq('GOSUB',$.linenum),
 			seq('GOTO',$.linenum),
@@ -142,7 +152,7 @@ module.exports = grammar({
 			seq('PR#',$._aexpr),
 			seq('PRINT',repeat((choice(',',';',$._expr)))),
 			seq('READ',$._var,repeat(seq(',',$._var))),
-			seq('RECALL',choice($.int_scalar,$.real_scalar)), // cassette tape, subscript omitted
+			seq('RECALL',choice(alias($._int_scalar,$.var_int),alias($._real_scalar,$.var_real))), // cassette tape, subscript omitted
 			seq('REM',optional($.comment_text)),
 			'RESTORE',
 			'RESUME',
@@ -154,14 +164,14 @@ module.exports = grammar({
 			'SHLOAD', // cassette tape
 			seq('SPEED=',$._aexpr),
 			'STOP',
-			seq('STORE',choice($.int_scalar,$.real_scalar)), // cassette tape, subscript omitted
+			seq('STORE',choice(alias($._int_scalar,$.var_int),alias($._real_scalar,$.var_real))), // cassette tape, subscript omitted
 			'TEXT',
 			'TRACE',
 			seq('VLIN',$._aexpr,',',$._aexpr,'AT',$._aexpr),
 			seq('VTAB',$._aexpr),
 			seq('WAIT',$._aexpr,',',$._aexpr,optional(seq(',',$._aexpr))),
 			seq('XDRAW',$._aexpr,optional(seq('AT',$._aexpr,',',$._aexpr))),
-			seq('&',$.string),
+			seq('&',$.str),
 			seq('&','(',$._expr,repeat(seq(',',$._expr)),')')
 		),
 
@@ -169,31 +179,31 @@ module.exports = grammar({
 		// which are legal at the end of a line.
 		terminal_statement: $ => choice(
 			seq('IF',$._expr,'THEN',$.terminal_statement),
-			seq('CALL',$._aexpr,$.terminal_string),
-			seq('DATA',optional($._data_item),repeat(seq(',',optional($._data_item))),$.terminal_string),
-			seq('PRINT',repeat((choice(',',';',$._expr))),$.terminal_string),
-			seq('&',$.terminal_string)
+			seq('CALL',$._aexpr,$.terminal_str),
+			seq('DATA',optional($._data_item),repeat(seq(',',optional($._data_item))),$.terminal_str),
+			seq('PRINT',repeat((choice(',',';',$._expr))),$.terminal_str),
+			seq('&',$.terminal_str)
 		),
 
 		comment_text: $ => /.+/,
 
 		assignment: $ => choice(
 			seq(optional('LET'),$._avar,'=',$._aexpr),
-			seq(optional('LET'),$.svar,'=',$._sexpr)
+			seq(optional('LET'),$.var_str,'=',$._sexpr)
 		),
 
 		// Numerical functions from Appendix A
 		// N.b. some have left parenthesis as part of the token
 
 		// following is the general fcall from Ref. 2 (not used)
-		//fcall: $=> seq($._name,'(',repeat(seq($._expr,',')),$._expr,')'),
+		//fcall: $=> seq($.name,'(',repeat(seq($._expr,',')),$._expr,')'),
 		fcall: $ => choice(
 			seq('ABS','(',$._aexpr,')'),
 			seq('ASC','(',$._sexpr,')'),
 			seq('ATN','(',$._aexpr,')'),
 			seq('COS','(',$._aexpr,')'),
 			seq('EXP','(',$._aexpr,')'),
-			seq('FN',$.fn_name,'(',$._aexpr,')'),
+			seq('FN',alias($.name_real,$.name_fn),'(',$._aexpr,')'),
 			seq('FRE','(',$._expr,')'),
 			seq('INT','(',$._aexpr,')'),
 			seq('LEN','(',$._sexpr,')'),
@@ -215,7 +225,7 @@ module.exports = grammar({
 		// N.b. some have left parenthesis as part of the token
 
 		// following is the general sfcall from Ref. 2 (not used)
-		//sfcall: $ => seq($._name,'$','(',repeat(seq($._expr,',')),$._expr,')'),
+		//sfcall: $ => seq($.name_str,'(',repeat(seq($._expr,',')),$._expr,')'),
 		sfcall: $ => choice(
 			seq('CHR$','(',$._aexpr,')'),
 			seq('LEFT$','(',$._sexpr,',',$._aexpr,')'),
@@ -226,23 +236,13 @@ module.exports = grammar({
 			seq('TAB(',$._aexpr,')')
 		),
 
-		// Program lines - differs from Appendix B due to terminal strings
-		line: $ => seq($.linenum,
-			repeat(':'),
-			repeat(seq($.statement,repeat1(':'))),
-			choice(seq($.statement,repeat(':')),$.terminal_statement),
-			$._newline),
-		linenum: $ => / *[0-9][0-9 ]*/,
-		_newline: $ => /\r?\n/,
-		_empty_line: $ => /\r?\n/, // Would not exist on real Apple II
-
 		// Expressions from Appendix B
 
 		_expr: $ => choice($._aexpr,$._sexpr),
 
 		_aexpr: $ => choice(
 			$.real,
-			$.integer,
+			$.int,
 			$._avar,
 			$.fcall,
 			$.unary_aexpr,
@@ -279,8 +279,8 @@ module.exports = grammar({
 		//unop: $ => choice('+','-','NOT'),
 
 		_sexpr: $ => choice(
-			$.string,
-			$.svar,
+			$.str,
+			$.var_str,
 			$.sfcall,
 			$.binary_sexpr,
 			$._parenthesized_sexpr
@@ -290,14 +290,18 @@ module.exports = grammar({
 		_sop: $ => '+',
 
 		// Variables from Appendix B
+		// Renamed: intvar -> var_int, realvar -> var_real, svar -> var_str
 
-		_var: $ => choice($._avar,$.svar),
-		_avar: $ => choice($.realvar,$.intvar),
-		intvar: $ => choice($._int_scalar,$._int_array),
-		realvar: $ => choice($._real_scalar,$._real_array),
-		svar: $ => choice($._string_scalar,$._string_array),
+		_var: $ => choice($._avar,$.var_str),
+		_avar: $ => choice($.var_real,$.var_int),
+		var_int: $ => choice($.name_int,$._int_array),
+		var_real: $ => choice($.name_real,$._real_array),
+		var_str: $ => choice($.name_str,$._str_array),
 		subscript: $ => seq('(',$._aexpr,repeat(seq(',',$._aexpr)),')'),
-		_dim_item: $ => choice($.int_array,$.real_array,$.string_array),
+		dim_item: $ => choice(
+			alias($._int_array, $.var_int),
+			alias($._real_array, $.var_real),
+			alias($._str_array, $.var_str)),
 
 		// DATA items
 		// DATA is rather tricky because it is parsed in 2 or 3 different ways:
@@ -307,33 +311,29 @@ module.exports = grammar({
 		// be aware of this.  The authors of Appendix B did not address this,
 		// and their definition of the `literal` is surely problematic.
 
-		_data_item: $ => choice($.string,$.literal,$.data_integer,$.data_real),
-		data_integer: $ => INTEGER,
+		_data_item: $ => choice(alias($.str,$.data_str),$.data_literal,$.data_int,$.data_real),
+		data_int: $ => INTEGER,
 		data_real: $ => choice(REAL_DATA_DOT,REAL_DATA_E,REAL_DATA_BARE),
-		literal: $ => token(prec(0,seq(DCHAR_1,repeat(DCHAR_N)))),
+		data_literal: $ => token(prec(0,seq(DCHAR_1,repeat(DCHAR_N)))),
 
 		// Literals from Appendix B
 
-		integer: $ => token(prec(1,INTEGER)),
+		int: $ => token(prec(1,INTEGER)),
 		real: $ => token(prec(1,choice(REAL_DOT,REAL_E))),
-		string: $ => token(prec(1,seq('"',repeat(SCHAR),'"'))),
+		str: $ => token(prec(1,seq('"',repeat(SCHAR),'"'))),
 
 		// "Extra" items not in Appendix B
 		// These are added for convenience or to account for certain exceptions
 
-		terminal_string: $ => token(prec(1,seq('"',repeat(SCHAR)))),
-		fn_name: $ => $._name,
-		real_scalar: $ => $._name,
-		_real_scalar: $ => $._name,
-		int_scalar: $ => seq($._name,'%'),
-		_int_scalar: $ => seq($._name,'%'),
-		_string_scalar: $ => seq($._name,'$'),
-		real_array: $ => prec(1,seq($._name,$.subscript)),
-		_real_array: $ => prec(1,seq($._name,$.subscript)),
-		int_array: $ => prec(1,seq($._name,'%',$.subscript)),
-		_int_array: $ => prec(1,seq($._name,'%',$.subscript)),
-		string_array: $ => prec(1,seq($._name,'$',$.subscript)),
-		_string_array: $ => prec(1,seq($._name,'$',$.subscript)),
+		terminal_str: $ => token(prec(1, seq('"', repeat(SCHAR)))),
+		name_real: $ => $._name,
+		name_int: $ => seq($._name,'%'),
+		name_str: $ => seq($._name,'$'),
+		_real_array: $ => prec(1,seq($.name_real,$.subscript)),
+		_int_array: $ => prec(1,seq($.name_int,$.subscript)),
+		_str_array: $ => prec(1, seq($.name_str,$.subscript)),
+		_real_scalar: $ => $.name_real,
+		_int_scalar: $ => $.name_int,
 
 		// This is the rule that triggers the external scanner.
 		// Due to tree-sitter design, lexing a variable name requires two stages:

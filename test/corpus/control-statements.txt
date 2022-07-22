@@ -10,9 +10,9 @@ For Loop 1
 	(line
 		(linenum)
 		(statement
-			(for_tok) (real_scalar) (eq_tok) (integer) (to_tok) (integer))
+			(tok_for) (var_real (name_real)) (tok_eq) (int) (tok_to) (int))
 		(statement
-			(next_tok) (realvar))))
+			(tok_next) (var_real (name_real)))))
 
 ===================
 For Loop 2
@@ -26,11 +26,11 @@ For Loop 2
 	(line
 		(linenum)
 		(statement
-			(for_tok) (real_scalar) (eq_tok) (integer) (to_tok) (integer))
+			(tok_for) (var_real (name_real)) (tok_eq) (int) (tok_to) (int))
 		(statement
-			(for_tok) (real_scalar) (eq_tok) (real) (to_tok) (real))
+			(tok_for) (var_real (name_real)) (tok_eq) (real) (tok_to) (real))
 		(statement
-			(next_tok) (realvar) (realvar))))
+			(tok_next) (var_real (name_real)) (var_real (name_real)))))
 
 ===================
 Goto
@@ -43,7 +43,7 @@ Goto
 (source_file
 	(line
 		(linenum)
-		(statement (goto_tok) (linenum))))
+		(statement (tok_goto) (linenum))))
 
 ===================
 Gosub
@@ -58,13 +58,13 @@ Gosub
 (source_file
 	(line
 		(linenum)
-		(statement (gosub_tok) (linenum)))
+		(statement (tok_gosub) (linenum)))
 	(line
 		(linenum)
-		(statement (end_tok)))
+		(statement (tok_end)))
 	(line
 		(linenum)
-		(statement (return_tok))))
+		(statement (tok_return))))
 
 ===================
 If-then 1
@@ -77,7 +77,7 @@ If-then 1
 (source_file
 	(line
 		(linenum)
-		(statement (if_tok) (binary_aexpr (realvar) (gtr_tok) (realvar)) (then_tok) (linenum))))
+		(statement (tok_if) (binary_aexpr (var_real (name_real)) (tok_gtr) (var_real (name_real))) (tok_then) (linenum))))
 
 ===================
 If-then 2
@@ -90,8 +90,8 @@ If-then 2
 (source_file
 	(line
 		(linenum)
-		(statement (if_tok) (binary_aexpr (realvar (subscript (realvar))) (less_tok) (gtr_tok) (realvar)) (then_tok)
-			(statement (goto_tok) (linenum)))))
+		(statement (tok_if) (binary_aexpr (var_real (name_real) (subscript (var_real (name_real)))) (tok_less) (tok_gtr) (var_real (name_real))) (tok_then)
+			(statement (tok_goto) (linenum)))))
 
 ===================
 If-then 3
@@ -104,10 +104,10 @@ If-then 3
 (source_file
 	(line
 		(linenum)
-		(statement (if_tok)
-			(binary_aexpr (realvar) (gtr_tok) (realvar (subscript (integer) (integer))))
-			(then_tok)
-			(statement (print_tok) (string)))))
+		(statement (tok_if)
+			(binary_aexpr (var_real (name_real)) (tok_gtr) (var_real (name_real) (subscript (int) (int))))
+			(tok_then)
+			(statement (tok_print) (str)))))
 
 ===================
 On Goto
@@ -120,7 +120,7 @@ On Goto
 (source_file
 	(line
 		(linenum)
-		(statement (on_tok) (realvar) (goto_tok) (linenum) (linenum) (linenum))))
+		(statement (tok_on) (var_real (name_real)) (tok_goto) (linenum) (linenum) (linenum))))
 
 ===================
 On Gosub
@@ -133,7 +133,7 @@ On Gosub
 (source_file
 	(line
 		(linenum)
-		(statement (on_tok) (realvar) (gosub_tok) (linenum) (linenum) (linenum))))
+		(statement (tok_on) (var_real (name_real)) (tok_gosub) (linenum) (linenum) (linenum))))
 
 ===================
 Onerr Goto
@@ -148,10 +148,10 @@ Onerr Goto
 (source_file
 	(line
 		(linenum)
-		(statement (onerr_tok) (goto_tok) (linenum)))
+		(statement (tok_onerr) (tok_goto) (linenum)))
 	(line
 		(linenum)
-		(statement (end_tok)))
+		(statement (tok_end)))
 	(line
 		(linenum)
-		(statement (resume_tok))))
+		(statement (tok_resume))))
