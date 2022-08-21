@@ -26,4 +26,4 @@ This should print the syntax tree
 ```
 (source_file (line (linenum) (statement (tok_goto) (linenum))))
 ```
-For more on parsing with rust, see the general guidance [here](https://github.com/tree-sitter/tree-sitter/blob/master/lib/binding_rust/README.md).
+For more on parsing with rust, see the general guidance [here](https://github.com/tree-sitter/tree-sitter/blob/master/lib/binding_rust/README.md).  For specific guidance on this parser, see the [wiki](https://github.com/dfgordon/tree-sitter-applesoft/wiki).

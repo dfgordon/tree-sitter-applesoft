@@ -10,18 +10,20 @@ This is a comprehensive language description and fast parser for Applesoft BASIC
 * [Parsing Applesoft with Rust](https://crates.io/crates/tree-sitter-applesoft)
 * [Parsing Applesoft with WASM](https://github.com/dfgordon/tree-sitter-applesoft/releases)
 
+For details on parser usage and design see the [wiki](https://github.com/dfgordon/tree-sitter-applesoft/wiki).
+
 Language Support for Editors
 ----------------------------
 
 This parser is the basis of language extensions for:
 
-* [Atom](https://atom.io), see [atom-language-applesoft](https://github.com/dfgordon/atom-language-applesoft)
-    - highlights only
 * [Code](https://code.visualstudio.com/), see [vscode-language-applesoft](https://github.com/dfgordon/vscode-language-applesoft)
     - highlights, hovers, completions, diagnostics
 * [Neovim](https://neovim.io), see [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
     - highlights only
     - language must be [manually installed](https://github.com/nvim-treesitter/nvim-treesitter#advanced-setup)
+* [Atom](https://atom.io), see [atom-language-applesoft](https://github.com/dfgordon/atom-language-applesoft)
+    - sunset status, highlights only
 
 The Tree-sitter command line interface can highlight a file, see [Tree-sitter highlighting](https://tree-sitter.github.io/tree-sitter/syntax-highlighting).
 
@@ -35,19 +37,6 @@ For a quick study in parsing Applesoft, download `applesoft-cpp-parsing.zip` fro
 Here, the parser must interpret the erroneous line of code as starting with the `PR#` token, which in turn leads to the `INT` token.  The important thing is that the parser detects the error.
 
 You can use `./abas` as a syntax checker in this way (also by redirecting input, e.g., `./abas < myprog.bas`), but the main purpose of the `applesoft-cpp-parsing` project is to provide a building block for more elaborate C++ projects requiring an Applesoft parser.
-
-Emulation
----------
-
-This parser is intended to emulate the behavior of the Apple II ROM interpreter (A2ROM), including peculiarities arising from the tokenization of reserved words.  The emulation rules are:
-
-1. If the A2ROM would execute a statement without a `SYNTAX ERROR`, it is valid.
-2. If the A2ROM would execute a statement with a `SYNTAX ERROR`, it is invalid.
-3. If a statement is valid, `tree-sitter-applesoft` must resolve it according to the syntax defined in Ref. 2.
-4. If a statement is invalid, `tree-sitter-applesoft` must produce an error.
-5. Error identification must be accurate to within a line (we will usually do much better)
-
-The parser targets the version of the A2ROM described in the references. Case sensitivity is optional.
 
 Build Process
 -------------
