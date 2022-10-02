@@ -16,7 +16,7 @@
     "lexer"
   ],
   "author": "Daniel Gordon",
-  "license": "GPL-3.0-only",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dfgordon/tree-sitter-applesoft/issues"
   },
