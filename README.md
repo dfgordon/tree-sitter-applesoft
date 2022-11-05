@@ -43,7 +43,7 @@ Build Process
 
 The build products are generated using `build.py`.  The Docker daemon must be running for `build.py` to succeed.  The daemon may require `sudo`.
 
-This is a cascaded build.  The starting files are `token_list.txt`, `grammar-src.js`, and `scanner-src.cc`.  These are used by `token_processor.py` to produce `grammar.js` and `src/scanner.cc` (a simplified TextMate grammar is also generated here).  These are used by `tree-sitter generate` to produce `src/parser.c` and, in turn, the bindings for Node and Rust.  These are used by `tree-sitter build-wasm` to produce the WASM parser.
+This is a cascaded build.  The starting files are `token_list.txt`, `grammar-src.js`, and `scanner-src.c`.  These are used by `token_processor.py` to produce `grammar.js` and `src/scanner.c` (a simplified TextMate grammar is also generated here).  These are used by `tree-sitter generate` to produce `src/parser.c` and, in turn, the bindings for Node and Rust.  These are used by `tree-sitter build-wasm` to produce the WASM parser.
 
 The `build.py` script produces two versions of the WASM parser, one case sensitive, one case insensitive.  It leaves all the other products in the case insensitive state.
 
