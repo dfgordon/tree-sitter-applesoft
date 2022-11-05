@@ -1,5 +1,6 @@
 '''Update the parser and build the WASM files
-The Docker daemon must be running.'''
+The Docker daemon must be running.
+Run from script directory.'''
 
 import subprocess
 import pathlib

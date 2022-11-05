@@ -4,10 +4,11 @@ Inputs:
 `token_list.txt` - CSV file with the A2ROM tokens
 `allow_lower_case` - variable defined below
 Mappings:
-`scanner-src.cc` to `src/scanner.cc`,
+`scanner-src.c` to `src/scanner.c`,
 `grammar-src.js` to `grammar.js`
 Products:
-`applesoft.tmGrammar.json` (simple TextMate grammar, not the main grammar)'''
+`applesoft.tmGrammar.json` (simple TextMate grammar, not the main grammar)
+`token_list.json` data for every token'''
 
 import sys
 import pathlib
@@ -129,26 +130,34 @@ def tok_regex_json(tok):
         ans = tok
     return ans
 
-# Build some C++-code for the external scanner
+# Build some C-code for the external scanner
 # N.b. `AT` token requires special handling
 
 scanner_code = ''
+num_exclusions = 0
 for t in tokens:
     lx = t['lexeme']
     if len(lx)>1 and lx!='at':
-        scanner_code += '    exclusions.push_back(exclusion("'+lx.upper()+'",'+str(len(lx))+'));\n'
+        num_exclusions += 1
+scanner_code += 's->num_exclusions = ' + str(num_exclusions) + ';\n'
+count = 0
+for t in tokens:
+    lx = t['lexeme']
+    if len(lx)>1 and lx!='at':
+        scanner_code += '  create_exclusion(&s->exclusions['+str(count)+'],"'+lx.upper()+'",'+str(len(lx))+');\n'
+        count += 1
 
 # Modify the scanner
 
-with open('scanner-src.cc','r') as f:
+with open('scanner-src.c','r') as f:
     scanner = f.read()
-    scanner = scanner.replace('// Build exclusions - DO NOT EDIT line',scanner_code)
+    scanner = scanner.replace('// Build exclusions - DO NOT EDIT line\n',scanner_code)
     if allow_lower_case:
         scanner = re.sub('allow_lower_case\s*=\s*(true|false)','allow_lower_case = true',scanner)
     else:
         scanner = re.sub('allow_lower_case\s*=\s*(true|false)','allow_lower_case = false',scanner)
         scanner = re.sub('applesoft_external','applesoftcasesens_external',scanner)
-with open(pathlib.Path.cwd().parent/'src'/'scanner.cc','w') as f:
+with open(pathlib.Path.cwd().parent/'src'/'scanner.c','w') as f:
     f.write(scanner)
 
 # Define all the token rules for the JavaScript grammar

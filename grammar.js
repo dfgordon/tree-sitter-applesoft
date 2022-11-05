@@ -35,7 +35,7 @@ function regex_or(lst)
 const allow_lower_case = true;
 const language_name = allow_lower_case ? 'applesoft' : 'applesoftcasesens'
 
-// This real number excludes ------------------s, unlike Ref. 2 p. 237
+// This real number excludes integers, unlike Ref. 2 p. 237
 // Following captures the zero valued cases in the first table on p. 237
 let REAL_DOT = /([+-] *)?[0-9]?[0-9 ]*\.[0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)?/;
 // Following captures forms without the decimal point
