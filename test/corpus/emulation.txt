@@ -44,8 +44,8 @@ Hidden token 2
 			(binary_aexpr
 				(var_real (name_real))
 				(tok_eq)
-				(ERROR (tok_at) (UNEXPECTED 'E'))
-			(int)))
+				(ERROR (tok_at))
+				(var_real (name_real))))
 		(statement
 			(tok_rem) (comment_text))))
 

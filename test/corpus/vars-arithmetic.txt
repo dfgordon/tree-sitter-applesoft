@@ -30,6 +30,8 @@ Unary Operators
 10 X = +Y
 20 X = -Y
 30 X = NOT Y
+40 Z = -1.5
+50 Z = +3E5
 
 ---
 
@@ -42,7 +44,13 @@ Unary Operators
 		(statement (assignment (var_real (name_real)) (tok_eq) (unary_aexpr (tok_minus) (var_real (name_real))))))
 	(line
 		(linenum)
-		(statement (assignment (var_real (name_real)) (tok_eq) (unary_aexpr (tok_not) (var_real (name_real)))))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (unary_aexpr (tok_not) (var_real (name_real))))))
+	(line
+		(linenum)
+		(statement (assignment (var_real (name_real)) (tok_eq) (unary_aexpr (tok_minus) (real)))))
+	(line
+		(linenum)
+		(statement (assignment (var_real (name_real)) (tok_eq) (unary_aexpr (tok_plus) (real))))))
 
 ===================
 Binary Operators
@@ -224,7 +232,7 @@ Random Numbers
 (source_file
 	(line
 		(linenum)
-		(statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_rnd) (int)))))
+		(statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_rnd) (unary_aexpr (tok_minus) (int))))))
 	(line
 		(linenum)
 		(statement (assignment (var_real (name_real)) (tok_eq) (fcall (tok_rnd) (int)))))

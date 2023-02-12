@@ -37,25 +37,28 @@ const language_name = allow_lower_case ? 'applesoft' : 'applesoftcasesens'
 
 // This real number excludes integers, unlike Ref. 2 p. 237
 // Following captures the zero valued cases in the first table on p. 237
-let REAL_DOT = /([+-] *)?[0-9]?[0-9 ]*\.[0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)?/;
+// There are no negative numbers outside of unary expressions (DATA might be viewed as an exception)
+let POS_REAL_DOT = /[0-9]?[0-9 ]*\.[0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)?/;
 // Following captures forms without the decimal point
-let REAL_E = /([+-] *)?[0-9][0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)/;
+let POS_REAL_E = /[0-9][0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)/;
 
-// Real numbers in DATA have greater syntactic range, but lower case is never allowed.
-const REAL_DATA_DOT = REAL_DOT;
-const REAL_DATA_E = REAL_E;
+// Real numbers in DATA have greater syntactic range, but lower case is never allowed (E not e).
+// Also for data allow the sign to be part of the number, since we don't have expressions.
+const REAL_DATA_DOT = /([+-] *)?[0-9]?[0-9 ]*\.[0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)?/;
+const REAL_DATA_E = /([+-] *)?[0-9][0-9 ]*(E *[+-]? *([0-9] *[0-9]?)?)/;
 const REAL_DATA_BARE = /([+-]|[+-]? *E *[+-]?)/;
+const INTEGER_DATA = /([+-] *)?[0-9]([0-9 ]*[0-9])?/;
 
 if (allow_lower_case)
 {
-	REAL_DOT = new RegExp(REAL_DOT.source.replace('E','[Ee]'));
-	REAL_E = new RegExp(REAL_E.source.replace('E','[Ee]'));
+	POS_REAL_DOT = new RegExp(POS_REAL_DOT.source.replace('E','[Ee]'));
+	POS_REAL_E = new RegExp(POS_REAL_E.source.replace('E','[Ee]'));
 }
 
 const
 	DIGIT = /[0-9]/,
 	LETTER = /[A-Za-z]/,
-	INTEGER = /[+-]?[0-9]([0-9 ]*[0-9])?/,
+	POS_INTEGER = /[0-9]([0-9 ]*[0-9])?/,
 	QUOTE = /"/,
 	SPACE = / /,
 	COMMA = /,/,
@@ -419,14 +422,14 @@ module.exports = grammar({
 		// and their definition of the `literal` is surely problematic.
 
 		_data_item: $ => choice(alias($.str,$.data_str),$.data_literal,$.data_int,$.data_real),
-		data_int: $ => INTEGER,
+		data_int: $ => INTEGER_DATA,
 		data_real: $ => choice(REAL_DATA_DOT,REAL_DATA_E,REAL_DATA_BARE),
 		data_literal: $ => token(prec(0,seq(DCHAR_1,repeat(DCHAR_N)))),
 
 		// Literals from Appendix B
 
-		int: $ => token(prec(1,INTEGER)),
-		real: $ => token(prec(1,choice(REAL_DOT,REAL_E))),
+		int: $ => token(prec(1,POS_INTEGER)),
+		real: $ => token(prec(1,choice(POS_REAL_DOT,POS_REAL_E))),
 		str: $ => token(prec(1,seq('"',repeat(SCHAR),'"'))),
 
 		// "Extra" items not in Appendix B

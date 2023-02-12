@@ -39,7 +39,7 @@ Call and USR
 
 (source_file
 	(line (linenum) (statement (tok_call) (int)))
-	(line (linenum) (statement (tok_call) (int)))
+	(line (linenum) (statement (tok_call) (unary_aexpr (tok_minus) (int))))
 	(line (linenum) (statement (tok_call) (var_real (name_real) (subscript (var_real (name_real))))))
 	(line (linenum) (statement (tok_print) (fcall (tok_usr) (int)))))
 
