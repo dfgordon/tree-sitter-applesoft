@@ -194,6 +194,11 @@
     "fields": {}
   },
   {
+    "type": "data_str",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "dim_item",
     "named": true,
     "fields": {},
@@ -373,10 +378,6 @@
         },
         {
           "type": "statement",
-          "named": true
-        },
-        {
-          "type": "terminal_statement",
           "named": true
         }
       ]
@@ -876,6 +877,11 @@
     }
   },
   {
+    "type": "str",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "subscript",
     "named": true,
     "fields": {},
@@ -909,109 +915,6 @@
         },
         {
           "type": "var_real",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "terminal_statement",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "binary_aexpr",
-          "named": true
-        },
-        {
-          "type": "binary_sexpr",
-          "named": true
-        },
-        {
-          "type": "data_int",
-          "named": true
-        },
-        {
-          "type": "data_literal",
-          "named": true
-        },
-        {
-          "type": "data_real",
-          "named": true
-        },
-        {
-          "type": "data_str",
-          "named": true
-        },
-        {
-          "type": "fcall",
-          "named": true
-        },
-        {
-          "type": "int",
-          "named": true
-        },
-        {
-          "type": "real",
-          "named": true
-        },
-        {
-          "type": "sfcall",
-          "named": true
-        },
-        {
-          "type": "str",
-          "named": true
-        },
-        {
-          "type": "terminal_statement",
-          "named": true
-        },
-        {
-          "type": "terminal_str",
-          "named": true
-        },
-        {
-          "type": "tok_amp",
-          "named": true
-        },
-        {
-          "type": "tok_call",
-          "named": true
-        },
-        {
-          "type": "tok_data",
-          "named": true
-        },
-        {
-          "type": "tok_if",
-          "named": true
-        },
-        {
-          "type": "tok_print",
-          "named": true
-        },
-        {
-          "type": "tok_then",
-          "named": true
-        },
-        {
-          "type": "unary_aexpr",
-          "named": true
-        },
-        {
-          "type": "var_int",
-          "named": true
-        },
-        {
-          "type": "var_real",
-          "named": true
-        },
-        {
-          "type": "var_str",
           "named": true
         }
       ]
@@ -1126,6 +1029,10 @@
     }
   },
   {
+    "type": "\"",
+    "named": false
+  },
+  {
     "type": "$",
     "named": false
   },
@@ -1166,10 +1073,6 @@
     "named": true
   },
   {
-    "type": "data_str",
-    "named": true
-  },
-  {
     "type": "int",
     "named": true
   },
@@ -1179,14 +1082,6 @@
   },
   {
     "type": "real",
-    "named": true
-  },
-  {
-    "type": "str",
-    "named": true
-  },
-  {
-    "type": "terminal_str",
     "named": true
   },
   {

@@ -19,13 +19,21 @@
 // * nested loops limited to 10 levels
 // * length of a line limited to 239 characters
 
+/**
+ * combine regex containing simple alternatives
+ * @param {*} lst items can be a character (`/./`) or choice of characters (`/[...]/`)
+ * @returns a RegExp
+ */
 function regex_or(lst)
 {
-	let ans = lst[0];
-	lst.slice(1).forEach(r => {
-		ans = new RegExp(ans.source + '|' + r.source);
+	let src = '';
+	lst.forEach(r => {
+		if (r.source[0] == '[' && r.source[r.source.length - 1] == ']')
+			src += r.source.substring(1, r.source.length - 1);
+		else
+			src += r.source;
 	});
-	return ans;
+	return new RegExp('[' + src + ']');
 }
 
 // Define constants for use in forming terminal nodes.
@@ -67,6 +75,7 @@ const
 	SPCHAR_NO_SEP = /[+\-*\/^=<>().;%$#?&'@!\[\]{}\\|_`~\x01-\x09\x0b\x0c\x0e-\x1f]/,
 	SPCHAR = regex_or([SPCHAR_NO_SEP,COMMA,COLON]),
 	SCHAR = regex_or([LETTER,DIGIT,SPCHAR,SPACE]),
+	RUN = new RegExp(SCHAR.source + '\x2a'),
 	// DCHAR_1 and DCHAR_N replace `character` from Ref. 2, used for DATA literal
 	// Ref. 2 erroneously allows commas and colons in DATA literals.
 	// Also, leading spaces are ignored, but trailing spaces are included.
@@ -82,18 +91,15 @@ module.exports = grammar({
 	// "name" is the term given in Ref. 2 for an identifier.
 	// external scanner is used to forbid keywords from appearing anywhere in the name.
 	externals: $ => [ $._ext_name ],
-	//conflicts: $ => [
-	//	[ $.statement,$.terminal_statement ],
-	//],
 
 	rules: {
 		source_file: $ => repeat(choice($.line,$._empty_line)),
 		
-		// Program lines - differs from Appendix B due to terminal strings
+		// Program lines
 		line: $ => seq($.linenum,
 			repeat(':'),
 			repeat(seq($.statement,repeat1(':'))),
-			choice(seq($.statement,repeat(':')),$.terminal_statement),
+			seq($.statement,repeat(':')),
 			$._newline),
 		linenum: $ => / *[0-9][0-9 ]*/,
 		_newline: $ => /\r?\n/,
@@ -285,16 +291,6 @@ module.exports = grammar({
 			seq($.tok_amp,'(',$._expr,repeat(seq(',',$._expr)),')')
 		),
 
-		// terminal_statement rule is used to handle strings without closing quotes,
-		// which are legal at the end of a line.
-		terminal_statement: $ => choice(
-			seq($.tok_if,$._expr,$.tok_then,$.terminal_statement),
-			seq($.tok_call,$._aexpr,$.terminal_str),
-			seq($.tok_data,optional($._data_item),repeat(seq(',',optional($._data_item))),$.terminal_str),
-			seq($.tok_print,repeat((choice(',',';',$._expr))),$.terminal_str),
-			seq($.tok_amp,$.terminal_str)
-		),
-
 		comment_text: $ => /.+/,
 
 		assignment: $ => choice(
@@ -430,12 +426,11 @@ module.exports = grammar({
 
 		int: $ => token(prec(1,POS_INTEGER)),
 		real: $ => token(prec(1,choice(POS_REAL_DOT,POS_REAL_E))),
-		str: $ => token(prec(1,seq('"',repeat(SCHAR),'"'))),
+		str: $ => prec.right(seq('"',RUN,optional('"'))),
 
 		// "Extra" items not in Appendix B
 		// These are added for convenience or to account for certain exceptions
 
-		terminal_str: $ => token(prec(1, seq('"', repeat(SCHAR)))),
 		name_real: $ => $._name,
 		name_int: $ => seq($._name,'%'),
 		name_str: $ => seq($._name,'$'),

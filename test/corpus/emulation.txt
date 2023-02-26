@@ -127,6 +127,7 @@ Terminal Strings
 11 ::::PRINT "HI
 20 DATA ,,HELLO "world,,,"WORLD,WORLD
 30 & "100
+40 HOME: VTAB 1: A$ = A$ + B$ + "NO UNQUOTE
 
 ---
 
@@ -134,16 +135,27 @@ Terminal Strings
 	(line
 		(linenum)
 		(statement (tok_print) (str))
-		(terminal_statement (tok_print) (terminal_str)))
+		(statement (tok_print) (str)))
 	(line
 		(linenum)
-		(terminal_statement (tok_print) (terminal_str)))
+		(statement (tok_print) (str)))
 	(line
 		(linenum)
-		(terminal_statement (tok_data) (data_literal) (terminal_str)))
+		(statement (tok_data) (data_literal) (data_str)))
 	(line
 		(linenum)
-		(terminal_statement (tok_amp) (terminal_str))))
+		(statement (tok_amp) (str)))
+	(line
+		(linenum)
+		(statement (tok_home))
+		(statement (tok_vtab) (int))
+		(statement (assignment
+			(var_str (name_str))
+			(tok_eq)
+			(binary_sexpr
+				(binary_sexpr (var_str (name_str)) (tok_plus) (var_str (name_str)))
+				(tok_plus)
+				(str))))))
 
 ===================
 Alternative PRINT
@@ -157,7 +169,7 @@ Alternative PRINT
 	(line
 		(linenum)
 		(statement (tok_print) (str))
-		(terminal_statement (tok_print) (terminal_str))))
+		(statement (tok_print) (str))))
 
 ===================
 Control Characters
@@ -213,4 +225,4 @@ CHAIN Pattern
 		(statement (tok_call) (int) (str)))
 	(line
 		(linenum)
-		(terminal_statement (tok_call) (int) (terminal_str))))
+		(statement (tok_call) (int) (str))))

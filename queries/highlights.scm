@@ -5,7 +5,6 @@
 (int) @number
 (real) @number
 (str) @string
-(terminal_str) @string
 (data_literal) @string
 (data_real) @number
 (data_int) @number

@@ -234,6 +234,8 @@ bool first_pass(Scanner *s,TSLexer *lexer, const bool *valid_symbols)
   int id_pos=0; // not counting spaces
   int tot_pos=0; // counting spaces
   bool identifier_matching = false;
+  uint8_t *map = (uint8_t *)calloc(32,1); // bitmap of space positions
+  int max_pos = 32 * 8;
 
   // skip leading spaces
   while (lexer->lookahead==' ')
@@ -250,11 +252,14 @@ bool first_pass(Scanner *s,TSLexer *lexer, const bool *valid_symbols)
     identifier_matching = ((id_pos==0 && is_alpha(c)) || (id_pos>0 && is_alphanumeric(c)) || c==' ');
     if (identifier_matching)
     {
-      lexer->advance(lexer,false);
+      if (c==' ')
+        map[tot_pos / 8] |= 1 << (tot_pos % 8);
+      else
+        id_pos++;
       tot_pos++;
-      id_pos += (c!=' ');
+      lexer->advance(lexer, false);
     }
-  } while(identifier_matching);
+  } while (identifier_matching && tot_pos<max_pos);
   s->id_end = tot_pos;
   // loop to rewind position to left-most keyword match
   for (unsigned i = 0; i < s->num_exclusions; i++)
@@ -262,6 +267,9 @@ bool first_pass(Scanner *s,TSLexer *lexer, const bool *valid_symbols)
   finish_at_exclusion(&s->at_excl,&s->id_end);
   if (s->id_end>0 && id_pos>0)
   {
+    // loop to rewind position to before trailing spaces
+    while (s->id_end>1 && (map[(s->id_end-1)/8] & (1 << ((s->id_end-1)%8))))
+      s->id_end--;
     lexer->result_symbol = NAME;
     return true;
   }
