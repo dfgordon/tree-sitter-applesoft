@@ -384,6 +384,409 @@
     }
   },
   {
+    "type": "name_amp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "tok_abs",
+          "named": true
+        },
+        {
+          "type": "tok_and",
+          "named": true
+        },
+        {
+          "type": "tok_asc",
+          "named": true
+        },
+        {
+          "type": "tok_at",
+          "named": true
+        },
+        {
+          "type": "tok_atn",
+          "named": true
+        },
+        {
+          "type": "tok_call",
+          "named": true
+        },
+        {
+          "type": "tok_chr",
+          "named": true
+        },
+        {
+          "type": "tok_clear",
+          "named": true
+        },
+        {
+          "type": "tok_coloreq",
+          "named": true
+        },
+        {
+          "type": "tok_cont",
+          "named": true
+        },
+        {
+          "type": "tok_cos",
+          "named": true
+        },
+        {
+          "type": "tok_data",
+          "named": true
+        },
+        {
+          "type": "tok_def",
+          "named": true
+        },
+        {
+          "type": "tok_del",
+          "named": true
+        },
+        {
+          "type": "tok_dim",
+          "named": true
+        },
+        {
+          "type": "tok_draw",
+          "named": true
+        },
+        {
+          "type": "tok_end",
+          "named": true
+        },
+        {
+          "type": "tok_exp",
+          "named": true
+        },
+        {
+          "type": "tok_flash",
+          "named": true
+        },
+        {
+          "type": "tok_fn",
+          "named": true
+        },
+        {
+          "type": "tok_for",
+          "named": true
+        },
+        {
+          "type": "tok_fre",
+          "named": true
+        },
+        {
+          "type": "tok_get",
+          "named": true
+        },
+        {
+          "type": "tok_gosub",
+          "named": true
+        },
+        {
+          "type": "tok_goto",
+          "named": true
+        },
+        {
+          "type": "tok_gr",
+          "named": true
+        },
+        {
+          "type": "tok_hcoloreq",
+          "named": true
+        },
+        {
+          "type": "tok_hgr",
+          "named": true
+        },
+        {
+          "type": "tok_hgr2",
+          "named": true
+        },
+        {
+          "type": "tok_himem",
+          "named": true
+        },
+        {
+          "type": "tok_hlin",
+          "named": true
+        },
+        {
+          "type": "tok_home",
+          "named": true
+        },
+        {
+          "type": "tok_hplot",
+          "named": true
+        },
+        {
+          "type": "tok_htab",
+          "named": true
+        },
+        {
+          "type": "tok_if",
+          "named": true
+        },
+        {
+          "type": "tok_inn",
+          "named": true
+        },
+        {
+          "type": "tok_input",
+          "named": true
+        },
+        {
+          "type": "tok_int",
+          "named": true
+        },
+        {
+          "type": "tok_inverse",
+          "named": true
+        },
+        {
+          "type": "tok_left",
+          "named": true
+        },
+        {
+          "type": "tok_len",
+          "named": true
+        },
+        {
+          "type": "tok_let",
+          "named": true
+        },
+        {
+          "type": "tok_list",
+          "named": true
+        },
+        {
+          "type": "tok_load",
+          "named": true
+        },
+        {
+          "type": "tok_log",
+          "named": true
+        },
+        {
+          "type": "tok_lomem",
+          "named": true
+        },
+        {
+          "type": "tok_mid",
+          "named": true
+        },
+        {
+          "type": "tok_new",
+          "named": true
+        },
+        {
+          "type": "tok_next",
+          "named": true
+        },
+        {
+          "type": "tok_normal",
+          "named": true
+        },
+        {
+          "type": "tok_not",
+          "named": true
+        },
+        {
+          "type": "tok_notrace",
+          "named": true
+        },
+        {
+          "type": "tok_on",
+          "named": true
+        },
+        {
+          "type": "tok_onerr",
+          "named": true
+        },
+        {
+          "type": "tok_or",
+          "named": true
+        },
+        {
+          "type": "tok_pdl",
+          "named": true
+        },
+        {
+          "type": "tok_peek",
+          "named": true
+        },
+        {
+          "type": "tok_plot",
+          "named": true
+        },
+        {
+          "type": "tok_poke",
+          "named": true
+        },
+        {
+          "type": "tok_pop",
+          "named": true
+        },
+        {
+          "type": "tok_pos",
+          "named": true
+        },
+        {
+          "type": "tok_print",
+          "named": true
+        },
+        {
+          "type": "tok_prn",
+          "named": true
+        },
+        {
+          "type": "tok_read",
+          "named": true
+        },
+        {
+          "type": "tok_recall",
+          "named": true
+        },
+        {
+          "type": "tok_rem",
+          "named": true
+        },
+        {
+          "type": "tok_restore",
+          "named": true
+        },
+        {
+          "type": "tok_resume",
+          "named": true
+        },
+        {
+          "type": "tok_return",
+          "named": true
+        },
+        {
+          "type": "tok_right",
+          "named": true
+        },
+        {
+          "type": "tok_rnd",
+          "named": true
+        },
+        {
+          "type": "tok_roteq",
+          "named": true
+        },
+        {
+          "type": "tok_run",
+          "named": true
+        },
+        {
+          "type": "tok_save",
+          "named": true
+        },
+        {
+          "type": "tok_scaleeq",
+          "named": true
+        },
+        {
+          "type": "tok_scrnp",
+          "named": true
+        },
+        {
+          "type": "tok_sgn",
+          "named": true
+        },
+        {
+          "type": "tok_shload",
+          "named": true
+        },
+        {
+          "type": "tok_sin",
+          "named": true
+        },
+        {
+          "type": "tok_spcp",
+          "named": true
+        },
+        {
+          "type": "tok_speedeq",
+          "named": true
+        },
+        {
+          "type": "tok_sqr",
+          "named": true
+        },
+        {
+          "type": "tok_step",
+          "named": true
+        },
+        {
+          "type": "tok_stop",
+          "named": true
+        },
+        {
+          "type": "tok_store",
+          "named": true
+        },
+        {
+          "type": "tok_str",
+          "named": true
+        },
+        {
+          "type": "tok_tabp",
+          "named": true
+        },
+        {
+          "type": "tok_tan",
+          "named": true
+        },
+        {
+          "type": "tok_text",
+          "named": true
+        },
+        {
+          "type": "tok_then",
+          "named": true
+        },
+        {
+          "type": "tok_to",
+          "named": true
+        },
+        {
+          "type": "tok_trace",
+          "named": true
+        },
+        {
+          "type": "tok_usr",
+          "named": true
+        },
+        {
+          "type": "tok_val",
+          "named": true
+        },
+        {
+          "type": "tok_vlin",
+          "named": true
+        },
+        {
+          "type": "tok_vtab",
+          "named": true
+        },
+        {
+          "type": "tok_wait",
+          "named": true
+        },
+        {
+          "type": "tok_xdraw",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "name_fn",
     "named": true,
     "fields": {}
@@ -555,6 +958,10 @@
         },
         {
           "type": "linenum",
+          "named": true
+        },
+        {
+          "type": "name_amp",
           "named": true
         },
         {

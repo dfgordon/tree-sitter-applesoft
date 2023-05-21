@@ -1761,6 +1761,27 @@
             {
               "type": "SYMBOL",
               "name": "str"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_amp_arg1"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_amp_arg2"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
             }
           ]
         },
@@ -1772,32 +1793,77 @@
               "name": "tok_amp"
             },
             {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "amp2"
+                  },
+                  "named": true,
+                  "value": "name_amp"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
               "type": "STRING",
               "value": "("
             },
             {
               "type": "SYMBOL",
-              "name": "_expr"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_expr"
-                  }
-                ]
-              }
+              "name": "_expr_list"
             },
             {
               "type": "STRING",
               "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_amp"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "amp1"
+              },
+              "named": true,
+              "value": "name_amp"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_amp_arg1"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_amp"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "amp2"
+              },
+              "named": true,
+              "value": "name_amp"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_amp_arg2"
             }
           ]
         }
@@ -3164,6 +3230,540 @@
           ]
         }
       }
+    },
+    "_expr_list": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_expr"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_expr"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "_amp_sep": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ";"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_to"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_at"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_step"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_then"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_goto"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_gosub"
+        }
+      ]
+    },
+    "amp1": {
+      "type": "PREC_LEFT",
+      "value": 1,
+      "content": {
+        "type": "SYMBOL",
+        "name": "_retok"
+      }
+    },
+    "_amp_arg1": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_expr_list"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_amp_sep"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_expr_list"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "amp2": {
+      "type": "PREC_LEFT",
+      "value": 2,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_retok"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_name"
+          }
+        ]
+      }
+    },
+    "_amp_arg2": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_amp_sep"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_expr_list"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_amp_sep"
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expr_list"
+        }
+      ]
+    },
+    "_retok": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "tok_end"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_for"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_next"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_data"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_input"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_del"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_dim"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_read"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_gr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_text"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_prn"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_inn"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_call"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_plot"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_hlin"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_vlin"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_hgr2"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_hgr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_hcoloreq"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_hplot"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_draw"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_xdraw"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_htab"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_home"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_roteq"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_scaleeq"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_shload"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_trace"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_notrace"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_normal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_inverse"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_flash"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_coloreq"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_pop"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_vtab"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_himem"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_lomem"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_onerr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_resume"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_recall"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_store"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_speedeq"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_let"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_goto"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_run"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_restore"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_gosub"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_return"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_rem"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_stop"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_on"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_wait"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_load"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_save"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_def"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_poke"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_print"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_cont"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_list"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_clear"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_get"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_new"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_tabp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_to"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_fn"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_spcp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_then"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_at"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_not"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_step"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_and"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_or"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_sgn"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_int"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_abs"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_usr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_fre"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_scrnp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_pdl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_pos"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_sqr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_rnd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_log"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_cos"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_sin"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_tan"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_atn"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_peek"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_len"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_str"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_val"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_asc"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_chr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_left"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_right"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tok_mid"
+        }
+      ]
     },
     "int": {
       "type": "TOKEN",

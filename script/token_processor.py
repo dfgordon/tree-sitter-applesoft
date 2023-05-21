@@ -161,8 +161,10 @@ with open(pathlib.Path.cwd().parent/'src'/'scanner.c','w') as f:
     f.write(scanner)
 
 # Define all the token rules for the JavaScript grammar
+# Also build the retoken rule that chooses any token
 
 token_rule_string = ''
+retoken_rule_string = '\t\t_retok: $ => choice('
 for t in tokens:
     lx = t['lexeme']
     rule_value = tok_regex_js(lx)
@@ -180,6 +182,10 @@ for t in tokens:
     # Handle this by consuming the A (or not) as NAME in the external scanner.
     # Hence nothing to do here.
     token_rule_string += '\t\t\t' + t['rule id'] + ': $ => '+rule_value+',\n'
+    if len(lx)>1:
+        retoken_rule_string += '$.' + t['rule id'] + ','
+retoken_rule_string = retoken_rule_string[:-1] + '),\n'
+
 
 # Create the grammar from the working file
 
@@ -190,6 +196,7 @@ with open('grammar-src.js','r') as f:
         patt = "'" + lx.upper() + "'"
         grammar = re.sub(re.escape(patt),'$.'+t['rule id'],grammar)
     grammar = grammar.replace('\t\t// token rules go here DO NOT EDIT this line',token_rule_string)
+    grammar = grammar.replace('\t\t// retoken rule goes here DO NOT EDIT',retoken_rule_string)
     grammar = re.sub('allow_lower_case\s*=\s*\w+','allow_lower_case = '+str(allow_lower_case).lower(),grammar)
 with open(pathlib.Path.cwd().parent/'grammar.js','w') as f:
     f.write(grammar)

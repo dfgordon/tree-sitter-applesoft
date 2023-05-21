@@ -1,5 +1,6 @@
 (linenum) @tag
 (name_fn) @function
+(name_amp) @string
 (comment_text) @comment
 
 (int) @number

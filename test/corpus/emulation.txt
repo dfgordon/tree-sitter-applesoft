@@ -189,28 +189,6 @@ Control Characters
 		(statement (tok_data) (data_literal) (data_str) (data_literal))))
 
 ===================
-Ampersand Call
-===================
-
-100 & "string argument"
-110 & (X+Y,"hello",CHR$(X))
-
----
-
-(source_file
-	(line
-		(linenum)
-		(statement (tok_amp) (str)))
-	(line
-		(linenum)
-		(statement
-			(tok_amp)
-			(binary_aexpr
-				(var_real (name_real)) (tok_plus) (var_real (name_real)))
-			(str)
-			(sfcall (tok_chr) (var_real (name_real))))))
-
-===================
 CHAIN Pattern
 ===================
 

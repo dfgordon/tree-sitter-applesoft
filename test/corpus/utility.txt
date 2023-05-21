@@ -85,3 +85,74 @@ Debugging
 (source_file
 	(line (linenum) (statement (tok_trace)))
 	(line (linenum) (statement (tok_notrace))))
+
+===================
+Ampersand Function
+===================
+
+110 & ("cmd",X+Y,CHR$(X))
+130 & SOLVE(X,Y,A*B)
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement
+			(tok_amp)
+			(str)
+			(binary_aexpr
+				(var_real (name_real)) (tok_plus) (var_real (name_real)))
+			(sfcall (tok_chr) (var_real (name_real)))))
+	(line
+		(linenum)
+		(statement
+			(tok_amp) (name_amp) (var_real (name_real)) (var_real (name_real))
+			(binary_aexpr
+				(var_real (name_real)) (tok_times) (var_real (name_real)))))
+)
+
+===================
+Ampersand Statement
+===================
+
+100 & "string argument"
+120 & LINE TO X,Y
+140 & "PLOT" X,Y TO A,B
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (tok_amp) (str)))
+	(line
+		(linenum)
+		(statement
+			(tok_amp) (name_amp) (tok_to) (var_real (name_real)) (var_real (name_real))))
+	(line
+		(linenum)
+		(statement
+			(tok_amp) (str)
+			(var_real (name_real)) (var_real (name_real))
+			(tok_to)
+			(var_real (name_real)) (var_real (name_real))))
+)
+
+===================
+Ampersand Retoken
+===================
+
+100 & PRINT "custom print" AT 10,20
+120 & HPLOT TO 10,20
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (tok_amp) (name_amp (tok_print)) (str) (tok_at) (int) (int)))
+	(line
+		(linenum)
+		(statement (tok_amp) (name_amp (tok_hplot)) (tok_to) (int) (int)))
+)
