@@ -1766,17 +1766,20 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "_amp_arg1"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "_amp_arg2"
-                    }
-                  ]
+                  "type": "SYMBOL",
+                  "name": "_amp_prolog_sep"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_amp_arg"
                 },
                 {
                   "type": "BLANK"
@@ -1796,13 +1799,8 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "amp2"
-                  },
-                  "named": true,
-                  "value": "name_amp"
+                  "type": "SYMBOL",
+                  "name": "name_amp"
                 },
                 {
                   "type": "BLANK"
@@ -1834,14 +1832,14 @@
               "type": "ALIAS",
               "content": {
                 "type": "SYMBOL",
-                "name": "amp1"
+                "name": "retok"
               },
               "named": true,
               "value": "name_amp"
             },
             {
               "type": "SYMBOL",
-              "name": "_amp_arg1"
+              "name": "_amp_arg"
             }
           ]
         },
@@ -1853,17 +1851,29 @@
               "name": "tok_amp"
             },
             {
-              "type": "ALIAS",
-              "content": {
-                "type": "SYMBOL",
-                "name": "amp2"
-              },
-              "named": true,
-              "value": "name_amp"
+              "type": "SYMBOL",
+              "name": "name_amp"
             },
             {
-              "type": "SYMBOL",
-              "name": "_amp_arg2"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_amp_prolog_sep"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_amp_arg"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
             }
           ]
         }
@@ -3261,7 +3271,47 @@
       "members": [
         {
           "type": "STRING",
+          "value": "!"
+        },
+        {
+          "type": "STRING",
+          "value": "@"
+        },
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "STRING",
           "value": ";"
+        },
+        {
+          "type": "STRING",
+          "value": "_"
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        },
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        },
+        {
+          "type": "STRING",
+          "value": "\\"
+        },
+        {
+          "type": "STRING",
+          "value": "|"
         },
         {
           "type": "SYMBOL",
@@ -3289,7 +3339,61 @@
         }
       ]
     },
-    "amp1": {
+    "_amp_prolog_sep": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_amp_sep"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "tok_pow"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_times"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_minus"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_eq"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_plus"
+            },
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "STRING",
+              "value": "."
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_less"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_gtr"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tok_div"
+            }
+          ]
+        }
+      ]
+    },
+    "retok": {
       "type": "PREC_LEFT",
       "value": 1,
       "content": {
@@ -3297,32 +3401,7 @@
         "name": "_retok"
       }
     },
-    "_amp_arg1": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_expr_list"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_amp_sep"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_expr_list"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    "amp2": {
+    "name_amp": {
       "type": "PREC_LEFT",
       "value": 2,
       "content": {
@@ -3339,12 +3418,12 @@
         ]
       }
     },
-    "_amp_arg2": {
+    "_amp_arg": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_amp_sep"
+          "name": "_expr_list"
         },
         {
           "type": "REPEAT",
@@ -3353,18 +3432,14 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "_expr_list"
+                "name": "_amp_sep"
               },
               {
                 "type": "SYMBOL",
-                "name": "_amp_sep"
+                "name": "_expr_list"
               }
             ]
           }
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_expr_list"
         }
       ]
     },

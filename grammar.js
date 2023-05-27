@@ -287,10 +287,10 @@ module.exports = grammar({
 			seq($.tok_vtab,$._aexpr),
 			seq($.tok_wait,$._aexpr,',',$._aexpr,optional(seq(',',$._aexpr))),
 			seq($.tok_xdraw,$._aexpr,optional(seq($.tok_at,$._aexpr,',',$._aexpr))),
-			seq($.tok_amp,$.str,optional(choice($._amp_arg1,$._amp_arg2))),
-			seq($.tok_amp, optional(alias($.amp2,$.name_amp)), '(', $._expr_list, ')'),
-			seq($.tok_amp,alias($.amp1,$.name_amp),$._amp_arg1),
-			seq($.tok_amp,alias($.amp2,$.name_amp),$._amp_arg2)
+			seq($.tok_amp,$.str,optional($._amp_prolog_sep),optional($._amp_arg)),
+			seq($.tok_amp, optional($.name_amp), '(', $._expr_list, ')'),
+			seq($.tok_amp,alias($.retok,$.name_amp),$._amp_arg),
+			seq($.tok_amp, $.name_amp, optional(seq($._amp_prolog_sep, $._amp_arg)))
 		),
 
 		comment_text: $ => /.+/,
@@ -427,11 +427,11 @@ module.exports = grammar({
 		// Items to build ampersand commands
 
 		_expr_list: $ => seq($._expr, repeat(seq(',', $._expr))),
-		_amp_sep: $ => choice(';',$.tok_to,$.tok_at,$.tok_step,$.tok_then,$.tok_goto,$.tok_gosub),
-		amp1: $ => prec.left(1,$._retok),
-		_amp_arg1: $ => seq($._expr_list, repeat(seq($._amp_sep, $._expr_list))),
-		amp2: $ => prec.left(2,choice($._retok, $._name)),
-		_amp_arg2: $ => seq($._amp_sep, repeat(seq($._expr_list, $._amp_sep)), $._expr_list),
+		_amp_sep: $ => choice(...'!@#;_{}[]\\|', $.tok_to, $.tok_at, $.tok_step, $.tok_then, $.tok_goto, $.tok_gosub),
+		_amp_prolog_sep: $ => choice($._amp_sep,choice($.tok_pow,$.tok_times,$.tok_minus,$.tok_eq,$.tok_plus,',','.',$.tok_less,$.tok_gtr,$.tok_div)),
+		retok: $ => prec.left(1,$._retok),
+		name_amp: $ => prec.left(2,choice($._retok, $._name)),
+		_amp_arg: $ => seq($._expr_list, repeat(seq($._amp_sep, $._expr_list))),
 		_retok: $ => choice($.tok_end,$.tok_for,$.tok_next,$.tok_data,$.tok_input,$.tok_del,$.tok_dim,$.tok_read,$.tok_gr,$.tok_text,$.tok_prn,$.tok_inn,$.tok_call,$.tok_plot,$.tok_hlin,$.tok_vlin,$.tok_hgr2,$.tok_hgr,$.tok_hcoloreq,$.tok_hplot,$.tok_draw,$.tok_xdraw,$.tok_htab,$.tok_home,$.tok_roteq,$.tok_scaleeq,$.tok_shload,$.tok_trace,$.tok_notrace,$.tok_normal,$.tok_inverse,$.tok_flash,$.tok_coloreq,$.tok_pop,$.tok_vtab,$.tok_himem,$.tok_lomem,$.tok_onerr,$.tok_resume,$.tok_recall,$.tok_store,$.tok_speedeq,$.tok_let,$.tok_goto,$.tok_run,$.tok_if,$.tok_restore,$.tok_gosub,$.tok_return,$.tok_rem,$.tok_stop,$.tok_on,$.tok_wait,$.tok_load,$.tok_save,$.tok_def,$.tok_poke,$.tok_print,$.tok_cont,$.tok_list,$.tok_clear,$.tok_get,$.tok_new,$.tok_tabp,$.tok_to,$.tok_fn,$.tok_spcp,$.tok_then,$.tok_at,$.tok_not,$.tok_step,$.tok_and,$.tok_or,$.tok_sgn,$.tok_int,$.tok_abs,$.tok_usr,$.tok_fre,$.tok_scrnp,$.tok_pdl,$.tok_pos,$.tok_sqr,$.tok_rnd,$.tok_log,$.tok_exp,$.tok_cos,$.tok_sin,$.tok_tan,$.tok_atn,$.tok_peek,$.tok_len,$.tok_str,$.tok_val,$.tok_asc,$.tok_chr,$.tok_left,$.tok_right,$.tok_mid),
 
 

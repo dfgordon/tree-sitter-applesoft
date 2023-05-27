@@ -7,3 +7,7 @@ script
 target
 applesoft.tmGrammar.json
 *.wasm
+parser.exp
+parser.lib
+parser.obj
+scanner.obj

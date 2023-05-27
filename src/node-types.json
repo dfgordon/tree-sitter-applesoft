@@ -1025,6 +1025,10 @@
           "named": true
         },
         {
+          "type": "tok_div",
+          "named": true
+        },
+        {
           "type": "tok_draw",
           "named": true
         },
@@ -1062,6 +1066,10 @@
         },
         {
           "type": "tok_gr",
+          "named": true
+        },
+        {
+          "type": "tok_gtr",
           "named": true
         },
         {
@@ -1113,6 +1121,10 @@
           "named": true
         },
         {
+          "type": "tok_less",
+          "named": true
+        },
+        {
           "type": "tok_list",
           "named": true
         },
@@ -1157,11 +1169,19 @@
           "named": true
         },
         {
+          "type": "tok_plus",
+          "named": true
+        },
+        {
           "type": "tok_poke",
           "named": true
         },
         {
           "type": "tok_pop",
+          "named": true
+        },
+        {
+          "type": "tok_pow",
           "named": true
         },
         {
@@ -1238,6 +1258,10 @@
         },
         {
           "type": "tok_then",
+          "named": true
+        },
+        {
+          "type": "tok_times",
           "named": true
         },
         {
@@ -1436,7 +1460,15 @@
     }
   },
   {
+    "type": "!",
+    "named": false
+  },
+  {
     "type": "\"",
+    "named": false
+  },
+  {
+    "type": "#",
     "named": false
   },
   {
@@ -1460,11 +1492,35 @@
     "named": false
   },
   {
+    "type": ".",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
   {
     "type": ";",
+    "named": false
+  },
+  {
+    "type": "@",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "\\",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "_",
     "named": false
   },
   {
@@ -1918,5 +1974,17 @@
   {
     "type": "tok_xdraw",
     "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
   }
 ]

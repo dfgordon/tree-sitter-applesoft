@@ -156,3 +156,25 @@ Ampersand Retoken
 		(linenum)
 		(statement (tok_amp) (name_amp (tok_hplot)) (tok_to) (int) (int)))
 )
+
+===================
+Ampersand Separators
+===================
+
+100 & MODE = 1
+120 & PR USNG > "000.00";A,B
+130 & XPR / "1" <> A$
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (tok_amp) (name_amp) (tok_eq) (int)))
+	(line
+		(linenum)
+		(statement (tok_amp) (name_amp) (tok_gtr) (str) (var_real (name_real)) (var_real (name_real)) ))
+	(line
+		(linenum)
+		(statement (tok_amp) (name_amp) (tok_div) (binary_aexpr (str) (tok_less) (tok_gtr) (var_str (name_str))) ))
+)

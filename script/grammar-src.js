@@ -180,10 +180,10 @@ module.exports = grammar({
 			seq('VTAB',$._aexpr),
 			seq('WAIT',$._aexpr,',',$._aexpr,optional(seq(',',$._aexpr))),
 			seq('XDRAW',$._aexpr,optional(seq('AT',$._aexpr,',',$._aexpr))),
-			seq('&',$.str,optional(choice($._amp_arg1,$._amp_arg2))),
-			seq('&', optional(alias($.amp2,$.name_amp)), '(', $._expr_list, ')'),
-			seq('&',alias($.amp1,$.name_amp),$._amp_arg1),
-			seq('&',alias($.amp2,$.name_amp),$._amp_arg2)
+			seq('&',$.str,optional($._amp_prolog_sep),optional($._amp_arg)),
+			seq('&', optional($.name_amp), '(', $._expr_list, ')'),
+			seq('&',alias($.retok,$.name_amp),$._amp_arg),
+			seq('&', $.name_amp, optional(seq($._amp_prolog_sep, $._amp_arg)))
 		),
 
 		comment_text: $ => /.+/,
@@ -320,11 +320,11 @@ module.exports = grammar({
 		// Items to build ampersand commands
 
 		_expr_list: $ => seq($._expr, repeat(seq(',', $._expr))),
-		_amp_sep: $ => choice(';','TO','AT','STEP','THEN','GOTO','GOSUB'),
-		amp1: $ => prec.left(1,$._retok),
-		_amp_arg1: $ => seq($._expr_list, repeat(seq($._amp_sep, $._expr_list))),
-		amp2: $ => prec.left(2,choice($._retok, $._name)),
-		_amp_arg2: $ => seq($._amp_sep, repeat(seq($._expr_list, $._amp_sep)), $._expr_list),
+		_amp_sep: $ => choice(...'!@#;_{}[]\\|', 'TO', 'AT', 'STEP', 'THEN', 'GOTO', 'GOSUB'),
+		_amp_prolog_sep: $ => choice($._amp_sep,choice('^','*','-','=','+',',','.','<','>','/')),
+		retok: $ => prec.left(1,$._retok),
+		name_amp: $ => prec.left(2,choice($._retok, $._name)),
+		_amp_arg: $ => seq($._expr_list, repeat(seq($._amp_sep, $._expr_list))),
 		// retoken rule goes here DO NOT EDIT
 
 		// Literals from Appendix B
