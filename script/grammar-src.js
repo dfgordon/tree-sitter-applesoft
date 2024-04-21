@@ -19,6 +19,11 @@
 // * nested loops limited to 10 levels
 // * length of a line limited to 239 characters
 
+// Flags controlling syntax, may be edited by `build.py`
+const allow_lower_case = true;
+const allow_call_args = true;
+const language_name = 'applesoft'
+
 /**
  * combine regex containing simple alternatives
  * @param {*} lst items can be a character (`/./`) or choice of characters (`/[...]/`)
@@ -38,10 +43,6 @@ function regex_or(lst)
 
 // Define constants for use in forming terminal nodes.
 // These are named after their equivalents in Ref. 2 Appendix B
-
-// Do not set this flag manually, let `build.py` handle it
-const allow_lower_case = true;
-const language_name = allow_lower_case ? 'applesoft' : 'applesoftcasesens'
 
 // This real number excludes integers, unlike Ref. 2 p. 237
 // Following captures the zero valued cases in the first table on p. 237
@@ -114,8 +115,9 @@ module.exports = grammar({
 
 		statement: $ => choice(
 			$.assignment,
-			// Optional string after CALL is to allow for the CHAIN pattern
-			seq('CALL',$._aexpr,optional($.str)),
+			allow_call_args ?
+				seq('CALL', $._aexpr, optional($.str), repeat(seq(',', $._expr))) :
+				seq('CALL', $._aexpr, optional($.str)),
 			'CLEAR',
 			seq('COLOR=',$._aexpr),
 			'CONT',

@@ -1,0 +1,82 @@
+===================
+extended - Call with Arguments
+===================
+
+100 CALL 768,1000
+110 CALL 768,"HELLO"
+120 CALL 768,X
+130 CALL 768,A$
+140 CALL 768,"HELLO
+150 CALL 768,A$+"S",X+Y
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (tok_call) (int) (int)))
+	(line
+		(linenum)
+		(statement (tok_call) (int) (str)))
+	(line
+		(linenum)
+		(statement (tok_call) (int) (var_real (name_real))))
+	(line
+		(linenum)
+		(statement (tok_call) (int) (var_str (name_str))))
+	(line
+		(linenum)
+		(statement (tok_call) (int) (str)))
+	(line
+		(linenum)
+		(statement (tok_call) (int)
+		(binary_sexpr
+			(var_str (name_str))
+			(tok_plus)
+			(str)
+		)
+		(binary_aexpr
+			(var_real (name_real))
+			(tok_plus)
+			(var_real (name_real))	
+		)))
+)
+
+===================
+extended - CHAIN Pattern
+===================
+
+100 CALL 520"NEXT PROGRAM"
+110 CALL 520"PART TWO
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (tok_call) (int) (str)))
+	(line
+		(linenum)
+		(statement (tok_call) (int) (str))))
+
+============================
+extended - CHAIN pattern with Arguments
+============================
+
+100 CALL 768"HELLO",1000
+120 CALL 768"HELLO",X
+130 CALL 768"HELLO",A$,3
+
+---
+
+(source_file
+	(line
+		(linenum)
+		(statement (tok_call) (int) (str) (int)))
+	(line
+		(linenum)
+		(statement (tok_call) (int) (str) (var_real (name_real))))
+	(line
+		(linenum)
+		(statement (tok_call) (int) (str) (var_str (name_str)) (int)))
+)

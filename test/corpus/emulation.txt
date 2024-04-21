@@ -187,20 +187,3 @@ Control Characters
 	(line
 		(linenum)
 		(statement (tok_data) (data_literal) (data_str) (data_literal))))
-
-===================
-CHAIN Pattern
-===================
-
-100 CALL 520"NEXT PROGRAM"
-110 CALL 520"PART TWO
-
----
-
-(source_file
-	(line
-		(linenum)
-		(statement (tok_call) (int) (str)))
-	(line
-		(linenum)
-		(statement (tok_call) (int) (str))))

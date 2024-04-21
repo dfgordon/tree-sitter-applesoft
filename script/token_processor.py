@@ -17,12 +17,13 @@ import re
 import json
 
 def Usage():
-    print('Usage: python token_processor.py --allow-lower-case <bool> [--help]')
-    print('<bool> = 0 : build parser to forbid lower case in tokens and variable names')
-    print('<bool> = 1 : build parser to allow lower case in tokens and variable names')
+    print('Usage: python token_processor.py --allow-call-args <bool> --allow-lower-case <bool> [--help]')
+    print('--allow-lower-case: 0 or 1, forbid or allow lower case in tokens and variable names')
+    print('--allow-call-args: 0 or 1, forbid or allow trailing expressions following CALL statement')
 
-flags = ['--allow-lower-case','--help']
+flags = ['--allow-lower-case','--allow-call-args','--help']
 allow_lower_case = None
+allow_call_args = None
 arg_idx = 1
 while (arg_idx<len(sys.argv)):
     if sys.argv[arg_idx] not in flags:
@@ -33,10 +34,13 @@ while (arg_idx<len(sys.argv)):
     if sys.argv[arg_idx]=='--allow-lower-case':
         arg_idx += 1
         allow_lower_case = bool(int(sys.argv[arg_idx]))
+    if sys.argv[arg_idx]=='--allow-call-args':
+        arg_idx += 1
+        allow_call_args = bool(int(sys.argv[arg_idx]))
     arg_idx += 1
 
-if allow_lower_case==None:
-    raise ValueError('--allow-lower-case flag was not set')
+if allow_lower_case==None or allow_call_args==None:
+    raise ValueError('flags must be explicitly set')
 
 # First step is to gather and check the tokens
 
@@ -198,6 +202,7 @@ with open('grammar-src.js','r') as f:
     grammar = grammar.replace('\t\t// token rules go here DO NOT EDIT this line',token_rule_string)
     grammar = grammar.replace('\t\t// retoken rule goes here DO NOT EDIT',retoken_rule_string)
     grammar = re.sub('allow_lower_case\s*=\s*\w+','allow_lower_case = '+str(allow_lower_case).lower(),grammar)
+    grammar = re.sub('allow_call_args\s*=\s*\w+','allow_call_args = '+str(allow_call_args).lower(),grammar)
 with open(pathlib.Path.cwd().parent/'grammar.js','w') as f:
     f.write(grammar)
 
