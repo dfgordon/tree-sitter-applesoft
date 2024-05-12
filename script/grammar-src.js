@@ -146,7 +146,7 @@ module.exports = grammar({
 			seq('IF',$._expr,'THEN',$.linenum),
 			seq('IF',$._expr,'GOTO',$.linenum),
 			seq('IN#',$._aexpr),
-			seq('INPUT',optional(seq($._sexpr,';')),$._var,repeat(seq(',',$._var))),
+			seq('INPUT',optional(seq($.str,';')),$._var,repeat(seq(',',$._var))),
 			'INVERSE',
 			'LOAD', // cassette tape
 			seq('LIST',optional($.linenum),optional(seq(choice('-',','),optional($.linenum)))),

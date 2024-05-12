@@ -253,7 +253,7 @@ module.exports = grammar({
 			seq($.tok_if,$._expr,$.tok_then,$.linenum),
 			seq($.tok_if,$._expr,$.tok_goto,$.linenum),
 			seq($.tok_inn,$._aexpr),
-			seq($.tok_input,optional(seq($._sexpr,';')),$._var,repeat(seq(',',$._var))),
+			seq($.tok_input,optional(seq($.str,';')),$._var,repeat(seq(',',$._var))),
 			$.tok_inverse,
 			$.tok_load, // cassette tape
 			seq($.tok_list,optional($.linenum),optional(seq(choice($.tok_minus,','),optional($.linenum)))),
