@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-applesoft",
-  "version": "3.2.1",
+  "version": "4.0.0",
   "description": "parser for applesoft basic",
   "main": "bindings/node",
   "types": "bindings/node",

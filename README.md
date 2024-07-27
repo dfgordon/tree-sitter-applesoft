@@ -18,7 +18,7 @@ Here is a sample `package.json`:
   "license": "ISC",
   "dependencies": {
     "tree-sitter": "^0.21.1",
-    "tree-sitter-applesoft": "^3.2.1"
+    "tree-sitter-applesoft": "^4.0.0"
   }
 }
 ```

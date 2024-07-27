@@ -5,7 +5,7 @@ This is the rust binding for [tree-sitter-applesoft](https://github.com/dfgordon
 ```toml
 [dependencies]
 tree-sitter = "0.22.4"
-tree-sitter-applesoft = "3.2.1"
+tree-sitter-applesoft = "4.0.0"
 ```
 Here is a trivial `main.rs` example:
 ```rust
