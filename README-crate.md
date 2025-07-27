@@ -4,8 +4,8 @@ Parser for Applesoft BASIC
 This is the rust binding for [tree-sitter-applesoft](https://github.com/dfgordon/tree-sitter-applesoft).  To use the parser, include the following in your package's `Cargo.toml`:
 ```toml
 [dependencies]
-tree-sitter = "0.22.4"
-tree-sitter-applesoft = "4.0.0"
+tree-sitter = "0.25.8"
+tree-sitter-applesoft = "5.0.0"
 ```
 Here is a trivial `main.rs` example:
 ```rust
@@ -15,7 +15,7 @@ use tree_sitter_applesoft;
 fn main() {
     let code = "10 GOTO 10\n";
     let mut parser = tree_sitter::Parser::new();
-    parser.set_language(&tree_sitter_applesoft::language())
+    parser.set_language(&tree_sitter_applesoft::LANGUAGE.into())
       .expect("Error loading Applesoft grammar");
     let tree = parser.parse(code,None).unwrap();
 

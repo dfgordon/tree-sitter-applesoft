@@ -1,64 +1,50 @@
 {
   "name": "tree-sitter-applesoft",
-  "version": "4.0.0",
-  "description": "parser for applesoft basic",
+  "version": "5.0.0",
+  "description": "parser for Applesoft BASIC",
+  "repository": "https://github.com/dfgordon/tree-sitter-applesoft",
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Gordon"
+  },
   "main": "bindings/node",
   "types": "bindings/node",
-  "scripts": {
-    "test": "tree-sitter test",
-    "test-windows": "tree-sitter test",
-    "install": "node-gyp-build",
-    "prebuildify": "prebuildify --napi --strip"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dfgordon/tree-sitter-applesoft.git"
-  },
   "keywords": [
-    "parser",
-    "lexer"
+    "incremental",
+    "parsing",
+    "tree-sitter",
+    "applesoft"
   ],
   "files": [
     "grammar.js",
+    "tree-sitter.json",
     "binding.gyp",
     "prebuilds/**",
     "bindings/node/*",
     "queries/*",
-    "src/**"
+    "src/**",
+    "*.wasm"
   ],
-  "author": "Daniel Gordon",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/dfgordon/tree-sitter-applesoft/issues"
-  },
-  "homepage": "https://github.com/dfgordon/tree-sitter-applesoft#readme",
-  "tree-sitter": [
-    {
-      "scope": "source.bas",
-      "file-types": [
-        "bas"
-      ],
-      "first-line-regex": "[0-9]+\\s*.*",
-      "highlights": [
-        "queries/highlights.scm"
-      ]
-    }
-  ],
-  "devDependencies": {
-    "tree-sitter-cli": "^0.22.4",
-    "prebuildify": "^6.0.0"
-  },
   "dependencies": {
-    "node-gyp": "^10.1.0",
-    "node-addon-api": "^7.1.0",
-    "node-gyp-build": "^4.8.0"
+    "node-addon-api": "^8.3.1",
+    "node-gyp-build": "^4.8.4"
+  },
+  "devDependencies": {
+    "prebuildify": "^6.0.1",
+    "tree-sitter-cli": "^0.25.8"
   },
   "peerDependencies": {
-    "tree-sitter": "^0.21.0"
+    "tree-sitter": "^0.22.4"
   },
   "peerDependenciesMeta": {
-    "tree_sitter": {
+    "tree-sitter": {
       "optional": true
     }
+  },
+  "scripts": {
+    "install": "node-gyp-build",
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground",
+    "test": "node --test bindings/node/*_test.js"
   }
 }

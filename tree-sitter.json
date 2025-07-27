@@ -1,0 +1,40 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "applesoft",
+      "camelcase": "Applesoft",
+      "title": "Applesoft",
+      "scope": "source.applesoft",
+      "file-types": [
+        "bas",
+        "abas"
+      ],
+      "injection-regex": "^applesoft$",
+      "class-name": "TreeSitterApplesoft",
+      "highlights": "queries/highlights.scm"
+    }
+  ],
+  "metadata": {
+    "version": "5.0.0",
+    "license": "MIT",
+    "description": "parser for Applesoft BASIC",
+    "authors": [
+      {
+        "name": "Daniel Gordon"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/dfgordon/tree-sitter-applesoft"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": false,
+    "node": false,
+    "python": false,
+    "rust": true,
+    "swift": false,
+    "zig": false
+  }
+}

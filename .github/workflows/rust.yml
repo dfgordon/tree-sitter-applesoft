@@ -1,0 +1,35 @@
+name: Rust
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+defaults:
+  run:
+    # necessary for windows
+    shell: bash
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cargo cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ./target
+          key: test-cargo-registry
+      - name: Install Tree-sitter CLI
+        run: cargo install tree-sitter-cli --locked
+      - name: Generate parser
+        run: tree-sitter generate
+      - name: Test parser
+        run: tree-sitter test
