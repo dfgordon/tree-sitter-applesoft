@@ -1,8 +1,8 @@
 # Parser for Applesoft BASIC
 
-![unit tests](https://github.com/dfgordon/tree-sitter-applesoft/actions/workflows/node.js.yml/badge.svg)
+![unit tests](https://github.com/dfgordon/tree-sitter-applesoft/actions/workflows/rust.yml/badge.svg)
 
-This is a parser for Applesoft BASIC intended for use with language servers.  It is built using the [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) system.  Bindings are possible for several languages, but only the [rust crate](https://crates.io/crates/tree-sitter-applesoft) is actively maintained.  There is a [node package](https://www.npmjs.com/package/tree-sitter-applesoft) that can be updated upon request.
+This is a parser for Applesoft BASIC intended for use with language servers.  It is built using the [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) system. The native parser is a C library. Bindings are possible for several languages, but only the [rust crate](https://crates.io/crates/tree-sitter-applesoft) is actively maintained.  There is a [node package](https://www.npmjs.com/package/tree-sitter-applesoft) that can be updated upon request.
 
 For details on parser usage and design see the [wiki](https://github.com/dfgordon/tree-sitter-applesoft/wiki).
 
@@ -12,7 +12,7 @@ If you are changing the grammar, be aware the file `grammar.js` is actually gene
 
 ## Build Process
 
-Once you have `grammar.js` you run `tree-sitter generate` to produce `src/parser.c` and, in turn, the bindings for whatever languages are specified in `tree-sitter.json`.  If you want to compile a WASM parser you can follow up with `tree-sitter build`.
+Once you have `grammar.js` you run `tree-sitter generate` to produce `src/parser.c` and, in turn, the bindings for whatever languages are specified in `tree-sitter.json`.  If you want to compile a WASM parser you can follow up with `tree-sitter build -w`.
 
 ## Build Script
 
